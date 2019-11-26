@@ -1,0 +1,14 @@
+{
+  "name": "homify",
+  "version": "1.0.0",
+  "description": "Codin Academy Bootcamp - Final Project by - Amit, Husam & SHahal",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.4"
+  }
+}
