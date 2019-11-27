@@ -11,3 +11,18 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
+
+
+var test = [
+
+  {
+    "type": "host/visitor",
+    "name": "name",
+    "_id": 123,
+    "email": "email",
+    "password": "pass",
+    "reviewIds": [123],
+    "pastHomeIds": [123],
+}
+
+]
