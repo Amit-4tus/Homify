@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import items from '../views/items.vue'
+import houseDetails from '../views/house-details'
 import map from '../views/map.vue'
 import userProfile from '../views/user-profile'
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/map',
     name: 'map',
     component: map
+  },
+  {
+    path: '/house/:_id',
+    name: 'house-details',
+    component: houseDetails
   },
   {
     path: '/user-profile/',
