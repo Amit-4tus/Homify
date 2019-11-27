@@ -1,5 +1,14 @@
 <template>
   <div class="item-details">
-    <h1>This is the item-list component</h1>
+    <item-preview></item-preview>
   </div>
 </template>
+
+<script>
+import itemPreview from './item-preview'
+export default {
+  components: {
+    itemPreview
+  }
+};
+</script>
