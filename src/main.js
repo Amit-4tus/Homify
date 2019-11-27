@@ -3,6 +3,8 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
+import scss from './styles/global.scss';
+
 
 Vue.config.productionTip = false
 
@@ -13,16 +15,3 @@ new Vue({
 }).$mount('#app')
 
 
-var test = [
-
-  {
-    "type": "host/visitor",
-    "name": "name",
-    "_id": 123,
-    "email": "email",
-    "password": "pass",
-    "reviewIds": [123],
-    "pastHomeIds": [123],
-}
-
-]
