@@ -2,29 +2,29 @@
   <div id="app">
     <div id="nav">
       <my-header></my-header>
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>|
       <router-link to="/items">Items</router-link>
+      <router-link to="/map">Map</router-link>
     </div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
-import myHeader from './components/my-header'
+import myHeader from "./components/my-header";
 export default {
   components: {
-    myHeader,
+    myHeader
   }
-}
+};
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  
 }
 
 #nav {
