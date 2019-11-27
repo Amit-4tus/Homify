@@ -1,12 +1,15 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+    <home-page-top-fold></home-page-top-fold>
   </div>
 </template>
 
 <script>
+import homePageTopFold from '../components/home-page-top-fold'
 export default {
   name: "home",
-  components: {}
+  components: {
+    homePageTopFold
+  }
 };
 </script>

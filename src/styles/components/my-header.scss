@@ -1,0 +1,26 @@
+.my-header {
+    height: 7vh;
+}
+
+.main-logo {
+    width: auto;
+    height: 100%;
+    cursor: pointer;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    float: right;
+    width: 40%;
+    height: 100%;
+}
+
+.header-link {
+    padding: 3.5%;
+    background-color: transparent;
+    border: 0px;
+    text-decoration-line: none;
+    color: $color1;
+    // height: 100%;
+}

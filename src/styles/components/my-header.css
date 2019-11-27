@@ -1,0 +1,20 @@
+.my-header {
+  height: 7vh;
+}
+.main-logo {
+  width: auto;
+  height: 100%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  width: 40%;
+  height: 100%;
+}
+.header-link {
+  background-color: transparent;
+  border: 0px;
+  text-decoration-line: none;
+  height: 100%;
+}

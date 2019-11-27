@@ -8,7 +8,6 @@
       style="width: 500px; height: 300px"
     >
       <GmapMarker
-     
         :position="markers"
         :clickable="true"
         :draggable="true"
@@ -46,18 +45,16 @@ export default {
       });
     }
   },
-  created() {
-    //  this.center=this.coords
-  },
+  created() {},
   watch: {
     coords() {
       this.center = this.coords;
-      this.markers=this.coords
-     
+      this.markers = this.coords;
+
       console.log("got:", this.coords);
     },
-    markers(){
-      console.log(this.markers)
+    markers() {
+      console.log(this.markers);
     }
   }
 };

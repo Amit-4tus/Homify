@@ -1,14 +1,8 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <my-header></my-header>
-      <router-link to="/">Home</router-link>|
-      <router-link to="/items">Items</router-link>
-      <router-link to="/map">Map</router-link>
-        <router-link to="/user-profile">User-Profile</router-link>
-    </div>
-    <router-view />
-  </div>
+  <section>
+    <my-header></my-header>
+    <router-view></router-view>
+  </section>
 </template>
 
 <script>
