@@ -1,12 +1,22 @@
 <template>
   <div id="app">
     <div id="nav">
+      <my-header></my-header>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/items">Items</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import myHeader from './components/my-header'
+export default {
+  components: {
+    myHeader,
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
