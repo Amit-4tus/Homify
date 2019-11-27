@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-if="coords">
     <GmapMap
       ref="mapRef"
       :center="center"
@@ -8,17 +8,14 @@
       style="width: 500px; height: 300px"
     >
       <GmapMarker
-        :key="index"
-        v-for="(m, index) in markers"
-        :position="m.position"
+     
+        :position="markers"
         :clickable="true"
         :draggable="true"
         @click="center=m.position"
       />
     </GmapMap>
     <button @click="panTo('tlv')">Tel Aviv</button>
-    <button @click="panTo('haifa')">Haifa</button>
-    <button @click="panTo('omer')">Omer</button>
   </section>
 </template>
 <style  scoped>
@@ -29,26 +26,38 @@ button {
 </style>
 <script>
 export default {
+  props: {
+    coords: Object
+  },
+
   data() {
     return {
-      markers: [
-        { position: { lat: 32.0839684, lng: 34.8004981 } },
-        { position: { lat: 32.7997472, lng: 35.0868174 } },
-        { position: { lat: 31.2745166, lng: 34.894079 } }
-      ],
-      center: { lat: 32.7997472, lng: 35.0868174 }
+      markers: { lat: 32.0852999, lng: 34.78176759999999 },
+      center: { lat: 32.0852999, lng: 34.78176759999999 }
+      // center:this.coords
     };
   },
   methods: {
-    panTo(place) {
-      let lat, lng;
-      if (place === "tlv") (lat = 32.0839684), (lng = 34.8004981);
-      if (place === "haifa") (lat = 32.7997472), (lng = 35.0868174);
-      if (place === "omer") (lat = 31.2745166), (lng = 34.894079);
-
+    panTo(coords) {
+      let lat = coords.lat;
+      let lng = coords.lng;
       this.$refs.mapRef.$mapPromise.then(map => {
         map.panTo({ lat: lat, lng: lng });
       });
+    }
+  },
+  created() {
+    //  this.center=this.coords
+  },
+  watch: {
+    coords() {
+      this.center = this.coords;
+      this.markers=this.coords
+     
+      console.log("got:", this.coords);
+    },
+    markers(){
+      console.log(this.markers)
     }
   }
 };
