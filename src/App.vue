@@ -5,6 +5,7 @@
       <router-link to="/">Home</router-link>|
       <router-link to="/items">Items</router-link>
       <router-link to="/map">Map</router-link>
+        <router-link to="/user-profile">User-Profile</router-link>
     </div>
     <router-view />
   </div>
