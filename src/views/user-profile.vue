@@ -1,23 +1,23 @@
 <template>
-    <section v-if="user">
-        <h1>User Details - {{user.username}}</h1>
-        <pre>{{user}}</pre>
+    <section>
+        <h1>User Details</h1>
+  
     </section>
 </template>
 
 <script>
-import UserService from '../services/UserService';
+// import UserService from '../services/UserService';
 
 export default {
     data() {
         return {
-            user: null
+            user: 'yosi'
         }
     },
-    async created() {
-        const id = this.$route.params.id;
-        const user = await UserService.getById(id);
-        this.user = user
-    }
+    // async created() {
+    //     const id = this.$route.params.id;
+    //     const user = await UserService.getById(id);
+    //     this.user = user
+    // }
 }
 </script>
