@@ -1,6 +1,8 @@
 <template>
   <div class="item-details">
-    <img src="../assets/logo.png" @click="goToHome" />
+    <img src="../assets/logo.png" class="main-logo" @click="goToHome" />
+    <router-link to="/items">Items</router-link> |
+    <router-link to="/map">Map</router-link> |
     <button>Sign-In</button>
   </div>
 </template>
