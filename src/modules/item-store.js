@@ -5,7 +5,7 @@ export default {
     state: {
         itemsToShow: [],
     },
-    getters: {
+    getters: {   
         itemsToShow(state) {
             return state.itemsToShow;
         }
