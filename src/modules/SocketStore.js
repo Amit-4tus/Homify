@@ -1,21 +1,21 @@
-import socket from '../services/SocketService.js'
+// import socket from '../services/SocketService.js'
 
-export default {
-    state: {
+// export default {
+//     state: {
         
-    },
-    getters: {
+//     },
+//     getters: {
         
-    },
-    mutations: {
+//     },
+//     mutations: {
 
-    },
-    actions: {
-        sendMsg(context, {msg}) {
-            socket.emit('sendMsg', msg)
-        },
-        getChatHistory(context, {chatId}) {
-            socket.emit('getHistory', chatId)
-        }
-    }
-}
+//     },
+//     actions: {
+//         sendMsg(context, {msg}) {
+//             socket.emit('sendMsg', msg)
+//         },
+//         getChatHistory(context, {chatId}) {
+//             socket.emit('getHistory', chatId)
+//         }
+//     }
+// }
