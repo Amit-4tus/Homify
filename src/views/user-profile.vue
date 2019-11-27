@@ -1,12 +1,13 @@
 <template>
     <section>
-        <h1>Hello {{loggedinUser}}!</h1>
-
-        <ul>
-            <li v-for="user in users" :key="user._id">
-            <pre>{{user}}</pre>
+        
+        <ul v-for="user in users" :key="user._id">
+            
+            <li >
+            Hi, I'm {{user.name}}
             </li>
         </ul>
+         <button @click="getAllUsers">Get All Users</button>
     </section>
 </template>
 
@@ -26,15 +27,21 @@ export default {
       return this.$store.getters.loggedinUser
     }
     },
+    
+    methods: {
 
-
+    getAllUsers() {
+        this.$store.dispatch({type: 'loadUsers'})
+        },
+    },
+    
     created() {
-        // console.log('hi')
+       
         // return this.$store.getters.users
         // const id = this.$route.params.id;
-        // console.log(this.$store.getters.users)
+    
         // let users = this.$store.getters.users
-        // this.users = users
+      
     }
 }
 </script>

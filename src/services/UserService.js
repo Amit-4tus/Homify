@@ -33,8 +33,8 @@ async function logout() {
     await HttpService.post('auth/logout');
     sessionStorage.clear();
 }
-function getUsers() {
-    return HttpService.get('user')
+function getUsers(path) {
+    return HttpService.get(path)
 }
 
 function _handleLogin(user) {

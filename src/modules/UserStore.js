@@ -7,13 +7,7 @@ export default {
     state: {
         // loggedinUser : localLoggedinUser,
         loggedinUser : 'susu',
-        users: [
-                {type: "host",
-                name: "name",
-                _id: 123,
-                }
-
-        ]
+        users: []
     },
 
     getters: {
@@ -24,18 +18,18 @@ export default {
              return state.loggedinUser
          }
      },
-//     mutations: {
+    mutations: {
 //         setUser(state, {user}) {
 //             state.loggedinUser = user;
 //         },
-//         setUsers(state, {users}) {
-//             state.users = users;
-//         },
+       setUsers(state, {users}) {
+            state.users = users;
+        },
 //         removeUser(state, {userId}) {
 //             state.users = state.users.filter(user => user._id !== userId)
 //         },
-    // }
-//     actions: {
+    },
+    actions: {
 //         async login(context, {userCred}) {
 //             const user = await UserService.login(userCred);
 //             context.commit({type: 'setUser', user})
@@ -52,10 +46,10 @@ export default {
 //             context.commit({type: 'setUsers', users: []})
 //             context.commit({type: 'setUser', user: null})
 //         },
-//         async loadUsers(context) {
-//             const users = await UserService.getUsers();
-//             context.commit({type: 'setUsers', users})
-//         },
+        async loadUsers(context) {
+            const users = await UserService.getUsers('user');
+            context.commit({type: 'setUsers', users})
+        },
 //         async removeUser(context, {userId}) {
 //             await UserService.remove(userId);
 //             context.commit({type: 'removeUser', userId})
@@ -64,5 +58,6 @@ export default {
 //             user = await UserService.update(user);
 //             context.commit({type: 'setUser', user})
 //         }
-//     }
+    }
 }
+
