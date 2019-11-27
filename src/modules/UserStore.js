@@ -5,18 +5,25 @@ import UserService from '../services/UserService.js'
 
 export default {
     state: {
-        loggedinUser : localLoggedinUser,
-        users: []
+        // loggedinUser : localLoggedinUser,
+        loggedinUser : 'susu',
+        users: [
+                {type: "host",
+                name: "name",
+                _id: 123,
+                }
+
+        ]
     },
-}
-//     getters: {
-//         users(state) {
-//             return state.users;
-//         },
-//         loggedinUser(state) {
-//             return state.loggedinUser
-//         }
-//     },
+
+    getters: {
+        users(state) {
+            return state.users;
+        },
+         loggedinUser(state) {
+             return state.loggedinUser
+         }
+     },
 //     mutations: {
 //         setUser(state, {user}) {
 //             state.loggedinUser = user;
@@ -27,7 +34,7 @@ export default {
 //         removeUser(state, {userId}) {
 //             state.users = state.users.filter(user => user._id !== userId)
 //         },
-//     },
+    // }
 //     actions: {
 //         async login(context, {userCred}) {
 //             const user = await UserService.login(userCred);
@@ -58,4 +65,4 @@ export default {
 //             context.commit({type: 'setUser', user})
 //         }
 //     }
-// }
+}
