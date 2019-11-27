@@ -19,7 +19,8 @@ export default {
   },
   methods: {
     goToHouseDetails(_id) {
-      this.$router.push({path:'/house', query: {_id}})
+      console.log(_id);
+      // this.$router.push({path:'/house', query: {_id}})
       }
   },
   components: {

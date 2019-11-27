@@ -1,6 +1,6 @@
 <template>
   <section class="item-preview">
-    <img :src="itemData.images[0].url" class="item-preview-image" />
+    <img :src="itemData.imgs[0]" class="item-preview-image" />
     <div class="item-preview-info">
       <p class="item-country">{{itemData.location.address.country}}</p>
       <div class="item-rating">{{itemData.reviews.avgRating}}</div>

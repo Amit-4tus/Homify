@@ -13,6 +13,7 @@ export default {
     mutations: {
         setItemsToShow(state,  itemsToShow ) {
             state.itemsToShow = itemsToShow.items;
+            
         }
     },
     actions: {

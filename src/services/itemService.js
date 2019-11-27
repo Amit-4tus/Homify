@@ -7,11 +7,11 @@ export default {
     updateItem,
 };
 
-const BASE_URL = (process.env.NODE_ENV !== 'development') ? '/item' : '//localhost:3000/item';
+const BASE_URL = (process.env.NODE_ENV !== 'development') ? '/house' : '//localhost:3000/house';
 const axios = require('axios');
 
 function getItems() {
-    return httpService.get('item')
+    return httpService.get('house')
 };
 
 function getItemById(_id) {
