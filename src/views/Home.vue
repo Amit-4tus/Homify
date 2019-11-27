@@ -1,12 +1,15 @@
 <template>
   <div class="home">
-    <p>This is the home page</p>
+    <home-page-top-fold></home-page-top-fold>
   </div>
 </template>
 
 <script>
+import homePageTopFold from '../components/home-page-top-fold'
 export default {
   name: "home",
-  components: {}
+  components: {
+    homePageTopFold
+  }
 };
 </script>

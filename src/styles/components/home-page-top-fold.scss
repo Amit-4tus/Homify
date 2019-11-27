@@ -1,0 +1,33 @@
+.home-page-top-fold {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(https://www.incimages.com/uploaded_files/image/970x450/getty_672425798_399101.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    text-align: center;
+    z-index: -1;
+}
+
+.home-page-top-fold > * {
+    position: relative;
+    top: 25%;
+    color: $color1;
+}
+
+.main-title {
+    font-size: 4rem;
+}
+
+.start-btn {
+    position: relative;
+    top: 25%;
+    background-color: $color2;
+    color: $color3;
+    border: none;
+}
+
+.start-btn :focus {
+    outline: none;
+}

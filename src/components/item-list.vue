@@ -1,5 +1,6 @@
 <template>
   <div class="item-details">
+   
     <item-preview v-for="(item, idx) in items" :key="idx" :itemData="item"></item-preview>
   </div>
 </template>

@@ -1,13 +1,12 @@
-
-
 // @import 'setup/typography';
-// @import 'setup/variables';
 // @import 'setup/mixins';
 // @import 'setup/functions';
 
-// BASICS
-@import 'basics/base';
-@import 'basics/layout';
-@import 'basics/helpers';
-@import 'components/item-preview';
-@import 'components/my-header';
+@import 'setup/variables';
+@import 'setup/fonts';
+@import "basics/base";
+@import "basics/layout";
+@import "basics/helpers";
+@import "components/item-preview";
+@import "components/my-header";
+@import "components/home-page-top-fold.scss";

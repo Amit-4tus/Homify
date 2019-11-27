@@ -1,3 +1,4 @@
+import httpService from './httpService'
 export default {
     getItems,
     getItemById,
@@ -6,12 +7,11 @@ export default {
     updateItem,
 };
 
-const BASE_URL = (process.env.NODE_ENV !== 'development') ? '/api/item' : '//localhost:3000/api/item';
+const BASE_URL = (process.env.NODE_ENV !== 'development') ? '/item' : '//localhost:3000/item';
 const axios = require('axios');
 
 function getItems() {
-    return axios.get(BASE_URL)
-        .then(res => res.data);
+    return httpService.get('item')
 };
 
 function getItemById(_id) {
