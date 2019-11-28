@@ -1,6 +1,11 @@
-.houseImage {
-  width: 40%;
+.topFold {
+  display: flex;
+}
+.houseMainImage {
+  width: 50%;
   height: 100%;
+  object-fit: cover;
+  padding: 2%;
 }
 .houseInfo {
   width: 40%;
