@@ -1,12 +1,15 @@
 .topFold {
   display: flex;
+  justify-content: space-between;
 }
 .houseMainImage {
   width: 50%;
   height: 100%;
   object-fit: cover;
-  padding: 2%;
+  margin: 2%;
 }
-.houseInfo {
+.houseGeneralInfo {
   width: 40%;
+  margin: 2%;
+  background-color: turquoise;
 }

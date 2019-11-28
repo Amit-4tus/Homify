@@ -1,7 +1,7 @@
 .home-page-top-fold {
     height: 100vh;
     width: 100vw;
-    background-image: url(https://www.incimages.com/uploaded_files/image/970x450/getty_672425798_399101.jpg);
+    background-image: url(https://static2.mansionglobal.com/production/media/article-images/b5416efec73037c3616699dbde7529ea/large_275.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
@@ -13,7 +13,7 @@
 .home-page-top-fold > * {
     position: relative;
     top: 23vh;
-    color: $color1;
+    color: $color3;
 }
 
 .main-title {
@@ -25,12 +25,13 @@
     font-weight: 400;
 }
 
-.start-btn {
+.startBtn {
     font-size: 2.5rem;
     padding: 1%;
     background-color: $color2;
     color: $color3;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
     outline: none;
     transition: 3s;
