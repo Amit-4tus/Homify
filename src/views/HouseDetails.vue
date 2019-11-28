@@ -1,8 +1,10 @@
 <template>
   <div class="item-details">
     <div class="houseInfo"></div>
-    <img class="houseImage" :src="houseData.imgs[0]">
+    <img  class="houseImage" :src="houseData.imgs[0]">
+   
   </div>
+ 
 </template>
 
 <script>
