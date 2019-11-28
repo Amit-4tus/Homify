@@ -1,16 +1,17 @@
 <template>
   <div>
     <h2>Name</h2>
-    <input type="text" />
+    <input v-model="newHouse.name" type="text" />
     <h2>Price</h2>
-    <input type="number" />
+    <input v-model="newHouse.price" type="number" />
+    <h2>Address</h2>
+    <input @change="getCoords" v-model="newHouse.location.address" type="text" />
     <h2>description</h2>
-    <textarea></textarea>
+    <textarea v-model="newHouse.desc"></textarea>
     <h2>Amenities</h2>
-    <el-select v-model="value1" multiple placeholder="Select">
+    <el-select v-model="newHouse.amentities" multiple placeholder="Select">
       <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
     </el-select>
-    {{value1}}
     <h2>upload images</h2>
     <el-upload
       class="upload-demo"
@@ -35,16 +36,25 @@
       type="success"
       @click="submitUpload"
     >upload to server</el-button>
+    <pre>{{newHouse}}</pre>
   </div>
 </template>
 
 <script>
 import { uploadImg } from "../services/CloudinaryService.js";
-import { async } from "q";
+import { geoService } from "../services/GeoService.js";
+// import { async } from "q";
 
 export default {
   data() {
     return {
+      newHouse: {
+        imgs: [],
+        location: {
+          coords: "",
+          address: ""
+        }
+      },
       options: [
         {
           value: "Wifi",
@@ -96,13 +106,22 @@ export default {
       return this.$confirm(`Cancel the transfert of ${file.name} ?`);
     },
     async submitUpload() {
-      var responseArray = await Promise.all(
+      var imgUrls = await Promise.all(
         this.fileList.map(function(img) {
           return uploadImg(img);
         })
       );
-      console.log(responseArray);
-      return responseArray;
+      imgUrls.forEach(img => {
+        this.newHouse.imgs.push(img.url);
+      });
+      return imgUrls;
+    },
+    async getCoords() {
+      var address=this.newHouse.location.address;
+      var res = await geoService.query(address);
+
+      this.newHouse.location.coords = res[0].geometry.location;
+      // return (this.coords = res[0].geometry.location);
     }
   }
 };
