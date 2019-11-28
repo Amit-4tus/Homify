@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import items from '../views/items.vue'
-import houseDetails from '../views/house-details'
-import map from '../views/map.vue'
-import userProfile from '../views/user-profile'
+import items from '../views/Items.vue'
+import houseDetails from '../views/HouseDetails'
+import map from '../views/Map.vue'
+import userProfile from '../views/UserProfile'
 import HostDashboard from '../views/HostDashboard'
 
 Vue.use(VueRouter)
@@ -16,8 +16,8 @@ const routes = [
     component: Home
   },
   {
-    path: '/items',
-    name: 'items',
+    path: '/house',
+    name: 'house',
     component: items
   },
   {

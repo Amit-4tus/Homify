@@ -12,10 +12,10 @@
 </template>
 
 <script>
-import gMap from "@/components/gMap";
-import calendar from "@/components/calendar";
+import gMap from "@/components/GMap";
+import calendar from "@/components/Calendar";
 
-import { geoService } from "../services/geoService.js";
+import { geoService } from "../services/GeoService.js"
 import userService from "../services/UserService.js"
 
 export default {

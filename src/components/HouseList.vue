@@ -1,13 +1,13 @@
 <template>
   <div class="item-details">
    <router-link :to="`/house/${item._id}`" v-for="(item, idx) in items" :key="idx">
-    <item-preview :itemData="item" ></item-preview>
+    <house-preview :itemData="item" ></house-preview>
     </router-link>
   </div>
 </template>
 
 <script>
-import itemPreview from "./item-preview";
+import HousePreview from "./HousePreview";
 export default {
   data() {
     return {};
@@ -24,7 +24,7 @@ export default {
       }
   },
   components: {
-    itemPreview
+    HousePreview
   }
 };
 </script>

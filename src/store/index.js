@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 
 
-import itemStore from '../modules/item-store'
+import houseStore from '../modules/HouseStore'
 import UserStore from '../modules/UserStore'
 // import SocketStore from './modules/SocketStore.js'
 // import ReviewStore from './modules/ReviewStore.js'
@@ -14,7 +14,7 @@ export default new Vuex.Store({
   strict: true,
   modules: {
     UserStore,
-    itemStore,
+    houseStore,
     // SocketStore,
     // ReviewStore
   },
