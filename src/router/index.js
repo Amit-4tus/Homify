@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import items from '../views/Items.vue'
+import houses from '../views/Houses.vue'
 import houseDetails from '../views/HouseDetails'
 import map from '../views/Map.vue'
 import userProfile from '../views/UserProfile'
@@ -18,7 +18,7 @@ const routes = [
   {
     path: '/house',
     name: 'house',
-    component: items
+    component: houses
   },
   {
     path: '/map',
