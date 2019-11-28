@@ -33,9 +33,9 @@ export default {
   methods: {
     async search() {
       var res = await geoService.query(this.str);
+      console.log(res[0].geometry.location);
       return (this.coords = res[0].geometry.location);
 
-      console.log(res[0].geometry.location);
     }
   },
    created() {

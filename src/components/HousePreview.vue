@@ -13,5 +13,8 @@
 <script>
 export default {
   props: ['itemData'],
+  methods:{
+   
+  }
 };
 </script>

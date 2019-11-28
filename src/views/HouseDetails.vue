@@ -10,12 +10,19 @@
     </section>
     <p>{{houseData.desc}}</p>
     <button class="reserveBtn" @click="doReserve">Reserve</button>
+    <g-map v-if="houseData.location.coords" :coords="houseData.location.coords" class="gmap flex align-center flex-column"></g-map>
   </div>
- 
 </template>
 
 <script>
+import gMap from "@/components/GMap";
+
 export default {
+  data() {
+    return {
+     
+    }
+  },
   created() {
     this.$store.dispatch("loadHouseById", this._id);
   },
@@ -31,8 +38,11 @@ export default {
   },
   methods: {
     doReserve() {
-      this.$router.push('/order')
+      this.$router.push("/order");
     }
+  },
+  components: {
+    gMap
   }
 };
 </script>
