@@ -27,22 +27,9 @@ export default {
             const items = await houseService.getItems()
             context.commit({ type: 'setItemsToShow', items })
         },
-<<<<<<< HEAD
         async loadHouseById(context, id) {
             const currHouse = await houseService.getItemById(id)
             context.commit({ type: 'setCurrHouse', currHouse })
         },
     }
 }
-=======
-        async updateHouseImgs(context) {
-
-        }
-    },
-}
-
-// async updateUser(context, {user}) {
-//     //             user = await UserService.update(user);
-//     //             context.commit({type: 'setUser', user})
-//     //         }
->>>>>>> user
