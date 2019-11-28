@@ -1,0 +1,18 @@
+.searchForm {
+    position: absolute;
+    top: 180vh;
+    background-color: $color4;
+    margin: 0 auto;
+    font-size: 1.4rem;
+}
+
+.formHeader {
+    font-size: 3rem;
+}
+
+.submit {
+    background-color: $color2;
+    color: $color3;
+    border: 0px;
+    padding: 2% 10%;
+}
