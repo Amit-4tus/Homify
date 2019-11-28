@@ -10,11 +10,13 @@
     </section>
     <p>{{houseData.desc}}</p>
     <button class="reserveBtn" @click="doReserve">Reserve</button>
+     
   </div>
  
 </template>
 
 <script>
+
 export default {
   created() {
     this.$store.dispatch("loadHouseById", this._id);
@@ -31,7 +33,7 @@ export default {
   },
   methods: {
     doReserve() {
-      this.$router.push('/order')
+      this.$router.push(`/order/${this.houseData._id}`)
     }
   }
 };

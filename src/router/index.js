@@ -42,7 +42,7 @@ const routes = [
     component: HostDashboard
   },
   {
-    path: '/order/',
+    path: '/order/:_id',
     name: 'order',
     component: UserOrder
   }
