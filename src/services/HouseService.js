@@ -14,14 +14,12 @@ function getItems() {
     return httpService.get('house')
 };
 
-function getItemById(_id) {
-    return axios.get(`${BASE_URL}?_id=${_id}`)
-        .then(res => res.data)
-        .then(items => items.find(item => item._id === +_id));
+function getItemById(id) {
+    return httpService.get(`house?_id=${id}`)
 };
 
-function deleteItem(_id) {
-    return axios.delete(BASE_URL + _id)
+function deleteItem(id) {
+    return axios.delete(BASE_URL + id)
         .then(res => res);
 };
 

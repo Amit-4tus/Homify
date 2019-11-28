@@ -1,10 +1,14 @@
 .my-header {
     height: 7vh;
+    padding: .8% 0px;
+    margin-bottom: 1%;
+    background-color: rgba(146, 146, 146, 0.527);
 }
 
 .main-logo {
-    width: auto;
     height: 100%;
+    width: auto;
+    padding-left: 1%;
     cursor: pointer;
 }
 
@@ -12,7 +16,7 @@
     display: flex;
     justify-content: space-between;
     float: right;
-    width: 40%;
+    min-width: 40%;
     height: 100%;
 }
 

@@ -8,12 +8,15 @@
     <button @click="search">search</button>
     <span>{{coords}}</span>
 <calendar/>
+<house-edit/>
   </div>
 </template>
 
 <script>
 import gMap from "@/components/GMap";
 import calendar from "@/components/CalendarDate";
+import houseEdit from "@/components/HouseEdit";
+
 
 import { geoService } from "../services/GeoService.js"
 import userService from "../services/UserService.js"
@@ -42,7 +45,8 @@ export default {
 
   components: {
     gMap,
-    calendar
+    calendar,
+    houseEdit
     
   }
 };

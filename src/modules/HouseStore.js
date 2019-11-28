@@ -4,16 +4,22 @@ export default {
     strict: true,
     state: {
         itemsToShow: [],
+        currHouse: {}
     },
-    getters: {   
+    getters: {
         itemsToShow(state) {
             return state.itemsToShow;
+        },
+        currHouse(state) {
+            return state.currHouse
         }
     },
     mutations: {
-        setItemsToShow(state,  itemsToShow ) {
+        setItemsToShow(state, itemsToShow) {
             state.itemsToShow = itemsToShow.items;
-            
+        },
+        setCurrHouse(state, {currHouse}) {
+            state.currHouse = currHouse[0]
         }
     },
     actions: {
@@ -21,13 +27,9 @@ export default {
             const items = await houseService.getItems()
             context.commit({ type: 'setItemsToShow', items })
         },
-        async updateHouseImgs(context) {
-
-        }
-    },
+        async loadHouseById(context, id) {
+            const currHouse = await houseService.getItemById(id)
+            context.commit({ type: 'setCurrHouse', currHouse })
+        },
+    }
 }
-
-// async updateUser(context, {user}) {
-//     //             user = await UserService.update(user);
-//     //             context.commit({type: 'setUser', user})
-//     //         }
