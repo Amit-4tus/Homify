@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import houseList from '../components/HouseList.vue'
+import houseList from "../components/HouseList.vue";
 export default {
   created() {
-    this.$store.dispatch('loadItems')
+    this.$store.dispatch("loadItems");
   },
   components: {
     houseList
