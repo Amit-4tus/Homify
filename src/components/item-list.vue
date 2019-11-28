@@ -1,7 +1,8 @@
 <template>
   <div class="item-details">
-   
-    <item-preview v-for="(item, idx) in items" :key="idx" :itemData="item"></item-preview>
+   <router-link :to="`/house/${item._id}`" v-for="(item, idx) in items" :key="idx">
+    <item-preview :itemData="item" ></item-preview>
+    </router-link>
   </div>
 </template>
 
@@ -15,6 +16,12 @@ export default {
     items() {
       return this.$store.getters.itemsToShow;
     }
+  },
+  methods: {
+    goToHouseDetails(_id) {
+      console.log(_id);
+      // this.$router.push({path:'/house', query: {_id}})
+      }
   },
   components: {
     itemPreview

@@ -12,14 +12,13 @@ export default {
     },
     mutations: {
         setItemsToShow(state,  itemsToShow ) {
-            console.log('mutation:',itemsToShow)
             state.itemsToShow = itemsToShow.items;
+            
         }
     },
     actions: {
         async loadItems(context) {
             const items = await itemService.getItems()
-            console.log('items', items);
             context.commit({ type: 'setItemsToShow', items })
         }
     },
