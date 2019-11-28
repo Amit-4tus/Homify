@@ -1,7 +1,7 @@
 <template>
   <section class="item-preview">
     <img :src="itemData.imgs[0]" class="item-preview-image" />
-    <div class="item-preview-info">
+    <div class="itemPreviewInfo">
       <p class="item-country">{{itemData.location.address.country}}</p>
       <div class="item-rating">{{itemData.reviews.avgRating}}</div>
       <p class="item-name">{{itemData.name}}</p>

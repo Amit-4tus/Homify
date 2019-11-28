@@ -20,7 +20,6 @@ export default {
         },
         setCurrHouse(state, {currHouse}) {
             state.currHouse = currHouse[0]
-            console.log(state.currHouse);
         }
     },
     actions: {
