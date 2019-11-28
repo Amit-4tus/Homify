@@ -7,11 +7,14 @@
     <input v-model="str" type="text" />
     <button @click="search">search</button>
     <span>{{coords}}</span>
+<calendar/>
   </div>
 </template>
 
 <script>
 import gMap from "@/components/gMap";
+import calendar from "@/components/calendar";
+
 import { geoService } from "../services/geoService.js";
 import userService from "../services/UserService.js"
 
@@ -39,6 +42,7 @@ export default {
 
   components: {
     gMap,
+    calendar
     
   }
 };
