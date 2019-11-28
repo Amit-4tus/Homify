@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import homePageTopFold from '../components/home-page-top-fold'
+import homePageTopFold from "../components/home-page-top-fold";
 export default {
   name: "home",
   components: {

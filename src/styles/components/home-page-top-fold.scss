@@ -12,7 +12,7 @@
 
 .home-page-top-fold > * {
     position: relative;
-    top: 25%;
+    top: 23vh;
     color: $color1;
 }
 
@@ -21,13 +21,16 @@
 }
 
 .start-btn {
-    position: relative;
-    top: 25%;
+    font-size: 2.5rem;
+    padding: 1%;
     background-color: $color2;
     color: $color3;
     border: none;
-}
-
-.start-btn :focus {
+    cursor: pointer;
     outline: none;
+    transition: 3s;
+    &:hover:after {
+        content: " ↓";
+        padding-left: .625rem;
+    }
 }
