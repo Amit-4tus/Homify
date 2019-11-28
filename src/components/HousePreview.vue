@@ -6,6 +6,8 @@
       <div class="item-rating">{{itemData.reviews.avgRating}}</div>
       <p class="item-name">{{itemData.name}}</p>
       <p class="item-price"><span class="price">{{itemData.price}}$</span> /per night</p>
+     
+    
     </div>
   </section>
 </template>
@@ -13,5 +15,8 @@
 <script>
 export default {
   props: ['itemData'],
+  methods:{
+   
+  }
 };
 </script>
