@@ -11,8 +11,7 @@
 <script>
 import {uploadImg} from '../services/CloudinaryService.js'
 
-const CLOUD_NAME = 'dcbeo6630'
-const PRESET_NAME = 'ut4qndey'
+
 
 export default {
     data() {
@@ -28,7 +27,7 @@ export default {
         async handleFileChange() {
             const f = this.$refs.file.files[0];
             console.log(f);
-            const resp = await uploadImg(CLOUD_NAME, PRESET_NAME, f);
+            const resp = await uploadImg(f);
             console.log(resp);
             // const  allImages = await store.addImageToThisHouse(houseId, resp.url);
         }

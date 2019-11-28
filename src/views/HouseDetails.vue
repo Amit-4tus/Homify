@@ -11,6 +11,7 @@
     <p>{{houseData.desc}}</p>
     <button class="reserveBtn" @click="doReserve">Reserve</button>
   </div>
+ 
 </template>
 
 <script>
