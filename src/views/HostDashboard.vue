@@ -1,10 +1,10 @@
 <template>
     <section>
-        <p>iiii</p>
         
-         <label> Upload your image to cloudinary!
+    <label> Upload your image to cloudinary!
         <input @change="handleFileChange()" type="file" ref="file">
     </label>
+    <p>{{img}}</p>
     </section>
 </template>
 
@@ -17,7 +17,7 @@ const PRESET_NAME = 'ut4qndey'
 export default {
     data() {
         return {
-            
+            img: null
         }
     },
     computed: {
@@ -26,11 +26,10 @@ export default {
     
     methods: {
         async handleFileChange() {
-            const f = this.$refs.file.files[0];
-            console.log(f);
-            const resp = await uploadImg(CLOUD_NAME, PRESET_NAME, f);
-            console.log(resp);
-            // const  allImages = await store.addImageToThisHouse(houseId, resp.url);
+            const imgFile = this.$refs.file.files[0];
+            const img = await uploadImg(CLOUD_NAME, PRESET_NAME, imgFile);
+            this.img = img.url;
+            //const  allImages = await store.addImageToThisHouse(houseId, resp.url);
         }
     },
     created() {
