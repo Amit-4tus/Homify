@@ -13,7 +13,7 @@
 
 <script>
 import gMap from "@/components/GMap";
-import calendar from "@/components/Calendar";
+import calendar from "@/components/CalendarDate";
 
 import { geoService } from "../services/GeoService.js"
 import userService from "../services/UserService.js"
