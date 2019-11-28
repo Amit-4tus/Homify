@@ -24,7 +24,6 @@
       multiple
       :limit="3"
       :on-exceed="handleExceed"
-      :file-list="fileList"
       :on-change="onChange"
     >
       <el-button size="small" type="primary">Click to upload</el-button>
@@ -76,14 +75,15 @@ export default {
   computed: {},
   methods: {
     handleRemove(file, fileList) {
-      console.log(file, fileList);
+      var filterd = this.fileList.filter(img => img.uid !== file.uid);
+      this.fileList = filterd;
     },
     handlePreview(file) {
-      console.log(file);
+      // console.log(file);
     },
-    onChange(file) {
+    onChange(file, fileList) {
       this.fileList.push(file.raw);
-      console.log(this.fileList);
+      // console.log(fileList);
     },
     handleExceed(files, fileList) {
       this.$message.warning(
@@ -95,15 +95,14 @@ export default {
     beforeRemove(file, fileList) {
       return this.$confirm(`Cancel the transfert of ${file.name} ?`);
     },
-   async submitUpload() {
-      // const resp = uploadImg(img);
-   
-    var responseArray = await Promise.all(this.fileList.map(function(img) {
-        return uploadImg(img);
-    }));
-    console.log(responseArray)
-    return responseArray;
- 
+    async submitUpload() {
+      var responseArray = await Promise.all(
+        this.fileList.map(function(img) {
+          return uploadImg(img);
+        })
+      );
+      console.log(responseArray);
+      return responseArray;
     }
   }
 };
