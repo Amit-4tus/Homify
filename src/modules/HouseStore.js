@@ -9,12 +9,18 @@ export default {
     getters: {
         itemsToShow(state) {
             return state.itemsToShow;
+        },
+        currHouse(state) {
+            return state.currHouse
         }
     },
     mutations: {
         setItemsToShow(state, itemsToShow) {
             state.itemsToShow = itemsToShow.items;
-
+        },
+        setCurrHouse(state, {currHouse}) {
+            state.currHouse = currHouse[0]
+            console.log(state.currHouse);
         }
     },
     actions: {
@@ -22,9 +28,9 @@ export default {
             const items = await houseService.getItems()
             context.commit({ type: 'setItemsToShow', items })
         },
-        async loadHouseBy_id(context, _id) {
-            const currHouse = await itemService.getItemById(_id)
-            console.log(currHouse);
+        async loadHouseById(context, id) {
+            const currHouse = await houseService.getItemById(id)
+            context.commit({ type: 'setCurrHouse', currHouse })
         },
     }
 }

@@ -1,11 +1,6 @@
 <template>
   <div class="item-details">
-    <router-link
-      :to="`/house/${item._id}`"
-      v-for="(item, idx) in items"
-      :key="idx"
-      @click.native="emitData(item)"
-    >
+    <router-link :to="`/house/${item._id}`" v-for="(item, idx) in items" :key="idx">
       <house-preview :itemData="item"></house-preview>
     </router-link>
   </div>
