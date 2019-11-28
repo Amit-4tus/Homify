@@ -5,6 +5,7 @@ import items from '../views/items.vue'
 import houseDetails from '../views/house-details'
 import map from '../views/map.vue'
 import userProfile from '../views/user-profile'
+import HostDashboard from '../views/HostDashboard'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/user-profile/',
     name: 'user-profile',
     component: userProfile
+  },
+  {
+    path: '/host/',
+    name: 'host',
+    component: HostDashboard
   }
 
 ]

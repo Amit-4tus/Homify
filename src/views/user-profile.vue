@@ -2,7 +2,6 @@
     <section>
         
         <ul v-for="user in users" :key="user._id">
-            
             <li >
             Hi, I'm {{user.name}}
             </li>
