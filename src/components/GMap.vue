@@ -1,5 +1,5 @@
 <template>
-  <section v-if="coords">
+  <section v-if="center">
     <GmapMap
       ref="mapRef"
       :center="center"
@@ -31,8 +31,10 @@ export default {
 
   data() {
     return {
-      markers: { lat: 32.0852999, lng: 34.78176759999999 },
-      center: { lat: 32.0852999, lng: 34.78176759999999 }
+      // markers: { lat: 32.0852999, lng: 34.78176759999999 },
+      // center: { lat: 32.0852999, lng: 34.78176759999999 },
+      markers: null,
+      center: null
       // center:this.coords
     };
   },
@@ -45,16 +47,15 @@ export default {
       });
     }
   },
-  created() {},
+  created() {
+    console.log("got:", this.coords);
+    this.center = this.coords;
+    this.markers = this.coords;
+  },
   watch: {
     coords() {
       this.center = this.coords;
       this.markers = this.coords;
-
-      console.log("got:", this.coords);
-    },
-    markers() {
-      console.log(this.markers);
     }
   }
 };
