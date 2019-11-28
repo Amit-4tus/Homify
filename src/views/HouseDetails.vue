@@ -9,7 +9,9 @@
       <img v-if="houseData.imgs" class="houseMainImage" :src="houseData.imgs[0]" />
     </section>
     <p>{{houseData.desc}}</p>
+    <button class="reserveBtn" @click="doReserve">Reserve</button>
   </div>
+ 
 </template>
 
 <script>
@@ -25,6 +27,11 @@ export default {
       let currHouse = this.$store.getters.currHouse;
       if (!currHouse) return null;
       return currHouse;
+    }
+  },
+  methods: {
+    doReserve() {
+      this.$router.push('/order')
     }
   }
 };

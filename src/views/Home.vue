@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <home-page-top-fold></home-page-top-fold>
-    <!-- <houseList></houseList> -->
+    <!-- <houseList class=""></houseList> -->
   </div>
 </template>
 

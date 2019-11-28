@@ -11,8 +11,7 @@
 <script>
 import {uploadImg} from '../services/CloudinaryService.js'
 
-const CLOUD_NAME = 'dcbeo6630'
-const PRESET_NAME = 'ut4qndey'
+
 
 export default {
     data() {

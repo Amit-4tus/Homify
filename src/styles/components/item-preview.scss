@@ -1,6 +1,6 @@
 .housePreviewLink {
     text-decoration: none;
-    color: $color1;
+    color: $color5;
 }
 
 .item-preview {
@@ -19,5 +19,11 @@
 
 .itemPreviewInfo {
     padding-left: 6%;
-    // line-height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.price {
+    font-weight: 700;
 }
