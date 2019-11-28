@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import houses from '../views/Houses.vue'
 import houseDetails from '../views/HouseDetails'
-import map from '../views/Map.vue'
+import map from '../views/HouseMap.vue'
 import userProfile from '../views/UserProfile'
 import HostDashboard from '../views/HostDashboard'
 
