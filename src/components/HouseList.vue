@@ -6,14 +6,13 @@
       :key="idx"
       @click.native="emitData(item)"
     >
-      <item-preview :itemData="item"></item-preview>
+      <house-preview :itemData="item"></house-preview>
     </router-link>
   </div>
 </template>
 
 <script>
-import itemPreview from "./item-preview";
-import { eventBus } from "../services/eventBusService";
+import HousePreview from "./HousePreview";
 export default {
   data() {
     return {};
@@ -25,7 +24,7 @@ export default {
   },
   methods: {},
   components: {
-    itemPreview
+    HousePreview
   }
 };
 </script>

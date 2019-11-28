@@ -1,4 +1,4 @@
-import itemService from '../services/itemService'
+import houseService from '../services/HouseService'
 
 export default {
     strict: true,
@@ -19,7 +19,7 @@ export default {
     },
     actions: {
         async loadItems(context) {
-            const items = await itemService.getItems()
+            const items = await houseService.getItems()
             context.commit({ type: 'setItemsToShow', items })
         },
         async loadHouseBy_id(context, _id) {

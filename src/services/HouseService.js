@@ -1,4 +1,4 @@
-import httpService from './httpService'
+import httpService from './HttpService'
 export default {
     getItems,
     getItemById,
