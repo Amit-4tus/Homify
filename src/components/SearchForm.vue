@@ -1,8 +1,8 @@
 <template name="searchForm">
   <form class="searchForm">
-      <slot class="formHeader"></slot>
+      <slot></slot>
     <div class="where">
-      Country/State:
+      Country / State:
       <input type="text" />
     </div>
     <div class="when">
@@ -19,10 +19,22 @@
           <option value="many">8+</option>
       </select>
     </div>
-    <input type="submit" class="submit">
+    <input type="submit" class="submit" value="TRAVEL" @click.prevent="doSearch">
   </form>
 </template>
 
 <script>
-export default {};
+export default {
+    methods: {
+        doSearch(ev) {
+            const where = ev.target.parentElement.children[1].children[0].value
+            const when = {}
+            when.from = ev.target.parentElement.children[2].children[0].value
+            when.until = ev.target.parentElement.children[2].children[1].value
+            const who = ev.target.parentElement.children[3].children[0].value
+            const searchBy = {when, where, who}
+            this.$router.push('/house')
+        }
+    }
+};
 </script>

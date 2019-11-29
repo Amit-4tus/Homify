@@ -10,20 +10,25 @@
 
 .specialPicks {
   display: flex;
-  flex-direction: row;
+//   flex-direction: row;
   position: absolute;
   top: 115vh;
 
-  .item-preview {
+  .housePreview {
     flex-direction: column;
     width: 90%;
     height: 50%;
 
-    .item-preview-image {
+    .housePreviewImg {
       width: 100%;
     }
 
-    .itemPreviewInfo {
+    .houseRating {
+      
+    }
+
+    .housePreviewInfo {
+
     }
   }
 }

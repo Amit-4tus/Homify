@@ -8,15 +8,14 @@
 }
 .specialPicks {
   display: flex;
-  flex-direction: row;
   position: absolute;
   top: 115vh;
 }
-.specialPicks .item-preview {
+.specialPicks .housePreview {
   flex-direction: column;
   width: 90%;
   height: 50%;
 }
-.specialPicks .item-preview .item-preview-image {
+.specialPicks .housePreview .housePreviewImg {
   width: 100%;
 }

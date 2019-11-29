@@ -8,7 +8,7 @@
       </div>
       <img v-if="houseData.imgs" class="houseMainImage" :src="houseData.imgs[0]" />
     </section>
-    <p>{{houseData.desc}}</p>
+    <p class="houseDesc">{{houseData.desc}}</p>
     <button class="reserveBtn" @click="doReserve">Reserve</button>
     <g-map v-if="houseData.location.coords" :coords="houseData.location.coords" class="gmap flex align-center flex-column"></g-map>
   </div>

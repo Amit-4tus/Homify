@@ -1,6 +1,6 @@
 <template>
-  <section class="item-preview">
-    <img :src="itemData.imgs[0]" class="item-preview-image" />
+  <section class="housePreview">
+    <img :src="itemData.imgs[0]" class="housePreviewImg" />
     <div class="housePreviewInfo">
       <p class="houseCountry"><span class="country">{{itemData.location.address.country}}</span></p>
       <div class="houseRating">{{itemData.reviews.avgRating}}</div>
