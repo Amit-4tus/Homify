@@ -15,8 +15,6 @@ function getItems() {
 };
 
 function addItem(item) {
-    console.log(item)
-  
     item._id=makeId()
     return httpService.post(`house`, item)
 }
@@ -25,15 +23,11 @@ function getItemById(id) {
     return httpService.get(`house?_id=${id}`)
 };
 
-function deleteItem(id) {
-    return axios.delete(BASE_URL + id)
-        .then(res => res);
-};
-
-
-
 function updateItem(item) {
     return httpService.put(`house/${item.id}`,item)
+}
+function deleteItem(id) {
+    return httpService.delete(`house/${id}`,)
 }
 
 function makeId(length=3) {

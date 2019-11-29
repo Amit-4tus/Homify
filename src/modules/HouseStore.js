@@ -40,6 +40,12 @@ export default {
             const updatedHouse = await houseService.updateItem(house)
             
         },
+        async deleteHouse(context, {id}) {
+        
+            const deletedHouse = await houseService.deleteItem(id)
+            return deletedHouse
+            
+        },
         
     }
 }

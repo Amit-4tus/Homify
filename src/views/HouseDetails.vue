@@ -9,36 +9,36 @@
     </section>
     <p class="houseDesc">{{houseData.desc}}</p>
     <button class="reserveBtn" @click="doReserve">Reserve</button>
-     
+
     <h2>if you are the owner press the button</h2>
     <button @click="doEdit">Edit here</button>
     <g-map
-      v-if="houseData.location.coords"
+      v-if="showMap"
       :coords="houseData.location.coords"
       class="gmap flex align-center flex-column"
     ></g-map>
+    <review-edit v-on:review="addReview"></review-edit>
     <reviewList></reviewList>
     <myFooter></myFooter>
   </div>
 </template>
 
 <script>
-import gMap from "@/components/GMap";
-import myFooter from '../components/MyFooter'
-import reviewList from "@/components/ReviewList";
-export default {
-  
+import myFooter from "../components/MyFooter";
+import reviewEdit from "@/components/ReviewEdit";
 
+import reviewList from "@/components/ReviewList";
+import gMap from "@/components/GMap";
+export default {
   data() {
-    return {
-      
-    };
+    return {review:{},
+    showMap:false};
   },
- async created() {
+  async created() {
     this.$store.dispatch("loadHouseById", this._id);
-    const reviews= await this.$store.dispatch("loadReviews",this._id);
-     console.log('review got',reviews)
-    
+    const reviews = await this.$store.dispatch("loadReviews", this._id);
+    this.showMap=true
+    console.log("review got", reviews);
   },
   computed: {
     _id() {
@@ -51,18 +51,24 @@ export default {
     }
   },
   methods: {
+  
     doReserve() {
-      this.$router.push(`/order/${this.houseData._id}`)
+      this.$router.push(`/order/${this.houseData._id}`);
       this.$router.push("/order");
     },
-    doEdit(){
-       this.$router.push(`/host/${this._id}`); 
+    doEdit() {
+      this.$router.push(`/host/${this._id}`);
+    },
+    addReview(review) {
+     review.houseId=this.houseData._id;
+       this.$store.dispatch("addReview", review);
     }
   },
   components: {
     gMap,
     reviewList,
-    myFooter
+    myFooter,
+    reviewEdit
   }
 };
 </script>

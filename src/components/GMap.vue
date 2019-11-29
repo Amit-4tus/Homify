@@ -16,14 +16,13 @@
     </GmapMap>
   </section>
 </template>
-<style  scoped>
 
-</style>
 <script>
 
 export default {
   props: {
     coords: Object
+  
   },
 
   data() {

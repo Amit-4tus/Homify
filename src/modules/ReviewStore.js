@@ -9,27 +9,33 @@ export default {
         reviewToSHow(state) {
             return state.reviewToShow;
         }
-       
+
     },
     mutations: {
         setReviewToSHow(state, reviewsToShow) {
             state.reviewToShow = reviewsToShow.reviews;
+        },
+        addReview(state, { newReview }) {
+
+            state.reviewToShow.unshift(newReview);
         }
-       
+
+
+
     },
     actions: {
-      
+
         async loadReviews(context, id) {
             const reviews = await reviewService.getReviewById(id)
             context.commit({ type: 'setReviewToSHow', reviews })
             return reviews
         },
-        async addReview(context, {newReview}) {
-            const review = await reviewService.addReview(newReview)
-            console.log(review)
-            // context.commit({ type: 'setReviewToSHow', reviews })
-           
+        async addReview(context, review) {
+            const newReview = await reviewService.addReview(review)
+            console.log(newReview)
+            context.commit({ type: 'addReview', newReview })
+           return newReview
         }
-        
+
     }
 }

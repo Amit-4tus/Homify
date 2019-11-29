@@ -1,16 +1,13 @@
 <template>
     <section>
-        
-    <label> Upload your image to cloudinary!
-        <input @change="handleFileChange()" type="file" ref="file">
-    </label>
-    <p>{{img}}</p>
+    <house-edit></house-edit>
     </section>
 </template>
 
 <script>
 import { uploadImg } from "../services/CloudinaryService.js";
 import houseEdit from "@/components/HouseEdit";
+
 
 export default {
     data() {
@@ -23,19 +20,15 @@ export default {
     },
     
     methods: {
-        async handleFileChange() {
-            const imgFile = this.$refs.file.files[0];
-            const img = await uploadImg(CLOUD_NAME, PRESET_NAME, imgFile);
-            this.img = img.url;
-            //const  allImages = await store.addImageToThisHouse(houseId, resp.url);
-        }
+       
     },
     created() {
        
     
   },
   components: {
-    houseEdit
+    houseEdit,
+    
   }
 };
 </script>

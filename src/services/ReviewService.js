@@ -12,10 +12,15 @@ function getReviews() {
     return httpService.get('review')
 };
 
-function addReview(review) {
+async function addReview(review) {
 
-    item._id = makeId()
-    return httpService.post(`review`, review)
+    review._id = makeId()
+    review.id=makeId()
+    review.user.userName="me"
+    review.createdAt= new Date().toLocaleDateString();
+    console.log(review)
+    const newReview=await httpService.post(`review`, review)
+    return newReview
 }
 
 function getReviewById(id) {

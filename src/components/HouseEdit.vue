@@ -44,6 +44,7 @@
     <pre>{{newHouse}}</pre>
     <button @click="addHouse">Add house</button>
     <button v-if="isEditing" @click="updateHouse">Update</button>
+    <button v-if="isEditing" @click="deleteHouse">Delete</button>
   </div>
 </template>
 
@@ -147,11 +148,19 @@ export default {
         type: "addHouse",
         newHouse: this.newHouse
       });
-       this.$router.push(`/house/${house._id}`);
+      this.$router.push(`/house/${house._id}`);
     },
     async updateHouse() {
       await this.$store.dispatch({ type: "updateHouse", house: this.newHouse });
       this.$router.push(`/house/${this.newHouse._id}`);
+    },
+    async deleteHouse() {
+    
+      await this.$store.dispatch({
+        type: "deleteHouse",
+        id: this.newHouse.id
+      });
+       this.$router.push(`/`);
     }
   },
   watch: {
