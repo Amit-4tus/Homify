@@ -24,10 +24,7 @@ export default {
             context.commit({ type: 'setReviewToSHow', reviews })
             return reviews
         },
-        async addHouse(context, {newHouse}) {
-            const house = await houseService.addItem(newHouse)
-            return house;
-        },
+        
        
         
     }
