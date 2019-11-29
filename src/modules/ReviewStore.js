@@ -24,8 +24,12 @@ export default {
             context.commit({ type: 'setReviewToSHow', reviews })
             return reviews
         },
-        
-       
+        async addReview(context, {newReview}) {
+            const review = await reviewService.addReview(newReview)
+            console.log(review)
+            // context.commit({ type: 'setReviewToSHow', reviews })
+           
+        }
         
     }
 }
