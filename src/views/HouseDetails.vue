@@ -22,8 +22,11 @@
 </template>
 
 <script>
-
+import gMap from '../components/GMap';
+import reviewList from '../components/ReviewList';
 export default {
+  
+
   data() {
     return {
       
