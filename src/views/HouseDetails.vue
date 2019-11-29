@@ -58,7 +58,8 @@ export default {
   },
   components: {
     gMap,
-    reviewList
+    reviewList,
+    myFooter
   }
 };
 </script>
