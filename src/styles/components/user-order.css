@@ -1,14 +1,19 @@
 
+.house-reserve-image {
+    height: 20em;
+    width: 20em;
+}
+
+
 .reserve-form {
-   
     border-style:solid;
     border-color: lightgray;
     border-width: 0.7px;
     width: 18em;
-    height: 25em;
+    height: 27em;
     position: absolute;
     right: 5em;
-    top: 20em;
+    top: 10em;
 }
 
 .reserve-form-container {
@@ -30,10 +35,10 @@
 }
 
 .reserve-form-boxes-container {
-  
     border-style:solid;
     border-color: lightgray;
     border-width: 0.7px;
+    border-radius: 3px;
     height: 2.5em;
 }
 
@@ -47,6 +52,55 @@
     align-items: center;
 }
 
+.guests:hover {
+cursor: pointer;
+}
+
 .text-margin {
     margin-left: 0.4em;
+}
+
+
+.reserve-btn {
+    width: 20em;
+    height:3.5em;
+    margin-top: 2em;
+    background-color: rgb(71, 156, 71);
+    align-items: center;
+    border: 0;
+    border-radius: 3px;
+}
+
+.reserve-btn:hover {
+    cursor: pointer;
+}
+
+.reserve-btn-text{
+    color: white;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+.non-charge-box {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.reserve-box-bottom-text {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 0.8em;
+    margin-right: 1em;
+}
+
+.bulb-img {
+    width: 3em;
+    height: 3em;
+    opacity: 1;
+    background-color: white;
+    opacity: 0.4;
 }
