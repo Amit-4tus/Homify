@@ -17,6 +17,7 @@
       :coords="houseData.location.coords"
       class="gmap flex align-center flex-column"
     ></g-map>
+    <review-list></review-list>
   </div>
 </template>
 
@@ -28,8 +29,11 @@ export default {
       
     };
   },
-  created() {
+ async created() {
     this.$store.dispatch("loadHouseById", this._id);
+    const reviews= await this.$store.dispatch("loadReviews",this._id);
+     console.log('review got',reviews)
+    
   },
   computed: {
     _id() {
@@ -51,7 +55,8 @@ export default {
     }
   },
   components: {
-    gMap
+    gMap,
+    reviewList
   }
 };
 </script>

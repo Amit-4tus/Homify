@@ -6,12 +6,7 @@
     <input v-model="newHouse.price" type="number" />
     <h2>Address</h2>
     <h4>Country</h4>
-    <input
-    
-      @change="getCoords"
-      v-model="newHouse.location.address.country"
-      type="text"
-    />
+    <input @change="getCoords" v-model="newHouse.location.address.country" type="text" />
     <h4>City</h4>
     <input @change="getCoords" v-model="newHouse.location.address.city" type="text" />
     <h4>Street</h4>
@@ -147,17 +142,22 @@ export default {
       res = await geoService.query(address);
       this.newHouse.location.coords = res[0].geometry.location;
     },
-    addHouse() {
-      this.$store.dispatch({ type: "addHouse", newHouse: this.newHouse });
+    async addHouse() {
+      const house = await this.$store.dispatch({
+        type: "addHouse",
+        newHouse: this.newHouse
+      });
+       this.$router.push(`/house/${house._id}`);
     },
-    updateHouse() {
-      this.$store.dispatch({ type: "updateHouse", house: this.newHouse });
+    async updateHouse() {
+      await this.$store.dispatch({ type: "updateHouse", house: this.newHouse });
+      this.$router.push(`/house/${this.newHouse._id}`);
     }
   },
   watch: {
-   $route() {
-     console.log('haha')
-   location.reload();
+    $route() {
+      console.log("haha");
+      location.reload();
     }
   }
 };
