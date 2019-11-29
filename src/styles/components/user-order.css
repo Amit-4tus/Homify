@@ -1,0 +1,52 @@
+
+.reserve-form {
+   
+    border-style:solid;
+    border-color: lightgray;
+    border-width: 0.7px;
+    width: 18em;
+    height: 25em;
+    position: absolute;
+    right: 5em;
+    top: 20em;
+}
+
+.reserve-form-container {
+    margin-left: 10px;
+    margin-right:10px;
+}
+
+.reviews-data {
+    font-size: 12px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.reviews-data-bold {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.reserve-form-boxes-container {
+  
+    border-style:solid;
+    border-color: lightgray;
+    border-width: 0.7px;
+    height: 2.5em;
+}
+
+.reserve-form-boxes {
+    background-color: lightsteelblue;
+    width: 7em;
+    height:1.5em;
+    margin-left: 0.6em;
+    margin-right: 0.6em;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.text-margin {
+    margin-left: 0.4em;
+}
