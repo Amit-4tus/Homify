@@ -5,7 +5,17 @@
     <h2>Price</h2>
     <input v-model="newHouse.price" type="number" />
     <h2>Address</h2>
-    <input @change="getCoords" v-model="newHouse.location.address" type="text" />
+    <h4>Country</h4>
+    <input
+    
+      @change="getCoords"
+      v-model="newHouse.location.address.country"
+      type="text"
+    />
+    <h4>City</h4>
+    <input @change="getCoords" v-model="newHouse.location.address.city" type="text" />
+    <h4>Street</h4>
+    <input @change="getCoords" v-model="newHouse.location.address.street" type="text" />
     <h2>description</h2>
     <textarea v-model="newHouse.desc"></textarea>
     <h2>Amenities</h2>
@@ -37,22 +47,28 @@
       @click="submitUpload"
     >upload to server</el-button>
     <pre>{{newHouse}}</pre>
+    <button @click="addHouse">Add house</button>
+    <button v-if="isEditing" @click="updateHouse">Update</button>
   </div>
 </template>
 
 <script>
 import { uploadImg } from "../services/CloudinaryService.js";
 import { geoService } from "../services/GeoService.js";
-// import { async } from "q";
 
 export default {
   data() {
     return {
+      isEditing: false,
       newHouse: {
         imgs: [],
         location: {
           coords: "",
-          address: ""
+          address: {
+            street: "",
+            city: "",
+            country: ""
+          }
         }
       },
       options: [
@@ -82,18 +98,23 @@ export default {
       fileList: []
     };
   },
+  async created() {
+    if (this.$route.params._id) {
+      let id = this.$route.params._id;
+      this.isEditing = true;
+      const currHouse = await this.$store.dispatch("loadHouseById", id);
+      this.newHouse = JSON.parse(JSON.stringify(currHouse[0]));
+    }
+  },
   computed: {},
   methods: {
     handleRemove(file, fileList) {
       var filterd = this.fileList.filter(img => img.uid !== file.uid);
       this.fileList = filterd;
     },
-    handlePreview(file) {
-      // console.log(file);
-    },
+    handlePreview(file) {},
     onChange(file, fileList) {
       this.fileList.push(file.raw);
-      // console.log(fileList);
     },
     handleExceed(files, fileList) {
       this.$message.warning(
@@ -117,11 +138,26 @@ export default {
       return imgUrls;
     },
     async getCoords() {
-      var address=this.newHouse.location.address;
-      var res = await geoService.query(address);
-
+      var res;
+      var country = this.newHouse.location.address.country;
+      var city = this.newHouse.location.address.city;
+      var street = this.newHouse.location.address.street;
+      var address = `${country} ${city} ${street}`;
+      console.log(address);
+      res = await geoService.query(address);
       this.newHouse.location.coords = res[0].geometry.location;
-      // return (this.coords = res[0].geometry.location);
+    },
+    addHouse() {
+      this.$store.dispatch({ type: "addHouse", newHouse: this.newHouse });
+    },
+    updateHouse() {
+      this.$store.dispatch({ type: "updateHouse", house: this.newHouse });
+    }
+  },
+  watch: {
+   $route() {
+     console.log('haha')
+   location.reload();
     }
   }
 };

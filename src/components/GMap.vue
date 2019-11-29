@@ -17,10 +17,7 @@
   </section>
 </template>
 <style  scoped>
-button {
-  margin-left: 5px;
-  margin-top: 10px;
-}
+
 </style>
 <script>
 
