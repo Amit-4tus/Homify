@@ -19,9 +19,9 @@ export default {
          }
      },
     mutations: {
-//         setUser(state, {user}) {
-//             state.loggedinUser = user;
-//         },
+        // setUser(state, {user}) {
+        //     state.loggedinUser = user;
+        // },
        setUsers(state, {users}) {
             state.users = users;
         },
@@ -49,6 +49,11 @@ export default {
         async loadUsers(context) {
             const users = await UserService.getUsers('user');
             context.commit({type: 'setUsers', users})
+        },
+        async getUserById(context, userId) {
+            console.log('hi')
+            const user = await UserService.getById(userId);
+            context.commit({type: 'setUser', user})
         },
 //         async removeUser(context, {userId}) {
 //             await UserService.remove(userId);

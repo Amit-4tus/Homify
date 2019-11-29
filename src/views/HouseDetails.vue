@@ -9,6 +9,7 @@
     </section>
     <p class="houseDesc">{{houseData.desc}}</p>
     <button class="reserveBtn" @click="doReserve">Reserve</button>
+     
     <h2>if you are the owner press the button</h2>
     <button @click="doEdit">Edit here</button>
     <g-map
@@ -16,6 +17,7 @@
       :coords="houseData.location.coords"
       class="gmap flex align-center flex-column"
     ></g-map>
+    <reviewList></reviewList>
     <myFooter></myFooter>
   </div>
 </template>
@@ -24,9 +26,9 @@
 import gMap from "@/components/GMap";
 import myFooter from '../components/MyFooter'
 import reviewList from "@/components/ReviewList";
-
-
 export default {
+  
+
   data() {
     return {
       
@@ -50,6 +52,7 @@ export default {
   },
   methods: {
     doReserve() {
+      this.$router.push(`/order/${this.houseData._id}`)
       this.$router.push("/order");
     },
     doEdit(){

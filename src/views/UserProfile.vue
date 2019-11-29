@@ -3,7 +3,7 @@
         
         <ul v-for="user in users" :key="user._id">
             <li >
-            Hi, I'm {{user.name}}
+            Hello, {{user.name}}
             </li>
         </ul>
          <button @click="getAllUsers">Get All Users</button>
