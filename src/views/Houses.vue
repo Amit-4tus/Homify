@@ -1,12 +1,11 @@
 <template>
   <div class="houses">
-        <g-map  v-if="coords" :coords="coords" class=" gmap flex align-center flex-column"></g-map>
-
+    <g-map v-if="coords" :coords="coords" class="gmap flex align-center flex-column"></g-map>
     <house-list></house-list>
   </div>
 </template>
 <style  scoped>
-.gmap{
+.gmap {
   position: fixed;
   right: 0;
 }
@@ -18,8 +17,8 @@ import gMap from "@/components/GMap";
 export default {
   data() {
     return {
-      coords:{lat: 48.856614, lng: 2.3522219}
-    }
+      coords: { lat: 48.856614, lng: 2.3522219 }
+    };
   },
   created() {
     this.$store.dispatch("loadItems");

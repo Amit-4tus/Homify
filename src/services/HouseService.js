@@ -14,6 +14,13 @@ function getItems() {
     return httpService.get('house')
 };
 
+function addItem(item) {
+    console.log(item)
+  
+    item._id=makeId()
+    return httpService.post(`house`, item)
+}
+
 function getItemById(id) {
     return httpService.get(`house?_id=${id}`)
 };
@@ -23,12 +30,17 @@ function deleteItem(id) {
         .then(res => res);
 };
 
-function addItem(item) {
-    return axios.post(BASE_URL, item)
-        .then(res => res.data)
-};
+
 
 function updateItem(item) {
-    return axios.put(BASE_URL + item._id, item)
-        .then(res => res.data)
+    return httpService.put(`house/${item.id}`,item)
+}
+
+function makeId(length=3) {
+    var txt = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (var i = 0; i < length; i++) {
+        txt += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return txt;
 }

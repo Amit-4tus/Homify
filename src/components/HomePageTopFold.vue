@@ -10,7 +10,7 @@
 export default {
   methods: {
     doScroll() {
-      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+      window.scrollTo({ top: window.innerHeight*2, behavior: 'smooth' });
     }
   }
 };

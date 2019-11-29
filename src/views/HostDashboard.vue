@@ -9,9 +9,8 @@
 </template>
 
 <script>
-import {uploadImg} from '../services/CloudinaryService.js'
-
-
+import { uploadImg } from "../services/CloudinaryService.js";
+import houseEdit from "@/components/HouseEdit";
 
 export default {
     data() {
@@ -34,5 +33,9 @@ export default {
     created() {
        
     }
-}
+  },
+  components: {
+    houseEdit
+  }
+};
 </script>
