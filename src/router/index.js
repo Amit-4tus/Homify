@@ -37,7 +37,7 @@ const routes = [
     component: userProfile
   },
   {
-    path: '/host/',
+    path: '/host/:_id?',
     name: 'host',
     component: HostDashboard
   },

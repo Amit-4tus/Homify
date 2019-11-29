@@ -1,0 +1,26 @@
+.searchForm {
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5vw;
+    position: absolute;
+    top: 270vh;
+    background-color: $color4;
+    border-radius: 7px;
+    margin: 0px 25vw;
+    font-size: 1.4rem;
+}
+
+.formHeader {
+    font-size: 1.8rem;
+}
+
+.submit {
+    background-color: $color2;
+    color: $color3;
+    border: 0px;
+    border-radius: 5px;
+    padding: 2% 10%;
+}

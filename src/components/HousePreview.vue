@@ -1,11 +1,11 @@
 <template>
-  <section class="item-preview">
-    <img :src="itemData.imgs[0]" class="item-preview-image" />
-    <div class="itemPreviewInfo">
-      <p class="item-country">{{itemData.location.address.country}}</p>
-      <div class="item-rating">{{itemData.reviews.avgRating}}</div>
-      <p class="item-name">{{itemData.name}}</p>
-      <p class="item-price"><span class="price">{{itemData.price}}$</span> /per night</p>
+  <section class="housePreview">
+    <img :src="itemData.imgs[0]" class="housePreviewImg" />
+    <div class="housePreviewInfo">
+      <p class="houseCountry"><span class="country">{{itemData.location.address.country}}</span></p>
+      <div v-if="itemData.reviews" class="houseRating">{{itemData.reviews.avgRating}}</div>
+      <p class="houseName">{{itemData.name}}</p>
+      <p class="housePrice"><span class="price">{{itemData.price}}$</span> /per night</p>
     </div>
   </section>
 </template>
@@ -13,5 +13,8 @@
 <script>
 export default {
   props: ['itemData'],
+  methods:{
+   
+  }
 };
 </script>

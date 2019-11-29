@@ -10,20 +10,17 @@
       <GmapMarker
         :position="markers"
         :clickable="true"
-        :draggable="true"
+      
         @click="center=m.position"
       />
     </GmapMap>
-    <button @click="panTo('tlv')">Tel Aviv</button>
   </section>
 </template>
 <style  scoped>
-button {
-  margin-left: 5px;
-  margin-top: 10px;
-}
+
 </style>
 <script>
+
 export default {
   props: {
     coords: Object

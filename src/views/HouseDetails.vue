@@ -2,22 +2,39 @@
   <div class="houseDetails">
     <section class="detailstopFold">
       <div v-if="!houseData" class="loading">Loading</div>
-
       <div v-if="houseData.name" class="houseGeneralInfo">
         <h1 class="houseTitle">{{houseData.name}}</h1>
       </div>
       <img v-if="houseData.imgs" class="houseMainImage" :src="houseData.imgs[0]" />
     </section>
-    <p>{{houseData.desc}}</p>
+    <p class="houseDesc">{{houseData.desc}}</p>
     <button class="reserveBtn" @click="doReserve">Reserve</button>
+<<<<<<< HEAD
      
+=======
+    <h2>if you are the owner press the button</h2>
+    <button @click="doEdit">Edit here</button>
+    <g-map
+      v-if="houseData.location.coords"
+      :coords="houseData.location.coords"
+      class="gmap flex align-center flex-column"
+    ></g-map>
+>>>>>>> master
   </div>
- 
 </template>
 
 <script>
+<<<<<<< HEAD
+=======
+import gMap from "@/components/GMap";
+>>>>>>> master
 
 export default {
+  data() {
+    return {
+      
+    };
+  },
   created() {
     this.$store.dispatch("loadHouseById", this._id);
   },
@@ -33,8 +50,18 @@ export default {
   },
   methods: {
     doReserve() {
+<<<<<<< HEAD
       this.$router.push(`/order/${this.houseData._id}`)
+=======
+      this.$router.push("/order");
+    },
+    doEdit(){
+       this.$router.push(`/host/${this._id}`); 
+>>>>>>> master
     }
+  },
+  components: {
+    gMap
   }
 };
 </script>

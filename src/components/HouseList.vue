@@ -1,5 +1,5 @@
 <template>
-  <div class="itemList">
+  <div class="houseList">
     <router-link :to="`/house/${item._id}`" v-for="(item, idx) in items" :key="idx" class="housePreviewLink">
       <house-preview :itemData="item"></house-preview>
     </router-link>
@@ -9,6 +9,7 @@
 <script>
 import HousePreview from "./HousePreview";
 export default {
+  props: ['isTopPicList'],
   data() {
     return {};
   },

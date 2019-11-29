@@ -30,6 +30,16 @@ export default {
         async loadHouseById(context, id) {
             const currHouse = await houseService.getItemById(id)
             context.commit({ type: 'setCurrHouse', currHouse })
+            return currHouse
         },
+        async addHouse(context, {newHouse}) {
+            const house = await houseService.addItem(newHouse)
+            // context.commit({ type: 'setCurrHouse', currHouse })
+        },
+        async updateHouse(context, {house}) {
+            const updatedHouse = await houseService.updateItem(house)
+            
+        },
+        
     }
 }
