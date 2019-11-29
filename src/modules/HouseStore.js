@@ -34,7 +34,7 @@ export default {
         },
         async addHouse(context, {newHouse}) {
             const house = await houseService.addItem(newHouse)
-            // context.commit({ type: 'setCurrHouse', currHouse })
+            return house;
         },
         async updateHouse(context, {house}) {
             const updatedHouse = await houseService.updateItem(house)

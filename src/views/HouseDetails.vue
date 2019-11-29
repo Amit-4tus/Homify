@@ -23,14 +23,20 @@
 <script>
 import gMap from "@/components/GMap";
 import myFooter from '../components/MyFooter'
+import reviewList from "@/components/ReviewList";
+
+
 export default {
   data() {
     return {
       
     };
   },
-  created() {
+ async created() {
     this.$store.dispatch("loadHouseById", this._id);
+    const reviews= await this.$store.dispatch("loadReviews",this._id);
+     console.log('review got',reviews)
+    
   },
   computed: {
     _id() {
@@ -51,7 +57,8 @@ export default {
     }
   },
   components: {
-    gMap
+    gMap,
+    reviewList
   }
 };
 </script>
