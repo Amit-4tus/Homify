@@ -2,12 +2,24 @@
 
 <template>
     <section>
-      <p>Hello, this is your order: </p>
+      <p hidden>{{host}} </p>
+      
         <div v-if="houseData.name" class="houseGeneralInfo">
         <h1 class="houseTitle">{{houseData.name}} </h1>
-        <h2> Your host: {{houseData.hostId}}</h2>
+        <h2> Your host: {{hostName}}</h2>
         </div>
-        <img v-if="houseData.imgs" class="house-reserve-image" :src="houseData.imgs[0]" />
+
+      <section class="order-house-imgs-container grid">
+        <img v-if="houseData.imgs" class="house-reserve-image"
+         :src="houseData.imgs[0]" />
+         <img v-if="houseData.imgs" class="house-reserve-image"
+         :src="houseData.imgs[1]" />
+         <img v-if="houseData.imgs" class="house-reserve-image"
+         :src="houseData.imgs[2]" />
+         <img v-if="houseData.imgs" class="house-reserve-image"
+         :src="houseData.imgs[3]" />
+      </section>
+
         <section class="reserve-form"> 
 
           <div class="reserve-form-container">
@@ -52,13 +64,13 @@
 export default {
   data() {
     return {
+      // host: {}
   
     };
   },
   created() {
     this.$store.dispatch("loadHouseById", this._id);
-    // console.log(this.houseData.hostId)
-    // this.$store.dispatch("getUserById", this.houseData.hostId);
+    
   },
   computed: {
     _id() {
@@ -69,13 +81,16 @@ export default {
       if (!currHouse) return null;
       return currHouse;
     },
-    // hostData() {
-    //   let host = this.$store.getters.currHouse;
-    //   console.log(host)
-    //     // console.log(this.houseData.hostId)
-    //     // this.$store.dispatch({type: 'getUserById', userId: this.houseData.hostId})
-    // }
-    
+    host() {
+      return this.$store.dispatch("getUserById", this.houseData.hostId)
+    },
+    hostName() {
+      let currUser = this.$store.getters.currUser;
+      let generalName = 'Alon'
+      if (!currUser[0]) return generalName;
+      let host = currUser[0].name;
+      return host;
+    }
   },
   
 };

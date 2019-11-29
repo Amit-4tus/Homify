@@ -11,7 +11,7 @@
     border-width: 0.7px;
     width: 18em;
     height: 27em;
-    position: absolute;
+    position: fixed;
     right: 5em;
     top: 10em;
 }
@@ -99,8 +99,20 @@ cursor: pointer;
 
 .bulb-img {
     width: 3em;
-    height: 3em;
+    height: 2.5em;
     opacity: 1;
     background-color: white;
     opacity: 0.4;
 }
+
+
+.order-house-imgs-container {
+    background-color: lightcyan;
+    width: 50em;
+    height: 15em;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 10px;
+}
+
+
