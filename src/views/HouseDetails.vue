@@ -16,12 +16,13 @@
       :coords="houseData.location.coords"
       class="gmap flex align-center flex-column"
     ></g-map>
+    <myFooter></myFooter>
   </div>
 </template>
 
 <script>
 import gMap from "@/components/GMap";
-
+import myFooter from '../components/MyFooter'
 export default {
   data() {
     return {

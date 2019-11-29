@@ -1,24 +1,41 @@
 .detailstopFold {
-    width: 95%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .houseMainImage {
-    width: 65%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+  width: 65%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .houseGeneralInfo {
-    width: 27%;
-    background-color: $color4;
-    padding: 3%;
-    border-radius: 8px;
+  width: 27%;
+  background-color: $color4;
+  padding: 3%;
+  border-radius: 8px;
 }
 
 .houseDesc {
-    padding:  0px 3vw;
+  padding: 0px 3vw;
+}
+
+@media (min-width: 1000px) {
+    .detailstopFold {
+        width: 80vw;
+    }
+}
+
+@media (max-width: 420px) {
+    .detailstopFold {
+        flex-direction: column-reverse;
+        align-items: center;
+        > * {
+            width: 90%;
+            margin-top: 5%;
+        }
+    }
 }

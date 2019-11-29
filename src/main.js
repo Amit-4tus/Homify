@@ -8,9 +8,6 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/en'
 
-
-
-
 Vue.config.productionTip = false
 Vue.use(ElementUI,{ locale });
 import * as VueGoogleMaps from 'vue2-google-maps'
@@ -26,6 +23,5 @@ new Vue({
   store,
   render: h => h(App)
 }).$mount('#app')
-
 
 //google maps

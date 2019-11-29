@@ -1,8 +1,8 @@
-.myFooter {
+.home .myFooter {
   position: absolute;
   top: 250vh;
   left: 45vw;
 }
-.myFooter .logo {
+.home .myFooter .logo {
   width: 10vw;
 }
