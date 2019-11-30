@@ -1,4 +1,5 @@
 .houseList {
+  padding-top: 72px;
   padding-left: 2%;
   width: 50%;
 
@@ -17,15 +18,27 @@
 .topPicks {
   max-width: $containerWidth;
   display: flex;
+
+  @media (max-width: 420px) {
+    flex-wrap: wrap;
+  }
   position: absolute;
   top: 115vh;
+  left: 2.5%;
 
   > * {
     width: 25%;
+
+    @media (max-width: 420px) {
+      width: 50%;
+    }
   }
 
   .housePreview {
     flex-direction: column;
+    @media (max-width: 420px) {
+      padding-bottom: 200px;
+    }
     // width: 80%;
     //   height: 50%;
 

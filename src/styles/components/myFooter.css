@@ -1,7 +1,8 @@
 .home .myFooter {
   position: absolute;
-  top: 325vh;
-  margin: 0 auto;
+  top: 300vh;
+  padding: 70px 0px;
+  width: 100%;
 }
 .home .myFooter .logo {
   width: 10vw;

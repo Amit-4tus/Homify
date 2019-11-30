@@ -1,11 +1,27 @@
 .inspSect {
   position: absolute;
-  top: 175vh;
-}
-.inspSect img {
+  top: 160vh;
+  left: 13vw;
+  background-image: url("../assets/imgs/insp.jpg");
+  background-repeat: no-repeat;
   height: 70vh;
-  width: 100%;
-  object-fit: cover;
+  width: 70%;
+  background-size: cover;
+  background-position: center;
   border-radius: 3vh;
   margin: 0 auto;
+}
+.inspSect .inspQuote {
+  font-family: tangerine;
+  font-size: 5rem;
+  position: relative;
+  bottom: 30px;
+  color: blue;
+}
+.inspSect .inspTxt {
+  font-family: tangerine;
+  font-size: 5rem;
+  color: blue;
+  position: relative;
+  top: 95px;
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="houses">
     <house-list></house-list>
-    <g-map v-if="coords" :coords="coords" class="listMap gmap flex align-center flex-column"></g-map>
+    <g-map v-if="coords" :coords="coords" class="listMap"></g-map>
   </div>
 </template>
 
@@ -17,10 +17,14 @@ export default {
   },
   created() {
     this.$store.dispatch("loadItems");
+    document.querySelector('.my-header').classList.add('fixed')
   },
   components: {
     houseList,
     gMap
+  },
+  destroyed() {
+    document.querySelector('.my-header').classList.remove('fixed')
   }
 };
 </script>
