@@ -6,7 +6,8 @@ import houseDetails from '../views/HouseDetails'
 import map from '../views/HouseMap.vue'
 import userProfile from '../views/UserProfile'
 import HostDashboard from '../views/HostDashboard'
-import UserOrder from '../views/UserOrder'
+import userOrder from '../views/UserOrder'
+import orderDetails from '../views/OrderDetails'
 
 Vue.use(VueRouter)
 
@@ -42,10 +43,15 @@ const routes = [
     component: HostDashboard
   },
   {
-    path: '/order/:_id',
+    path: '/order/house/:_id',
     name: 'order',
-    component: UserOrder
-  }
+    component: userOrder
+  },
+  {
+    path: '/order/:_id',
+    name: 'order-details',
+    component: orderDetails
+  },
 
 ]
 

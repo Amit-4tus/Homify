@@ -6,7 +6,8 @@ import UserService from '../services/UserService.js'
 export default {
     state: {
         // loggedinUser : localLoggedinUser,
-        loggedinUser : 'susu',
+        loggedinUser : null,
+        currUser: {},
         users: []
     },
 
@@ -14,6 +15,10 @@ export default {
         users(state) {
             return state.users;
         },
+        currUser(state) {
+            return state.currUser;
+        },
+
          loggedinUser(state) {
              return state.loggedinUser
          }
@@ -22,6 +27,9 @@ export default {
         // setUser(state, {user}) {
         //     state.loggedinUser = user;
         // },
+        setCurrUser(state, {currUser}) {
+            state.currUser = currUser;
+        },
        setUsers(state, {users}) {
             state.users = users;
         },
@@ -50,10 +58,10 @@ export default {
             const users = await UserService.getUsers('user');
             context.commit({type: 'setUsers', users})
         },
-        async getUserById(context, userId) {
-            console.log('hi')
-            const user = await UserService.getById(userId);
-            context.commit({type: 'setUser', user})
+        async getUserById(context, userId) { 
+            const currUser = await UserService.getById(userId);
+            context.commit({type: 'setCurrUser', currUser})
+            return currUser;
         },
 //         async removeUser(context, {userId}) {
 //             await UserService.remove(userId);
@@ -65,4 +73,5 @@ export default {
 //         }
     }
 }
+
 

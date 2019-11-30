@@ -2,12 +2,27 @@
 
 <template>
     <section>
-      <p>Hello, this is your order: </p>
+      <p hidden>{{host}} </p>
+      <p>{{order}} </p>
+      
+   
+      
         <div v-if="houseData.name" class="houseGeneralInfo">
         <h1 class="houseTitle">{{houseData.name}} </h1>
-        <h2> Your host: {{houseData.hostId}}</h2>
+        <h2> Your host: {{hostName}}</h2>
         </div>
-        <img v-if="houseData.imgs" class="house-reserve-image" :src="houseData.imgs[0]" />
+
+      <section class="order-house-imgs-container grid">
+        <img v-if="houseData.imgs" class="house-reserve-image"
+         :src="houseData.imgs[0]" />
+         <img v-if="houseData.imgs" class="house-reserve-image"
+         :src="houseData.imgs[1]" />
+         <img v-if="houseData.imgs" class="house-reserve-image"
+         :src="houseData.imgs[2]" />
+         <img v-if="houseData.imgs" class="house-reserve-image"
+         :src="houseData.imgs[3]" />
+      </section>
+
         <section class="reserve-form"> 
 
           <div class="reserve-form-container">
@@ -23,12 +38,27 @@
             </div>
 
             <p class="reviews-data-bold">Guests</p>
-            <div class="reserve-form-boxes-container flex space-between align-center guests">
-              <div class="reserve-form-boxes"><span class="text-margin">1 Guest</span>
-              </div>
-            </div>
 
-            <button class="reserve-btn"><span class="reserve-btn-text">Reserve</span></button>
+            <div class="reserve-form-boxes-container flex space-between align-center guests">
+               
+                <select class="reserve-form-select-input" v-model="order.guests.adults">
+                  <option selected value="adults" >Adults</option>
+                  <option>1-2</option>
+                  <option>3-5</option>
+                  <option>6+</option>
+                </select>
+
+                
+                <select class="reserve-form-select-input" 
+                      placeholder="children" id="children" name="children" v-model="order.guests.children" >
+                  <option selected value="children">Children</option>
+                  <option >1-2</option>
+                  <option >3-5</option>
+                  <option>6+</option>
+                </select>       
+            
+            </div>
+            <button class="reserve-btn" @click="doOrder"><span class="reserve-btn-text">Reserve</span></button>
 
             <div class="non-charge-box">
             <p class="reviews-data-bold ">You won't be charged yet</p>
@@ -40,7 +70,7 @@
                 <img class="bulb-img" src="../assets/imgs/bulb.png"/>
             </div>
 
-
+            
           </div>
         </section>
         
@@ -52,14 +82,39 @@
 export default {
   data() {
     return {
-  
+   
+      order: 
+        {
+          name: null,
+          // createdAt: null,
+          _id: null,
+          // houseId: this.currHouse.id,
+              dates: {
+                from: "3.12.2019",
+                to: "5.12.2019"
+            },
+          // user: {
+          //   userId: "123",
+          //   userName: "name"
+          // },
+          status: "pending",
+              guests: {
+                adults: "adults",
+                children: "children",
+            },
+          }
     };
   },
   created() {
-    this.$store.dispatch("loadHouseById", this._id);
-    // console.log(this.houseData.hostId)
-    // this.$store.dispatch("getUserById", this.houseData.hostId);
+    this.$store.dispatch("loadHouseById", this._id); 
   },
+
+methods: {
+    doOrder() {
+      this.$store.dispatch("addOrder", this.order);
+      this.$router.push(`/order/${this.order._id}`);
+    },
+},
   computed: {
     _id() {
       return this.$route.params._id;
@@ -69,13 +124,16 @@ export default {
       if (!currHouse) return null;
       return currHouse;
     },
-    // hostData() {
-    //   let host = this.$store.getters.currHouse;
-    //   console.log(host)
-    //     // console.log(this.houseData.hostId)
-    //     // this.$store.dispatch({type: 'getUserById', userId: this.houseData.hostId})
-    // }
-    
+    host() {
+      return this.$store.dispatch("getUserById", this.houseData.hostId)
+    },
+    hostName() {
+      let currUser = this.$store.getters.currUser;
+      let generalName = 'Alon'
+      if (!currUser[0]) return generalName;
+      let host = currUser[0].name;
+      return host;
+    }
   },
   
 };
