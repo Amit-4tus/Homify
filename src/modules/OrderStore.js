@@ -29,8 +29,8 @@ export default {
             context.commit({ type: 'setOrderToSHow', orders })
             return orders
         },
-        async addOrder(context, review) {
-            const newOrder = await reviewOrder.addOrder(order)
+        async addOrder(context, order) {
+            const newOrder = await orderService.addOrder(order)
             console.log(newOrder)
             context.commit({ type: 'addOrder', newOrder })
            return newOrder

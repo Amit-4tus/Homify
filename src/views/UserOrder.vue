@@ -68,7 +68,7 @@ export default {
       order: 
         {
           name: null,
-          createdAt: "2.12.2019",
+          createdAt: null,
           _id: null,
           // houseId: this.currHouse.id,
               dates: {
@@ -94,9 +94,8 @@ export default {
 
 methods: {
     doOrder() {
-      console.log(this.order)
       this.$store.dispatch("addOrder", this.order);
-      this.$router.push(`/order/${this.order._id}`);
+      // this.$router.push(`/order/${this.order._id}`);
     },
 },
   computed: {

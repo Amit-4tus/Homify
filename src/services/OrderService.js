@@ -16,9 +16,8 @@ async function addOrder(order) {
 
     order._id = makeId()
     order.id=makeId()
-    order.user.userName="me"
+    // order.user.userName="me"
     order.createdAt= new Date().toLocaleDateString();
-    console.log(order)
     const newOrder=await httpService.post(`order`, order)
     return newOrder
 }
