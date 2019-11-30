@@ -1,10 +1,6 @@
 <template name="searchForm">
   <form class="searchForm">
-    testing dates!!
-    available dates example: 15/12/2019 - 20/12/2019
-    <div>user from : {{from}}</div>
-    user to : {{to}}
-    <div> Res:{{res}}</div>
+   
     <slot></slot>
     
     <div class="where">

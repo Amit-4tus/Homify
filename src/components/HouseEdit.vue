@@ -55,6 +55,7 @@ import { geoService } from "../services/GeoService.js";
 export default {
   data() {
     return {
+      doneUpload: false,
       isEditing: false,
       newHouse: {
         imgs: [],
@@ -128,9 +129,10 @@ export default {
           return uploadImg(img);
         })
       );
-      imgUrls.forEach(img => {
+      await imgUrls.forEach(img => {
         this.newHouse.imgs.push(img.url);
       });
+      this.doneUpload = true;
       return imgUrls;
     },
     async getCoords() {
@@ -144,6 +146,7 @@ export default {
       this.newHouse.location.coords = res[0].geometry.location;
     },
     async addHouse() {
+      if (!this.doneUpload) return console.log("imgs is required");
       const house = await this.$store.dispatch({
         type: "addHouse",
         newHouse: this.newHouse
@@ -155,12 +158,11 @@ export default {
       this.$router.push(`/house/${this.newHouse._id}`);
     },
     async deleteHouse() {
-    
       await this.$store.dispatch({
         type: "deleteHouse",
         id: this.newHouse.id
       });
-       this.$router.push(`/`);
+      this.$router.push(`/`);
     }
   },
   watch: {
