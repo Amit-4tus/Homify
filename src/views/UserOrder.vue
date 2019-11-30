@@ -17,30 +17,31 @@
          :src="houseData.imgs[2]" />
         </section>
 
-      <section class="reserve-form-host-data">
+      <section v-if="!isOrdered" class="reserve-form-host-data">
         <div v-if="houseData.name">
             <div>
-            <p>{{houseData.name}} </p>
+            <p class="house-name">{{houseData.name}} </p>
             <p>{{houseData.desc}} </p>
-            <p>Per night price: {{houseData.price}} </p>
+            <p class="house-price">$ {{houseData.price}} / night </p>
             <p>Number of reviews: {{houseData.reviews.reviewsIds.length}} </p>
-            <p v-if="houseData.amentities[0]"> Amenities:</p>
-            <p v-if="houseData.amentities[0]"> {{houseData.amentities[0]}} </p>
-            <p v-if="houseData.amentities[1]">{{houseData.amentities[1]}} </p>
+            <p v-if="houseData.amentities[0]"> Amenities: {{houseData.amentities[0]}}, {{houseData.amentities[1]}}</p>
             <img class="host-img" src="">
             </div>
-          <p> Your host: {{host}}</p>
+          
         </div>
       </section>
 
-      <hr class="reserve-form-hr">
-
-        
       </section>
         
-        <section>
-          <p hidden>{{host}} </p>
-          <p>{{order}} </p>
+        <section v-if="isOrdered">
+          <p hidden>{{host}} and {{hostData}}</p>
+          <p class="house-name">Thank you for your reservation! </p>
+          <p class="house-price">Reservation details: </p>
+          <p>house: {{houseData.name}} </p>
+          <p>host: {{hostData}} </p>
+          <p>Total price: XXX </p>
+          <p>Reservation Status: {{order.status}} </p>
+          
 
         </section>
       
@@ -82,12 +83,15 @@
                   <option>6+</option>
                 </select>       
             
-            </div>
-            <button class="reserve-btn" @click="doOrder"><span class="reserve-btn-text">Reserve</span></button>
+            </div >
+            <section v-if="!isOrdered">
+            <button class="reserve-btn" @click="doOrder">
+                    <span class="reserve-btn-text">Reserve</span></button>
 
             <div class="non-charge-box">
             <p class="reviews-data-bold-center">You won't be charged yet</p>
             </div>
+          </section>
 
             <div class="reserve-box-bottom-container flex space-between align-center justify-center">
             <p class="reserve-box-bottom-text">This place is getting a lot of attention.
@@ -113,7 +117,8 @@
 export default {
   data() {
     return {
-   
+      isOrdered: false,
+      // host: {},
       order: 
         {
           name: null,
@@ -142,6 +147,7 @@ export default {
 methods: {
     doOrder() {
       this.$store.dispatch("addOrder", this.order);
+      this.isOrdered = true;
       // this.$router.push(`/order/${this.order._id}`);
     },
 },
@@ -157,11 +163,11 @@ methods: {
     host() {
       return this.$store.dispatch("getUserById", this.houseData.hostId)
     },
-    host() {
+    hostData() {
       let currUser = this.$store.getters.currUser;
-      // let generalName = 'Alon'
-      // if (!currUser[0]) return generalName;
-      // let host = currUser[0].name;
+      let generalName = 'Dianna Maxwell'
+      if (!currUser[0]) return generalName;
+      let host = currUser[0].name;
       return currUser;
     }
   },

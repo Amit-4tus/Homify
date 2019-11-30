@@ -12,15 +12,17 @@
 
 
 .house-reserve-image {
-    height:16.5em ;
-    width: 16.5em;
+    height:16.7em ;
+    width: 16.7em;
     object-fit: cover;
     margin: 0.1em;
 }
 
 .reservation-page-general-data {
-    background-color: chartreuse;
-    max-width:65vw;
+    // background-color: chartreuse;
+    // font-family: eurof;
+    font-family: 'Roboto', sans-serif;
+    max-width:52em;
     height: 32em;
     left: 3em;
     top: 5em;
@@ -28,6 +30,15 @@
     text-align: left;
 }
 
+.house-name {
+font-size: x-large;
+font-weight: bold;
+}
+
+.house-price {
+    font-size: large;
+    font-weight: bold;
+    }
 
 .reserve-form {
     border-style:solid;
@@ -83,6 +94,7 @@
     border-width: 0.7px;
     border-radius: 3px;
     height: 2.5em;
+    margin-bottom: 0.5em;
 }
 
 .reserve-form-boxes {
@@ -123,7 +135,7 @@ cursor: pointer;
 .reserve-btn {
     width: 20em;
     height:3.5em;
-    margin-top: 2em;
+    margin-top: 2.5em;
     background-color: rgb(71, 156, 71);
     align-items: center;
     border: 0;

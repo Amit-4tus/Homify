@@ -28,6 +28,7 @@ export default {
         //     state.loggedinUser = user;
         // },
         setCurrUser(state, {currUser}) {
+            console.log(currUser)
             state.currUser = currUser;
         },
        setUsers(state, {users}) {
