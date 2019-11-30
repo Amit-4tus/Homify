@@ -5,6 +5,8 @@
       <p hidden>{{host}} </p>
       <p>{{order}} </p>
       
+   
+      
         <div v-if="houseData.name" class="houseGeneralInfo">
         <h1 class="houseTitle">{{houseData.name}} </h1>
         <h2> Your host: {{hostName}}</h2>
@@ -36,11 +38,26 @@
             </div>
 
             <p class="reviews-data-bold">Guests</p>
-            <div class="reserve-form-boxes-container flex space-between align-center guests">
-              <div class="reserve-form-boxes"><span class="text-margin">1 Guest</span>
-              </div>
-            </div>
 
+            <div class="reserve-form-boxes-container flex space-between align-center guests">
+               
+                <select class="reserve-form-select-input" v-model="order.guests.adults">
+                  <option selected value="adults" >Adults</option>
+                  <option>1-2</option>
+                  <option>3-5</option>
+                  <option>6+</option>
+                </select>
+
+                
+                <select class="reserve-form-select-input" 
+                      placeholder="children" id="children" name="children" v-model="order.guests.children" >
+                  <option selected value="children">Children</option>
+                  <option >1-2</option>
+                  <option >3-5</option>
+                  <option>6+</option>
+                </select>       
+            
+            </div>
             <button class="reserve-btn" @click="doOrder"><span class="reserve-btn-text">Reserve</span></button>
 
             <div class="non-charge-box">
@@ -65,10 +82,11 @@
 export default {
   data() {
     return {
+   
       order: 
         {
           name: null,
-          createdAt: null,
+          // createdAt: null,
           _id: null,
           // houseId: this.currHouse.id,
               dates: {
@@ -80,11 +98,10 @@ export default {
           //   userName: "name"
           // },
           status: "pending",
-            //   guests: {
-            //     adults: 2,
-            //     children: 2,
-            //     infants: 1
-            // },
+              guests: {
+                adults: "adults",
+                children: "children",
+            },
           }
     };
   },
