@@ -3,6 +3,7 @@
 <template>
     <section>
       <p hidden>{{host}} </p>
+      <p>{{order}} </p>
       
         <div v-if="houseData.name" class="houseGeneralInfo">
         <h1 class="houseTitle">{{houseData.name}} </h1>
@@ -40,7 +41,7 @@
               </div>
             </div>
 
-            <button class="reserve-btn"><span class="reserve-btn-text">Reserve</span></button>
+            <button class="reserve-btn" @click="doOrder"><span class="reserve-btn-text">Reserve</span></button>
 
             <div class="non-charge-box">
             <p class="reviews-data-bold ">You won't be charged yet</p>
@@ -52,7 +53,7 @@
                 <img class="bulb-img" src="../assets/imgs/bulb.png"/>
             </div>
 
-
+            
           </div>
         </section>
         
@@ -64,14 +65,40 @@
 export default {
   data() {
     return {
-      // host: {}
-  
+      order: 
+        {
+          name: null,
+          createdAt: "2.12.2019",
+          _id: null,
+          // houseId: this.currHouse.id,
+              dates: {
+                from: "3.12.2019",
+                to: "5.12.2019"
+            },
+          // user: {
+          //   userId: "123",
+          //   userName: "name"
+          // },
+          status: "pending",
+            //   guests: {
+            //     adults: 2,
+            //     children: 2,
+            //     infants: 1
+            // },
+          }
     };
   },
   created() {
-    this.$store.dispatch("loadHouseById", this._id);
-    
+    this.$store.dispatch("loadHouseById", this._id); 
   },
+
+methods: {
+    doOrder() {
+      console.log(this.order)
+      this.$store.dispatch("addOrder", this.order);
+      this.$router.push(`/order/${this.order._id}`);
+    },
+},
   computed: {
     _id() {
       return this.$route.params._id;

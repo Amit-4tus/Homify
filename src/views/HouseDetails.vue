@@ -53,7 +53,7 @@ export default {
   methods: {
   
     doReserve() {
-      this.$router.push(`/order/${this.houseData._id}`);
+      this.$router.push(`/order/house/${this.houseData._id}`);
       // this.$router.push("/order");
     },
     doEdit() {

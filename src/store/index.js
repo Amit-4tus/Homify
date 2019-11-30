@@ -6,6 +6,7 @@ import Vuex from 'vuex'
 import houseStore from '../modules/HouseStore'
 import reviewStore from '../modules/ReviewStore'
 import UserStore from '../modules/UserStore'
+import OrderStore from '../modules/OrderStore'
 // import SocketStore from './modules/SocketStore.js'
 // import ReviewStore from './modules/ReviewStore.js'
 
@@ -16,7 +17,8 @@ export default new Vuex.Store({
   modules: {
     UserStore,
     houseStore,
-    reviewStore
+    reviewStore,
+    OrderStore
     // SocketStore,
     // ReviewStore
   },
