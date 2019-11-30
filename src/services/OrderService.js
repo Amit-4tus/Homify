@@ -23,7 +23,7 @@ async function addOrder(order) {
 }
 
 function getOrderById(id) {
-    return httpService.get(`order?houseId=${id}`)
+    return httpService.get(`order?_id=${id}`)
 };
 
 function makeId(length = 3) {

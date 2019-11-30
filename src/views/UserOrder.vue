@@ -95,7 +95,7 @@ export default {
 methods: {
     doOrder() {
       this.$store.dispatch("addOrder", this.order);
-      // this.$router.push(`/order/${this.order._id}`);
+      this.$router.push(`/order/${this.order._id}`);
     },
 },
   computed: {

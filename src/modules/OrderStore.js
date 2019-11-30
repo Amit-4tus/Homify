@@ -6,14 +6,14 @@ export default {
         orderToShow: []
     },
     getters: {
-        orderToSHow(state) {
+        orderToShow(state) {
             return state.orderToShow;
         }
 
     },
     mutations: {
-        setOrderToSHow(state, ordersToShow) {
-            state.orderToShow = ordersToShow.orders;
+        setOrderToShow(state, orderToShow) {
+            state.orderToShow = orderToShow;
         },
         addOrder(state, { newOrder }) {
             state.orderToShow.unshift(newOrder);
@@ -25,8 +25,10 @@ export default {
     actions: {
 
         async loadOrders(context, id) {
+            
             const orders = await orderService.getOrderById(id)
-            context.commit({ type: 'setOrderToSHow', orders })
+            console.log(orders);
+            context.commit({ type: 'setOrderToShow', orders })
             return orders
         },
         async addOrder(context, order) {
