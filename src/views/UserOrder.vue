@@ -2,27 +2,52 @@
 
 <template>
     <section>
-      <p hidden>{{host}} </p>
-      <p>{{order}} </p>
-      
-   
-      
-        <div v-if="houseData.name" class="houseGeneralInfo">
-        <h1 class="houseTitle">{{houseData.name}} </h1>
-        <h2> Your host: {{hostName}}</h2>
-        </div>
 
-      <section class="order-house-imgs-container grid">
+    <section class="reservation-page flex space-between 
+                    justify-center align-center wrap">
+      <div class="reservation-page-general-data flex-column">
+      <section>
+
+        <section class="order-house-imgs-container">
         <img v-if="houseData.imgs" class="house-reserve-image"
          :src="houseData.imgs[0]" />
          <img v-if="houseData.imgs" class="house-reserve-image"
          :src="houseData.imgs[1]" />
-         <img v-if="houseData.imgs" class="house-reserve-image"
+          <img v-if="houseData.imgs" class="house-reserve-image"
          :src="houseData.imgs[2]" />
-         <img v-if="houseData.imgs" class="house-reserve-image"
-         :src="houseData.imgs[3]" />
+        </section>
+
+      <section class="reserve-form-host-data">
+        <div v-if="houseData.name">
+            <div>
+            <p>{{houseData.name}} </p>
+            <p>{{houseData.desc}} </p>
+            <p>Per night price: {{houseData.price}} </p>
+            <p>Number of reviews: {{houseData.reviews.reviewsIds.length}} </p>
+            <p v-if="houseData.amentities[0]"> Amenities:</p>
+            <p v-if="houseData.amentities[0]"> {{houseData.amentities[0]}} </p>
+            <p v-if="houseData.amentities[1]">{{houseData.amentities[1]}} </p>
+            <img class="host-img" src="">
+            </div>
+          <p> Your host: {{host}}</p>
+        </div>
       </section>
 
+      <hr class="reserve-form-hr">
+
+        
+      </section>
+        
+        <section>
+          <p hidden>{{host}} </p>
+          <p>{{order}} </p>
+
+        </section>
+      
+      </div>
+        
+
+        <div>
         <section class="reserve-form"> 
 
           <div class="reserve-form-container">
@@ -61,7 +86,7 @@
             <button class="reserve-btn" @click="doOrder"><span class="reserve-btn-text">Reserve</span></button>
 
             <div class="non-charge-box">
-            <p class="reviews-data-bold ">You won't be charged yet</p>
+            <p class="reviews-data-bold-center">You won't be charged yet</p>
             </div>
 
             <div class="reserve-box-bottom-container flex space-between align-center justify-center">
@@ -69,12 +94,18 @@
                 It’s been viewed 500+ times in the past week.</p>
                 <img class="bulb-img" src="../assets/imgs/bulb.png"/>
             </div>
-
-            
           </div>
+
         </section>
+
         
-    </section>
+           </div>
+
+            </section>
+        </section>
+
+      
+   
 </template>
 
 <script>
@@ -86,17 +117,16 @@ export default {
       order: 
         {
           name: null,
-          // createdAt: null,
           _id: null,
-          // houseId: this.currHouse.id,
+          // houseId: this.$route.params._id,
               dates: {
                 from: "3.12.2019",
                 to: "5.12.2019"
             },
-          // user: {
-          //   userId: "123",
-          //   userName: "name"
-          // },
+          user: {
+            userId: "123",
+            userName: "name"
+          },
           status: "pending",
               guests: {
                 adults: "adults",
@@ -112,7 +142,7 @@ export default {
 methods: {
     doOrder() {
       this.$store.dispatch("addOrder", this.order);
-      this.$router.push(`/order/${this.order._id}`);
+      // this.$router.push(`/order/${this.order._id}`);
     },
 },
   computed: {
@@ -127,12 +157,12 @@ methods: {
     host() {
       return this.$store.dispatch("getUserById", this.houseData.hostId)
     },
-    hostName() {
+    host() {
       let currUser = this.$store.getters.currUser;
-      let generalName = 'Alon'
-      if (!currUser[0]) return generalName;
-      let host = currUser[0].name;
-      return host;
+      // let generalName = 'Alon'
+      // if (!currUser[0]) return generalName;
+      // let host = currUser[0].name;
+      return currUser;
     }
   },
   

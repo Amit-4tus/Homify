@@ -1,20 +1,48 @@
 
+.order-house-imgs-container {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // align-self: center;
+    align-content: space-around;
+    // grid-template-columns: repeat(auto-fill, minmax(15.3em, 3fr));
+    // gap: 0.2em;
+}
+
+
 .house-reserve-image {
-    height: 20em;
-    width: 20em;
+    height:16.5em ;
+    width: 16.5em;
+    object-fit: cover;
+    margin: 0.1em;
+}
+
+.reservation-page-general-data {
+    background-color: chartreuse;
+    max-width:65vw;
+    height: 32em;
+    left: 3em;
+    top: 5em;
+    margin-left: 1em;
+    text-align: left;
 }
 
 
 .reserve-form {
     border-style:solid;
     border-color: lightgray;
-    border-width: 0.7px;
-    width: 18em;
-    height: 27em;
     position: fixed;
-    right: 3em;
-    top: 10em;
+    right: 1em;
+    top: 5em;
+    border-width: 0.7px;
+    width: 19em;
+    height: 32em;
+    margin-right: 2em;
+    // position: fixed;
 }
+
+
 
 .reserve-form-container {
     margin-left: 10px;
@@ -39,6 +67,13 @@
     font-size: 12px;
     font-weight: bold;
     text-align: left;
+
+}
+
+.reviews-data-bold-center {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
 
 }
 
@@ -108,17 +143,18 @@ cursor: pointer;
     justify-content: center;
 }
 
-.non-charge-box {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
+// .non-charge-box {
+//     text-align: center;
+//     align-items: center;
+//     justify-content: center;
+// }
  
 .reserve-box-bottom-text {
     text-align: justify;
     text-justify: inter-word;
     font-size: 0.8em;
     margin-right: 1em;
+    margin-top: 2em;
 }
 
 .bulb-img {
@@ -130,13 +166,11 @@ cursor: pointer;
 }
 
 
-.order-house-imgs-container {
-    background-color: lightcyan;
-    width: 50em;
-    height: 15em;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 10px;
+
+@media screen and (max-width:803px) {
+
+    .reserve-form {
+        margin-top: 0.5em;
+        margin-left: 1em;
+    }
 }
-
-
