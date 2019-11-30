@@ -3,3 +3,8 @@ $color2: lightgreen;
 $color3: white;
 $color4: rgb(241, 241, 241);
 $color5: black;
+$containerWidth: 96vw;
+
+@media (min-width: 1000px) {
+    $containerWidth: 900px;
+}

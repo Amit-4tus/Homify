@@ -1,28 +1,15 @@
 <template>
-  <section v-if="center">
-    <GmapMap
-      ref="mapRef"
-      :center="center"
-      :zoom="10"
-      map-type-id="terrain"
-      style="width: 500px; height: 300px"
-    >
-      <GmapMarker
-        :position="markers"
-        :clickable="true"
-      
-        @click="center=m.position"
-      />
+  <section v-if="center" class="fff">
+    <GmapMap ref="mapRef" :center="center" :zoom="10" map-type-id="terrain">
+      <GmapMarker :position="markers" :clickable="true" @click="center=m.position" />
     </GmapMap>
   </section>
 </template>
 
 <script>
-
 export default {
   props: {
     coords: Object
-  
   },
 
   data() {

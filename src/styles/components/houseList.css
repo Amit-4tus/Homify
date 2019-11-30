@@ -1,0 +1,22 @@
+.houseList {
+  padding-left: 2%;
+}
+.specialPicksHeader {
+  position: absolute;
+  top: 102vh;
+  left: 2vw;
+}
+.topPicks {
+  width: 95%;
+  display: flex;
+  position: absolute;
+  top: 115vh;
+}
+.topPicks .housePreview {
+  flex-direction: column;
+  width: 90%;
+  height: 50%;
+}
+.topPicks .housePreview .housePreviewImg {
+  width: 100%;
+}

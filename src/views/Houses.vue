@@ -1,15 +1,10 @@
 <template>
   <div class="houses">
-    <g-map v-if="coords" :coords="coords" class="gmap flex align-center flex-column"></g-map>
     <house-list></house-list>
+    <g-map v-if="coords" :coords="coords" class="listMap gmap flex align-center flex-column"></g-map>
   </div>
 </template>
-<style  scoped>
-.gmap {
-  position: fixed;
-  right: 0;
-}
-</style>
+
 <script>
 import houseList from "../components/HouseList.vue";
 import gMap from "@/components/GMap";

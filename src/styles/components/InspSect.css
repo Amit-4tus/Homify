@@ -1,0 +1,11 @@
+.inspSect {
+  position: absolute;
+  top: 175vh;
+}
+.inspSect img {
+  height: 70vh;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 3vh;
+  margin: 0 auto;
+}

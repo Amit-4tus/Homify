@@ -1,34 +1,36 @@
 .houseList {
   padding-left: 2%;
+  width: 50%;
+
+  > * > * {
+    border-bottom: 1px solid $color4;
+    padding: 3% 0px;
+  }
 }
 
 .specialPicksHeader {
-    position: absolute;
-    top: 102vh;
-    left: 2vw;
+  position: absolute;
+  top: 102vh;
+  left: 2vw;
 }
 
-.specialPicks {
+.topPicks {
+  max-width: $containerWidth;
   display: flex;
-//   flex-direction: row;
   position: absolute;
   top: 115vh;
 
+  > * {
+    width: 25%;
+  }
+
   .housePreview {
     flex-direction: column;
-    width: 90%;
-    height: 50%;
+    // width: 80%;
+    //   height: 50%;
 
-    .housePreviewImg {
-      width: 100%;
-    }
+    //   // .houseRating {
 
-    .houseRating {
-      
-    }
-
-    .housePreviewInfo {
-
-    }
+    //   // }
   }
 }
