@@ -1,28 +1,16 @@
 <template>
-  <section v-if="center">
-    <GmapMap
-      ref="mapRef"
-      :center="center"
-      :zoom="10"
-      map-type-id="terrain"
-      style="width: 500px; height: 300px"
-    >
-      <GmapMarker
-        :position="markers"
-        :clickable="true"
-      
-        @click="center=m.position"
-      />
+  <section v-if="center" class="listMap">
+    <!-- {{isFixed}} -->
+    <GmapMap ref="mapRef" :center="center" :zoom="10" map-type-id="terrain" style="width: 100%; height: 100%">
+      <GmapMarker :position="markers" :clickable="true" @click="center=m.position" />
     </GmapMap>
   </section>
 </template>
 
 <script>
-
 export default {
   props: {
     coords: Object
-  
   },
 
   data() {
@@ -44,9 +32,15 @@ export default {
     }
   },
   created() {
-    console.log("got:", this.coords);
     this.center = this.coords;
     this.markers = this.coords;
+    // console.log(document.querySelector('.listMap')).offsetTop
+  },
+  computed: {
+    isFixed() {
+      // return document.querySelector('.listMap').offsetTop
+      // if ()
+    }
   },
   watch: {
     coords() {
