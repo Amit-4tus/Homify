@@ -1,12 +1,22 @@
 <template>
   <div class="my-header">
     <img src="../assets/logo.png" class="main-logo" @click="goToHome" />
-    <nav class="navbar">
+    <nav class="navbar hide">
       <router-link to="/house" class="header-link">Houses</router-link>
       <router-link to="/map" class="header-link">Map</router-link>
       <router-link to="/user-profile" class="header-link">User-Profile</router-link>
-       <router-link to="/host" class="header-link">Host</router-link>
-      <button class="header-link">Sign-In</button>
+      <router-link to="/host" class="header-link">Host</router-link>
+      <div class="header-link">Sign-In</div>
+    </nav>
+    <div class="hamburger" @click="showNav">&#9776;</div>
+    <nav class="mobileNav hide hideToRight">
+      <h1 class="mobileNavHead">HOMIFY</h1>
+      <div to="/house" class="header-link" @click="hideNav('house')">Houses</div>
+      <div to="/map" class="header-link" @click="hideNav('map')">Map</div>
+      <div to="/user-profile" class="header-link" @click="hideNav('user-profile')">User-Profile</div>
+      <div to="/host" class="header-link" @click="hideNav('host')">Host</div>
+      <div class="header-link" @click="hideNav">Sign-In</div>
+      <div class="screen hide" @click="hideNav('')"></div>
     </nav>
   </div>
 </template>
@@ -16,6 +26,23 @@ export default {
   methods: {
     goToHome() {
       this.$router.push("/");
+    },
+    showNav() {
+      document.querySelector('.mobileNav').classList.remove('hideToRight', 'hide')
+      document.querySelector('.screen').classList.remove('hide')
+    },
+    hideNav(path) {
+      document.querySelector('.mobileNav').classList.add('hideToRight', 'hide')
+      document.querySelector('.screen').classList.add('hide')
+      this.$router.push(`/${path}`)
+    }
+  },
+  mounted() {
+    var query = window.matchMedia("(min-width: 450px)");
+    if (query.matches) {
+      console.log("tutu");
+      document.querySelector(".navbar").classList.remove("hide");
+      document.querySelector(".hamburger").classList.add("hide");
     }
   }
 };

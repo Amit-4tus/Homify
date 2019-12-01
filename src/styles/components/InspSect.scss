@@ -1,6 +1,9 @@
 .inspSect {
+  @media (max-width: 550px) {
+    display: none;
+  }
   position: absolute;
-  top: 160vh;
+  top: 175vh;
   left: 13vw;
   background-image: url('../assets/imgs/insp.jpg');
   background-repeat: no-repeat;
@@ -10,22 +13,21 @@
   background-position: center;
   border-radius: 3vh;
   margin: 0 auto;
+  text-align: center;
   
   .inspQuote {
     font-family: tangerine;
-    font-size: 5rem;
-    position: relative;
-    bottom: 30px;
+    font-size: 8vw;
     color: blue;
   }
 
   .inspTxt {
     font-family: tangerine;
-    font-size: 5rem;
+    font-size: 8vw;
     color: blue;
-    position: relative;
-    top: 95px;
-    // left: 30px;
+    position: absolute;
+    bottom: 1%;
+    left: 30px;
   }
 }
 

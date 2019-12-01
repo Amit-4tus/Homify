@@ -63,3 +63,13 @@
 .fixed {
     position: fixed;
 }
+
+.hide {
+  display: none !important;
+}
+
+.hideToRight {
+  position: absolute;
+  left: 100% !important;
+  // transition-timing-function: ease;
+}

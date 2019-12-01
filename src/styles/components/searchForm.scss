@@ -1,26 +1,44 @@
 .searchForm {
-    width: 40vw;
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 5vw;
-    position: absolute;
-    top: 240vh;
-    background-color: $color4;
-    border-radius: 7px;
-    margin: 0px 25vw;
-    font-size: 1.4rem;
+  width: 40vw;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5vw;
+  position: absolute;
+  top: 260vh;
+  font-size: 1.4rem;
+  @media (max-width: 750px) {
+    width: 60vw;
+  }
+  @media (max-width: 550px) {
+    top: 220vh;
+    width: 60vw;
+  }
+  @media (max-width: 365px) {
+    font-size: .8rem;
+  }
+  background-color: $color4;
+  border-radius: 7px;
+  margin: 0;
+
+  input {
+    border: 1px solid darkgray;
+    padding: 3px;
+    // border-bottom: 1px solid darkgray;
+    background-color: transparent;
+  }
 }
 
 .formHeader {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .submit {
-    background-color: $color2;
-    color: $color3;
-    border: 0px;
-    border-radius: 5px;
-    padding: 2% 10%;
+  background-color: $color2;
+  color: $color3;
+  border: 0px;
+  border-radius: 5px;
+  padding: 2% 10%;
+  cursor: pointer;
 }

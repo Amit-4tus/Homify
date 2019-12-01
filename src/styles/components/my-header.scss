@@ -1,35 +1,82 @@
 .my-header {
-    width: 100vw;
-    height: 60px;
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0px;
-    margin-bottom: 1%;
-    background-color: rgba(146, 146, 146, 0.527);
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0px;
+  margin-bottom: 1%;
+  background-color: $color5;
 }
 
 .main-logo {
-    height: 80%;
-    width: auto;
-    padding-left: 1.5%;
-    padding-top: .5%;
-    cursor: pointer;
+  height: 80%;
+  width: auto;
+  padding-left: 1.5%;
+  padding-top: 0.5%;
+  cursor: pointer;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    float: right;
-    min-width: 40%;
-    height: 100%;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  min-width: 40%;
+  height: 100%;
+
+  .header-link {
+    @media (max-width: 460px) {
+      font-size: 0.8rem;
+    }
+  }
 }
 
 .header-link {
-    text-transform: uppercase;
-    padding: 3.5%;
-    background-color: transparent;
-    border: 0px;
-    text-decoration-line: none;
+  text-transform: uppercase;
+  padding: 3.5%;
+  background-color: transparent;
+  border: 0px;
+  text-decoration-line: none;
+  color: $color1;
+}
+
+.hamburger {
+  margin-right: 3%;
+  margin-top: 10px;
+  background-color: transparent;
+  border: 0px;
+  font-size: 29px;
+  color: $color1;
+  // cursor: pointer;
+}
+
+.mobileNav {
+  background-color: $color5;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding-top: 12px;
+  z-index: 1;
+  height: calc(100vh - 12px);
+  transition: all 1s;
+
+  .header-link {
+    margin: 15px 0px;
+  }
+
+  .mobileNavHead {
+    font-size: 1rem;
     color: $color1;
-    // height: 100%;
+  }
+}
+
+.screen {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+  background-color: $color5;
 }

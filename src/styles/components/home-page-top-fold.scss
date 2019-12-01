@@ -1,44 +1,56 @@
 .home-page-top-fold {
-    height: 100vh;
-    width: 100vw;
-    background-image: url(https://static2.mansionglobal.com/production/media/article-images/b5416efec73037c3616699dbde7529ea/large_275.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    text-align: center;
-    z-index: -1;
+  height: 100vh;
+  width: 100vw;
+  background-image: url(https://static2.mansionglobal.com/production/media/article-images/b5416efec73037c3616699dbde7529ea/large_275.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0px;
+  text-align: center;
+  z-index: -1;
 }
 
 .home-page-top-fold > * {
-    position: relative;
-    top: 23vh;
-    color: $color3;
+  position: relative;
+  top: 23vh;
+  color: $color3;
 }
 
 .main-title {
-    font-size: 4rem;
-    font-weight: 400;
+  font-size: 4rem;
+  font-weight: 400;
+  @media (max-width: 530px) {
+    margin: 3vh;
+  }
 }
 
 .secondary-title {
-    font-weight: 400;
+  font-weight: 400;
+  @media (max-width: 400px) {
+    width: 80%;
+    align-self: center;
+  }
 }
 
 .startBtn {
-    font-size: 2.5rem;
-    padding: 1%;
-    background-color: $color2;
-    color: $color3;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    outline: none;
-    transition: 3s;
-    &:hover:before {
-        content: " ↓ ";
-    }
-    &:hover:after {
-        content: " ↓ ";
-    }
+  width: 15%;
+  align-self: center;
+  display: inline-block;
+  font-size: 2.5rem;
+  padding: 1% 5%;
+  background-color: $color2;
+  color: $color3;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  outline: none;
+
+  //   &:hover:before {
+  //     content: " ↓ ";
+  //   }
+  //   &:hover:after {
+  //     content: " ↓ ";
+  //   }
 }

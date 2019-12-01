@@ -1,29 +1,28 @@
 <template name="searchForm">
   <form class="searchForm">
-   
     <slot></slot>
-    
+
     <div class="where">
-      Country / State:
-      <input type="text" />
+      <span>Country / State:</span><br>
+      <input type="text" placeholder="e.g."/>
     </div>
     <div class="when">
-      From:
-      <input v-model="from" type="date" />
-      To:
+      <span>From:</span><br>
+      <input v-model="from" type="date" /><br>
+      <span>To:</span><br>
       <input v-model="to" type="date" />
     </div>
-   
+
     <div class="howMany">
-      How Many Visitors:
+      <span>How Many Visitors:</span><br>
       <select>
         <option value="few">1-3</option>
         <option value="middle">4-7</option>
         <option value="many">8+</option>
       </select>
     </div>
-    <button @click.prevent="calcDateRange">check Results</button>
-    <input type="submit" class="submit" value="TRAVEL" @click.prevent="doSearch" />
+    <!-- <button @click.prevent="calcDateRange">check Results</button> -->
+    <button class="submit" @click.prevent="doSearch">TRAVEL</button>
   </form>
 </template>
 
@@ -51,11 +50,11 @@ export default {
       var enddate = new Date("2019/12/20").toLocaleDateString();
       var startD = new Date(this.from).toLocaleDateString();
       var endD = new Date(this.to).toLocaleDateString();
-      if (startD > endD) return this.res='enter valid date ';
+      if (startD > endD) return (this.res = "enter valid date ");
       if (startD >= startdate && endD <= enddate) {
-        this.res="Yes sure!!"
+        this.res = "Yes sure!!";
       } else {
-        this.res="No place!!"
+        this.res = "No place!!";
       }
     }
   }

@@ -1,8 +1,8 @@
 <template>
   <section class="home-page-top-fold">
-    <h1 class="main-title">Inspirational Quote</h1>
-    <h2 class="secondary-title">If You Read beyond the main title you're awesome!</h2>
-    <button class="startBtn" @click="doScroll">Find The Perfect Vacation</button>
+    <h1 class="main-title">Find The Perfect Vacation</h1>
+    <h2 class="secondary-title">It's as easy as clicking a butoon</h2>
+    <button class="startBtn" @click="doScroll">v</button>
   </section>
 </template>
 
