@@ -14,15 +14,18 @@ function getOrders() {
 
 async function addOrder(order) {
 
-    order._id = makeId()
-    
+    order._id = makeId();
+    order.id=makeId();
+    console.log(order)
     // order.user.userName="me"
     order.createdAt= new Date().toLocaleDateString();
     const newOrder=await httpService.post(`order`, order)
+    console.log(newOrder)
     return newOrder
 }
 
 function getOrderById(id) {
+    console.log(id)
     return httpService.get(`order?_id=${id}`)
 };
 

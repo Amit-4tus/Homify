@@ -11,7 +11,7 @@
     <button class="reserveBtn" @click="doReserve">Reserve</button>
 
     <h2>if you are the owner press the button</h2>
-    <button @click="doEdit">Edit here</button>
+    <button v-if="loggedinUser!==null && loggedinUser._id===houseData.hostId" @click="doEdit">Edit here</button>
     <g-map
       v-if="showMap"
       :coords="houseData.location.coords"
@@ -31,13 +31,12 @@ import reviewList from "@/components/ReviewList";
 import gMap from "@/components/GMap";
 export default {
   data() {
-    return {review:{},
-    showMap:false};
+    return { review: {}, showMap: false };
   },
   async created() {
     this.$store.dispatch("loadHouseById", this._id);
     const reviews = await this.$store.dispatch("loadReviews", this._id);
-    this.showMap=true
+    this.showMap = true;
     console.log("review got", reviews);
   },
   computed: {
@@ -48,10 +47,12 @@ export default {
       let currHouse = this.$store.getters.currHouse;
       if (!currHouse) return null;
       return currHouse;
+    },
+    loggedinUser() {
+      return this.$store.getters.loggedinUser;
     }
   },
   methods: {
-  
     doReserve() {
       this.$router.push(`/order/house/${this.houseData._id}`);
       // this.$router.push("/order");
@@ -60,8 +61,8 @@ export default {
       this.$router.push(`/host/${this._id}`);
     },
     addReview(review) {
-     review.houseId=this.houseData._id;
-       this.$store.dispatch("addReview", review);
+      review.houseId = this.houseData._id;
+      this.$store.dispatch("addReview", review);
     }
   },
   components: {

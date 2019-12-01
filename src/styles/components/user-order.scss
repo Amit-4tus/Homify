@@ -1,20 +1,59 @@
 
-.house-reserve-image {
-    height: 20em;
-    width: 20em;
+.order-house-imgs-container {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // align-self: center;
+    align-content: space-around;
+    // grid-template-columns: repeat(auto-fill, minmax(15.3em, 3fr));
+    // gap: 0.2em;
 }
 
+
+.house-reserve-image {
+    height:16.7em ;
+    width: 16.7em;
+    object-fit: cover;
+    margin: 0.1em;
+}
+
+.reservation-page-general-data {
+    // background-color: chartreuse;
+    // font-family: eurof;
+    font-family: 'Roboto', sans-serif;
+    max-width:52em;
+    height: 32em;
+    left: 3em;
+    top: 5em;
+    margin-left: 1em;
+    text-align: left;
+}
+
+.house-name {
+font-size: x-large;
+font-weight: bold;
+}
+
+.house-price {
+    font-size: large;
+    font-weight: bold;
+    }
 
 .reserve-form {
     border-style:solid;
     border-color: lightgray;
-    border-width: 0.7px;
-    width: 18em;
-    height: 27em;
     position: fixed;
-    right: 3em;
-    top: 10em;
+    right: 1em;
+    top: 5em;
+    border-width: 0.7px;
+    width: 19em;
+    height: 32em;
+    margin-right: 2em;
+    // position: fixed;
 }
+
+
 
 .reserve-form-container {
     margin-left: 10px;
@@ -42,12 +81,20 @@
 
 }
 
+.reviews-data-bold-center {
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
 .reserve-form-boxes-container {
     border-style:solid;
     border-color: lightgray;
     border-width: 0.7px;
     border-radius: 3px;
     height: 2.5em;
+    margin-bottom: 0.5em;
 }
 
 .reserve-form-boxes {
@@ -88,7 +135,7 @@ cursor: pointer;
 .reserve-btn {
     width: 20em;
     height:3.5em;
-    margin-top: 2em;
+    margin-top: 2.5em;
     background-color: rgb(71, 156, 71);
     align-items: center;
     border: 0;
@@ -108,17 +155,18 @@ cursor: pointer;
     justify-content: center;
 }
 
-.non-charge-box {
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-}
+// .non-charge-box {
+//     text-align: center;
+//     align-items: center;
+//     justify-content: center;
+// }
  
 .reserve-box-bottom-text {
     text-align: justify;
     text-justify: inter-word;
     font-size: 0.8em;
     margin-right: 1em;
+    margin-top: 2em;
 }
 
 .bulb-img {
@@ -130,13 +178,11 @@ cursor: pointer;
 }
 
 
-.order-house-imgs-container {
-    background-color: lightcyan;
-    width: 50em;
-    height: 15em;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 10px;
+
+@media screen and (max-width:803px) {
+
+    .reserve-form {
+        margin-top: 0.5em;
+        margin-left: 1em;
+    }
 }
-
-
