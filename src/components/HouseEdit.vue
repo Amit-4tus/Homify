@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div>
     <section class="add-house-page">
 
@@ -46,36 +45,6 @@
       <p class="add-house-Upload-image-text">Show us how does your place looks like?</p>
       <el-upload
     
-=======
-  <div class="host-add-house-page">
-    <h2>Name</h2>
-    <input v-model="newHouse.name" type="text" />
-    <h2>Price</h2>
-    <input v-model="newHouse.price" type="number" />
-    <h2>Dates</h2>
-    <div class="when">
-      From:
-      <input :min="dateMin" v-model="newHouse.dates.from" type="date" />
-      To:
-      <input :min="dateMin" v-model="newHouse.dates.to" type="date" />
-    </div>
-    <h2>Address</h2>
-    <h4>Country</h4>
-    <input @change="getCoords" v-model="newHouse.location.address.country" type="text" />
-    <h4>City</h4>
-    <input @change="getCoords" v-model="newHouse.location.address.city" type="text" />
-    <h4>Street</h4>
-    <input @change="getCoords" v-model="newHouse.location.address.street" type="text" />
-    <h2>description</h2>
-    <textarea v-model="newHouse.desc"></textarea>
-    <h2>Amenities</h2>
-    <el-select v-model="newHouse.amentities" multiple placeholder="Select">
-      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
-    </el-select>
-    <h2>upload images</h2>
-    <el-upload
-      class="upload-demo"
->>>>>>> master
       action
       submit="submit"
       :auto-upload="false"
