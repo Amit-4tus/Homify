@@ -22,6 +22,11 @@
   float: right;
   min-width: 40%;
   height: 100%;
+  padding-right: 1.5%;
+
+  @media (max-width: 450px) {
+    display: none;
+  }
 
   .header-link {
     @media (max-width: 460px) {
@@ -40,13 +45,16 @@
 }
 
 .hamburger {
-  margin-right: 3%;
+  margin-right: 35px;
   margin-top: 10px;
   background-color: transparent;
   border: 0px;
   font-size: 29px;
   color: $color1;
   // cursor: pointer;
+  @media (min-width: 450px) {
+    display: none;
+  }
 }
 
 .mobileNav {
@@ -79,4 +87,5 @@
   right: 0px;
   z-index: -1;
   background-color: $color5;
+  overflow-y: hidden;
 }

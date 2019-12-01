@@ -1,10 +1,10 @@
 <template>
   <div class="my-header">
     <img src="../assets/logo.png" class="main-logo" @click="goToHome" />
-    <nav class="navbar hide">
+    <nav class="navbar">
       <router-link to="/house" class="header-link">Houses</router-link>
       <router-link to="/map" class="header-link">Map</router-link>
-      <router-link to="/user-profile" class="header-link">User-Profile</router-link>
+      <router-link to="/user-profile" class="header-link">Profile</router-link>
       <router-link to="/host" v-if="loggedinUser!==null" class="header-link">Host</router-link>
       <router-link to="/login" class="header-link">Sign-In</router-link>
     </nav>
@@ -28,21 +28,15 @@ export default {
       this.$router.push("/");
     },
     showNav() {
-      document.querySelector('.mobileNav').classList.remove('hideToRight', 'hide')
-      document.querySelector('.screen').classList.remove('hide')
+      document
+        .querySelector(".mobileNav")
+        .classList.remove("hideToRight", "hide");
+      document.querySelector(".screen").classList.remove("hide");
     },
     hideNav(path) {
-      document.querySelector('.mobileNav').classList.add('hideToRight', 'hide')
-      document.querySelector('.screen').classList.add('hide')
-      this.$router.push(`/${path}`)
-    }
-  },
-  mounted() {
-    var query = window.matchMedia("(min-width: 450px)");
-    if (query.matches) {
-      console.log("tutu");
-      document.querySelector(".navbar").classList.remove("hide");
-      document.querySelector(".hamburger").classList.add("hide");
+      document.querySelector(".mobileNav").classList.add("hideToRight", "hide");
+      document.querySelector(".screen").classList.add("hide");
+      this.$router.push(`/${path}`);
     }
   },
   computed: {

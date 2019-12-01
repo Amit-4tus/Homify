@@ -5,3 +5,8 @@
   width: 45%;
   height: calc(100vh - 72px);
 }
+@media (max-width: 450px) {
+  .listMap {
+    display: none;
+  }
+}
