@@ -1,7 +1,9 @@
 <template>
-  <div class="add-house-page">
+  <div>
+    <section class="add-house-page">
 
-    <section class="add-house-step-container flex-column">
+    <section class="add-house-page-left">
+    <section class="add-house-step-container">
 
     <div class="add-house-welcome-text-1">Hi, __________! Let's get started</div>
     <div class="add-house-welcome-text-2">listing your space</div>
@@ -14,7 +16,7 @@
     
 
     <p class="add-house-address-text">Where is your place located?</p>
-    <section class="add-house-location-container">
+    <div class="add-house-location-container">
           <input class="add-house-address-input" @change="getCoords" 
                 v-model="newHouse.location.address.country" type="text" placeholder="Country"/>
       
@@ -23,25 +25,24 @@
      
           <input class="add-house-address-input" @change="getCoords" 
                 v-model="newHouse.location.address.street" type="text" placeholder="Street"/>
+    </div>
     </section>
-
-   </section>
-
+    
     <section class="add-house-step-container flex-column">
-    <p class="add-house-step bold">step 2</p>
-     <p class="add-house-charge-per-night-text">What will be the Dollar cost per night?</p>
 
-    <input class="add-house-price-input" v-model="newHouse.price" type="number"/>
+      <p class="add-house-step bold">step 2</p>
+      <p class="add-house-charge-per-night-text">What will be the Dollar cost per night?</p>
 
-    </section>
-   
-    <h2>description</h2>
-    <textarea v-model="newHouse.desc"></textarea>
-    <h2>Amenities</h2>
-    <el-select v-model="newHouse.amentities" multiple placeholder="Select">
-      <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
-    </el-select>
-    <h2>upload images</h2>
+      <input class="add-house-price-input" v-model="newHouse.price" type="number"/>
+
+      <p class="add-house-amenities-text">What amenities do you offer?</p>
+        <el-select class="add-house-amenities-input" v-model="newHouse.amentities" multiple placeholder="Please select">
+        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"></el-option>
+        </el-select>
+
+      <p class="add-house-step bold">step 3</p>
+
+      <p class="add-house-Upload-image-text">Show us how does your place looks like?</p>
     <el-upload
       class="upload-demo"
       action
@@ -56,9 +57,31 @@
       :on-exceed="handleExceed"
       :on-change="onChange"
     >
-      <el-button size="small" type="primary">Click to upload</el-button>
+      <el-button size="x-large" type="primary">Upload images</el-button>
       <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
     </el-upload>
+         
+
+
+
+    </section>
+    
+    </section>
+    <!-- <img class="flowers-img" src="../assets/imgs/flowers.jpg"/> -->
+
+    <!-- <section class="add-house-step-container-right"> -->
+  
+      <!-- </section> -->
+
+    </section>
+
+
+    <!-- <h2>description</h2>
+    <textarea v-model="newHouse.desc"></textarea> -->
+    
+    
+    
+    
     <el-button
       style="margin-left: 10px;"
       size="small"

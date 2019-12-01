@@ -1,14 +1,17 @@
 .add-house-page {
-    // background-image: url("../assets/imgs/flowers.jpg");
-    background-color: beige;
+    
+    // background-color: brown;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;;
 }
 
 .add-house-step-container {
-    background-color: white;
+    // background-color: blue;
     text-align: left;
-    margin-left: 8em;
+    margin-left: 7em;
     margin-top: 3em;
-    max-width: 60vw;
+    max-width: 35em;
 }
 
 .add-house-welcome-text-1{
@@ -23,7 +26,6 @@
     font-size: 26px;
     color: rgb(124, 59, 59);
     margin-bottom: 50px;
-
 }
 
 
@@ -31,7 +33,7 @@
     font-family: eurof;
     font-size: 20px;
     color: rgb(189, 158, 158);
-    margin-bottom: 0px;
+    // margin-bottom: 0px;
     padding-bottom: 0px;
     margin-bottom: 8px;
 }
@@ -44,7 +46,8 @@
 }
 
 .add-house-name-input {  
-        width: 25em;
+        max-width: 25em;
+        min-width: 21em;
         height:2.5em;
         border: solid 1.3px rgb(179, 156, 156);
         font-size: 15px;
@@ -60,17 +63,18 @@
 }
 
 .add-house-location-container {
+    // background-color: yellowgreen;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     justify-content: space-between;
-    max-width: 30em;
+    min-width: 27em;
 }
 
 .add-house-address-input {
-    width: 10em;
+    width: 9em;
     height:2.5em;
     border: solid 1.3px rgb(179, 156, 156);
     font-size: 15px;
@@ -86,7 +90,8 @@
 }
 
 .add-house-price-input {
-    width: 25em;
+    max-width: 25em;
+    min-width: 21em;
     height:2.5em;
     border: solid 1.3px rgb(179, 156, 156);
     font-size: 15px;
@@ -100,4 +105,39 @@ input[type=number]::-webkit-outer-spin-button
 {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.add-house-amenities-text {
+    color: rgb(124, 59, 59);
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-bottom: 5px;
+}
+
+.add-house-amenities-input {
+    max-width: 31.5em;
+    min-width: 21em;
+    border: solid 1.3px rgb(179, 156, 156);
+    font-size: 20px;
+    border-radius: 2px;
+    margin-bottom: 3em;
+}
+
+.add-house-Upload-image-text {
+    color: rgb(124, 59, 59);
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-bottom: 10px;
+}
+
+.add-house-step-container-right {
+    width: 300px;
+    background-color: yellow;
+    position: fixed;
+    right: 5em;
+}
+
+.flowers-img {
+    margin-right: 6em;
+    position: fixed;
 }
