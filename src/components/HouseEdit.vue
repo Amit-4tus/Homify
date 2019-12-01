@@ -43,8 +43,8 @@
       <p class="add-house-step bold">step 3</p>
 
       <p class="add-house-Upload-image-text">Show us how does your place looks like?</p>
-    <el-upload
-      class="upload-demo"
+      <el-upload
+    
       action
       submit="submit"
       :auto-upload="false"
@@ -60,14 +60,19 @@
       <el-button size="x-large" type="primary">Upload images</el-button>
       <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
     </el-upload>
-         
-
-
-
+    <el-button
+     
+      size="small"
+      type="success"
+      @click="submitUpload"
+    >Add images</el-button>
+    <!-- <pre>{{newHouse}}</pre> -->
+    <button @click="addHouse">Add house</button>
+    <button v-if="isEditing" @click="updateHouse">Update</button>
+    <button v-if="isEditing" @click="deleteHouse">Delete</button>
     </section>
-    
     </section>
-    <!-- <img class="flowers-img" src="../assets/imgs/flowers.jpg"/> -->
+    <img class="flowers-img" src="../assets/imgs/vase.png"/>
 
     <!-- <section class="add-house-step-container-right"> -->
   
@@ -82,16 +87,8 @@
     
     
     
-    <el-button
-      style="margin-left: 10px;"
-      size="small"
-      type="success"
-      @click="submitUpload"
-    >upload to server</el-button>
-    <pre>{{newHouse}}</pre>
-    <button @click="addHouse">Add house</button>
-    <button v-if="isEditing" @click="updateHouse">Update</button>
-    <button v-if="isEditing" @click="deleteHouse">Delete</button>
+    
+    
   </div>
 </template>
 

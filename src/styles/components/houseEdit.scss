@@ -140,4 +140,15 @@ input[type=number]::-webkit-outer-spin-button
 .flowers-img {
     margin-right: 6em;
     position: fixed;
+    right: 0em;
+}
+
+.upload-img-btn {
+    width: 20em;
+    height:3.5em;
+    margin-top: 2.5em;
+    background-color: rgb(71, 156, 71);
+    align-items: center;
+    border: 0;
+    border-radius: 3px;
 }
