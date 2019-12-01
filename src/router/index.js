@@ -8,6 +8,8 @@ import userProfile from '../views/UserProfile'
 import HostDashboard from '../views/HostDashboard'
 import userOrder from '../views/UserOrder'
 import orderDetails from '../views/OrderDetails'
+import login from '../views/Login'
+
 
 Vue.use(VueRouter)
 
@@ -51,6 +53,11 @@ const routes = [
     path: '/order/:_id',
     name: 'order-details',
     component: orderDetails
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: login
   },
 
 ]

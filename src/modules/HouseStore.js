@@ -18,8 +18,13 @@ export default {
         setItemsToShow(state, itemsToShow) {
             state.itemsToShow = itemsToShow.items;
         },
-        setCurrHouse(state, {currHouse}) {
-            state.currHouse = currHouse[0]
+        // setCurrHouse(state, {currHouse}) {
+        //     state.currHouse = currHouse[0]
+        // }
+
+        //server
+        setCurrHouse(state, { currHouse }) {
+            state.currHouse = currHouse
         }
     },
     actions: {
@@ -29,23 +34,24 @@ export default {
         },
         async loadHouseById(context, id) {
             const currHouse = await houseService.getItemById(id)
+
             context.commit({ type: 'setCurrHouse', currHouse })
             return currHouse
         },
-        async addHouse(context, {newHouse}) {
+        async addHouse(context, { newHouse }) {
             const house = await houseService.addItem(newHouse)
             return house;
         },
-        async updateHouse(context, {house}) {
+        async updateHouse(context, { house }) {
             const updatedHouse = await houseService.updateItem(house)
-            
+
         },
-        async deleteHouse(context, {id}) {
-        
+        async deleteHouse(context, { id }) {
+            console.log(id)
             const deletedHouse = await houseService.deleteItem(id)
             return deletedHouse
-            
+
         },
-        
+
     }
 }

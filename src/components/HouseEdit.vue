@@ -59,6 +59,7 @@ export default {
       isEditing: false,
       newHouse: {
         imgs: [],
+        hostId: "",
         location: {
           coords: "",
           address: {
@@ -100,7 +101,9 @@ export default {
       let id = this.$route.params._id;
       this.isEditing = true;
       const currHouse = await this.$store.dispatch("loadHouseById", id);
-      this.newHouse = JSON.parse(JSON.stringify(currHouse[0]));
+      // this.newHouse = JSON.parse(JSON.stringify(currHouse[0]));
+      //server
+      this.newHouse = JSON.parse(JSON.stringify(currHouse));
     }
   },
   computed: {},
@@ -141,12 +144,13 @@ export default {
       var city = this.newHouse.location.address.city;
       var street = this.newHouse.location.address.street;
       var address = `${country} ${city} ${street}`;
-      console.log(address);
+
       res = await geoService.query(address);
       this.newHouse.location.coords = res[0].geometry.location;
     },
     async addHouse() {
       if (!this.doneUpload) return console.log("imgs is required");
+      this.newHouse.hostId = this.$store.getters.loggedinUser._id;
       const house = await this.$store.dispatch({
         type: "addHouse",
         newHouse: this.newHouse
@@ -160,14 +164,19 @@ export default {
     async deleteHouse() {
       await this.$store.dispatch({
         type: "deleteHouse",
-        id: this.newHouse.id
+        //server
+        id: this.newHouse._id
+
+        // id: this.newHouse.id
       });
       this.$router.push(`/`);
     }
   },
+  computed:{
+    
+  },
   watch: {
     $route() {
-      console.log("haha");
       location.reload();
     }
   }
