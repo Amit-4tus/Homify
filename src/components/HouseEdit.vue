@@ -13,7 +13,12 @@
     <p class="add-house-name-of-house-text">How would you like to name your place?</p>
      <input class="add-house-name-input" v-model="newHouse.name" 
             type="text" maxlength="50"/>
-    
+     <div class="when">
+      From:
+      <input :min="dateMin" v-model="newHouse.dates.from" type="date" />
+      To:
+      <input :min="dateMin" v-model="newHouse.dates.to" type="date" />
+    </div>
 
     <p class="add-house-address-text">Where is your place located?</p>
     <div class="add-house-location-container">
