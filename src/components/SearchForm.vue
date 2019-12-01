@@ -3,18 +3,23 @@
     <slot></slot>
 
     <div class="where">
-      <span>Country / State:</span><br>
-      <input type="text" placeholder="e.g."/>
+      <span>Country / State:</span>
+      <br />
+      <input v-model="filterBy.txt" type="text" placeholder="e.g." />
     </div>
     <div class="when">
-      <span>From:</span><br>
-      <input v-model="from" type="date" /><br>
-      <span>To:</span><br>
+      <span>From:</span>
+      <br />
+      <input v-model="from" type="date" />
+      <br />
+      <span>To:</span>
+      <br />
       <input v-model="to" type="date" />
     </div>
 
     <div class="howMany">
-      <span>How Many Visitors:</span><br>
+      <span>How Many Visitors:</span>
+      <br />
       <select>
         <option value="few">1-3</option>
         <option value="middle">4-7</option>
@@ -33,18 +38,20 @@ export default {
       from: "",
       to: "",
       res: "",
-      filterBy:{}
+      filterBy: { txt: "" }
     };
   },
   methods: {
     doSearch(ev) {
+      console.log(this.filterBy);
+      if (this.filterBy.txt === "") return;
       // const where = ev.target.parentElement.children[1].children[0].value;
       // const when = {};
       // when.from = ev.target.parentElement.children[2].children[0].value;
       // when.until = ev.target.parentElement.children[2].children[1].value;
       // const who = ev.target.parentElement.children[3].children[0].value;
       // const searchBy = { when, where, who };
-      // this.$router.push("/house");
+      this.$router.push(`/house/${this.filterBy.txt}`);
     },
     calcDateRange() {
       var startdate = new Date("2019/12/15").toLocaleDateString();

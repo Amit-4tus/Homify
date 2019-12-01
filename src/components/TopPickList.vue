@@ -1,6 +1,6 @@
 <template name="topPickList">
   <section>
-    <router-link :to="`/house/${home._id}`" v-for="(home, idx) in homes" :key="idx" class="housePreviewLink">
+    <router-link :to="`/house/details/${home._id}`" v-for="(home, idx) in homes" :key="idx" class="housePreviewLink">
       <house-preview :itemData="home"></house-preview>
     </router-link>
   </section>

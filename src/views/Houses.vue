@@ -16,7 +16,8 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch("loadItems");
+    let filter = this.$route.params.q;
+    this.$store.dispatch("loadItems",filter);
     var elMyHeader = document.querySelector(".my-header");
     if (!elMyHeader) {
       var elMyHeader = document.querySelector(".my-header");

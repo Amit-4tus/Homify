@@ -28,8 +28,9 @@ export default {
         }
     },
     actions: {
-        async loadItems(context) {
-            const items = await houseService.getItems()
+        async loadItems(context,filter) {
+         console.log(filter)
+            const items = await houseService.getItems(filter)
             context.commit({ type: 'setItemsToShow', items })
         },
         async loadHouseById(context, id) {
