@@ -5,7 +5,7 @@ export default {
     getOrderById
 };
 
-const BASE_URL = (process.env.NODE_ENV !== 'development') ? '/order' : '//localhost:3000/order';
+// const BASE_URL = (process.env.NODE_ENV !== 'development') ? '/order' : '//localhost:3000/order';
 const axios = require('axios');
 
 function getOrders() {
@@ -14,19 +14,15 @@ function getOrders() {
 
 async function addOrder(order) {
 
-    order._id = makeId();
-    order.id=makeId();
-    console.log(order)
-    // order.user.userName="me"
     order.createdAt= new Date().toLocaleDateString();
-    const newOrder=await httpService.post(`order`, order)
+    const newOrder=await httpService.post(`api/order`, order)
     console.log(newOrder)
     return newOrder
 }
 
 function getOrderById(id) {
     console.log(id)
-    return httpService.get(`order?_id=${id}`)
+    return httpService.get(`api/order/${id}`)
 };
 
 function makeId(length = 3) {

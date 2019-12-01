@@ -4,6 +4,13 @@
     <input v-model="newHouse.name" type="text" />
     <h2>Price</h2>
     <input v-model="newHouse.price" type="number" />
+    <h2>Dates</h2>
+    <div class="when">
+      From:
+      <input :min="dateMin" v-model="newHouse.dates.from" type="date" />
+      To:
+      <input :min="dateMin" v-model="newHouse.dates.to" type="date" />
+    </div>
     <h2>Address</h2>
     <h4>Country</h4>
     <input @change="getCoords" v-model="newHouse.location.address.country" type="text" />
@@ -57,40 +64,8 @@ export default {
     return {
       doneUpload: false,
       isEditing: false,
-      newHouse: {
-        imgs: [],
-        hostId: "",
-        location: {
-          coords: "",
-          address: {
-            street: "",
-            city: "",
-            country: ""
-          }
-        }
-      },
-      options: [
-        {
-          value: "Wifi",
-          label: "Wifi"
-        },
-        {
-          value: "Kitchen",
-          label: "Kitchen"
-        },
-        {
-          value: "Shower",
-          label: "Shower"
-        },
-        {
-          value: "Parking",
-          label: "Parking"
-        },
-        {
-          value: "Elevator",
-          label: "Elevator"
-        }
-      ],
+      newHouse: this.emptyHouse(),
+      options: this.amenitiesOps(),
       value1: [],
       value2: [],
       fileList: []
@@ -151,6 +126,7 @@ export default {
     async addHouse() {
       if (!this.doneUpload) return console.log("imgs is required");
       this.newHouse.hostId = this.$store.getters.loggedinUser._id;
+
       const house = await this.$store.dispatch({
         type: "addHouse",
         newHouse: this.newHouse
@@ -170,10 +146,66 @@ export default {
         // id: this.newHouse.id
       });
       this.$router.push(`/`);
+    },
+    emptyHouse() {
+      return {
+        dates: {
+          from: new Date().toDateString(),
+          to: new Date().toDateString()
+        },
+        imgs: [],
+        hostId: "",
+        location: {
+          coords: "",
+          address: {
+            street: "",
+            city: "",
+            country: ""
+          },
+        },
+         reviews: {
+            avgRating: 4.8,
+            reviewsIds: []
+          }
+      };
+    },
+    amenitiesOps() {
+      return [
+        {
+          value: "Wifi",
+          label: "Wifi"
+        },
+        {
+          value: "Kitchen",
+          label: "Kitchen"
+        },
+        {
+          value: "Shower",
+          label: "Shower"
+        },
+        {
+          value: "Parking",
+          label: "Parking"
+        },
+        {
+          value: "Elevator",
+          label: "Elevator"
+        }
+      ];
     }
   },
-  computed:{
-    
+  computed: {
+    dateMin() {
+      var d = new Date(new Date()),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
+
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
+
+      return [year, month, day].join("-");
+    }
   },
   watch: {
     $route() {
