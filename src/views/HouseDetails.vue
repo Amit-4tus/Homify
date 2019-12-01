@@ -37,7 +37,7 @@ export default {
   async created() {
     this.$store.dispatch("loadHouseById", this._id);
     const reviews = await this.$store.dispatch("loadReviews", this._id);
-    // this.showMap = true;
+    this.showMap = true;
     console.log("review got", reviews);
   },
   computed: {
