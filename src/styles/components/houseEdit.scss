@@ -1,4 +1,103 @@
-.host-add-house-page {
-    background-image: url("../assets/imgs/flowers.jpg");
-    background-image: 100vh;
+.add-house-page {
+    // background-image: url("../assets/imgs/flowers.jpg");
+    background-color: beige;
+}
+
+.add-house-step-container {
+    background-color: white;
+    text-align: left;
+    margin-left: 8em;
+    margin-top: 3em;
+    max-width: 60vw;
+}
+
+.add-house-welcome-text-1{
+    font-family: 'Gupter', serif;
+    font-size: 26px;
+    color: rgb(124, 59, 59);
+    margin-bottom: 1px;
+}
+
+.add-house-welcome-text-2{
+    font-family: 'Gupter', serif;
+    font-size: 26px;
+    color: rgb(124, 59, 59);
+    margin-bottom: 50px;
+
+}
+
+
+.add-house-step {
+    font-family: eurof;
+    font-size: 20px;
+    color: rgb(189, 158, 158);
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 8px;
+}
+
+.add-house-name-of-house-text {
+    color: rgb(124, 59, 59);
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-bottom: 5px;
+}
+
+.add-house-name-input {  
+        width: 25em;
+        height:2.5em;
+        border: solid 1.3px rgb(179, 156, 156);
+        font-size: 15px;
+        padding: none;
+        border-radius: 2px;
+}
+
+.add-house-address-text {
+    color: rgb(124, 59, 59);
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-bottom: 5px;
+}
+
+.add-house-location-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    max-width: 30em;
+}
+
+.add-house-address-input {
+    width: 10em;
+    height:2.5em;
+    border: solid 1.3px rgb(179, 156, 156);
+    font-size: 15px;
+    padding: none;
+    border-radius: 2px;
+}
+
+.add-house-charge-per-night-text {
+    color: rgb(124, 59, 59);
+    font-size: 20px;
+    font-family: 'Noto Sans TC', sans-serif;
+    margin-bottom: 5px;
+}
+
+.add-house-price-input {
+    width: 25em;
+    height:2.5em;
+    border: solid 1.3px rgb(179, 156, 156);
+    font-size: 15px;
+    padding: none;
+    border-radius: 2px;
+
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  -webkit-appearance: none;
+  margin: 0;
 }

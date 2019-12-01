@@ -1,16 +1,40 @@
 <template>
-  <div class="host-add-house-page">
-    <h2>Name</h2>
-    <input v-model="newHouse.name" type="text" />
-    <h2>Price</h2>
-    <input v-model="newHouse.price" type="number" />
-    <h2>Address</h2>
-    <h4>Country</h4>
-    <input @change="getCoords" v-model="newHouse.location.address.country" type="text" />
-    <h4>City</h4>
-    <input @change="getCoords" v-model="newHouse.location.address.city" type="text" />
-    <h4>Street</h4>
-    <input @change="getCoords" v-model="newHouse.location.address.street" type="text" />
+  <div class="add-house-page">
+
+    <section class="add-house-step-container flex-column">
+
+    <div class="add-house-welcome-text-1">Hi, __________! Let's get started</div>
+    <div class="add-house-welcome-text-2">listing your space</div>
+
+    <p class="add-house-step bold">step 1</p>
+
+    <p class="add-house-name-of-house-text">How would you like to name your place?</p>
+     <input class="add-house-name-input" v-model="newHouse.name" 
+            type="text" maxlength="50"/>
+    
+
+    <p class="add-house-address-text">Where is your place located?</p>
+    <section class="add-house-location-container">
+          <input class="add-house-address-input" @change="getCoords" 
+                v-model="newHouse.location.address.country" type="text" placeholder="Country"/>
+      
+          <input class="add-house-address-input" @change="getCoords" 
+                v-model="newHouse.location.address.city" type="text" placeholder="City"/>
+     
+          <input class="add-house-address-input" @change="getCoords" 
+                v-model="newHouse.location.address.street" type="text" placeholder="Street"/>
+    </section>
+
+   </section>
+
+    <section class="add-house-step-container flex-column">
+    <p class="add-house-step bold">step 2</p>
+     <p class="add-house-charge-per-night-text">What will be the Dollar cost per night?</p>
+
+    <input class="add-house-price-input" v-model="newHouse.price" type="number"/>
+
+    </section>
+   
     <h2>description</h2>
     <textarea v-model="newHouse.desc"></textarea>
     <h2>Amenities</h2>
