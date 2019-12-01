@@ -5,8 +5,8 @@
 
 <script>
 export default {
-    created() {
-        this.$store.dispatch("loadOrders", this._id); 
+   async created() {
+       await this.$store.dispatch("loadOrders", this._id); 
   },
     computed: {
     _id() {

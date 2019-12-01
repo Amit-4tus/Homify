@@ -8,7 +8,7 @@
       <img v-if="houseData.imgs" class="houseMainImage" :src="houseData.imgs[0]" />
     </section>
     <p class="houseDesc">{{houseData.desc}}</p>
-    <button class="reserveBtn" @click="doReserve">Reserve</button>
+    <button v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId" class="reserveBtn" @click="doReserve">Reserve</button>
 
     <h2>if you are the owner press the button</h2>
     <button v-if="loggedinUser!==null && loggedinUser._id===houseData.hostId" @click="doEdit">Edit here</button>

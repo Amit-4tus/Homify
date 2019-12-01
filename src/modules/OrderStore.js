@@ -14,7 +14,8 @@ export default {
     },
     mutations: {
         setOrderToShow(state, orderToShow) {
-            state.orderToShow = orderToShow;
+            // console.log(orderToShow)
+            state.orderToShow = orderToShow.orders;
         },
         addOrder(state, { newOrder }) {
             state.orders.unshift(newOrder);

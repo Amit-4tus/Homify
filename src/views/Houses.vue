@@ -15,16 +15,20 @@ export default {
       coords: { lat: 48.856614, lng: 2.3522219 }
     };
   },
-  created() {
+  mounted() {
     this.$store.dispatch("loadItems");
-    document.querySelector('.my-header').classList.add('fixed')
+    var elMyHeader = document.querySelector(".my-header");
+    if (!elMyHeader) {
+      var elMyHeader = document.querySelector(".my-header");
+    }
+    elMyHeader.classList.add("fixed");
   },
   components: {
     houseList,
     gMap
   },
   destroyed() {
-    document.querySelector('.my-header').classList.remove('fixed')
+    document.querySelector(".my-header").classList.remove("fixed");
   }
 };
 </script>

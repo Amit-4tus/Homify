@@ -1,8 +1,16 @@
 .home .myFooter {
   position: absolute;
-  top: 300vh;
+  top: 320vh;
   padding: 70px 0px;
   width: 100%;
+  align-self: center;
+}
+@media (max-width: 550px) {
+  .home .myFooter {
+    top: 280vh;
+    width: 60vw;
+    padding: 40px 0px;
+  }
 }
 .home .myFooter .logo {
   width: 10vw;
