@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="host-add-house-page">
     <h2>Name</h2>
     <input v-model="newHouse.name" type="text" />
     <h2>Price</h2>
