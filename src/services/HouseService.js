@@ -29,7 +29,7 @@ function addItem(item) {
 //server
 function getItems(filter) {
    
-    return httpService.get(`api/house/${filter}`)
+    return httpService.get(`api/house/query/${filter}`)
 }
 //server
 function getItemById(id) {

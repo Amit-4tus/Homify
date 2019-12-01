@@ -5,6 +5,7 @@
       <div v-if="houseData.name" class="houseGeneralInfo">
         <h1 class="houseTitle">{{houseData.name}}</h1>
       </div>
+     
       <img v-if="houseData.imgs" class="houseMainImage" :src="houseData.imgs[0]" />
     </section>
     <p class="houseDesc">{{houseData.desc}}</p>
@@ -36,7 +37,7 @@ export default {
   async created() {
     this.$store.dispatch("loadHouseById", this._id);
     const reviews = await this.$store.dispatch("loadReviews", this._id);
-    this.showMap = true;
+    // this.showMap = true;
     console.log("review got", reviews);
   },
   computed: {

@@ -12,7 +12,6 @@ export default {
   props: {
     coords: Object
   },
-
   data() {
     return {
       // markers: { lat: 32.0852999, lng: 34.78176759999999 },
@@ -23,13 +22,7 @@ export default {
     };
   },
   methods: {
-    panTo(coords) {
-      let lat = coords.lat;
-      let lng = coords.lng;
-      this.$refs.mapRef.$mapPromise.then(map => {
-        map.panTo({ lat: lat, lng: lng });
-      });
-    }
+    
   },
   created() {
     this.center = this.coords;

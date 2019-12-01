@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     doSearch(ev) {
-      console.log(this.filterBy);
+     
       if (this.filterBy.txt === "") return;
       // const where = ev.target.parentElement.children[1].children[0].value;
       // const when = {};

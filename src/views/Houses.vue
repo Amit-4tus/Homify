@@ -1,7 +1,10 @@
 <template>
   <div class="houses">
     <house-list></house-list>
-    <g-map v-if="coords" :coords="coords" class="listMap"></g-map>
+
+   
+        <g-map v-if="coords" :coords="coords" class="listMap"></g-map>
+
   </div>
 </template>
 
@@ -15,14 +18,18 @@ export default {
       coords: { lat: 48.856614, lng: 2.3522219 }
     };
   },
-  mounted() {
+  async mounted() {
     let filter = this.$route.params.q;
-    this.$store.dispatch("loadItems",filter);
+    await this.$store.dispatch("loadItems", filter);
+    // await this.$store.dispatch("loadCoords");
     var elMyHeader = document.querySelector(".my-header");
     if (!elMyHeader) {
       var elMyHeader = document.querySelector(".my-header");
     }
     elMyHeader.classList.add("fixed");
+  },
+  created() {
+   
   },
   components: {
     houseList,
