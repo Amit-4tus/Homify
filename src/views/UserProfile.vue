@@ -1,16 +1,18 @@
 <template>
     <section>
-        
+        <house-socket></house-socket>
         <ul v-for="user in users" :key="user._id">
             <li >
             Hello, {{user.name}}
             </li>
         </ul>
-         <button @click="getAllUsers">Get All Users</button>
+         <!-- <button @click="getAllUsers">Get All Users</button> -->
     </section>
 </template>
 
 <script>
+
+import houseSocket from '../components/HouseSocket'
 
 export default {
     data() {
@@ -41,6 +43,10 @@ export default {
     
         // let users = this.$store.getters.users
       
-    }
+    },
+
+    components: {
+    houseSocket
+  }
 }
 </script>
