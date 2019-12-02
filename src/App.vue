@@ -1,15 +1,20 @@
 <template>
   <section>
     <my-header></my-header>
+    <user-msg></user-msg>
+
     <router-view></router-view>
   </section>
 </template>
 
 <script>
 import myHeader from "./components/MyHeader";
+import userMsg from "./components/UserMsg";
+
 export default {
   components: {
-    myHeader
+    myHeader,
+    userMsg
   }
 };
 </script>

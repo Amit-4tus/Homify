@@ -89,6 +89,7 @@ export default {
     // },
     sendOrderData() {
         console.log('Sending', this.orderData);
+        
         SocketService.emit('order details', this.orderData)
     },
     //   changeTopic() {
