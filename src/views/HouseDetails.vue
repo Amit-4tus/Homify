@@ -1,13 +1,15 @@
 <template>
   <div class="houseDetails">
-    <section class="detailstopFold">
+    <section class="houseImgs">
       <div v-if="!houseData" class="loading">Loading</div>
-      <div v-if="houseData.name" class="houseGeneralInfo">
-        <h1 class="houseTitle">{{houseData.name}}</h1>
-      </div>
-
-      <img v-if="houseData.imgs" class="houseMainImage" :src="houseData.imgs[0]" />
+      <img v-if="houseData.imgs" class="houseImg1" :src="houseData.imgs[0]"/>
+      <img v-if="houseData.imgs" class="houseImg2" :src="houseData.imgs[1]"/>
+      <img v-if="houseData.imgs" class="houseImg3" :src="houseData.imgs[2]"/>
+      <img v-if="houseData.imgs" class="houseImg4" :src="houseData.imgs[3]"/>
     </section>
+    <div v-if="houseData.name" class="houseGeneralInfo">
+      <h1 class="houseTitle">{{houseData.name}}</h1>
+    </div>
     <p class="houseDesc">{{houseData.desc}}</p>
     <button
       v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId"
@@ -84,3 +86,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.gmap {
+  position: unset;
+  margin: 0 auto;
+}
+</style>
