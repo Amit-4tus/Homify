@@ -115,8 +115,6 @@ export default {
       maxDate: "",
       order: {
         name: null,
-
-        // houseId: this.$route.params._id,
         dates: {
           from: "",
           to: ""
@@ -126,6 +124,7 @@ export default {
           userName: this.loggedinUser().username
         },
         status: "pending",
+        imgs: [],
         guests: {
           adults: "adults",
           children: "children"
@@ -142,7 +141,9 @@ export default {
   methods: {
   async  doOrder() {
       console.log(this.order);
-      this.order.hostId=this.houseData.hostId
+      this.order.hostId=this.houseData.hostId;
+      this.order.imgs = this.houseData.imgs;
+      this.order.name= this.houseData.name;
       const order=await this.$store.dispatch("addOrder", this.order);
       this.isOrdered = true;
       await  this.$router.push(`/order/${order._id}`);
