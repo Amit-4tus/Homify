@@ -2,26 +2,23 @@
   <div class="houseDetails">
     <section class="houseImgs">
       <div v-if="!houseData" class="loading">Loading</div>
-      <img v-if="houseData.imgs" class="houseImg1" :src="houseData.imgs[0]"/>
-      <img v-if="houseData.imgs" class="houseImg2" :src="houseData.imgs[1]"/>
-      <img v-if="houseData.imgs" class="houseImg3" :src="houseData.imgs[2]"/>
-      <img v-if="houseData.imgs" class="houseImg4" :src="houseData.imgs[3]"/>
+      <img v-if="houseData.imgs" class="houseImg1" :src="houseData.imgs[0]" />
+      <img v-if="houseData.imgs" class="houseImg2" :src="houseData.imgs[1]" />
+      <img v-if="houseData.imgs" class="houseImg3" :src="houseData.imgs[2]" />
+      <img v-if="houseData.imgs" class="houseImg4" :src="houseData.imgs[3]" />
     </section>
     <div v-if="houseData.name" class="houseGeneralInfo">
       <h1 class="houseTitle">{{houseData.name}}</h1>
     </div>
     <p class="houseDesc">{{houseData.desc}}</p>
     <button
-      v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId"
+      v-if="loggedinUser===null|| loggedinUser._id!==houseData.hostId"
       class="reserveBtn"
       @click="doReserve"
     >Reserve</button>
-
+{{msg}}
     <h2>if you are the owner press the button</h2>
-    <button
-      v-if="loggedinUser!==null && loggedinUser._id===houseData.hostId"
-      @click="doEdit"
-    >Edit here</button>
+    <button v-if="isOwner" @click="doEdit">Edit here</button>
     <g-map
       v-if="showMap"
       :coords="houseData.location.coords"
@@ -41,7 +38,7 @@ import reviewList from "@/components/ReviewList";
 import gMap from "@/components/GMap";
 export default {
   data() {
-    return { review: {}, showMap: false };
+    return { review: {}, showMap: false,msg:'' };
   },
   async created() {
     this.$store.dispatch("loadHouseById", this._id);
@@ -50,6 +47,10 @@ export default {
     console.log("review got", reviews);
   },
   computed: {
+    isOwner() {
+      if (this.loggedinUser !== null && this.loggedinUser._id === this.houseData.hostId)
+        return true
+    },
     _id() {
       return this.$route.params._id;
     },
@@ -64,6 +65,7 @@ export default {
   },
   methods: {
     doReserve() {
+      if (!this.loggedinUser) return this.msg="log in first";
       this.$router.push(`/order/house/${this.houseData._id}`);
       // this.$router.push("/order");
     },
@@ -73,7 +75,7 @@ export default {
     addReview(review) {
       review.houseId = this.houseData._id;
       review.user.userName = this.loggedinUser.username;
-      review.user.userId =this. loggedinUser._id;
+      review.user.userId = this.loggedinUser._id;
       console.log(review);
       this.$store.dispatch("addReview", review);
     }
