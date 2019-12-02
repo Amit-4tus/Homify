@@ -1,9 +1,25 @@
 <template>
     <section> 
-      <div>I am an order {{orderData}}</div>
+      
+      <section>
+        <div>Hi, {{orderData.user.userName}}</div>
+        <div>Please review your order details:</div>
+        <div>Check-in: {{orderData.dates.from}}</div>
+        <div>Check-out: {{orderData.dates.to}}</div>
+        <div>Adults joining: {{orderData.guests.adults}}</div>
+        <div>Children joining: {{orderData.guests.children}}</div>
+        <div>Status: {{orderData.status}}</div>
+        <div>Order created at: {{orderData.createdAt}}</div>
+        <div>Host id: {{orderData.hostId}} </div>
+         <form @submit.prevent="sendOrderData">
+        <div>Order number: {{orderData._id}}</div>
+        <button>I agree</button>
+        </form>
+        <div>{{isApproved}}</div>
+      </section>
 
 
-          <div class="about">
+          <!-- <div class="about"> -->
     <!-- <h1>About Us</h1>
     <p>We like You</p> -->
     <!-- <h2>Lets Chat About {{topic}}</h2> -->
@@ -25,11 +41,8 @@
       <button>Send</button>
     </form> -->
 
-     <form @submit.prevent="sendOrderData">
-      <button>Send Order Data</button>
-    </form>
-    <div>{{isApproved}}</div>
-  </div>
+    
+  <!-- </div> -->
         </section>
 
 
@@ -50,11 +63,11 @@ export default {
   },
    async created() {
       await this.$store.dispatch("loadOrders", this._id);
-      SocketService.emit('order details', this.orderData); 
+      // SocketService.emit('order details', this.orderData); 
       SocketService.on('approve order', ()=>{
-      this.isApproved = 'Your order has been approved!'}) 
+      this.isApproved = 'Your order has been approved! Enjoy your stay.'}) 
       SocketService.on('reject order', ()=>{
-      this.isApproved = 'We apologize, your order has been rejected'}) 
+      this.isApproved = 'We apologize, your order has been rejected. Other places are available to you on our site.'}) 
       // SocketService.emit('chat topic', this.topic)
     
   },
