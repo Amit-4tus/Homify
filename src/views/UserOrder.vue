@@ -33,9 +33,11 @@
             <div class="reserve-form-boxes-container flex space-between align-center guests">
               <select class="reserve-form-select-input" v-model="order.guests.adults">
                 <option selected value="adults">Adults</option>
-                <option>1-2</option>
-                <option>3-5</option>
-                <option>6+</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
               </select>
 
               <select
@@ -46,9 +48,11 @@
                 v-model="order.guests.children"
               >
                 <option selected value="children">Children</option>
-                <option>1-2</option>
-                <option>3-5</option>
-                <option>6+</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
               </select>
             </div>
             <section v-if="!isOrdered">
@@ -139,11 +143,11 @@ export default {
   },
 
   methods: {
-  async  doOrder() {
-      console.log(this.order);
+  async doOrder() {
       this.order.hostId=this.houseData.hostId;
       this.order.imgs = this.houseData.imgs;
       this.order.name= this.houseData.name;
+      this.order.price = this.houseData.price;
       const order=await this.$store.dispatch("addOrder", this.order);
       this.isOrdered = true;
       await  this.$router.push(`/order/${order._id}`);

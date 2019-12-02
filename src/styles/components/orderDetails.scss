@@ -15,7 +15,7 @@
 
 .order-details-house-rules-txt {
     font-family: eurof;
-    font-size: 30px;
+    font-size: 32px;
     margin-bottom: 1em; 
 }
 
@@ -82,9 +82,11 @@
 }
 
 .order-details-img {
-    height:18em ;
-    width: 18em;
+    height:6.2em ;
+    width: 6.2em;
     object-fit: cover;
+    margin-bottom: 2em;
+    
 }
 
 .order-details-txts-left-container {
@@ -94,11 +96,83 @@
     border-width: 0.7px;
     border-radius: 3px;
     height: 28em;
-    width: 20em;
+    width: 25em;
     margin-bottom: 3.2em;
    
 }
 
-.order-details-image-container {
-    background-color: yellow;
+.order-details-txts-left-inner {
+    margin:1em;
+}
+
+.img-inner-text {
+    text-align: left;
+    font-size: 17px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    margin-top: 0.3em;
+   
+}
+
+.img-inner-upper-txt {
+    margin-bottom: 0.8em
+    
+}
+
+.img-inner-lower-txt {
+    font-weight: lighter;
+    margin-bottom: 0.2em;
+}
+
+.img-inner-lower-txt-2 {
+    font-weight: lighter;
+    margin-bottom: 0.2em;
+}
+
+.order-details-hr {
+    margin-bottom: 2em;
+}
+
+.guests-container {
+    margin-bottom: 1em;
+}
+
+.guests-img {
+    background-color: white;
+    opacity: 0.3;
+}
+
+.order-details-txts {
+    font-size: 20px;
+    font-family: 'Rokkitt', serif;
+}
+
+.calendar-img {
+    background-color: white;
+    opacity: 0.3;
+}
+
+.calendar-container {
+    margin-bottom: 2em;
+}
+
+.order-details-txts.margin{
+    margin-bottom: 1em;
+}
+
+@media screen and (max-width:900px) {
+    .order-details-page-container {
+        flex-direction: column;
+        justify-content: unset;
+        // height: 60vh;
+        margin-left: 8em;
+    }
+
+    .order-details-diamond-box {
+        border: none;
+    }
+
+    .order-details-txts-left-container {
+        border: none;
+    }
 }

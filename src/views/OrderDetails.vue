@@ -3,18 +3,43 @@
       <div class="order-details-page-container">
       
       <section class="order-details-txts-left-container">
+        <section class="order-details-txts-left-inner">
+        <div class="order-details-image-container flex flex-row space-between">
+          <div class="img-inner-text flex flex-column ">
+            <div class="img-inner-upper-txt">The best position in the area!</div>
+            <div class="img-inner-lower-txt">Entire apartment</div>
+            <div class="img-inner-lower-txt-2"> ★★★★★ 377 reviews</div>
+          </div>
+        <img v-if="orderData.imgs" class="order-details-img" :src="orderData.imgs[0]" />
+        </div>
+         <hr class="order-details-hr"/>
+        <section class="guests-container flex flex-row align-center">
+           <img class="guests-img" src="../assets/imgs/guests.jpg"/>
+            <div class="order-details-txts guests">{{guests}}</div>
+        </section>
+        <section class="calendar-container flex flex-row align-center">
+           <img class="calendar-img" src="../assets/imgs/calendar.png"/>
+          <div class="order-details-txts calendar">January 5, 2020 → January 9, 2020</div>
+        </section>
+        <hr class="order-details-hr"/>
 
-      <div class="order-details-image-container">
-      <div>The best position in the area!</div>
-      <div>Entire apartment</div>
-      <img v-if="orderData.imgs" class="order-details-img" :src="orderData.imgs[0]" />
-      </div>
+        <div class="order-details-txts margin flex flex-row space-between">
+          <div class="order-details-precost-container">{{orderData.price}} 
+                × 4 nights</div>
+          <div>${{preCost}}</div>
+        </div>
 
-      <div >Check-in: {{orderData.dates.from}}</div>
-        <div>Check-out: {{orderData.dates.to}}</div>
-        <div>Adults joining: {{orderData.guests.adults}}</div>
-        <div>Children joining: {{orderData.guests.children}}</div>
-        <div>Status: {{orderData.status}}</div>
+        <div class="order-details-txts margin flex flex-row space-between">
+          <div class="order-details-service-fee">Service fee</div>
+        <div>{{serviceFee}}</div>
+        </div>
+
+        <div class="order-details-txts margin flex flex-row space-between">
+          <div class="order-details-total-fee">Total(USD)</div>
+          <div>${{totalFee}}</div>
+        </div>
+
+        </section>
       </section>
 
       <section class="order-details-txts-right-container">
@@ -46,7 +71,7 @@
         <div hidden> {{orderData.name}}</div>
         <div hidden>Order created at: {{orderData.createdAt}}</div>
         <div hidden>Host id: {{orderData.hostId}} </div> 
-        <div>{{isApproved}}</div>
+        <div hidden>{{isApproved}}</div>
       </section>
 
         </div>
@@ -88,6 +113,37 @@ export default {
       if (!currOrder) return null;
       return currOrder;
     },
+    guests () {
+      let adults = Number(this.orderData.guests.adults) 
+      let children = Number(this.orderData.guests.children)
+      let guests = adults + children
+      if (!children) {
+        if (!adults) return `please indicate guests number`
+        else if (adults === 1) {return `${adults} guest`}
+        else {return `${adults} guests`}
+      } else {return `${guests} guests`}
+    },
+    //Change to actual number of nights
+    preCost () {
+      let price = Number(this.orderData.price);
+      if (!price) return;
+      let preCost = price * 4;
+      return preCost.toLocaleString()
+    },
+     //Change to actual number of nights
+    serviceFee () {
+      let price = Number(this.orderData.price);
+      let preCost = price * 4;
+      let serviceFee = (preCost * 0.17).toFixed(0)
+      return serviceFee;
+    },
+     //Change to actual number of nights
+    totalFee () {
+      let price = Number(this.orderData.price);
+      let preCost = price * 4;
+      let totalFee = price + preCost
+      return totalFee.toLocaleString()
+    }
     
     },
     methods: {
@@ -95,17 +151,15 @@ export default {
     //     console.log('Sending', this.msg);
     //     SocketService.emit('chat newMsg', this.msg)
     // },
-    sendOrderData() {
+      sendOrderData() {
         console.log('Sending', this.orderData);
         SocketService.emit('order details', this.orderData)
     },
+     
     //   changeTopic() {
     //     SocketService.emit('chat topic', this.topic)
     // }
   },
-  
-    
- 
 
 }
 </script>
