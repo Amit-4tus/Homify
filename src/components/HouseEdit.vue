@@ -77,7 +77,7 @@
     <button v-if="isEditing" @click="deleteHouse">Delete</button>
     </section>
     </section>
-    <img class="flowers-img" src="../assets/imgs/vase.png"/>
+    <!-- <img class="flowers-img" src="../assets/imgs/vase.png"/> -->
 
     <!-- <section class="add-house-step-container-right"> -->
   
