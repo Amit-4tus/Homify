@@ -15,7 +15,7 @@
       <div class="header-link" @click="hideNav('map')">Map</div>
       <div class="header-link" @click="hideNav('user-profile')">User-Profile</div>
       <div v-if="loggedinUser!==null" class="header-link" @click="hideNav('host')">Host</div>
-      <div class="header-link" @click="hideNav">Sign-In</div>
+      <div class="header-link" @click="hideNav('login')">Sign-In</div>
       <div class="screen hide" @click="hideNav('')"></div>
     </nav>
   </div>

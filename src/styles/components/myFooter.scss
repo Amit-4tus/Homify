@@ -1,9 +1,7 @@
 .home {
   .myFooter {
-    position: absolute;
-    top: 335vh;
-    padding: 70px 0px;
     width: 100%;
+    margin: 5% auto;
     align-self: center;
     @media (max-width: 550px) {
       top: 295vh;
