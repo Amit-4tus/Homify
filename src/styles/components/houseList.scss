@@ -1,7 +1,11 @@
 .houseList {
   padding-top: 72px;
-  padding-left: 2%;
-  width: 50%;
+  padding-left: 5%;
+  width: 90%;
+  @media (min-width: 450px) {
+    width: 50%;
+    padding-left: 2%;
+  }
 
   > * > * {
     border-bottom: 1px solid $color4;
@@ -10,21 +14,17 @@
 }
 
 .specialPicksHeader {
-  position: absolute;
-  top: 102vh;
-  left: 2vw;
+  margin-bottom: 5%;
 }
 
 .topPicks {
   max-width: $containerWidth;
   display: flex;
 
+
   @media (max-width: 550px) {
     flex-wrap: wrap;
   }
-  position: absolute;
-  top: 115vh;
-  left: 2.5%;
 
   > * {
     width: 25%;
