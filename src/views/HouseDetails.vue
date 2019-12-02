@@ -5,22 +5,29 @@
       <div v-if="houseData.name" class="houseGeneralInfo">
         <h1 class="houseTitle">{{houseData.name}}</h1>
       </div>
-     
+
       <img v-if="houseData.imgs" class="houseMainImage" :src="houseData.imgs[0]" />
     </section>
     <p class="houseDesc">{{houseData.desc}}</p>
-    <button v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId" class="reserveBtn" @click="doReserve">Reserve</button>
+    <button
+      v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId"
+      class="reserveBtn"
+      @click="doReserve"
+    >Reserve</button>
 
     <h2>if you are the owner press the button</h2>
-    <button v-if="loggedinUser!==null && loggedinUser._id===houseData.hostId" @click="doEdit">Edit here</button>
+    <button
+      v-if="loggedinUser!==null && loggedinUser._id===houseData.hostId"
+      @click="doEdit"
+    >Edit here</button>
     <g-map
       v-if="showMap"
       :coords="houseData.location.coords"
       class="gmap flex align-center flex-column"
     ></g-map>
     <review-edit v-on:review="addReview"></review-edit>
-    <reviewList></reviewList>
-    <myFooter></myFooter>
+    <review-list></review-list>
+    <my-footer></my-footer>
   </div>
 </template>
 
@@ -63,6 +70,9 @@ export default {
     },
     addReview(review) {
       review.houseId = this.houseData._id;
+      review.user.userName = this.loggedinUser.username;
+      review.user.userId =this. loggedinUser._id;
+      console.log(review);
       this.$store.dispatch("addReview", review);
     }
   },
