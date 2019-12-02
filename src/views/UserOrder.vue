@@ -146,9 +146,10 @@ export default {
   methods: {
   async  doOrder() {
       console.log(this.order);
-     const order=await this.$store.dispatch("addOrder", this.order);
+      this.order.hostId=this.houseData.hostId
+      const order=await this.$store.dispatch("addOrder", this.order);
       this.isOrdered = true;
-    await  this.$router.push(`/order/${order._id}`);
+      await  this.$router.push(`/order/${order._id}`);
     },
     loggedinUser() {
       return this.$store.getters.loggedinUser;
