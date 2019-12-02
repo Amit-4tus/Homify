@@ -7,10 +7,12 @@
       <img v-if="houseData.imgs" class="houseImg3" :src="houseData.imgs[2]" />
       <img v-if="houseData.imgs" class="houseImg4" :src="houseData.imgs[3]" />
     </section>
-    <div v-if="houseData.name" class="houseGeneralInfo">
+    <div v-if="houseData.name" class="houseInfo">
       <h1 class="houseTitle">{{houseData.name}}</h1>
+      <h3 class="houseLocation">{{houseData.location.address.country}}</h3>
+      <p class="houseDesc">{{houseData.desc}}</p>
     </div>
-    <p class="houseDesc">{{houseData.desc}}</p>
+    <section class="hostInfo"></section>
     <button
       v-if="loggedinUser===null|| loggedinUser._id!==houseData.hostId"
       class="reserveBtn"
