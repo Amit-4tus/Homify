@@ -62,7 +62,7 @@ export default {
     }
   },
    async created() {
-      await this.$store.dispatch("loadOrders", this._id);
+      await this.$store.dispatch("loadOrder", this._id);
       // SocketService.emit('order details', this.orderData); 
       SocketService.on('approve order', ()=>{
       this.isApproved = 'Your order has been approved! Enjoy your stay.'}) 

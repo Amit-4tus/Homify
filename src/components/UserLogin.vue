@@ -61,13 +61,20 @@ export default {
         let userId = this.$store.getters.loggedinUser._id;
         SocketService.on("get order details", order => {
           if (userId === order.hostId) {
-            console.log("you got new order");
-
             const msg = {
               txt: "Order Added check your profile",
               type: "error"
             };
-            console.log("emiting");
+            eventBus.$emit("show-msg", msg);
+          }
+        });
+        SocketService.on("approve order", order => {
+          console.log(order)
+          if (userId === order) {
+            const msg = {
+              txt: "Your order has been approved",
+              type: "error"
+            };
             eventBus.$emit("show-msg", msg);
           }
         });

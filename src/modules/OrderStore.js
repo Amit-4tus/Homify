@@ -9,22 +9,35 @@ export default {
     getters: {
         orderToShow(state) {
             return state.orderToShow;
+        },
+        orders(state){
+            return state.orders
         }
 
     },
     mutations: {
         setOrderToShow(state, orderToShow) {
             // console.log(orderToShow)
-            state.orderToShow = orderToShow.orders;
+            state.orderToShow = orderToShow.order;
         },
         addOrder(state, { newOrder }) {
             state.orders.unshift(newOrder);
-        }
+        },
+        setOrders(state, {orders}) {
+            // console.log(orderToShow)
+            state.orders = orders;
+        },
     },
     actions: {
-        async loadOrders(context, id) {
-            const orders = await orderService.getOrderById(id)
-            context.commit({ type: 'setOrderToShow', orders })
+        async loadOrder(context, id) {
+            const order = await orderService.getOrderById(id)
+            context.commit({ type: 'setOrderToShow', order })
+            return order
+        },
+        async loadOrders(context, criteria) {
+            console.log(criteria)
+            const orders = await orderService.getOrders(criteria.id,criteria.query)
+           await context.commit({ type: 'setOrders', orders })
             return orders
         },
         async addOrder(context, order) {
@@ -32,6 +45,11 @@ export default {
             context.commit({ type: 'addOrder', newOrder })
            console.log(newOrder)
            return newOrder
+        },
+        async updateOrder(context, { order }) {
+            console.log(order)
+            // const updatedOrder = await orderService.updateOrder(order)
+
         }
 
     }
