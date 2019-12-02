@@ -1,7 +1,4 @@
 .inspSect {
-  position: absolute;
-  top: 175vh;
-  left: 13vw;
   background-image: url("../assets/imgs/insp.jpg");
   background-repeat: no-repeat;
   height: 70vh;
@@ -10,7 +7,11 @@
   background-position: center;
   border-radius: 3vh;
   margin: 0 auto;
+  margin-top: 15%;
   text-align: center;
+  font-family: tangerine;
+  color: blue;
+  font-size: 5vw;
 }
 @media (max-width: 550px) {
   .inspSect {
@@ -18,15 +19,10 @@
   }
 }
 .inspSect .inspQuote {
-  font-family: tangerine;
-  font-size: 8vw;
-  color: blue;
+  margin: 0px;
+  padding-top: 7%;
 }
 .inspSect .inspTxt {
-  font-family: tangerine;
-  font-size: 8vw;
-  color: blue;
-  position: absolute;
-  bottom: 1%;
-  left: 30px;
+  position: relative;
+  top: 20%;
 }

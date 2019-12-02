@@ -4,7 +4,7 @@
 
     <div class="where">
       <span>Country / State:</span>
-      <input type="text" placeholder="e.g. Berlin"/>
+      <input type="text" placeholder="e.g. Berlin" v-model="filterBy.txt" />
     </div>
     <div class="when">
       <span>From:</span>
@@ -38,7 +38,6 @@ export default {
   },
   methods: {
     doSearch(ev) {
-     
       if (this.filterBy.txt === "") return;
       // const where = ev.target.parentElement.children[1].children[0].value;
       // const when = {};
