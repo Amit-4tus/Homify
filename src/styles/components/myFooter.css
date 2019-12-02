@@ -1,13 +1,13 @@
 .home .myFooter {
   position: absolute;
-  top: 320vh;
+  top: 335vh;
   padding: 70px 0px;
   width: 100%;
   align-self: center;
 }
 @media (max-width: 550px) {
   .home .myFooter {
-    top: 280vh;
+    top: 295vh;
     width: 60vw;
     padding: 40px 0px;
   }

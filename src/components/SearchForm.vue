@@ -3,18 +3,18 @@
     <slot></slot>
 
     <div class="where">
-      <span>Country / State:</span><br>
-      <input type="text" placeholder="e.g."/>
+      <span>Country / State:</span>
+      <input type="text" placeholder="e.g. Berlin"/>
     </div>
     <div class="when">
-      <span>From:</span><br>
-      <input v-model="from" type="date" /><br>
-      <span>To:</span><br>
+      <span>From:</span>
+      <input v-model="from" type="date" />
+      <span>To:</span>
       <input v-model="to" type="date" />
     </div>
 
     <div class="howMany">
-      <span>How Many Visitors:</span><br>
+      <span>How Many Visitors:</span>
       <select>
         <option value="few">1-3</option>
         <option value="middle">4-7</option>
