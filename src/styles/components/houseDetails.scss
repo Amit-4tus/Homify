@@ -1,13 +1,18 @@
-.houseDetails {
-  margin-top: 60px;
-}
-
-.detailstopFold {
+.houseImgs {
   width: 100%;
+  height: 50vh;
   margin: 0 auto;
   display: grid;
-  grid-template-areas: "a a b b"
-                       "a a c d";
+  grid-template-areas:
+  "a b b"
+  "a c d";
+  grid-template-columns: 50% 25% 25%;
+  grid-template-rows: 50% 50%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 .houseImg1 {
@@ -45,18 +50,18 @@
 }
 
 @media (min-width: 1000px) {
-    .detailstopFold {
-        width: 80vw;
-    }
+  .detailstopFold {
+    width: 80vw;
+  }
 }
 
 @media (max-width: 420px) {
-    .detailstopFold {
-        flex-direction: column-reverse;
-        align-items: center;
-        > * {
-            width: 90%;
-            margin-top: 5%;
-        }
+  .detailstopFold {
+    flex-direction: column-reverse;
+    align-items: center;
+    > * {
+      width: 90%;
+      margin-top: 5%;
     }
+  }
 }
