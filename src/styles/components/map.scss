@@ -1,9 +1,9 @@
 .listMap {
     position: fixed;
-    top: 72px;
+    top: 60px;
     right: 0px;
     width: 45%;
-    height: calc(100vh - 72px);
+    height: calc(100vh - 60px);
 
     @media (max-width: 450px) {
         display: none;

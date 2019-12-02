@@ -3,7 +3,7 @@
     <home-page-top-fold></home-page-top-fold>
     <h2 class="specialPicksHeader">Special Top Picks:</h2>
     <topPickList class="topPicks"></topPickList>
-    <inspSect></inspSect>
+    <!-- <inspSect></inspSect> -->
     <searchForm>
       <div class="formHeader">Book A Unique Place To Stay:</div>
     </searchForm>

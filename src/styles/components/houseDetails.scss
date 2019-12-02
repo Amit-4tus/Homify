@@ -1,15 +1,36 @@
+.houseDetails {
+  margin-top: 60px;
+}
+
 .detailstopFold {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "a a b b"
+                       "a a c d";
+}
+
+.houseImg1 {
+  grid-area: a;
+}
+
+.houseImg2 {
+  grid-area: b;
+}
+
+.houseImg3 {
+  grid-area: c;
+}
+
+.houseImg4 {
+  grid-area: d;
 }
 
 .houseMainImage {
   width: 65%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  // border-radius: 8px;
 }
 
 .houseGeneralInfo {
