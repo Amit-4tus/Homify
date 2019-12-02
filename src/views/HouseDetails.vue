@@ -7,19 +7,52 @@
       <img v-if="houseData.imgs" class="houseImg3" :src="houseData.imgs[2]" />
       <img v-if="houseData.imgs" class="houseImg4" :src="houseData.imgs[3]" />
     </section>
+    <div class="bottomFold">
     <div v-if="houseData.name" class="houseInfo">
       <h1 class="houseTitle">{{houseData.name}}</h1>
       <h3 class="houseLocation">{{houseData.location.address.country}}</h3>
+      <p class="houseCapacity">{{houseData.capacity}}</p>
+      <div class="amenitiesIcons">
+        <div class="amenity wifi">
+          <img src="http://simpleicon.com/wp-content/uploads/signal.png" />
+          <span>This House Has Wifi Access</span>
+        </div>
+        <div class="amenity shower">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Shower_icon_-_Noun_Project_4336.svg/1024px-Shower_icon_-_Noun_Project_4336.svg.png"
+          />
+          <span>This House Has A Shower</span>
+        </div>
+        <div class="amenity kitchen">
+          <img src="https://icon-library.net/images/kitchen-icon-png/kitchen-icon-png-21.jpg" />
+          <span>This House Has A Kitchen</span>
+        </div>
+        <div class="amenity garden">
+          <img src="https://image.flaticon.com/icons/png/512/93/93701.png" />
+          <span>This House Has A Garden</span>
+        </div>
+        <div class="amenity parking">
+          <img src="https://carlisletheacarlisletheatre.org/images/parking-icon-lot-7.png" />
+          <span>This House Comes With Parking</span>
+        </div>
+      </div>
       <p class="houseDesc">{{houseData.desc}}</p>
     </div>
-    <section class="hostInfo"></section>
-    <button
-      v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId"
-      class="reserveBtn"
-      @click="doReserve"
-    >Reserve</button>
-
-    <h2>if you are the owner press the button</h2>
+    <section v-if="houseData.host" class="hostInfo">
+      <img :src="houseData.host.imgURL">
+      <p class="name">{{houseData.host.name}}</p>
+    </section>
+    </div>
+    <section class="reserve">
+      <div class="info">
+        <div><span class="price">{{houseData.price}}</span> / per night</div>
+      </div>
+      <button
+        v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId"
+        class="reserveBtn"
+        @click="doReserve"
+      >Reserve</button>
+    </section>
     <button
       v-if="loggedinUser!==null && loggedinUser._id===houseData.hostId"
       @click="doEdit"
@@ -29,9 +62,9 @@
       :coords="houseData.location.coords"
       class="gmap flex align-center flex-column"
     ></g-map>
-    <review-edit v-on:review="addReview"></review-edit>
+    <review-edit class="addReview" v-on:review="addReview"></review-edit>
     <reviewList></reviewList>
-    <myFooter></myFooter>
+    <div class="placeholder"></div>
   </div>
 </template>
 
