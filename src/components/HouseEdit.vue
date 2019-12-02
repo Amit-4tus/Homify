@@ -214,24 +214,24 @@ export default {
     amenitiesOps() {
       return [
         {
-          value: "Wifi",
+          value: "wifi",
           label: "Wifi"
         },
         {
-          value: "Kitchen",
+          value: "kitchen",
           label: "Kitchen"
         },
         {
-          value: "Shower",
+          value: "shower",
           label: "Shower"
         },
         {
-          value: "Parking",
+          value: "parking",
           label: "Parking"
         },
         {
-          value: "Elevator",
-          label: "Elevator"
+          value: "garden",
+          label: "Garden"
         }
       ];
     }
