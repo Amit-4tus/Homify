@@ -5,6 +5,7 @@
       <div v-if="houseData.name" class="houseGeneralInfo">
         <h1 class="houseTitle">{{houseData.name}}</h1>
       </div>
+     
       <img v-if="houseData.imgs" class="houseMainImage" :src="houseData.imgs[0]" />
     </section>
     <p class="houseDesc">{{houseData.desc}}</p>
