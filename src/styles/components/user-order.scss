@@ -1,13 +1,14 @@
 
-.order-house-imgs-container {
-
-    display: flex;
+.reservation-page {
+    display:flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    // align-self: center;
-    align-content: space-around;
-    // grid-template-columns: repeat(auto-fill, minmax(15.3em, 3fr));
-    // gap: 0.2em;
+    align-items: center;
+    justify-content: space-between;
+    // flex-wrap: wrap;
+    height: 100vh;
+    margin-right: 3em;
+    margin-left: 2em;
+    // background-color: yellowgreen;
 }
 
 
@@ -24,11 +25,13 @@
     font-family: 'Roboto', sans-serif;
     max-width:52em;
     height: 32em;
-    left: 3em;
-    top: 5em;
+    // left: 3em;
+    // top: 5em;
     margin-left: 1em;
     text-align: left;
 }
+
+
 
 .house-name {
 font-size: x-large;
@@ -41,17 +44,17 @@ font-weight: bold;
     }
 
 .reserve-form {
-    background-color: white;
+   
     border-style:solid;
     border-color: lightgray;
-    position: fixed;
-    right: 1em;
-    top: 5em;
+    // position: absolute;
+    // right: 1em;
+    // top: 5em;
     border-width: 0.7px;
-    width: 19em;
+    width: 18em;
     height: 32em;
-    margin-right: 2em;
-    // position: fixed;
+    // margin-right: 2em;
+   
 }
 
 
@@ -99,7 +102,7 @@ font-weight: bold;
 }
 
 .reserve-form-boxes {
-    background-color: lightsteelblue;
+    // background-color: lightsteelblue;
     width: 7em;
     height:1.5em;
     margin-left: 0.6em;
@@ -109,7 +112,7 @@ font-weight: bold;
 }
 
 .reserve-form-select-input {
-    background-color: lightsteelblue;
+    // background-color: lightsteelblue;
     width: 8.6em;
     height:1.8em;
     margin-left: 0.6em;
@@ -156,11 +159,6 @@ cursor: pointer;
     justify-content: center;
 }
 
-// .non-charge-box {
-//     text-align: center;
-//     align-items: center;
-//     justify-content: center;
-// }
  
 .reserve-box-bottom-text {
     text-align: justify;
@@ -178,12 +176,37 @@ cursor: pointer;
     opacity: 0.4;
 }
 
+.order-house-order-details {
+    background-color: white;
+}
 
-
-@media screen and (max-width:803px) {
-
-    .reserve-form {
-        margin-top: 0.5em;
-        margin-left: 1em;
+@media screen and (max-width:1080px) {
+    .img-3 {
+        display: none;
     }
 }
+
+
+@media screen and (max-width:930px) {
+    .img-2 {
+        display: none;
+    }
+}
+
+
+@media screen and (max-width:610px) {
+    .reservation-page {
+        flex-direction: column;
+    }
+
+    .reserve-form {
+        margin-top: 2em;
+        border: none;
+        border-color: none;
+    }
+ 
+    .reservation-page-general-data {
+        max-width: 18em;
+    }
+}
+

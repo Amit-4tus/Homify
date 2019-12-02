@@ -2,41 +2,8 @@
 
 <template>
   <section>
-    <section class="reservation-page flex space-between justify-center align-center wrap">
-      <div class="reservation-page-general-data flex-column">
-        <section>
-          <section class="order-house-imgs-container">
-            <img v-if="houseData.imgs" class="house-reserve-image" :src="houseData.imgs[0]" />
-            <img v-if="houseData.imgs" class="house-reserve-image" :src="houseData.imgs[1]" />
-            <img v-if="houseData.imgs" class="house-reserve-image" :src="houseData.imgs[2]" />
-          </section>
 
-          <section v-if="!isOrdered"  class="reserve-form-host-data">
-            <div v-if="houseData.name">
-              <div>
-                <p class="house-name">{{houseData.name}}</p>
-                <p>{{houseData.desc}}</p>
-                <p class="house-price">$ {{houseData.price}} / night</p>
-                <p>Number of reviews: {{houseData.reviews.reviewsIds.length}}</p>
-                <p
-                  v-if="houseData.amentities[0]"
-                >Amenities: {{houseData.amentities[0]}}, {{houseData.amentities[1]}}</p>
-                <img class="host-img" src />
-              </div>
-            </div>
-          </section>
-        </section>
-
-        <section v-if="isOrdered">
-          <p>{{host}} and {{hostData}}</p>
-          <p class="house-name">Thank you for your reservation!</p>
-          <p class="house-price">Reservation details:</p>
-          <p>house: {{houseData.name}}</p>
-          <p>host: {{hostData}}</p>
-          <p>Total price: XXX</p>
-          <p>Reservation Status: {{order.status}}</p>
-        </section>
-      </div>
+    <section class="reservation-page">
 
       <div>
         <section class="reserve-form">
@@ -106,6 +73,35 @@
           </div>
         </section>
       </div>
+
+
+
+      <div class="reservation-page-general-data flex-column">
+        <section class="order-house-order-details flex flex-column wrap">
+          <section class="order-house-imgs-container">
+            <img v-if="houseData.imgs" class="house-reserve-image img-1" :src="houseData.imgs[0]" />
+            <img v-if="houseData.imgs" class="house-reserve-image img-2" :src="houseData.imgs[1]" />
+            <img v-if="houseData.imgs" class="house-reserve-image img-3" :src="houseData.imgs[2]" />
+          </section>
+
+          <section v-if="!isOrdered"  class="reserve-form-host-data">
+            <div v-if="houseData.name">
+              <div>
+                <p class="house-name">{{houseData.name}}</p>
+                <p>{{houseData.desc}}</p>
+                <p class="house-price">$ {{houseData.price}} / night</p>
+                <p>Number of reviews: {{houseData.reviews.reviewsIds.length}}</p>
+                <p
+                  v-if="houseData.amentities[0]"
+                >Amenities: {{houseData.amentities[0]}}, {{houseData.amentities[1]}}</p>
+                <img class="host-img" src />
+              </div>
+            </div>
+          </section>
+        </section>
+
+      </div>
+
     </section>
   </section>
 </template>
