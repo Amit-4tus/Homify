@@ -11,7 +11,7 @@
             <img v-if="houseData.imgs" class="house-reserve-image" :src="houseData.imgs[2]" />
           </section>
 
-          <section v-if="!isOrdered" class="reserve-form-host-data">
+          <section v-if="!isOrdered"  class="reserve-form-host-data">
             <div v-if="houseData.name">
               <div>
                 <p class="house-name">{{houseData.name}}</p>
@@ -53,11 +53,11 @@
             <div class="reserve-form-boxes-container flex space-between align-center">
               <div class="reserve-form-boxes">
                 <span class="text-margin">Check-in</span>
-                <input v-model="order.dates.from" :min="minDate" :max="maxDate" type="date" />
+                <!-- <input v-model="order.dates.from" :min="minDate" :max="maxDate" type="date" /> -->
               </div>
               <div class="reserve-form-boxes">
                 <span class="text-margin">Check-out</span>
-                <input v-model="order.dates.to" :min="minDate" :max="maxDate" type="date" />
+                <!-- <input v-model="order.dates.to" :min="minDate" :max="maxDate" type="date" /> -->
               </div>
             </div>
 
@@ -139,8 +139,8 @@ export default {
   },
   async created() {
     await this.$store.dispatch("loadHouseById", this._id);
-    this.minDate = this.houseData.dates.from;
-    this.maxDate = this.houseData.dates.to;
+    // this.minDate = this.houseData.dates.from;
+    // this.maxDate = this.houseData.dates.to;
   },
 
   methods: {
