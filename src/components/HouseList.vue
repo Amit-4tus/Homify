@@ -1,6 +1,6 @@
 <template>
   <div class="houseList">
-    <router-link :to="`/house/${item._id}`" v-for="(item, idx) in items" :key="idx" class="housePreviewLink">
+    <router-link :to="`/house/details/${item._id}`" v-for="(item, idx) in items" :key="idx" class="housePreviewLink">
       <house-preview :itemData="item"></house-preview>
     </router-link>
   </div>

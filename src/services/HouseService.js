@@ -23,29 +23,30 @@ const axios = require('axios');
 
 //server
 function addItem(item) {
-    
+
     return httpService.post(`api/house`, item)
 }
 //server
-function getItems() {
-    return httpService.get('api/house')
+function getItems(filter) {
+   
+    return httpService.get(`api/house/query/${filter}`)
 }
 //server
 function getItemById(id) {
-    
+
     return httpService.get(`api/house/${id}`)
 }
 //server
 function deleteItem(id) {
     console.log(id)
-    return httpService.delete(`api/house/${id}`,)
+    return httpService.delete(`api/house/${id}`)
 }
 // function getItemById(id) {
 //     return httpService.get(`house?_id=${id}`)
 // }
 //server
 function updateItem(item) {
-    return httpService.put(`api/house/${item._id}`,item)
+    return httpService.put(`api/house/${item._id}`, item)
 }
 
 // function updateItem(item) {
@@ -55,7 +56,7 @@ function updateItem(item) {
 //     return httpService.delete(`house/${id}`,)
 // }
 
-function makeId(length=3) {
+function makeId(length = 3) {
     var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (var i = 0; i < length; i++) {
