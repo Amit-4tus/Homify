@@ -173,11 +173,11 @@ export default {
         type: "addHouse",
         newHouse: this.newHouse
       });
-      this.$router.push(`/house/${house._id}`);
+      this.$router.push(`/house/deatils/${house._id}`);
     },
     async updateHouse() {
       await this.$store.dispatch({ type: "updateHouse", house: this.newHouse });
-      this.$router.push(`/house/${this.newHouse._id}`);
+      this.$router.push(`/house/details/${this.newHouse._id}`);
     },
     async deleteHouse() {
       await this.$store.dispatch({
