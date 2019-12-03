@@ -20,12 +20,10 @@ async function addOrder(order) {
 
     order.createdAt= new Date().toLocaleDateString();
     const newOrder=await httpService.post(`api/order`, order)
-    console.log(newOrder)
     return newOrder
 }
 
 function getOrderById(id) {
-    console.log(id)
     return httpService.get(`api/order/${id}`)
 };
 

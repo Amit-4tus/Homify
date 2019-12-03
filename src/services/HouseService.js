@@ -38,7 +38,6 @@ function getItemById(id) {
 }
 //server
 function deleteItem(id) {
-    console.log(id)
     return httpService.delete(`api/house/${id}`)
 }
 // function getItemById(id) {

@@ -151,11 +151,9 @@ export default {
     },
     methods: {
     //   sendMsg() {
-    //     console.log('Sending', this.msg);
     //     SocketService.emit('chat newMsg', this.msg)
     // },
     sendOrderData() {
-      console.log("Sending", this.orderData);
 
       SocketService.emit("order details", this.orderData);
     }

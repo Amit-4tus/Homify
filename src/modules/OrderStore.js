@@ -17,14 +17,12 @@ export default {
     },
     mutations: {
         setOrderToShow(state, orderToShow) {
-            // console.log(orderToShow)
             state.orderToShow = orderToShow.order;
         },
         addOrder(state, { newOrder }) {
             state.orders.unshift(newOrder);
         },
         setOrders(state, {orders}) {
-            // console.log(orderToShow)
             state.orders = orders;
         },
     },
@@ -35,7 +33,6 @@ export default {
             return order
         },
         async loadOrders(context, criteria) {
-            console.log(criteria)
             const orders = await orderService.getOrders(criteria.id,criteria.query)
            await context.commit({ type: 'setOrders', orders })
             return orders
@@ -43,11 +40,10 @@ export default {
         async addOrder(context, order) {
             const newOrder = await orderService.addOrder(order)
             context.commit({ type: 'addOrder', newOrder })
-           console.log(newOrder)
+        
            return newOrder
         },
         async updateOrder(context, { order }) {
-            console.log(order)
             const updatedOrder = await orderService.updateOrder(order)
 
         }

@@ -16,7 +16,6 @@ export default {
   },
   created() {
     eventBus.$on("show-msg", msg => {
-      console.log("UserMsg got new Msg!");
       this.msg = msg;
       setTimeout(() => {
         this.msg = null;

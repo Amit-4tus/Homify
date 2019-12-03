@@ -66,6 +66,7 @@ export default {
             eventBus.$emit("show-msg", msg);
           }
         });
+
         SocketService.on("approve order", order => {
           console.log(order)
           if (userId === order) {

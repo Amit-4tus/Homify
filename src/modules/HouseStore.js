@@ -74,7 +74,7 @@ export default {
 
         },
         async deleteHouse(context, { id }) {
-            console.log(id)
+          
             const deletedHouse = await houseService.deleteItem(id)
             return deletedHouse
 

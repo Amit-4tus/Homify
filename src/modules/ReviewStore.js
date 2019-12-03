@@ -16,7 +16,6 @@ export default {
             state.reviewToShow = reviewsToShow.reviews;
         },
         addReview(state, { newReview }) {
-            console.log(newReview)
             state.reviewToShow.push(newReview);
         }
 
@@ -32,7 +31,6 @@ export default {
         },
         async addReview(context, review) {
             const newReview = await reviewService.addReview(review)
-            console.log(newReview)
             context.commit({ type: 'addReview', newReview })
             return newReview
         }
