@@ -45,10 +45,10 @@
     </div>
     <section class="reserve">
       <div class="info">
-        <div><span class="price">{{houseData.price}}</span> / per night</div>
+        <div><span class="price">{{houseData.price}}$</span> / per night</div>
       </div>
       <button
-        v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId"
+        v-if="loggedinUser===null || loggedinUser._id!==houseData.hostId"
         class="reserveBtn"
         @click="doReserve"
       >Reserve</button>
@@ -97,12 +97,13 @@ export default {
       return currHouse;
     },
     loggedinUser() {
+      console.log(this.$store.getters.loggedinUser);
       return this.$store.getters.loggedinUser;
     }
   },
   methods: {
     doReserve() {
-      if (!this.loggedinUser) return this.msg="log in first";
+      if (!this.loggedinUser) return this.$router.push('/login');
       this.$router.push(`/order/house/${this.houseData._id}`);
       // this.$router.push("/order");
     },

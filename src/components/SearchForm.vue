@@ -37,7 +37,6 @@ export default {
   },
   methods: {
     async doSearch(ev) {
-      if (this.filterBy.txt === "") return;
       this.filterBy.from = new Date(this.filterBy.from).toLocaleDateString();
       this.filterBy.to = new Date(this.filterBy.to).toLocaleDateString();
       await this.$store.dispatch("setFilter", this.filterBy);

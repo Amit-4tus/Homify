@@ -47,6 +47,11 @@
 }
 .fixed {
   position: fixed;
+  top: 0;
+}
+.absolute {
+  position: absolute;
+  top: 0;
 }
 .hide {
   display: none !important;

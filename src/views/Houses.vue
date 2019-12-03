@@ -28,11 +28,8 @@ export default {
 
     this.showMap = true;
     var elMyHeader = document.querySelector(".my-header");
-    if (!elMyHeader) {
-      var elMyHeader = document.querySelector(".my-header");
-    }
+    elMyHeader.classList.add('fixed');
   },
-  created() {},
   computed: {},
   components: {
     houseList,

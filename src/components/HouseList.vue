@@ -10,7 +10,7 @@
         <house-preview :itemData="item"></house-preview>
       </router-link>
     </div>
-    <h4 v-else>No Results Found</h4>
+    <h4 v-if="items.length === 0">No Results Found</h4>
   </div>
 </template>
 
