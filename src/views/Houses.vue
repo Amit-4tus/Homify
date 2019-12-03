@@ -32,7 +32,6 @@ export default {
     if (!elMyHeader) {
       var elMyHeader = document.querySelector(".my-header");
     }
-    elMyHeader.classList.add("fixed");
   },
   created() {},
   computed: {},

@@ -1,6 +1,5 @@
 <template>
-  <div class="about">
-    {{msg}}
+  <div class="signInCmp">
     <div v-if="loggedinUser">
       <h3>
         Loggedin User:
@@ -10,13 +9,15 @@
       </h3>
     </div>
     <div v-else>
+      <h2>One Small Step To Your Dream Vacation</h2>
       <form @submit.prevent="doLogin">
         <input type="text" v-model="loginCred.email" placeholder="Email" />
         <br />
         <input type="text" v-model="loginCred.password" placeholder="Password" />
         <br />
-        <button>Login</button>
+        <button class="submit">Log-In</button>
       </form>
+      <br>
 
       <form @submit.prevent="doSignup">
         <input type="text" v-model="signupCred.email" placeholder="Email" />
@@ -25,10 +26,10 @@
         <br />
         <input type="text" v-model="signupCred.username" placeholder="Username" />
         <br />
-        <button>Signup</button>
+        <button class="submit">Sign-Up</button>
       </form>
     </div>
-    <hr />
+    <p v-if="msg" class="error">{{msg}}</p>
   </div>
 </template>
 
@@ -51,9 +52,6 @@ export default {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     }
-  },
-  created() {
-    console.log("this.loggedinUser", this.loggedinUser);
   },
   methods: {
     receiveOrder() {
@@ -83,7 +81,7 @@ export default {
     async doLogin() {
       const cred = this.loginCred;
       if (!cred.email || !cred.password)
-        return (this.msg = "Please enter user/password");
+        return (this.msg = "Please enter user / password");
       await this.$store.dispatch({ type: "login", userCred: cred });
       this.receiveOrder();
       this.loginCred = {};
@@ -99,7 +97,6 @@ export default {
       this.$store.dispatch({ type: "signup", userCred: cred });
         this.receiveOrder();
     }
-  },
-  watch: {}
+  }
 };
 </script>

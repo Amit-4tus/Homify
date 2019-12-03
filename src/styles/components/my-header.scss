@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 6px 0px;
-  background-color: $color3;
+  background-color: $color5;
 }
 
 .main-logo {
@@ -18,8 +18,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  // float: right;
-  min-width: 40%;
+  align-items: center;
   height: 100%;
   padding-right: 1.7%;
 
@@ -30,7 +29,7 @@
 
 .header-link {
   text-transform: uppercase;
-  padding: 3.5%;
+  padding: 3.5% 5%;
   background-color: transparent;
   border: 0px;
   white-space: nowrap;
@@ -39,7 +38,7 @@
 }
 
 .hamburger {
-  margin-right: 35px;
+  margin-right: 20px;
   background-color: transparent;
   border: 0px;
   font-size: 29px;

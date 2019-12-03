@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     homes() {
-      return this.$store.getters.itemsToShow.slice(0, 4);
+      return this.$store.getters.itemsToShow;
     }
   },
   methods: {},

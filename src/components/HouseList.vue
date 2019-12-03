@@ -1,20 +1,29 @@
 <template>
-  <div class="houseList">
-    <router-link :to="`/house/details/${item._id}`" v-for="(item, idx) in items" :key="idx" class="housePreviewLink">
-      <house-preview :itemData="item"></house-preview>
-    </router-link>
+  <div>
+    <div class="houseList" v-if="items">
+      <router-link
+        :to="`/house/details/${item._id}`"
+        v-for="(item, idx) in items"
+        :key="idx"
+        class="housePreviewLink"
+      >
+        <house-preview :itemData="item"></house-preview>
+      </router-link>
+    </div>
+    <h4 v-else>No Results Found</h4>
   </div>
 </template>
 
 <script>
 import HousePreview from "./HousePreview";
 export default {
-  props: ['isTopPicList'],
+  props: ["isTopPicList"],
   data() {
     return {};
   },
   computed: {
     items() {
+      console.log(this.$store.getters.itemsToShow);
       return this.$store.getters.itemsToShow;
     }
   },
