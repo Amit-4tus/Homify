@@ -19,7 +19,7 @@
         </section>
         <section class="calendar-container flex flex-row align-center">
            <img class="calendar-img" src="../assets/imgs/calendar.png"/>
-          <div class="order-details-txts calendar">January 5, 2020 → January 9, 2020</div>
+          <div class="order-details-txts calendar">{{dates.from}} → {{dates.to}}</div>
         </section>
         <hr class="order-details-hr"/>
 
@@ -73,14 +73,12 @@
         <div hidden>Host id: {{orderData.hostId}} </div> 
         <div hidden>{{isApproved}}</div>
       </section>
-
         </div>
    
         </section>
 
 
     <!-- </div> -->
-  </section>
 </template>
 
 <script>
@@ -109,6 +107,9 @@ export default {
   computed: {
     _id() {
       return this.$route.params._id;
+    },
+    dates(){
+      return this.$store.getters.filter
     },
     orderData() {
       let currOrder = this.$store.getters.orderToShow;
