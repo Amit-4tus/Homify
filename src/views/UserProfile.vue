@@ -1,36 +1,48 @@
 <template>
   <section>
     <house-socket></house-socket>
-    <ul v-for="user in users" :key="user._id">
-      <li>Hello, {{user.name}}</li>
-    </ul>
+    {{msg}}
+    <button @click="orderReq">Switch to orders request</button>
+    <order-list :isHost="isHost"></order-list>
   </section>
 </template>
 
 <script>
 import houseSocket from "../components/HouseSocket";
+import orderList from "../components/OrderList";
 
 export default {
-  computed: {
-    users() {
-      console.log(this.$store.getters.users);
-      return this.$store.getters.users;
-    },
-    loggedinUser() {
-      return this.$store.getters.loggedinUser;
+  data() {
+    return {
+      criteria: {
+        id: "",
+        query: ""
+      },
+      msg: "",
+      isHost: false
+    };
+  },
+  computed: {},
+
+  methods: {
+    async orderReq() {
+      this.criteria.query = await "ordersReq";
+      this.isHost = true;
+      await this.$store.dispatch("loadOrders", this.criteria);
+      this.msg = "orders request";
     }
   },
-  created() {
-    if (!this.$store.getters.users) {
-      this.$store.dispatch({ type: "loadUsers" });
-    }
-    // return this.$store.getters.users
-    // const id = this.$route.params.id;
-    // let users = this.$store.getters.users
+
+  async created() {
+    this.criteria.id = await this.$store.getters.loggedinUser._id;
+    this.criteria.query = await "ordersList";
+    this.msg = "your orders ";
+    this.$store.dispatch("loadOrders", this.criteria);
   },
 
   components: {
-    houseSocket
+    houseSocket,
+    orderList
   }
 };
 </script>

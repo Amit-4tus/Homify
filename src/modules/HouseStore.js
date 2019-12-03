@@ -35,7 +35,6 @@ export default {
         }
         ,
 
-
         //server
         setCurrHouse(state, { currHouse }) {
             state.currHouse = currHouse

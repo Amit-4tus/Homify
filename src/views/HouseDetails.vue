@@ -54,7 +54,7 @@
       >Reserve</button>
     </section>
     <button
-      v-if="loggedinUser!==null && loggedinUser._id===houseData.hostId"
+      v-if="isOwner"
       @click="doEdit"
     >Edit here</button>
     <g-map
@@ -76,7 +76,7 @@ import reviewList from "@/components/ReviewList";
 import gMap from "@/components/GMap";
 export default {
   data() {
-    return { review: {}, showMap: false };
+    return { review: {}, showMap: false,msg:'' };
   },
   async created() {
     this.$store.dispatch("loadHouseById", this._id);
@@ -85,6 +85,10 @@ export default {
     console.log("review got", reviews);
   },
   computed: {
+    isOwner() {
+      if (this.loggedinUser !== null && this.loggedinUser._id === this.houseData.hostId)
+        return true
+    },
     _id() {
       return this.$route.params._id;
     },
@@ -99,6 +103,7 @@ export default {
   },
   methods: {
     doReserve() {
+      if (!this.loggedinUser) return this.msg="log in first";
       this.$router.push(`/order/house/${this.houseData._id}`);
       // this.$router.push("/order");
     },
@@ -107,6 +112,9 @@ export default {
     },
     addReview(review) {
       review.houseId = this.houseData._id;
+      review.user.userName = this.loggedinUser.username;
+      review.user.userId = this.loggedinUser._id;
+      console.log(review);
       this.$store.dispatch("addReview", review);
     }
   },

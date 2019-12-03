@@ -1,20 +1,21 @@
 <template>
-  <div>
+  <div  v-if="orders">
     <div v-for="(order, idx) in orders" :key="idx" >
-      <order-preview :orderData="order"></order-preview>
+      <order-preview :isHost="isHost" :orderData="order"></order-preview>
     </div>
   </div>
 </template>
 
-// <script>
+ <script>
 import orderPreview from "./OrderPreview";
 export default {
+   props: ["isHost"],
   data() {
     return {};
   },
   computed: {
-    items() {
-      return this.$store.getters.orderToSHow;
+    orders() {
+      return this.$store.getters.orders;
     }
   },
   methods: {},
