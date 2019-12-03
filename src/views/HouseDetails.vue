@@ -103,7 +103,7 @@ export default {
   },
   methods: {
     doReserve() {
-      if (!this.loggedinUser) return this.msg="log in first";
+      if (!this.loggedinUser) return this.$router.push('/login');
       this.$router.push(`/order/house/${this.houseData._id}`);
       // this.$router.push("/order");
     },
