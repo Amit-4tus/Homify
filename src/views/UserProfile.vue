@@ -1,52 +1,36 @@
 <template>
-    <section>
-        <house-socket></house-socket>
-        <ul v-for="user in users" :key="user._id">
-            <li >
-            Hello, {{user.name}}
-            </li>
-        </ul>
-         <!-- <button @click="getAllUsers">Get All Users</button> -->
-    </section>
+  <section>
+    <house-socket></house-socket>
+    <ul v-for="user in users" :key="user._id">
+      <li>Hello, {{user.name}}</li>
+    </ul>
+  </section>
 </template>
 
 <script>
-
-import houseSocket from '../components/HouseSocket'
+import houseSocket from "../components/HouseSocket";
 
 export default {
-    data() {
-        return {
-            
-        }
-    },
-    computed: {
+  computed: {
     users() {
-      return this.$store.getters.users
+      console.log(this.$store.getters.users);
+      return this.$store.getters.users;
     },
     loggedinUser() {
-      return this.$store.getters.loggedinUser
+      return this.$store.getters.loggedinUser;
     }
-    },
-    
-    methods: {
+  },
+  created() {
+    if (!this.$store.getters.users) {
+      this.$store.dispatch({ type: "loadUsers" });
+    }
+    // return this.$store.getters.users
+    // const id = this.$route.params.id;
+    // let users = this.$store.getters.users
+  },
 
-    getAllUsers() {
-        this.$store.dispatch({type: 'loadUsers'})
-        },
-    },
-    
-    created() {
-       
-        // return this.$store.getters.users
-        // const id = this.$route.params.id;
-    
-        // let users = this.$store.getters.users
-      
-    },
-
-    components: {
+  components: {
     houseSocket
   }
-}
+};
 </script>

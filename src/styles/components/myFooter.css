@@ -10,6 +10,18 @@
     padding: 40px 0px;
   }
 }
-.home .myFooter .logo {
-  width: 10vw;
+.home .myFooter .portrait {
+  border-radius: 999px;
+  margin: 0 1%;
+  width: 12vw;
+}
+@media (max-width: 600px) {
+  .home .myFooter .portrait {
+    width: 20vw;
+  }
+}
+@media (max-width: 420px) {
+  .home .myFooter .portrait {
+    width: 25vw;
+  }
 }
