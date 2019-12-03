@@ -62,21 +62,21 @@ export default {
     rejectOrder() {
       SocketService.emit("reject order", this.order);
     },
-    receiveOrder() {
-      if (this.$store.getters.loggedinUser !== null) {
-        let userId = this.$store.getters.loggedinUser._id;
-        SocketService.on("get order details", order => {
-          if (userId === order.hostId) {
-            this.orders.push(order);
-            const msg = {
-                    txt: "Order Added check your profile",
-                    type: 'error'
-                }
-                eventBus.$emit('show-msg', msg)
-          }
-        });
-      }
-    }
+    // receiveOrder() {
+    //   if (this.$store.getters.loggedinUser !== null) {
+    //     let userId = this.$store.getters.loggedinUser._id;
+    //     SocketService.on("get order details", order => {
+    //       if (userId === order.hostId) {
+    //         this.orders.push(order);
+    //         const msg = {
+    //                 txt: "Order Added check your profile",
+    //                 type: 'error'
+    //             }
+    //             eventBus.$emit('show-msg', msg)
+    //       }
+    //     });
+    //   }
+    // }
   },
   computed: {
     loggedinUser() {
