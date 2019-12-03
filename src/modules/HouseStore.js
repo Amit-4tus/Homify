@@ -5,7 +5,8 @@ export default {
     state: {
         itemsToShow: [],
         currHouse: {},
-        coords: []
+        coords: [],
+        filterBy: {}
     },
     getters: {
         itemsToShow(state) {
@@ -15,11 +16,17 @@ export default {
             return state.currHouse
         },
         coords(state) {
-
             return state.coords
+        },
+        filter(state) {
+            return state.filterBy
         }
     },
     mutations: {
+        setFilter(state, { filterBy }) {
+            state.filterBy = filterBy;
+
+        },
         setItemsToShow(state, itemsToShow) {
             state.itemsToShow = itemsToShow.items;
 
@@ -28,13 +35,11 @@ export default {
             state.itemsToShow.forEach(house => {
                 state.coords.push(house.location.coords)
             })
-
         },
         resetCoords(state) {
             state.coords = [];
         }
         ,
-
         //server
         setCurrHouse(state, { currHouse }) {
             state.currHouse = currHouse
@@ -72,6 +77,10 @@ export default {
             console.log(id)
             const deletedHouse = await houseService.deleteItem(id)
             return deletedHouse
+
+        },
+        async setFilter(context, filterBy) {
+            context.commit({ type: 'setFilter', filterBy })
 
         },
 
