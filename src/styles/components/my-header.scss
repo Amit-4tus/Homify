@@ -5,7 +5,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 6px 0px;
-  background-color: $color3;
+  background-color: $color5;
+}
+
+.headerForList {
+  position: fixed;
 }
 
 .main-logo {
@@ -18,10 +22,9 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  // float: right;
-  min-width: 40%;
+  align-items: center;
   height: 100%;
-  padding-right: 1.7%;
+  padding-right: 3%;
 
   @media (max-width: 450px) {
     display: none;
@@ -30,16 +33,16 @@
 
 .header-link {
   text-transform: uppercase;
-  padding: 3.5%;
+  padding: 3.5% 5%;
   background-color: transparent;
   border: 0px;
   white-space: nowrap;
   text-decoration-line: none;
-  color: $color6;
+  color: $color1;
 }
 
 .hamburger {
-  margin-right: 35px;
+  margin-right: 25px;
   background-color: transparent;
   border: 0px;
   font-size: 29px;

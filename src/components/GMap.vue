@@ -37,7 +37,6 @@ export default {
     this.center = this.coords;
     this.markers=this.marker;
 
-    // console.log(document.querySelector('.listMap')).offsetTop
   },
   methods:{
 zoomIn(){

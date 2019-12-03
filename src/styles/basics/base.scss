@@ -1,17 +1,31 @@
 * {
-    box-sizing: border-box;
+  scroll-behavior: smooth;
+  :focus {
+    outline: none;
+  }
+  box-sizing: border-box;
+  ::-webkit-scrollbar {
+    width: 15px;
+  }
+  ::-webkit-scrollbar-track {
+    background: lightgray;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $color2;
+    border-radius: 999px;
+  }
 }
 
 body {
-    margin: 0 auto;
-    width: 100vw;
-    font-family: 'Montserrat';
-    text-align: center;
-    overflow-x: hidden;
+  margin: 0 auto;
+  width: 100vw;
+  font-family: "Montserrat";
+  text-align: center;
+  overflow-x: hidden;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 // li{

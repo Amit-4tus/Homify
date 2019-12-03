@@ -5,7 +5,7 @@
   width: 45%;
   height: calc(100vh - 60px);
 }
-@media (max-width: 450px) {
+@media (max-width: 600px) {
   .listMap {
     display: none;
   }

@@ -92,7 +92,7 @@
 
     .houseDesc {
       @media (max-width: 600px) {
-        padding: 20px 0;
+        padding-bottom: 20px;
         border-bottom: 1px solid $color4;
       }
     }
@@ -141,6 +141,11 @@
       display: none;
     }
   }
+
+  .placeholder {
+    width: 100vw;
+    height: 70px;
+  }
 }
 
 .reserve {
@@ -164,10 +169,11 @@
   }
 
   button {
-    background-color: $color2;
+    color: $color3;
+    background-image: linear-gradient(to bottom right, $color1, $color2);
     border: 0;
     border-radius: 5px;
-    padding: 15px 35px;
+    padding: 15px 8%;
     font-size: 1.3rem;
   }
 }
@@ -177,9 +183,4 @@
   @media (max-width: 420px) {
     margin-bottom: 8%;
   }
-}
-
-.placeholder {
-  width: 100vw;
-  height: 70px;
 }

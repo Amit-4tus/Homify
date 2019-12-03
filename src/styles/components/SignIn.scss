@@ -1,0 +1,97 @@
+.logInPage {
+  background-image: url("https://i.pinimg.com/originals/7f/59/2a/7f592a7d7302d944c45d503b12302637.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 30% 70%;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+
+  .signInCmp {
+    width: 40vw;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 5vw;
+    font-size: 1rem;
+    @media (max-width: 750px) {
+      width: 60vw;
+    }
+    @media (max-width: 550px) {
+      width: 100vw;
+      border-radius: 0px;
+      position: absolute;
+      bottom: 0px;
+    }
+    @media (max-width: 365px) {
+      font-size: 0.8rem;
+    }
+    color: $color6;
+    background-color: $color5;
+    border-radius: 7px;
+    margin: 0 auto;
+    margin-top: 100px;
+
+    h2 {
+      margin: 0 0 6% 0;
+    }
+
+    .logOutBtn {
+      background-image: linear-gradient(to bottom right, $color1, $color2);
+      color: $color3;
+      padding: 2% 7%;
+      border: unset;
+      border-radius: 5px;
+      margin-top: 5%;
+    }
+
+    .error {
+      color: red;
+      margin: 7% 0 0 0;
+    }
+
+    > * {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      > * {
+        width: 100%;
+      }
+      .submit {
+        width: 100%;
+        display: block;
+        background-color: $color2;
+        color: $color3;
+        margin-top: 7%;
+        border: 0;
+        border-radius: 5px;
+        padding: 2% 10%;
+        text-align: center;
+        cursor: pointer;
+      }
+    }
+
+    span {
+      margin: 3% 0px;
+    }
+
+    input {
+      width: 100%;
+      border: 0px;
+      border-bottom: 1px solid darkgray;
+      padding: 3px;
+      // border-bottom: 1px solid darkgray;
+      background-color: transparent;
+      margin-bottom: 3%;
+    }
+  }
+}
+
+.formHeader {
+  font-size: 1.8rem;
+}

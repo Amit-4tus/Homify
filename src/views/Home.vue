@@ -4,9 +4,6 @@
     <h2 class="specialPicksHeader">Special Top Picks:</h2>
     <topPickList class="topPicks"></topPickList>
     <!-- <inspSect></inspSect> -->
-    <searchForm>
-      <div class="formHeader">Book A Unique Place To Stay:</div>
-    </searchForm>
     <myFooter></myFooter>
   </div>
 </template>
@@ -22,12 +19,19 @@ export default {
   created() {
     this.$store.dispatch("loadItems");
   },
+  mounted() {
+    var elMyHeader = document.querySelector(".my-header");
+    elMyHeader.classList.add("absolute");
+  },
   components: {
     homePageTopFold,
     topPickList,
     searchForm,
     myFooter,
     inspSect
+  },
+  destroyed() {
+    document.querySelector(".my-header").classList.remove("absolute");
   }
 };
 </script>

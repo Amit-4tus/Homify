@@ -45,10 +45,10 @@
     </div>
     <section class="reserve">
       <div class="info">
-        <div><span class="price">{{houseData.price}}</span> / per night</div>
+        <div><span class="price">{{houseData.price}}$</span> / per night</div>
       </div>
       <button
-        v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId"
+        v-if="loggedinUser===null || loggedinUser._id!==houseData.hostId"
         class="reserveBtn"
         @click="doReserve"
       >Reserve</button>
@@ -82,7 +82,6 @@ export default {
     this.$store.dispatch("loadHouseById", this._id);
     const reviews = await this.$store.dispatch("loadReviews", this._id);
     this.showMap = true;
-    console.log("review got", reviews);
   },
   computed: {
     isOwner() {
@@ -98,12 +97,13 @@ export default {
       return currHouse;
     },
     loggedinUser() {
+      console.log(this.$store.getters.loggedinUser);
       return this.$store.getters.loggedinUser;
     }
   },
   methods: {
     doReserve() {
-      if (!this.loggedinUser) return this.msg="log in first";
+      if (!this.loggedinUser) return this.$router.push('/login');
       this.$router.push(`/order/house/${this.houseData._id}`);
       // this.$router.push("/order");
     },
@@ -114,7 +114,6 @@ export default {
       review.houseId = this.houseData._id;
       review.user.userName = this.loggedinUser.username;
       review.user.userId = this.loggedinUser._id;
-      console.log(review);
       this.$store.dispatch("addReview", review);
     }
   },

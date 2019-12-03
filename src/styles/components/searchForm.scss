@@ -1,27 +1,29 @@
 .searchForm {
-  width: 40vw;
-  align-self: center;
+  align-self: flex-start;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   padding: 5vw;
+  margin: 110px 0 0 10%;
   font-size: 1rem;
-  @media (max-width: 750px) {
-    width: 60vw;
+  width: 35vw;
+  @media (max-width: 900px) {
+    width: 45vw;
   }
   @media (max-width: 550px) {
-    top: 220vh;
-    width: 70vw;
+    width: 100vw;
+    border-radius: 0%;
+    margin: 30vh 0 0 0;
+    position: absolute;
+    bottom: 0;
   }
   @media (max-width: 365px) {
     font-size: .8rem;
-    width: 80vw;
+    // width: 80vw;
   }
-  background-color: $color4;
-  border-radius: 7px;
-  margin: 0 auto;
-  margin-top: 10%;
+  background-color: $color5;
+  border-radius: 5px;
 
   .formHeader {
     margin-bottom: 7%;
@@ -38,7 +40,7 @@
     margin: 3% 0px;
   }
 
-  input {
+  input, select, option{
     width: 100%;
     border: 0px;
     border-bottom: 1px solid darkgray;
@@ -46,6 +48,7 @@
     // border-bottom: 1px solid darkgray;
     background-color: transparent;
     margin-bottom: 3%;
+    cursor: text;
   }
 }
 
@@ -55,12 +58,13 @@
 
 .submit {
   display: block;
-  background-color: $color2;
+  background-image: linear-gradient(to bottom right, $color1, $color2);
   color: $color3;
   margin-top: 7%;
   border: 0px;
   border-radius: 5px;
   padding: 2% 10%;
   text-align: center;
+  align-self: center;
   cursor: pointer;
 }

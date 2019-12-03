@@ -37,6 +37,9 @@ async function logout() {
 
 
 function _handleLogin(user) {
-    sessionStorage.setItem('user', JSON.stringify(user))
+    if (user !== undefined) {
+
+        sessionStorage.setItem('user', JSON.stringify(user))
+    }
     return user;
 }
