@@ -18,10 +18,12 @@
             <div class="reserve-form-boxes-container flex space-between align-center">
               <div class="reserve-form-boxes">
                 <span class="text-margin">Check-in</span>
+                {{dates.from}}
                 <!-- <input v-model="order.dates.from" :min="minDate" :max="maxDate" type="date" /> -->
               </div>
               <div class="reserve-form-boxes">
                 <span class="text-margin">Check-out</span>
+                {{dates.to}}
                 <!-- <input v-model="order.dates.to" :min="minDate" :max="maxDate" type="date" /> -->
               </div>
             </div>
@@ -173,7 +175,7 @@ export default {
       return currUser;
     },
     dates() {
-      return this.$store.getters.filterBy;
+      return this.$store.getters.filter;
     }
   }
 };
