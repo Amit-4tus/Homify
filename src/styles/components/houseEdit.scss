@@ -36,6 +36,7 @@
     color: rgb(189, 158, 158);
     padding-bottom: 0px;
     margin-bottom: 8px;
+    margin-top: 50px;
 }
 
 .add-house-name-of-house-text {
@@ -130,21 +131,16 @@ input[type=number]::-webkit-outer-spin-button
 
 
 .appartment-draw {
-    // position: relative;
-    right: 6em;
-    bottom: 2.5em;
-    opacity: 0.6;
-   
+    position: fixed;
+    right: 2em;
+    top: 8em;
+    opacity: 0.6;  
+
 }
 
-// .upload-btns-container {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: left;
-//     justify-content: space-between;
-//     max-width: 26em;
-// }
-
+.add-house-imgs-container {
+    margin-top: 30px;
+}
 
 .upload-imgs-btn {
     width: 11em;
@@ -155,7 +151,7 @@ input[type=number]::-webkit-outer-spin-button
     border: 0;
     border-radius: 3px;
     color: white;
-    font-size: 50px;
+    // font-size: 50px;
     font-weight: bold;
     margin-bottom: 1em;
     margin-right: 2em;
@@ -164,7 +160,6 @@ input[type=number]::-webkit-outer-spin-button
 
 .add-house-page-right {
     width: 40em;
-    // right: 5em;
     margin-top: 8.3em;
 }
 
@@ -172,11 +167,10 @@ input[type=number]::-webkit-outer-spin-button
     margin-bottom: 3em;
 }
 
-
 .img-present {
     width: 8em;
     height: 8em;
-}
+} 
 
 .check-txt {
     color: rgb(124, 59, 59);
@@ -195,14 +189,6 @@ input[type=number]::-webkit-outer-spin-button
     border: solid 1.3px rgb(179, 156, 156);
 }
 
-.add-house-step-4 {
-    font-family: eurof;
-    font-size: 20px;
-    color: rgb(189, 158, 158);
-    margin-bottom: 2px;
-}
-
-
 input[type="date"]::-webkit-inner-spin-button {
     display: none;
     -webkit-appearance: none;
@@ -218,11 +204,9 @@ input[type="date"]::-webkit-inner-spin-button {
     border: 0;
     border-radius: 3px;
     margin-bottom: 4em;
+    margin-right: 1.5em;
 }
 
 // @media screen and (max-height:800px) {
 
-//     .calender-container {
-//         background-color: blue;
-//     }
 // }
