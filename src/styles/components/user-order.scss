@@ -8,9 +8,7 @@
     height: 100vh;
     margin-right: 3em;
     margin-left: 2em;
-    // background-color: yellowgreen;
 }
-
 
 .house-reserve-image {
     height:16.7em ;
@@ -20,13 +18,9 @@
 }
 
 .reservation-page-general-data {
-    // background-color: chartreuse;
-    // font-family: eurof;
     font-family: 'Roboto', sans-serif;
     max-width:52em;
     height: 32em;
-    // left: 3em;
-    // top: 5em;
     margin-left: 1em;
     text-align: left;
 }
@@ -34,8 +28,8 @@
 
 
 .house-name {
-font-size: x-large;
-font-weight: bold;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .house-price {
@@ -47,17 +41,10 @@ font-weight: bold;
    
     border-style:solid;
     border-color: lightgray;
-    // position: absolute;
-    // right: 1em;
-    // top: 5em;
     border-width: 0.7px;
     width: 18em;
     height: 32em;
-    // margin-right: 2em;
-   
 }
-
-
 
 .reserve-form-container {
     margin-left: 10px;
@@ -82,7 +69,6 @@ font-weight: bold;
     font-size: 12px;
     font-weight: bold;
     text-align: left;
-
 }
 
 .reviews-data-bold-center {
@@ -102,7 +88,6 @@ font-weight: bold;
 }
 
 .reserve-form-boxes {
-    // background-color: lightsteelblue;
     width: 7em;
     height:1.5em;
     margin-left: 0.6em;
@@ -112,15 +97,13 @@ font-weight: bold;
 }
 
 .reserve-form-select-input {
-    // background-color: lightsteelblue;
     width: 8.6em;
     height:1.8em;
     margin-left: 0.6em;
     margin-right: 0.6em;
     border-radius: 4px;
     align-items: center;
-    border: none;
-  
+    border: none; 
 }
 
 .input-adults:hover {
@@ -159,7 +142,6 @@ cursor: pointer;
     justify-content: center;
 }
 
- 
 .reserve-box-bottom-text {
     text-align: justify;
     text-justify: inter-word;
@@ -186,13 +168,11 @@ cursor: pointer;
     }
 }
 
-
 @media screen and (max-width:930px) {
     .img-2 {
         display: none;
     }
 }
-
 
 @media screen and (max-width:610px) {
     .reservation-page {
