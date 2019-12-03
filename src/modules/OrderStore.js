@@ -48,7 +48,7 @@ export default {
         },
         async updateOrder(context, { order }) {
             console.log(order)
-            // const updatedOrder = await orderService.updateOrder(order)
+            const updatedOrder = await orderService.updateOrder(order)
 
         }
 

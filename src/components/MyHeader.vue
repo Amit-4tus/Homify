@@ -4,8 +4,8 @@
     <nav class="navbar">
       <router-link to="/house" class="header-link">Houses</router-link>
       <!-- <router-link to="/map" class="header-link">Map</router-link> -->
-      <router-link to="/user-profile" v-if="loggedinUser!==null" class="header-link">Profile</router-link>
-      <router-link to="/host" v-if="loggedinUser!==null" class="header-link">Add House</router-link>
+      <router-link to="/user-profile" v-if="loggedinUser" class="header-link">Profile</router-link>
+      <router-link to="/host" v-if="loggedinUser" class="header-link">Add House</router-link>
       <router-link to="/login" class="header-link">Sign-In</router-link>
     </nav>
     <div class="hamburger" @click="showNav">&#9776;</div>
@@ -13,8 +13,8 @@
       <h1 class="mobileNavHead">HOMIFY</h1>
       <div class="header-link" @click="hideNav('house')">Houses</div>
       <!-- <div class="header-link" @click="hideNav('map')">Map</div> -->
-      <div class="header-link" v-if="loggedinUser!==null" @click="hideNav('user-profile')">User-Profile</div>
-      <div v-if="loggedinUser!==null" class="header-link" @click="hideNav('host')">Add House</div>
+      <div class="header-link" v-if="loggedinUser" @click="hideNav('user-profile')">User-Profile</div>
+      <div v-if="loggedinUser" class="header-link" @click="hideNav('host')">Add House</div>
       <div class="header-link" @click="hideNav('login')">Sign-In</div>
       <div class="screen hide" @click="hideNav('')"></div>
     </nav>
@@ -41,7 +41,10 @@ export default {
   },
   computed: {
     loggedinUser() {
-      return this.$store.getters.loggedinUser;
+      let isConnected = this.$store.getters.loggedinUser;
+      if (isConnected !== null && isConnected !== undefined) {
+        return true;
+      }
     }
   }
 };
