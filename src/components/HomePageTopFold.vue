@@ -3,7 +3,7 @@
     <searchForm>
       <h1 class="main-title">Find The Perfect Vacation</h1>
     </searchForm>
-    <!-- <button class="startBtn" @click="doScroll">v</button> -->
+    <button class="startBtn" @click="doScroll"><img src="../assets/imgs/downward-arrow.png"></button>
   </section>
 </template>
 
@@ -12,7 +12,7 @@ import searchForm from "./SearchForm";
 export default {
   methods: {
     doScroll() {
-      // window.scrollTo({ top: window.innerHeight * 2.9, behavior: "smooth" });
+      window.scrollTo({ top: 9999, behavior: "smooth" });
     }
   },
   components: {

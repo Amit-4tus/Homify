@@ -70,7 +70,7 @@
 
 <script>
 import myFooter from "../components/MyFooter";
-import reviewEdit from "@/components/ReviewEdit";
+import reviewEdit from "@/components/reviewForm";
 
 import reviewList from "@/components/ReviewList";
 import gMap from "@/components/GMap";

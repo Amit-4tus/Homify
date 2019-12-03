@@ -35,37 +35,37 @@
 }
 
 .specialPicksHeader {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+  text-align: start;
+  margin-left: 11px;
 }
 
-.topPicks {
-  max-width: $containerWidth;
-  display: flex;
+.topPicksContainer {
   margin: 0 auto;
-  margin-bottom: 15%;
-  flex-wrap: wrap;
 
-  @media (max-width: 550px) {
-  }
+  .topPicks {
+    display: flex;
+    flex-wrap: wrap;
 
-  > * {
-    width: 25%;
+    > * {
+      width: 25%;
 
-    @media (max-width: 550px) {
-      width: 50%;
+      @media (max-width: 550px) {
+        width: 50%;
+      }
     }
-  }
 
-  .housePreview {
-    flex-direction: column;
-    @media (max-width: 420px) {
-      // padding-bottom: 200px;
+    .housePreview {
+      flex-direction: column;
+      @media (max-width: 420px) {
+        // padding-bottom: 200px;
+      }
+      // width: 80%;
+      //   height: 50%;
+
+      //   // .houseRating {
+
+      //   // }
     }
-    // width: 80%;
-    //   height: 50%;
-
-    //   // .houseRating {
-
-    //   // }
   }
 }

@@ -1,0 +1,9 @@
+.reviewForm {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5vw;
+  font-size: 1rem;
+  width: 35vw;
+}
