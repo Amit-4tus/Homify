@@ -1,7 +1,7 @@
 .add-house-page {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;;
+    justify-content: space-between;
 }
 
 .add-house-page-left {
@@ -67,7 +67,6 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: space-between;
     min-width: 27em;
 }
@@ -114,12 +113,12 @@ input[type=number]::-webkit-outer-spin-button
 }
 
 .add-house-amenities-input {
-    max-width: 28em;
-    min-width: 22em;
+    color: coral;
+    // max-width: 28em;
+    min-width: 19em;
     border: solid 1.3px rgb(179, 156, 156);
     font-size: 20px;
     border-radius: 2px;
-    // margin-bottom: 2em;
 }
 
 .add-house-Upload-image-text {
@@ -130,7 +129,7 @@ input[type=number]::-webkit-outer-spin-button
 }
 
 
-.appartment-draw {
+.flowers-draw {
     position: fixed;
     right: 2em;
     top: 8em;
@@ -151,7 +150,6 @@ input[type=number]::-webkit-outer-spin-button
     border: 0;
     border-radius: 3px;
     color: white;
-    // font-size: 50px;
     font-weight: bold;
     margin-bottom: 1em;
     margin-right: 2em;
@@ -160,7 +158,13 @@ input[type=number]::-webkit-outer-spin-button
 
 .add-house-page-right {
     width: 40em;
-    margin-top: 8.3em;
+    margin-top: 3em;  
+}
+
+.appartment-draw {
+    top: 6em;
+    width: 20em;
+    height: 40em;
 }
 
 .el-upload__tip {
@@ -207,6 +211,29 @@ input[type="date"]::-webkit-inner-spin-button {
     margin-right: 1.5em;
 }
 
-// @media screen and (max-height:800px) {
+@media screen and (max-width:1080px) {
+    .flowers-draw {
+        display: none;
+    }
+    
+}
 
-// }
+@media screen and (max-width:570px) {
+    .add-house-location-container {
+        flex-direction: column;
+        align-items: left;
+        padding: none;
+        height: 10em;
+    }
+    .add-house-step-container {
+        margin-left: 3em;
+    }
+    .img-present {
+        width: 6em;
+        height: 6em;
+    } 
+    .add-house-imgs-container {
+        max-width: 20em;
+    }
+   
+}

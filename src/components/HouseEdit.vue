@@ -49,7 +49,7 @@
             class="add-house-amenities-input"
             v-model="newHouse.amentities"
             multiple
-            placeholder="Please select"
+            placeholder="Please select from the list"
           >
             <el-option
               v-for="item in options"
@@ -111,7 +111,8 @@
       </section>
 
       <section class="add-house-page-right">
-        <img class="appartment-draw" src="../assets/imgs/appartment.jpg" />
+        <!-- <div class="appartment-draw" ></div> -->
+        <img class="flowers-draw" src="../assets/imgs/vase.png" />
       </section>
     </section>
 
