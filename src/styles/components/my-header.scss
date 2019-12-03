@@ -3,34 +3,28 @@
   height: 60px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 6px 0px;
-  background-color: $color5;
+  background-color: $color3;
 }
 
 .main-logo {
   height: 80%;
   width: auto;
-  padding-left: 1.5%;
-  padding-top: 0.5%;
+  padding-left: 1.7%;
   cursor: pointer;
 }
 
 .navbar {
   display: flex;
   justify-content: space-between;
-  float: right;
+  // float: right;
   min-width: 40%;
   height: 100%;
-  padding-right: 1.5%;
+  padding-right: 1.7%;
 
   @media (max-width: 450px) {
     display: none;
-  }
-
-  .header-link {
-    @media (max-width: 460px) {
-      font-size: 0.8rem;
-    }
   }
 }
 
@@ -39,13 +33,13 @@
   padding: 3.5%;
   background-color: transparent;
   border: 0px;
+  white-space: nowrap;
   text-decoration-line: none;
-  color: $color1;
+  color: $color6;
 }
 
 .hamburger {
   margin-right: 35px;
-  margin-top: 10px;
   background-color: transparent;
   border: 0px;
   font-size: 29px;

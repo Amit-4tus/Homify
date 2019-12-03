@@ -17,7 +17,7 @@ function getReviewById(id) {
 //server
 async function addReview(review) {
 
-    review.user.userName="me"
+    // review.user.userName="me"
     review.createdAt= new Date().toLocaleDateString();
     const newReview=await httpService.post(`api/review`, review)
     return newReview

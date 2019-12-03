@@ -173,7 +173,7 @@ export default {
         type: "addHouse",
         newHouse: this.newHouse
       });
-      this.$router.push(`/house/deatils/${house._id}`);
+      this.$router.push(`/house/details/${house._id}`);
     },
     async updateHouse() {
       await this.$store.dispatch({ type: "updateHouse", house: this.newHouse });
@@ -214,24 +214,24 @@ export default {
     amenitiesOps() {
       return [
         {
-          value: "Wifi",
+          value: "wifi",
           label: "Wifi"
         },
         {
-          value: "Kitchen",
+          value: "kitchen",
           label: "Kitchen"
         },
         {
-          value: "Shower",
+          value: "shower",
           label: "Shower"
         },
         {
-          value: "Parking",
+          value: "parking",
           label: "Parking"
         },
         {
-          value: "Elevator",
-          label: "Elevator"
+          value: "garden",
+          label: "Garden"
         }
       ];
     }
