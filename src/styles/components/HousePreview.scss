@@ -6,6 +6,9 @@
 .housePreview {
   display: flex;
   height: 170px;
+  @media (min-width: 950px) {
+    height: 220px;
+  }
   padding: 1%;
 }
 

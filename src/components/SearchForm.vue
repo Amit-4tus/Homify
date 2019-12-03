@@ -38,13 +38,6 @@ export default {
   },
   methods: {
     doSearch(ev) {
-      if (this.filterBy.txt === "") return;
-      // const where = ev.target.parentElement.children[1].children[0].value;
-      // const when = {};
-      // when.from = ev.target.parentElement.children[2].children[0].value;
-      // when.until = ev.target.parentElement.children[2].children[1].value;
-      // const who = ev.target.parentElement.children[3].children[0].value;
-      // const searchBy = { when, where, who };
       this.$router.push(`/house/${this.filterBy.txt}`);
     },
     calcDateRange() {

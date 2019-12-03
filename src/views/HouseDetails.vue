@@ -45,10 +45,10 @@
     </div>
     <section class="reserve">
       <div class="info">
-        <div><span class="price">{{houseData.price}}</span> / per night</div>
+        <div><span class="price">{{houseData.price}}$</span> / per night</div>
       </div>
       <button
-        v-if="loggedinUser!==null && loggedinUser._id!==houseData.hostId"
+        v-if="loggedinUser===null || loggedinUser._id!==houseData.hostId"
         class="reserveBtn"
         @click="doReserve"
       >Reserve</button>
@@ -98,6 +98,7 @@ export default {
       return currHouse;
     },
     loggedinUser() {
+      console.log(this.$store.getters.loggedinUser);
       return this.$store.getters.loggedinUser;
     }
   },

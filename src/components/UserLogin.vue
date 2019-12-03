@@ -5,7 +5,7 @@
         Loggedin User:
         {{loggedinUser.username}}
         <form @submit.prevent="updateUser"></form>
-        <button @click="doLogout">Logout</button>
+        <button class="logOutBtn" @click="doLogout">Logout</button>
       </h3>
     </div>
     <div v-else>

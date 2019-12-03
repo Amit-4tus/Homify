@@ -1,6 +1,5 @@
 <template>
   <section class="home-page-top-fold">
-    <div class="placeholder"></div>
     <searchForm><h1 class="main-title">Find The Perfect Vacation</h1></searchForm>
     <!-- <button class="startBtn" @click="doScroll">v</button> -->
   </section>

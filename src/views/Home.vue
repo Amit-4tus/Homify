@@ -19,12 +19,19 @@ export default {
   created() {
     this.$store.dispatch("loadItems");
   },
+  mounted() {
+    var elMyHeader = document.querySelector(".my-header");
+    elMyHeader.classList.add("absolute");
+  },
   components: {
     homePageTopFold,
     topPickList,
     searchForm,
     myFooter,
     inspSect
+  },
+  destroyed() {
+    document.querySelector(".my-header").classList.remove("absolute");
   }
 };
 </script>

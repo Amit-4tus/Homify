@@ -1,32 +1,14 @@
 <template>
+  <div class="logInPage">
     <login></login>
+  </div>
 </template>
 
 <script>
-
 import login from "@/components/UserLogin";
-
-
 export default {
-    data() {
-        return {
-          
-        }
-    },
-    computed: {
-    
-    },
-    
-    methods: {
-       
-    },
-    created() {
-       
-    
-  },
   components: {
-    login,
-    
+    login
   }
 };
 </script>
