@@ -1,8 +1,10 @@
 <template>
   <section>
     <h2>House Name: {{orderData.name}}</h2>
-    <h3>Order From: {{orderData.dates.from}}</h3>
-    <h3>Order Until: {{orderData.dates.to}}</h3>
+    <h3 v-if="isHost">Order From: {{orderData.user.userName}}</h3>
+
+    <h3>Check In: {{orderData.dates.from}}</h3>
+    <h3>Check Out: {{orderData.dates.to}}</h3>
     <h4>CreatedAt: {{orderData.createdAt}}</h4>
     <h4>Order Status: {{orderData.status}}</h4>
     <button @click="res('approve')" v-if="isHost">Approve</button>
