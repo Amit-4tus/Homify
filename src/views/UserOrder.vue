@@ -2,9 +2,7 @@
 
 <template>
   <section>
-
     <section class="reservation-page">
-
       <div>
         <section class="reserve-form">
           <div class="reserve-form-container">
@@ -78,8 +76,6 @@
         </section>
       </div>
 
-
-
       <div class="reservation-page-general-data flex-column">
         <section class="order-house-order-details flex flex-column wrap">
           <section class="order-house-imgs-container">
@@ -88,7 +84,7 @@
             <img v-if="houseData.imgs" class="house-reserve-image img-3" :src="houseData.imgs[2]" />
           </section>
 
-          <section v-if="!isOrdered"  class="reserve-form-host-data">
+          <section v-if="!isOrdered" class="reserve-form-host-data">
             <div v-if="houseData.name">
               <div>
                 <p class="house-name">{{houseData.name}}</p>
@@ -103,9 +99,7 @@
             </div>
           </section>
         </section>
-
       </div>
-
     </section>
   </section>
 </template>
@@ -143,14 +137,18 @@ export default {
   },
 
   methods: {
-  async doOrder() {
-      this.order.hostId=this.houseData.hostId;
+    async doOrder() {
+      this.order.dates.from = this.$store.getters.filter.from;
+      this.order.dates.to = this.$store.getters.filter.to;
+
+      this.order.hostId = this.houseData.hostId;
       this.order.imgs = this.houseData.imgs;
-      this.order.name= this.houseData.name;
+      this.order.name = this.houseData.name;
       this.order.price = this.houseData.price;
-      const order=await this.$store.dispatch("addOrder", this.order);
+
+      const order = await this.$store.dispatch("addOrder", this.order);
       this.isOrdered = true;
-      await  this.$router.push(`/order/${order._id}`);
+      await this.$router.push(`/order/${order._id}`);
     },
     loggedinUser() {
       return this.$store.getters.loggedinUser;
@@ -175,6 +173,9 @@ export default {
       if (!currUser[0]) return generalName;
       let host = currUser[0].name;
       return currUser;
+    },
+    dates() {
+      return this.$store.getters.filterBy;
     }
   }
 };

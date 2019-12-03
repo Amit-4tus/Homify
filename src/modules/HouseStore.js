@@ -1,11 +1,11 @@
 import houseService from '../services/HouseService'
-
 export default {
     strict: true,
     state: {
         itemsToShow: [],
         currHouse: {},
-        coords: []
+        coords: [],
+        filterBy: {}
     },
     getters: {
         itemsToShow(state) {
@@ -16,9 +16,15 @@ export default {
         },
         coords(state) {
             return state.coords
+        },
+        filter(state) {
+            return state.filterBy
         }
     },
     mutations: {
+        setFilter(state, { filterBy }) {
+            state.filterBy = filterBy;
+        },
         setItemsToShow(state, itemsToShow) {
             state.itemsToShow = itemsToShow.items;
         },
@@ -59,9 +65,11 @@ export default {
             const updatedHouse = await houseService.updateItem(house)
         },
         async deleteHouse(context, { id }) {
-            console.log(id)
             const deletedHouse = await houseService.deleteItem(id)
             return deletedHouse
+        },
+        async setFilter(context, filterBy) {
+            context.commit({ type: 'setFilter', filterBy })
         },
     }
 }

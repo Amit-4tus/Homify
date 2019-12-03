@@ -66,6 +66,7 @@ export default {
             eventBus.$emit("show-msg", msg);
           }
         });
+
         SocketService.on("approve order", order => {
           console.log(order)
           if (userId === order) {
@@ -95,6 +96,7 @@ export default {
       if (!cred.email || !cred.password || !cred.username)
         return (this.msg = "Please fill up the form");
       this.$store.dispatch({ type: "signup", userCred: cred });
+        this.receiveOrder();
     }
   }
 };

@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     items() {
-      console.log(this.$store.getters.itemsToShow);
+   
       return this.$store.getters.itemsToShow;
     }
   },

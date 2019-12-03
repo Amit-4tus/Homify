@@ -25,7 +25,6 @@ export default {
     await this.$store.dispatch("loadCoords");
     this.coords = await this.$store.getters.coords[0];
     this.marker = this.$store.getters.coords;
-    console.log(this.marker);
 
     this.showMap = true;
     var elMyHeader = document.querySelector(".my-header");

@@ -19,7 +19,7 @@
         </section>
         <section class="calendar-container flex flex-row align-center">
            <img class="calendar-img" src="../assets/imgs/calendar.png"/>
-          <div class="order-details-txts calendar">January 5, 2020 → January 9, 2020</div>
+          <div class="order-details-txts calendar">{{dates.from}} → {{dates.to}}</div>
         </section>
         <hr class="order-details-hr"/>
 
@@ -73,40 +73,43 @@
         <div hidden>Host id: {{orderData.hostId}} </div> 
         <div hidden>{{isApproved}}</div>
       </section>
-
         </div>
    
         </section>
 
 
+    <!-- </div> -->
 </template>
 
 <script>
-
-import SocketService from '../services/SocketService.js'
+import SocketService from "../services/SocketService.js";
 
 export default {
-
-    data() {
-        return {
-          // msg: {from: 'Me', txt: ''},
-          // msgs: [],
-          isApproved: '',
-    }
+  data() {
+    return {
+      // msg: {from: 'Me', txt: ''},
+      // msgs: [],
+      isApproved: ""
+    };
   },
-   async created() {
-      await this.$store.dispatch("loadOrder", this._id);
-      // SocketService.emit('order details', this.orderData); 
-      SocketService.on('approve order', ()=>{
-      this.isApproved = 'Your order has been approved! Enjoy your stay.'}) 
-      SocketService.on('reject order', ()=>{
-      this.isApproved = 'We apologize, your order has been rejected. Other places are available to you on our site.'}) 
-      // SocketService.emit('chat topic', this.topic)
-    
+  async created() {
+    await this.$store.dispatch("loadOrder", this._id);
+    // SocketService.emit('order details', this.orderData);
+    SocketService.on("approve order", () => {
+      this.isApproved = "Your order has been approved! Enjoy your stay.";
+    });
+    SocketService.on("reject order", () => {
+      this.isApproved =
+        "We apologize, your order has been rejected. Other places are available to you on our site.";
+    });
+    // SocketService.emit('chat topic', this.topic)
   },
-    computed: {
+  computed: {
     _id() {
       return this.$route.params._id;
+    },
+    dates(){
+      return this.$store.getters.filter
     },
     orderData() {
       let currOrder = this.$store.getters.orderToShow;
@@ -148,20 +151,16 @@ export default {
     },
     methods: {
     //   sendMsg() {
-    //     console.log('Sending', this.msg);
     //     SocketService.emit('chat newMsg', this.msg)
     // },
-      sendOrderData() {
-        console.log('Sending', this.orderData);
-        
-        SocketService.emit('order details', this.orderData)
-    },
-     
+    sendOrderData() {
+
+      SocketService.emit("order details", this.orderData);
+    }
     //   changeTopic() {
     //     SocketService.emit('chat topic', this.topic)
     // }
-  },
-
-}
+  }
+};
 </script>
 

@@ -57,11 +57,9 @@ export default {
   },
   methods: {
     approveOrder() {
-      console.log("approve");
       SocketService.emit("approve order", this.order);
     },
     rejectOrder() {
-      console.log("reject");
       SocketService.emit("reject order", this.order);
     },
     receiveOrder() {
@@ -69,13 +67,11 @@ export default {
         let userId = this.$store.getters.loggedinUser._id;
         SocketService.on("get order details", order => {
           if (userId === order.hostId) {
-            console.log('you got new order')
             this.orders.push(order);
             const msg = {
                     txt: "Order Added check your profile",
                     type: 'error'
                 }
-                console.log('emiting')
                 eventBus.$emit('show-msg', msg)
           }
         });

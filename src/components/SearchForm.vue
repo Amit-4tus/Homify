@@ -8,9 +8,9 @@
     </div>
     <div class="when">
       <span>From:</span>
-      <input v-model="from" type="date" />
+      <input :min="disableDate" v-model="filterBy.from" type="date" />
       <span>To:</span>
-      <input v-model="to" type="date" />
+      <input v-model="filterBy.to" type="date" />
     </div>
 
     <div class="howMany">
@@ -30,14 +30,17 @@
 export default {
   data() {
     return {
-      from: "",
-      to: "",
       res: "",
-      filterBy: { txt: "" }
+      filterBy: { txt: "", from: "", to: "" },
+      disableDate: new Date(Date.now() - 8640000)
     };
   },
   methods: {
-    doSearch(ev) {
+    async doSearch(ev) {
+      if (this.filterBy.txt === "") return;
+      this.filterBy.from = new Date(this.filterBy.from).toLocaleDateString();
+      this.filterBy.to = new Date(this.filterBy.to).toLocaleDateString();
+      await this.$store.dispatch("setFilter", this.filterBy);
       this.$router.push(`/house/${this.filterBy.txt}`);
     },
     calcDateRange() {
