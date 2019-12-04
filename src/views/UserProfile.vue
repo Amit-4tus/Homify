@@ -1,14 +1,14 @@
 <template>
   <section>
-    <house-socket></house-socket>
     {{msg}}
+    <h2>User details</h2>
+
     <button @click="orderReq">Switch to orders request</button>
     <order-list :isHost="isHost"></order-list>
   </section>
 </template>
 
 <script>
-import houseSocket from "../components/HouseSocket";
 import orderList from "../components/OrderList";
 
 export default {
@@ -19,7 +19,8 @@ export default {
         query: ""
       },
       msg: "",
-      isHost: false
+      isHost: false,
+      userDetails: null
     };
   },
   computed: {},
@@ -38,10 +39,11 @@ export default {
     this.criteria.query = await "ordersList";
     this.msg = "your orders ";
     this.$store.dispatch("loadOrders", this.criteria);
+    this.userDetails = await this.$store.getters.loggedinUser;
+    console.log(this.userDetails)
   },
 
   components: {
-    houseSocket,
     orderList
   }
 };

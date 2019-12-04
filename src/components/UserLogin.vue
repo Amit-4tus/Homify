@@ -73,11 +73,11 @@ export default {
     }
   },
   methods: {
-    receiveOrder() {
+    async receiveOrder() {
       if (this.$store.getters.loggedinUser !== null) {
         let userId = this.$store.getters.loggedinUser._id;
-        SocketService.on("get order details", order => {
-          if (userId === order.hostId) {
+        SocketService.on("get order details", hostId => {
+          if (userId === hostId) {
             const msg = {
               txt: "Order Added check your profile",
               type: "error"
@@ -86,11 +86,14 @@ export default {
           }
         });
 
-        SocketService.on("approve order", order => {
-          console.log(order);
-          if (userId === order) {
+        SocketService.on("response order", result => {
+          if (userId === result.userId) {
+            var txtRes = "";
+            if (result.res === "approved") txtRes = "Your order has been approved";
+            if (result.res === "rejected") txtRes = "Your order has been rejected";
+
             const msg = {
-              txt: "Your order has been approved",
+              txt: txtRes,
               type: "error"
             };
             eventBus.$emit("show-msg", msg);
@@ -112,7 +115,7 @@ export default {
     },
     doSignup() {
       const cred = this.signupCred;
-      console.log(cred)
+      console.log(cred);
       if (!cred.email || !cred.password || !cred.username)
         return (this.msg = "Please fill up the form");
       this.$store.dispatch({ type: "signup", userCred: cred });

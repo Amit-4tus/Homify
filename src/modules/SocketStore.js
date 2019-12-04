@@ -3,21 +3,21 @@ import socket from '../services/SocketService.js'
 
 export default {
     state: {
-        
+
     },
     getters: {
-        
+
     },
     mutations: {
 
     },
     actions: {
-        sendMsg(context, {msg}) {
-            socket.emit('sendMsg', msg)
+        sendMsg(context, hostId) {
+            socket.emit('order details', hostId)
         },
-        
-        getChatHistory(context, {chatId}) {
-            socket.emit('getHistory', chatId)
-        }
+
+     
+
+
     }
 }
