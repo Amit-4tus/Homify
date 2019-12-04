@@ -1,3 +1,13 @@
+.user-profile-page {
+  background-color: lightgoldenrodyellow;  
+}
+
+
+.user-profile-page-left {
+    margin-left: 3em;
+    margin-top: 3em;
+}
+
 .user-profile-box {
     // background-color: lightgoldenrodyellow;
     border-style:solid;
@@ -5,8 +15,8 @@
     border-width: 0.7px;
     width: 18em;
     height: 30em;
-    margin-left: 3em;
-    margin-top: 3em
+    margin-left: 4em;
+
 }
 
 .user-profile-box-container {
@@ -14,11 +24,12 @@
 }
 
 .user-img {
-    width: 5em;
-    height: 5em;
+    width: 7em;
+    height: 7em;
     background-color: lightslategray;
-    margin-left: 5em;
+    // margin-left: 2em;
     margin-bottom: 2em;
+    border-radius: 60px;
 }
 
 .reviews-number-container {
@@ -41,4 +52,34 @@
 
 .checked {
     margin-top: 0.7em;
+}
+
+.user-profile-page-right {
+    background-color: lightgreen;
+    width: 40em;
+    text-align: left;
+    margin-top: 2.8em;
+    margin-left: 3em;
+}
+
+.page-right-box {
+    margin: 3em;
+}
+
+.apostrophes {
+    font-size: xx-large;
+}
+
+.welcome-txt {
+    font-family: 'Roboto', sans-serif;
+    font-size: xx-large;
+}
+
+.joined-year {
+    font-family: 'Roboto', sans-serif;
+}
+
+.description-txt {
+    font-family: 'Courgette', cursive;
+    
 }

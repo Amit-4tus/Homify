@@ -1,47 +1,63 @@
 <template>
-  <section class="user-profile-page">
-    <div class="user-profile-page-left">
-      {{userDetails}}
-      <section class="user-profile-box">
-        <section class="user-profile-box-container">
-          <div class="user-img"></div>
-          <hr class="reserve-form-hr" />
-          <div class="reviews-number-container flex flex-row align-center">
-            <img src="../assets/imgs/reviewsstar.png" />
-            <div class="reviews-number-txt">509 reviews</div>
-          </div>
-          <div class="verified flex flex-row align-center">
-            <img class="verified-img" src="../assets/imgs/vi.jpg" />
-            <div class="reviews-verified-txt">Verified</div>
-          </div>
-          <hr class="reserve-form-hr" />
-          <div class="checked flex flex-row align-center">
-            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
-            <div class="reviews-checked-txt">Government ID</div>
-          </div>
-          <div class="checked flex flex-row align-center">
-            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
-            <div class="reviews-checked-txt">Selfie</div>
-          </div>
-          <div class="checked flex flex-row align-center">
-            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
-            <div class="reviews-checked-txt">Email address</div>
-          </div>
-          <div class="checked flex flex-row align-center">
-            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
-            <div class="reviews-checked-txt">Phone number</div>
-          </div>
+  <section>
+    <section class="user-profile-page flex flex-row align-center">
+      <div class="user-profile-page-left">
+        <!-- {{userDetails}} -->
+        <section class="user-profile-box">
+          <section class="user-profile-box-container">
+            <img class="user-img" :src="userDetails.img[0]" />
+
+            <hr class="reserve-form-hr" />
+            <div class="reviews-number-container flex flex-row align-center">
+              <img src="../assets/imgs/reviewsstar.png" />
+              <div class="reviews-number-txt">509 reviews</div>
+            </div>
+            <div class="verified flex flex-row align-center">
+              <img class="verified-img" src="../assets/imgs/vi.jpg" />
+              <div class="reviews-verified-txt">Verified</div>
+            </div>
+            <hr class="reserve-form-hr" />
+            <div class="checked flex flex-row align-center">
+              <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+              <div class="reviews-checked-txt">Government ID</div>
+            </div>
+            <div class="checked flex flex-row align-center">
+              <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+              <div class="reviews-checked-txt">Selfie</div>
+            </div>
+            <div class="checked flex flex-row align-center">
+              <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+              <div class="reviews-checked-txt">Email address</div>
+            </div>
+            <div class="checked flex flex-row align-center">
+              <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+              <div class="reviews-checked-txt">Phone number</div>
+            </div>
+          </section>
         </section>
-      </section>
-    </div>
+      </div>
 
-    <div class="user-profile-page-right"></div>
+      <div class="user-profile-page-right flex flex-column align-center">
+        <section class="page-right-box">
+        <div class="welcome-txt">Hi, I'm {{userDetails.username}}</div>
+        <div class="joined-year">Joined in 2018</div>
+        <div class="apostrophes">“</div>
+        <div class="description-txt">
+          Well I'll be very happy if you stop searching any further and stay
+          with me for a safe and care free vacation !
+          30 year old programmer and musician.
+          I'm passionate about hosting and making your trip here enjoyable,
+          using my own experience and knowledge of the never-sleeping city!
+          Please, feel free to look at any of the listings on my profile or at my
+          partner's profile.
+        </div>
+        {{msg}}
+        <button @click="orderReq">Switch to orders request</button>
+        <order-list :isHost="isHost"></order-list>
+        </section>
+      </div>
+    </section>
 
-    {{msg}}
-    <h2>User details</h2>
-
-    <button @click="orderReq">Switch to orders request</button>
-    <order-list :isHost="isHost"></order-list>
     <review-list></review-list>
   </section>
 </template>
@@ -79,7 +95,7 @@ export default {
     this.msg = "your orders ";
     this.$store.dispatch("loadOrders", this.criteria);
     this.userDetails = await this.$store.getters.loggedinUser;
-    console.log(this.userDetails)
+    console.log(this.userDetails);
   },
 
   components: {
