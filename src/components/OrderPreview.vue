@@ -7,8 +7,8 @@
     <h3>Check Out: {{orderData.dates.to}}</h3>
     <h4>CreatedAt: {{orderData.createdAt}}</h4>
     <h4>Order Status: {{orderData.status}}</h4>
-    <button @click="res('approve')" v-if="isHost">Approve</button>
-    <button @click="res('reject')" v-if="isHost">Reject</button>
+    <button @click="res('approve')" v-if="host">Approve</button>
+    <button @click="res('reject')" v-if="host">Reject</button>
   </section>
 </template>
 
@@ -18,20 +18,32 @@ export default {
   props: ["orderData", "isHost"],
   methods: {
     async res(res) {
+      const updatedOrder = JSON.parse(JSON.stringify(this.orderData));
+      let resOrder = {
+        userId: this.orderData.user.userId
+      };
       if (res === "approve") {
         this.orderData.status = "approved";
-        const updatedOrder = JSON.parse(JSON.stringify(this.orderData));
-        SocketService.emit("approve order", this.orderData.user.userId);
-        await this.$store.dispatch({
-          type: "updateOrder",
-          order: updatedOrder
-        });
+        updatedOrder.status = "approved";
+        resOrder.res = "approved";
       } else {
-        SocketService.emit("reject order", this.orderData.user.userId);
+        updatedOrder.status = "rejected";
+        this.orderData.status = "rejected";
+
+        resOrder.res = "rejected";
       }
+      SocketService.emit("response", resOrder);
+      await this.$store.dispatch({
+        type: "updateOrder",
+        order: updatedOrder
+      });
     }
   },
-  created() {
+  created() {},
+  computed: {
+    host() {
+      return this.isHost && this.orderData.status === "pending";
+    }
   }
 };
 </script>

@@ -62,15 +62,15 @@
       :coords="houseData.location.coords"
       class="gmap flex align-center flex-column"
     ></g-map>
-    <review-edit class="addReview" v-on:review="addReview"></review-edit>
-    <reviewList></reviewList>
+    <review-form v-if="loggedinUser!==null" class="addReview" v-on:review="addReview"></review-form>
+    <review-list></review-list>
     <div class="placeholder"></div>
   </div>
 </template>
 
 <script>
 import myFooter from "../components/MyFooter";
-import reviewEdit from "@/components/reviewForm";
+import reviewForm from "@/components/ReviewForm";
 
 import reviewList from "@/components/ReviewList";
 import gMap from "@/components/GMap";
@@ -124,7 +124,7 @@ export default {
     gMap,
     reviewList,
     myFooter,
-    reviewEdit
+    reviewForm
   }
 };
 </script>

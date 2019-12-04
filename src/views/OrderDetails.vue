@@ -101,11 +101,6 @@ export default {
   async created() {
     
     await this.$store.dispatch("loadOrder", this._id);
-
-    
-    
-   
-    // SocketService.emit('order details', this.orderData);
     SocketService.on("approve order", () => {
       this.isApproved = "Your order has been approved! Enjoy your stay.";
     });
@@ -115,7 +110,6 @@ export default {
     });
     this.dates.from = this.$store.getters.filter.from;
     this.dates.to = this.$store.getters.filter.to;
-    // SocketService.emit('chat topic', this.topic)
   },
   computed: {
     _id() {
@@ -174,11 +168,9 @@ export default {
     }
   },
   methods: {
-    //   sendMsg() {
-    //     SocketService.emit('chat newMsg', this.msg)
-    // },
-    sendOrderData() {
-      SocketService.emit("order details", this.orderData);
+    async sendOrderData() {
+      await this.$store.dispatch("sendMsg", this.orderData.hostId);
+    
     },
     calcDate() {
       const date1 = new Date(this.dates.from);
