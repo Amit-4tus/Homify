@@ -16,14 +16,6 @@
 
             <p class="reviews-data-bold">Travel dates</p>
             <div class="reserve-form-boxes-container flex align-center">
-              <!-- <div class="reserve-form-boxes">
-                <span class="text-margin">Check-in</span>
-                {{dates.from}}
-              </div>
-              <div class="reserve-form-boxes">
-                <span class="text-margin">Check-out</span>
-                {{dates.to}}
-              </div> -->
               <div class="order-check-in">{{dates.from}}</div>
               <div>→</div>
               <div class="order-check-out">{{dates.to}}</div>
