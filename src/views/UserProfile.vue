@@ -36,7 +36,6 @@
 
     <div class="user-profile-page-right"></div>
 
-    <house-socket></house-socket>
     {{msg}}
     <h2>User details</h2>
 
