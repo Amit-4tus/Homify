@@ -85,14 +85,14 @@
           :show-file-list="true"
           :before-remove="beforeRemove"
           multiple
-          :limit="3"
+          :limit="4"
           :on-exceed="handleExceed"
           :on-change="onChange"
         >
           <button class="upload-imgs-btn">Add images</button>
           <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
         </el-upload>
-        <button v-if="fileList.length" class="upload-imgs-btn" @click.prevent="submitUpload">Upload images</button>
+        <!-- <button v-if="fileList.length" class="upload-imgs-btn" @click.prevent="submitUpload">Upload images</button> -->
       </section>
       <section class="add-house-imgs-container flex flex-row justify-center space-between wrap">
         <div v-for="img in newHouse.imgs" :key="img.id">
@@ -186,9 +186,10 @@ export default {
       this.newHouse.location.coords = res[0].geometry.location;
     },
     async addHouse() {
-      if (!this.doneUpload) return console.log("imgs are required");
+      await this.submitUpload();
       this.newHouse.hostId = this.$store.getters.loggedinUser._id;
-
+      this.newHouse.hostImg = this.$store.getters.loggedinUser.img[0];
+       this.newHouse.hostName = this.$store.getters.loggedinUser.username;
       const house = await this.$store.dispatch({
         type: "addHouse",
         newHouse: this.newHouse
