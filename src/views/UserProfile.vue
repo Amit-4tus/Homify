@@ -1,5 +1,41 @@
 <template>
-  <section>
+  <section class="user-profile-page">
+    <div class="user-profile-page-left">
+      <section class="user-profile-box">
+        <section class="user-profile-box-container">
+          <div class="user-img"></div>
+          <hr class="reserve-form-hr" />
+          <div class="reviews-number-container flex flex-row align-center">
+            <img src="../assets/imgs/reviewsstar.png" />
+            <div class="reviews-number-txt">509 reviews</div>
+          </div>
+          <div class="verified flex flex-row align-center">
+            <img class="verified-img" src="../assets/imgs/vi.jpg" />
+            <div class="reviews-verified-txt">Verified</div>
+          </div>
+          <hr class="reserve-form-hr" />
+          <div class="checked flex flex-row align-center">
+            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+            <div class="reviews-checked-txt">Government ID</div>
+          </div>
+          <div class="checked flex flex-row align-center">
+            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+            <div class="reviews-checked-txt">Selfie</div>
+          </div>
+          <div class="checked flex flex-row align-center">
+            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+            <div class="reviews-checked-txt">Email address</div>
+          </div>
+          <div class="checked flex flex-row align-center">
+            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+            <div class="reviews-checked-txt">Phone number</div>
+          </div>
+        </section>
+      </section>
+    </div>
+
+    <div class="user-profile-page-right"></div>
+
     <house-socket></house-socket>
     {{msg}}
     <button @click="orderReq">Switch to orders request</button>
