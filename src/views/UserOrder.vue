@@ -14,18 +14,11 @@
             </p>
             <hr class="reserve-form-hr" />
 
-            <p class="reviews-data-bold">Dates</p>
-            <div class="reserve-form-boxes-container flex space-between align-center">
-              <div class="reserve-form-boxes">
-                <span class="text-margin">Check-in</span>
-                {{dates.from}}
-                <!-- <input v-model="order.dates.from" :min="minDate" :max="maxDate" type="date" /> -->
-              </div>
-              <div class="reserve-form-boxes">
-                <span class="text-margin">Check-out</span>
-                {{dates.to}}
-                <!-- <input v-model="order.dates.to" :min="minDate" :max="maxDate" type="date" /> -->
-              </div>
+            <p class="reviews-data-bold">Travel dates</p>
+            <div class="reserve-form-boxes-container flex align-center">
+              <div class="order-check-in">{{dates.from}}</div>
+              <div>→</div>
+              <div class="order-check-out">{{dates.to}}</div>
             </div>
 
             <p class="reviews-data-bold">Guests</p>

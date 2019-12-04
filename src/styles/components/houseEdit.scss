@@ -6,6 +6,7 @@
     width: 100vw;
     height: 100vh;
     position: fixed;
+    object-fit: cover;
     top: 0;
     z-index: -1;
   }
@@ -16,9 +17,9 @@
   background-color: $color5;
   text-align: start;
   width: 100vw;
-  margin: 120px 0 70px 0;
+  margin: 40vh 0 0 0;
   @media (min-width: 550px) {
-    margin-left: 6vw;
+    margin: 100px 0 40px 6vw !important;
     width: 60vw;
     border-radius: 15px;
   }
@@ -27,7 +28,7 @@
     width: 100%;
     background-color: unset;
     border: unset;
-    border-bottom: 1px solid $color4;
+    border-bottom: 1px solid darkgray;
   }
 }
 
@@ -67,8 +68,6 @@
 }
 
 .add-house-name-input {
-  max-width: 25em;
-  min-width: 21em;
   height: 2.5em;
   border: solid 1.3px rgb(179, 156, 156);
   font-size: 15px;
@@ -126,15 +125,6 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 20px;
   //   font-family: "Noto Sans TC", sans-serif;
   margin-bottom: 5px;
-}
-
-.add-house-amenities-input {
-  color: coral;
-  // max-width: 28em;
-  min-width: 19em;
-  border: solid 1.3px rgb(179, 156, 156);
-  font-size: 20px;
-  border-radius: 2px;
 }
 
 .add-house-Upload-image-text {
@@ -250,4 +240,8 @@ input[type="date"]::-webkit-inner-spin-button {
   .add-house-imgs-container {
     max-width: 20em;
   }
+}
+
+.el-select {
+  width: 100%;
 }
