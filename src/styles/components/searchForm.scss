@@ -16,7 +16,7 @@
     border-radius: 0%;
     margin: 30vh 0 0 0;
     position: absolute;
-    bottom: 0;
+    bottom: 7vh;
   }
   @media (max-width: 365px) {
     font-size: 0.8rem;
@@ -46,7 +46,7 @@
     }
   }
 
-  input,
+  .input,
   select,
   option {
     width: 100%;
@@ -65,14 +65,17 @@
 }
 
 .submit {
-  display: block;
   background-image: linear-gradient(to bottom right, $color1, $color2);
-  color: $color3;
   margin-top: 7%;
-  border: 0px;
   border-radius: 5px;
-  padding: 2% 10%;
-  text-align: center;
-  align-self: center;
+  padding: 3% 0;
   cursor: pointer;
+  
+  input {
+    color: $color3;
+    background-color: unset;
+    border: 0px;
+    font-size: 1rem;
+    margin: 0 auto;
+  }
 }

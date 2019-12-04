@@ -10,7 +10,6 @@ import userOrder from '../views/UserOrder'
 import orderDetails from '../views/OrderDetails'
 import login from '../views/Login'
 
-
 Vue.use(VueRouter)
 
 const routes = [
@@ -59,7 +58,11 @@ const routes = [
     name: 'login',
     component: login
   },
-
+  {
+    path: '/login/:_id',
+    name: 'login',
+    component: login
+  }
 ]
 
 const router = new VueRouter({

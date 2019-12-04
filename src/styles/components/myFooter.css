@@ -27,5 +27,10 @@
 }
 .myFooter .logo {
   margin-top: 5%;
-  width: 20vw;
+  width: 25vw;
+}
+@media (max-width: 600px) {
+  .myFooter .logo {
+    width: 40vw;
+  }
 }

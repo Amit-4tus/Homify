@@ -3,7 +3,7 @@
     <searchForm>
       <h1 class="main-title">Find The Perfect Vacation</h1>
     </searchForm>
-    <button class="startBtn" @click="doScroll"><img src="../assets/imgs/downward-arrow.png"></button>
+    <!-- <button class="startBtn" @click="doScroll"><img src="../assets/imgs/downward-arrow.png"></button> -->
   </section>
 </template>
 

@@ -20,6 +20,7 @@ export default {
   name: "home",
   created() {
     this.$store.dispatch("loadItems");
+      window.scrollTo(0, 0);
   },
   mounted() {
     var elMyHeader = document.querySelector(".my-header");

@@ -4,13 +4,13 @@
 
     <div class="where">
       <span>Country / State:</span>
-      <input type="text" placeholder="e.g. Berlin" v-model="filterBy.txt" />
+      <input class="input" type="text" placeholder="e.g. Berlin" v-model="filterBy.txt" />
     </div>
     <div class="when">
       <span>From:</span>
-      <input :min="disableDate" v-model="filterBy.from" type="date" />
+      <input class="input" :min="disableDate" v-model="filterBy.from" type="date" />
       <span>To:</span>
-      <input v-model="filterBy.to" type="date" />
+      <input class="input" v-model="filterBy.to" type="date" />
     </div>
 
     <div class="howMany">
@@ -22,7 +22,9 @@
       </select>
     </div>
     <!-- <button @click.prevent="calcDateRange">check Results</button> -->
-    <button class="submit" @click.prevent="doSearch">TRAVEL</button>
+    <div class="submit">
+      <input type="submit" @click.prevent="doSearch" value="TRAVEL" />
+    </div>
   </form>
 </template>
 

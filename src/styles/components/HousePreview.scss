@@ -14,14 +14,14 @@
 
 .housePreviewImg {
   width: 60%;
-  height: 100%;
+  height: 50%;
   padding-right: 20px;
   object-fit: cover;
 }
 
 .housePreviewInfo {
   width: 40%;
-  height: 100%;
+  // height: 100%;
   display: flex;
   flex-direction: row;
   text-align: start;
@@ -42,11 +42,11 @@
       text-overflow: ellipsis;
     }
   }
-  .houseRating ::before {
-    content:' ';
+  .houseRating::before {
+    content:'';
     background-image: url('../assets/imgs/star.png');
     // background-size: 100% 100%;
-    // width: inherit;
+    width: 20px;
     // height: inherit;
     // display: inline-block;
     // width: 10px;

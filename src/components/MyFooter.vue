@@ -2,7 +2,7 @@
   <section class="myFooter">
     <img class="portrait" src="../assets/imgs/Amit Fortus.jpeg" />
     <img class="portrait" src="../assets/imgs/Hosam Faour.jpeg" />
-    <img class="portrait" src="../assets/imgs/Hosam Faour.jpeg" />
+    <img class="portrait" src="../assets/imgs/Shachal Ami-Ad.jpeg" />
     <h3>
       Made by -
       <a href="https://www.facebook.com/amit.fortus">Amit Fortus</a>,
