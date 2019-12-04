@@ -17,6 +17,7 @@ export default {
     },
     mutations: {
         setOrderToShow(state, orderToShow) {
+         
             state.orderToShow = orderToShow.order;
         },
         addOrder(state, { newOrder }) {
@@ -45,6 +46,8 @@ export default {
         },
         async updateOrder(context, { order }) {
             const updatedOrder = await orderService.updateOrder(order)
+            // context.commit({ type: 'setOrderToShow', updatedOrder })
+           
 
         }
 

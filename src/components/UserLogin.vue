@@ -13,7 +13,7 @@
       <form @submit.prevent="doLogin">
         <input type="text" v-model="loginCred.email" placeholder="Email" />
         <br />
-        <input type="text" v-model="loginCred.password" placeholder="Password" />
+        <input type="password" v-model="loginCred.password" placeholder="Password" />
         <br />
         <button class="submit">Log-In</button>
       </form>
@@ -22,7 +22,7 @@
       <form @submit.prevent="doSignup">
         <input type="text" v-model="signupCred.email" placeholder="Email" />
         <br />
-        <input type="text" v-model="signupCred.password" placeholder="Password" />
+        <input type="password" v-model="signupCred.password" placeholder="Password" />
         <br />
         <input type="text" v-model="signupCred.username" placeholder="Username" />
         <br />
@@ -73,11 +73,11 @@ export default {
     }
   },
   methods: {
-    receiveOrder() {
+    async receiveOrder() {
       if (this.$store.getters.loggedinUser !== null) {
         let userId = this.$store.getters.loggedinUser._id;
-        SocketService.on("get order details", order => {
-          if (userId === order.hostId) {
+        SocketService.on("get order details", hostId => {
+          if (userId === hostId) {
             const msg = {
               txt: "Order Added check your profile",
               type: "error"
@@ -86,10 +86,14 @@ export default {
           }
         });
 
-        SocketService.on("approve order", order => {
-          if (userId === order) {
+        SocketService.on("response order", result => {
+          if (userId === result.userId) {
+            var txtRes = "";
+            if (result.res === "approved") txtRes = "Your order has been approved";
+            if (result.res === "rejected") txtRes = "Your order has been rejected";
+
             const msg = {
-              txt: "Your order has been approved",
+              txt: txtRes,
               type: "error"
             };
             eventBus.$emit("show-msg", msg);

@@ -28,7 +28,7 @@ function addItem(item) {
 }
 //server
 function getItems(filter) {
-    console.log(filter)
+   
     return httpService.get(`api/house/query/${filter.txt}`)
 }
 //server
