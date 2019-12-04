@@ -21,7 +21,7 @@ export default {
     return {
       review: {
         rating: NaN,
-        txt: "",
+        txt: '',
         user:{}
       }
     };
@@ -29,6 +29,9 @@ export default {
   methods: {
     doReview() {
       this.$emit("review",this.review);
+      setTimeout(window.scrollTo(0,document.body.scrollHeight + 500000), 300);
+      document.querySelector('.rating').value = NaN
+      document.querySelector('.desc').value = ''
     }
   }
 };

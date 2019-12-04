@@ -5,7 +5,7 @@
 
 .housePreview {
   display: flex;
-  height: 170px;
+  height: 200px;
   @media (min-width: 950px) {
     height: 220px;
   }
@@ -14,7 +14,6 @@
 
 .housePreviewImg {
   width: 60%;
-  height: 50%;
   padding-right: 20px;
   object-fit: cover;
 }
@@ -65,18 +64,18 @@
 
 .topPicks {
   a {
-    height: 250px;
+    height: 270px;
 
     .housePreview {
       width: 90%;
-      height: 100%;
+      height: 90%;
       margin: 0 auto;
     }
   }
 
   .housePreviewImg {
     width: 100%;
-    height: 50%;
+    height: 60%;
     border-radius: 5px;
     padding: 0;
     margin-bottom: 5%;

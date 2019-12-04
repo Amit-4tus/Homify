@@ -1,122 +1,118 @@
 <template >
-  <div>
-    <section class="add-house-page flex flex-row space-between">
-      <section class="add-house-page-left">
-        <section class="add-house-step-container">
-          <div class="add-house-welcome-text-1">Hi, __________! Let's get started</div>
-          <div class="add-house-welcome-text-2">listing your space</div>
+  <section class="add-house-page flex flex-row space-between">
+    <form class="add-house-page-left" prevent>
+      <div class="add-house-welcome-text-1">Add A House To Rent</div>
 
-          <p class="add-house-step bold">step 1</p>
+      <p class="add-house-step bold">step 1</p>
 
-          <p class="add-house-name-of-house-text">How would you like to name your place?</p>
-          <input class="add-house-name-input" v-model="newHouse.name" type="text" maxlength="50" />
+      <p class="add-house-name-of-house-text">How would you like to name your place?</p>
+      <input
+        class="add-house-name-input"
+        v-model="newHouse.name"
+        type="text"
+        maxlength="50"
+        placeholder="e.g. My Amazing House"
+      />
 
-          <p class="add-house-address-text">Where is your place located?</p>
-          <div class="add-house-location-container">
-            <input
-              class="add-house-address-input"
-              @change="getCoords"
-              v-model="newHouse.location.address.country"
-              type="text"
-              placeholder="Country"
-            />
-            <input
-              class="add-house-address-input"
-              @change="getCoords"
-              v-model="newHouse.location.address.city"
-              type="text"
-              placeholder="City"
-            />
+      <p class="add-house-address-text">Where is your place located?</p>
+      <input
+        class="add-house-address-input"
+        @change="getCoords"
+        v-model="newHouse.location.address.country"
+        type="text"
+        placeholder="Country"
+      />
+      <input
+        class="add-house-address-input"
+        @change="getCoords"
+        v-model="newHouse.location.address.city"
+        type="text"
+        placeholder="City"
+      />
 
-            <input
-              class="add-house-address-input"
-              @change="getCoords"
-              v-model="newHouse.location.address.street"
-              type="text"
-              placeholder="Street"
-            />
-          </div>
-        </section>
+      <input
+        class="add-house-address-input"
+        @change="getCoords"
+        v-model="newHouse.location.address.street"
+        type="text"
+        placeholder="Street"
+      />
 
-        <section class="add-house-step-container flex-column">
-          <p class="add-house-step bold">step 2</p>
-          <p class="add-house-charge-per-night-text">What will be the Dollar cost per night?</p>
+      <p class="add-house-step bold">step 2</p>
+      <p class="add-house-charge-per-night-text">What will be the Dollar cost per night?</p>
 
-          <input class="add-house-price-input" v-model="newHouse.price" type="number" />
+      <input
+        class="add-house-price-input"
+        v-model="newHouse.price"
+        type="number"
+        placeholder="e.g. 234"
+      />
 
-          <p class="add-house-amenities-text">What amenities do you offer?</p>
-          <el-select
-            class="add-house-amenities-input"
-            v-model="newHouse.amentities"
-            multiple
-            placeholder="Please select from the list"
-          >
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            ></el-option>
-          </el-select>
+      <p class="add-house-amenities-text">What amenities do you offer?</p>
+      <el-select
+        class="add-house-amenities-input"
+        v-model="newHouse.amentities"
+        multiple
+        placeholder="Please select from the list"
+      >
+        <el-option
+          v-for="item in options"
+          :key="item.value"
+          :label="item.label"
+          :value="item.value"
+        ></el-option>
+      </el-select>
 
-          <p class="add-house-step bold">step 3</p>
-          <div class="calender-container flex flex-row align-center space-between">
-            <div class="check-in">
-              <p class="check-txt">Check-in</p>
-              <input class="check-input" :min="dateMin" v-model="newHouse.dates.from" type="date" />
-            </div>
-            <div class="check-out">
-              <p class="check-txt">Check-out</p>
-              <input class="check-input" :min="dateMin" v-model="newHouse.dates.to" type="date" />
-            </div>
-          </div>
+      <p class="add-house-step bold">step 3</p>
+      <div class="check-in">
+        <p class="check-txt">Check-in</p>
+        <input class="check-input" :min="dateMin" v-model="newHouse.dates.from" type="date" />
+      </div>
+      <div class="check-out">
+        <p class="check-txt">Check-out</p>
+        <input class="check-input" :min="dateMin" v-model="newHouse.dates.to" type="date" />
+      </div>
 
-          <p class="add-house-step bold">step 4</p>
-          <p class="add-house-Upload-image-text">Show us how does your place look like?</p>
-          <section class="upload-btns-container">
-            <el-upload
-              action
-              submit="submit"
-              :auto-upload="false"
-              :on-preview="handlePreview"
-              :on-remove="handleRemove"
-              :show-file-list="true"
-              :before-remove="beforeRemove"
-              multiple
-              :limit="4"
-              :on-exceed="handleExceed"
-              :on-change="onChange"
-            >
-              <button class="upload-imgs-btn">Add images</button>
-              <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
-            </el-upload>
-            <button
-              v-if="fileList.length"
-              class="upload-imgs-btn"
-              @click="submitUpload"
-            >Upload images</button>
-          </section>
-          <section class="add-house-imgs-container flex flex-row justify-center space-between wrap">
-            <div v-for="img in newHouse.imgs" :key="img.id">
-              <img class="img-present" v-if="newHouse.imgs" :src="img" />
-            </div>
-          </section>
-
-          <button class="add-house-btn" v-if="!isEditing" @click="addHouse">Add House</button>
-          <button class="add-house-btn" v-if="isEditing" @click="updateHouse">Update</button>
-          <button class="add-house-btn" v-if="isEditing" @click="deleteHouse">Delete</button>
-        </section>
+      <p class="add-house-step bold">step 4</p>
+      <p class="add-house-Upload-image-text">Show us how does your place look like?</p>
+      <section class="upload-btns-container">
+        <el-upload
+          action
+          submit="submit"
+          :auto-upload="false"
+          :on-preview="handlePreview"
+          :on-remove="handleRemove"
+          :show-file-list="true"
+          :before-remove="beforeRemove"
+          multiple
+          :limit="4"
+          :on-exceed="handleExceed"
+          :on-change="onChange"
+        >
+          <button class="upload-imgs-btn">Add images</button>
+          <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
+        </el-upload>
+        <button v-if="fileList.length" class="upload-imgs-btn" @click.prevent="submitUpload">Upload images</button>
+      </section>
+      <section class="add-house-imgs-container flex flex-row justify-center space-between wrap">
+        <div v-for="img in newHouse.imgs" :key="img.id">
+          <img class="img-present" v-if="newHouse.imgs" :src="img" />
+        </div>
       </section>
 
-      <section class="add-house-page-right">
-        <!-- <div class="appartment-draw" ></div> -->
-        <img class="flowers-draw" src="../assets/imgs/vase.png" />
-      </section>
-    </section>
+      <button class="add-house-btn" v-if="!isEditing" @click.prevent="addHouse">Add House</button>
+      <button class="add-house-btn" v-if="isEditing" @click.prevent="updateHouse">Update</button>
+      <button class="add-house-btn" v-if="isEditing" @click.prevent="deleteHouse">Delete</button>
+    </form>
+
+    <img
+      class="bgi"
+      src="https://img.archiexpo.com/images_ae/projects/images-g/nice-house-minarc-9996-9281453.jpg"
+    />
 
     <!-- <h2>description</h2>
     <textarea v-model="newHouse.desc"></textarea>-->
-  </div>
+  </section>
 </template>
 
 <script>

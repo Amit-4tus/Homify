@@ -2,18 +2,33 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  .bgi {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+  }
 }
 
 .add-house-page-left {
+  padding: 5%;
+  background-color: $color5;
+  text-align: start;
   width: 100vw;
-  margin-top: 60px;
-
+  margin: 120px 0 70px 0;
   @media (min-width: 550px) {
     margin-left: 6vw;
     width: 60vw;
+    border-radius: 15px;
   }
-  background-color: $color4;
-  border-radius: 15px;
+  input,
+  .el-input__inner {
+    width: 100%;
+    background-color: unset;
+    border: unset;
+    border-bottom: 1px solid $color4;
+  }
 }
 
 .add-house-step-container {
@@ -77,12 +92,10 @@
 }
 
 .add-house-address-input {
-  width: 9em;
+  width: 100%;
   height: 2.5em;
-  border: solid 1.3px rgb(179, 156, 156);
   font-size: 15px;
   padding: none;
-  border-radius: 2px;
 }
 
 .add-house-charge-per-night-text {
@@ -157,8 +170,11 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .add-house-page-right {
-  width: 40em;
+  width: 0px;
   margin-top: 3em;
+  @media (min-width: 550px) {
+    width: 40vw;
+  }
 }
 
 .appartment-draw {
@@ -207,7 +223,6 @@ input[type="date"]::-webkit-inner-spin-button {
   align-items: center;
   border: 0;
   border-radius: 3px;
-  margin-bottom: 4em;
   margin-right: 1.5em;
   text-transform: uppercase;
 }

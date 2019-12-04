@@ -55,12 +55,12 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'login',
+    name: 'simpleLogin',
     component: login
   },
   {
     path: '/login/:_id',
-    name: 'login',
+    name: 'loginToHouse',
     component: login
   }
 ]
