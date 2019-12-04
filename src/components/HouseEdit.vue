@@ -87,16 +87,14 @@
               :on-exceed="handleExceed"
               :on-change="onChange"
             >
-              <el-button class="upload-imgs-btn bold" size="x-large" type="primary">Add images</el-button>
+              <button class="upload-imgs-btn">Add images</button>
               <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
             </el-upload>
-            <el-button
+            <button
               v-if="fileList.length"
-              class="upload-imgs-btn 2 bold"
-              size="x-large"
-              type="success"
+              class="upload-imgs-btn"
               @click="submitUpload"
-            >Upload images</el-button>
+            >Upload images</button>
           </section>
           <section class="add-house-imgs-container flex flex-row justify-center space-between wrap">
             <div v-for="img in newHouse.imgs" :key="img.id">

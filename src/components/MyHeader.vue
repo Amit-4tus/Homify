@@ -38,7 +38,7 @@ export default {
     hideNav(path) {
       document.querySelector(".mobileNav").classList.add("hideToRight", "hide");
       document.querySelector(".screen").classList.add("hide");
-      // this.$router.push(`/${path}`);
+      if (path) this.$router.push(`/${path}`);
     },
     async doLogout() {
       await this.$store.dispatch({ type: "logout" });

@@ -87,7 +87,6 @@ export default {
         });
 
         SocketService.on("approve order", order => {
-          console.log(order);
           if (userId === order) {
             const msg = {
               txt: "Your order has been approved",
@@ -113,7 +112,6 @@ export default {
     },
     doSignup() {
       const cred = this.signupCred;
-      console.log(cred)
       if (!cred.email || !cred.password || !cred.username)
         return (this.msg = "Please fill up the form");
       this.$store.dispatch({ type: "signup", userCred: cred });
@@ -153,7 +151,8 @@ export default {
     },
     redirectToDesiredHouse() {
       let houseId = this.$route.params._id;
-      this.$router.push(`/order/house/${houseId}`)
+      if (!houseId) this.$router.push("/");
+      else this.$router.push(`/order/${houseId}`);
     }
   }
 };
