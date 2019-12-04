@@ -16,8 +16,14 @@ import myFooter from "../components/MyFooter";
 import inspSect from "../components/InspirationalSection";
 export default {
   name: "home",
+  data() {
+    return {filter:{txt:''}
+    
+    
+    };
+  },
   created() {
-    this.$store.dispatch("loadItems");
+    this.$store.dispatch("loadItems",this.filter);
   },
   mounted() {
     var elMyHeader = document.querySelector(".my-header");

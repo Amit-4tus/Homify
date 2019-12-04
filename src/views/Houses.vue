@@ -13,22 +13,27 @@ import gMap from "@/components/GMap";
 export default {
   data() {
     return {
-      // coords: { lat: 48.856614, lng: 2.3522219 }
       coords: null,
       marker: null,
       showMap: false
     };
   },
   async mounted() {
-    let filter = this.$route.params.q;
-    await this.$store.dispatch("loadItems", filter);
+    let query = this.$route.params.q;
+    let date = this.$route.params.d;
+    const filterBy = {
+      txt: query,
+      date: date
+    };
+
+    await this.$store.dispatch("loadItems", filterBy);
     await this.$store.dispatch("loadCoords");
     this.coords = await this.$store.getters.coords[0];
     this.marker = this.$store.getters.coords;
 
     this.showMap = true;
     var elMyHeader = document.querySelector(".my-header");
-    elMyHeader.classList.add('fixed');
+    elMyHeader.classList.add("fixed");
   },
   computed: {},
   components: {
