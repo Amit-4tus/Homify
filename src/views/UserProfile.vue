@@ -4,12 +4,14 @@
     {{msg}}
     <button @click="orderReq">Switch to orders request</button>
     <order-list :isHost="isHost"></order-list>
+    <review-list></review-list>
   </section>
 </template>
 
 <script>
 import houseSocket from "../components/HouseSocket";
 import orderList from "../components/OrderList";
+import reviewList from "../components/ReviewList";
 
 export default {
   data() {
@@ -42,7 +44,8 @@ export default {
 
   components: {
     houseSocket,
-    orderList
+    orderList,
+    reviewList
   }
 };
 </script>

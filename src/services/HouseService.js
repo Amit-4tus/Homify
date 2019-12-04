@@ -28,8 +28,8 @@ function addItem(item) {
 }
 //server
 function getItems(filter) {
-   
-    return httpService.get(`api/house/query/${filter}`)
+    console.log(filter)
+    return httpService.get(`api/house/query/${filter.txt}`)
 }
 //server
 function getItemById(id) {
@@ -55,11 +55,3 @@ function updateItem(item) {
 //     return httpService.delete(`house/${id}`,)
 // }
 
-function makeId(length = 3) {
-    var txt = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return txt;
-}

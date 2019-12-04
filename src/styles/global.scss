@@ -2,8 +2,8 @@
 // @import 'setup/mixins';
 // @import 'setup/functions';
 
-@import 'setup/variables';
-@import 'setup/fonts';
+@import "setup/variables";
+@import "setup/fonts";
 @import "basics/base";
 @import "basics/helpers";
 @import "components/home";
@@ -22,5 +22,4 @@
 @import "components/orderDetails";
 @import "components/UserMsg";
 @import "components/reviewForm";
-
-
+@import "components/UserProfile";
