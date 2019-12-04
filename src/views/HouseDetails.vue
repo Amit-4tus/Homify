@@ -38,9 +38,9 @@
       </div>
       <p class="houseDesc">{{houseData.desc}}</p>
     </div>
-    <section v-if="houseData.host" class="hostInfo">
-      <img :src="houseData.host.imgURL">
-      <p class="name">{{houseData.host.name}}</p>
+    <section  class="hostInfo">
+      <img v-if="houseData.hostImg" :src="houseData.hostImg">
+      <p  v-if="houseData.hostName" class="name">{{houseData.hostName}}</p>
     </section>
     </div>
     <section class="reserve">

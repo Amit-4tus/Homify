@@ -1,6 +1,6 @@
 <template >
   <section class="add-house-page flex flex-row space-between">
-    <form class="add-house-page-left" prevent>
+    <div @keyup.enter="addHouse" class="add-house-page-left" prevent>
       <div class="add-house-welcome-text-1">Add A House To Rent</div>
 
       <p class="add-house-step bold">step 1</p>
@@ -54,12 +54,14 @@
         v-model="newHouse.amentities"
         multiple
         placeholder="Please select from the list"
+        
       >
         <el-option
           v-for="item in options"
           :key="item.value"
           :label="item.label"
           :value="item.value"
+          
         ></el-option>
       </el-select>
 
@@ -85,14 +87,14 @@
           :show-file-list="true"
           :before-remove="beforeRemove"
           multiple
-          :limit="3"
+          :limit="4"
           :on-exceed="handleExceed"
           :on-change="onChange"
         >
           <button class="upload-imgs-btn">Add images</button>
           <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
         </el-upload>
-        <button v-if="fileList.length" class="upload-imgs-btn" @click.prevent="submitUpload">Upload images</button>
+        <!-- <button v-if="fileList.length" class="upload-imgs-btn" @click.prevent="submitUpload">Upload images</button> -->
       </section>
       <section class="add-house-imgs-container flex flex-row justify-center space-between wrap">
         <div v-for="img in newHouse.imgs" :key="img.id">
@@ -103,7 +105,7 @@
       <button class="add-house-btn" v-if="!isEditing" @click.prevent="addHouse">Add House</button>
       <button class="add-house-btn" v-if="isEditing" @click.prevent="updateHouse">Update</button>
       <button class="add-house-btn" v-if="isEditing" @click.prevent="deleteHouse">Delete</button>
-    </form>
+    </div>
 
     <img
       class="bgi"
@@ -186,9 +188,10 @@ export default {
       this.newHouse.location.coords = res[0].geometry.location;
     },
     async addHouse() {
-      if (!this.doneUpload) return console.log("imgs are required");
+      await this.submitUpload();
       this.newHouse.hostId = this.$store.getters.loggedinUser._id;
-
+      this.newHouse.hostImg = this.$store.getters.loggedinUser.img[0];
+       this.newHouse.hostName = this.$store.getters.loggedinUser.username;
       const house = await this.$store.dispatch({
         type: "addHouse",
         newHouse: this.newHouse

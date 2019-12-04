@@ -2,6 +2,16 @@
   margin-top: 40px;
 }
 
+.user-profile-box {
+    border-style:solid;
+    border-color: lightgray;
+    border-width: 0.7px;
+    width: 18em;
+    height: 30em;
+    margin-left: 4em;
+
+}
+
 .user-profile-box-container {
   background-color: $color5;
   border-radius: 15px;
@@ -48,4 +58,34 @@
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.user-profile-page-right {
+    background-color: lightgreen;
+    width: 40em;
+    text-align: left;
+    margin-top: 2.8em;
+    margin-left: 3em;
+}
+
+.page-right-box {
+    margin: 3em;
+}
+
+.apostrophes {
+    font-size: xx-large;
+}
+
+.welcome-txt {
+    font-family: 'Roboto', sans-serif;
+    font-size: xx-large;
+}
+
+.joined-year {
+    font-family: 'Roboto', sans-serif;
+}
+
+.description-txt {
+    font-family: 'Courgette', cursive;
+    
 }
