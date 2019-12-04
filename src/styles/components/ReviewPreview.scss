@@ -1,10 +1,11 @@
 .reviewPreview {
-    background-color: $color5;
-    padding: 1% 7%;
-    margin-bottom: 5%;
+    // background-color: $color5;
+    padding: 4% 7%;
+    border-bottom: 1px solid $color4;
 
     > * {
-        font-weight: normal;
         text-align: start;
+        font-weight: normal;
+        font-size: 1rem;
     }
 }
