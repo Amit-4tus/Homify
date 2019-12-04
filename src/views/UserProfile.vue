@@ -1,6 +1,7 @@
 <template>
   <section class="user-profile-page">
     <div class="user-profile-page-left">
+      {{userDetails}}
       <section class="user-profile-box">
         <section class="user-profile-box-container">
           <div class="user-img"></div>

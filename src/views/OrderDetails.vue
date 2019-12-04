@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section v-if="showPage">
     
     <div class="order-details-page-container">
       <section class="order-details-txts-left-container">
@@ -17,7 +17,7 @@
           <hr class="order-details-hr" />
           <section class="guests-container flex flex-row align-center">
             <img class="guests-img" src="../assets/imgs/guests.jpg" />
-            <div class="order-details-txts guests">{{guests}}</div>
+            <div v-if="guests" class="order-details-txts guests">{{guests}}</div>
           </section>
           <section class="calendar-container flex flex-row align-center">
             <img class="calendar-img" src="../assets/imgs/calendar.png" />
@@ -88,7 +88,7 @@ import SocketService from "../services/SocketService.js";
 export default {
   data() {
     return {
-      
+      showPage:false,
       // msg: {from: 'Me', txt: ''},
       // msgs: [],
       isApproved: "",
@@ -108,8 +108,9 @@ export default {
       this.isApproved =
         "We apologize, your order has been rejected. Other places are available to you on our site.";
     });
-    this.dates.from = this.$store.getters.filter.from;
-    this.dates.to = this.$store.getters.filter.to;
+    this.dates.from =await this.$store.getters.filter.from;
+    this.dates.to = await this.$store.getters.filter.to;
+    this.showPage=true
   },
   computed: {
     _id() {
@@ -127,8 +128,8 @@ export default {
       return currOrder;
     },
     guests() {
-      let adults = Number(this.orderData.guests.adults);
-      let children = Number(this.orderData.guests.children);
+      let adults =  Number(this.orderData.guests.adults);
+      let children =  Number(this.orderData.guests.children);
       let guests = adults + children;
       if (!children) {
         if (!adults) return `please indicate guests number`;
@@ -140,7 +141,8 @@ export default {
       } else {
         return `${guests} guests`;
       }
-    },
+    }
+    ,
 
     preCost() {
       let price = Number(this.orderData.price);
