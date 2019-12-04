@@ -188,6 +188,8 @@ export default {
     async addHouse() {
       await this.submitUpload();
       this.newHouse.hostId = this.$store.getters.loggedinUser._id;
+      this.newHouse.hostImg = this.$store.getters.loggedinUser.img[0];
+       this.newHouse.hostName = this.$store.getters.loggedinUser.username;
       const house = await this.$store.dispatch({
         type: "addHouse",
         newHouse: this.newHouse
