@@ -1,5 +1,6 @@
 <template>
-  <section>
+  <section v-if="showPage">
+    
     <div class="order-details-page-container">
       <section class="order-details-txts-left-container">
         <section class="order-details-txts-left-inner">
@@ -9,12 +10,14 @@
               <div class="img-inner-lower-txt">Entire apartment</div>
               <div class="img-inner-lower-txt-2">★★★★★ 377 reviews</div>
             </div>
-            <img v-if="orderData.imgs" class="order-details-img" :src="orderData.imgs[0]" />
+            <!-- <img v-if="orderData.imgs" class="order-details-img" :src="orderData.imgs[0]" />
+            <div hidden>{{currHouse}}</div>
+            <img class="order-details-img" :src="currHouse.imgs[0]" /> -->
           </div>
           <hr class="order-details-hr" />
           <section class="guests-container flex flex-row align-center">
             <img class="guests-img" src="../assets/imgs/guests.jpg" />
-            <div class="order-details-txts guests">{{guests}}</div>
+            <div v-if="guests" class="order-details-txts guests">{{guests}}</div>
           </section>
           <section class="calendar-container flex flex-row align-center">
             <img class="calendar-img" src="../assets/imgs/calendar.png" />
@@ -85,6 +88,7 @@ import SocketService from "../services/SocketService.js";
 export default {
   data() {
     return {
+      showPage:false,
       // msg: {from: 'Me', txt: ''},
       // msgs: [],
       isApproved: "",
@@ -95,6 +99,7 @@ export default {
     };
   },
   async created() {
+    
     await this.$store.dispatch("loadOrder", this._id);
     SocketService.on("approve order", () => {
       this.isApproved = "Your order has been approved! Enjoy your stay.";
@@ -103,13 +108,19 @@ export default {
       this.isApproved =
         "We apologize, your order has been rejected. Other places are available to you on our site.";
     });
-    this.dates.from = this.$store.getters.filter.from;
-    this.dates.to = this.$store.getters.filter.to;
+    this.dates.from =await this.$store.getters.filter.from;
+    this.dates.to = await this.$store.getters.filter.to;
+    this.showPage=true
   },
   computed: {
     _id() {
       return this.$route.params._id;
     },
+
+    // currHouse (){
+    //   let currHouse = this.$store.getters.currHouse;
+    //   return currHouse;
+    // },
 
     orderData() {
       let currOrder = this.$store.getters.orderToShow;
@@ -117,8 +128,8 @@ export default {
       return currOrder;
     },
     guests() {
-      let adults = Number(this.orderData.guests.adults);
-      let children = Number(this.orderData.guests.children);
+      let adults =  Number(this.orderData.guests.adults);
+      let children =  Number(this.orderData.guests.children);
       let guests = adults + children;
       if (!children) {
         if (!adults) return `please indicate guests number`;
@@ -130,8 +141,9 @@ export default {
       } else {
         return `${guests} guests`;
       }
-    },
-    //Change to actual number of nights
+    }
+    ,
+
     preCost() {
       let price = Number(this.orderData.price);
       let days = this.calcDate();
@@ -140,7 +152,7 @@ export default {
       return preCost.toLocaleString();
     },
 
-    //Change to actual number of nights
+
     serviceFee() {
       let days = this.calcDate();
       let price = Number(this.orderData.price);
@@ -148,7 +160,7 @@ export default {
       let serviceFee = (preCost * 0.17).toFixed(0);
       return serviceFee;
     },
-    //Change to actual number of nights
+
     totalFee() {
       let days = this.calcDate();
       let price = Number(this.orderData.price);

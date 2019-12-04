@@ -143,7 +143,8 @@ export default {
       this.order.dates.from = this.$store.getters.filter.from;
       this.order.dates.to = this.$store.getters.filter.to;
       this.order.hostId = this.houseData.hostId;
-      this.order.imgs = this.houseData.imgs;
+      this.order.houseId = this.houseData._id;
+      // this.order.imgs = this.houseData.imgs;
       this.order.name = this.houseData.name;
       this.order.price = this.houseData.price;
       const order = await this.$store.dispatch("addOrder", this.order);
