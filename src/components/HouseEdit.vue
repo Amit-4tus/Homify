@@ -1,6 +1,6 @@
 <template >
   <section class="add-house-page flex flex-row space-between">
-    <form class="add-house-page-left" prevent>
+    <div @keyup.enter="addHouse" class="add-house-page-left" prevent>
       <div class="add-house-welcome-text-1">Add A House To Rent</div>
 
       <p class="add-house-step bold">step 1</p>
@@ -105,7 +105,7 @@
       <button class="add-house-btn" v-if="!isEditing" @click.prevent="addHouse">Add House</button>
       <button class="add-house-btn" v-if="isEditing" @click.prevent="updateHouse">Update</button>
       <button class="add-house-btn" v-if="isEditing" @click.prevent="deleteHouse">Delete</button>
-    </form>
+    </div>
 
     <img
       class="bgi"

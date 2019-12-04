@@ -58,7 +58,6 @@
       </div>
     </section>
 
-    <review-list></review-list>
   </section>
 </template>
 
@@ -82,7 +81,7 @@ export default {
 
   methods: {
     async orderReq() {
-      this.criteria.query = await "ordersReq";
+      this.criteria.query =   "ordersReq";
       this.isHost = true;
       await this.$store.dispatch("loadOrders", this.criteria);
       this.msg = "orders request";
@@ -91,9 +90,9 @@ export default {
 
   async created() {
     this.criteria.id = await this.$store.getters.loggedinUser._id;
-    this.criteria.query = await "ordersList";
+    this.criteria.query =  "ordersList";
     this.msg = "your orders ";
-    this.$store.dispatch("loadOrders", this.criteria);
+   await this.$store.dispatch("loadOrders", this.criteria);
     this.userDetails = await this.$store.getters.loggedinUser;
     console.log(this.userDetails);
   },
