@@ -123,13 +123,10 @@ cursor: pointer;
     width: 17em;
     height:3.5em;
     margin-top: 2.5em;
-    background-color: rgb(71, 156, 71);
+    background-image: linear-gradient(to bottom right, $color1, $color2);
     align-items: center;
     border: 0;
     border-radius: 3px;
-}
-
-.reserve-btn:hover {
     cursor: pointer;
 }
 

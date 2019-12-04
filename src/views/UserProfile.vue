@@ -1,9 +1,8 @@
 <template>
   <section class="user-profile-page">
     <div class="user-profile-page-left">
-      {{userDetails}}
-      <section class="user-profile-box">
-        <section class="user-profile-box-container">
+      <section class="user-profile-box-container">
+        <section class="user-profile-box">
           <div class="user-img"></div>
           <hr class="reserve-form-hr" />
           <div class="reviews-number-container flex flex-row align-center">
@@ -42,7 +41,7 @@
 
     <button @click="orderReq">Switch to orders request</button>
     <order-list :isHost="isHost"></order-list>
-    <review-list></review-list>
+    <img src="https://www.arch2o.com/wp-content/uploads/2017/08/Arch2O-Coolhousesdesigns-undergroundhome5.jpg" class="bgi">
   </section>
 </template>
 
