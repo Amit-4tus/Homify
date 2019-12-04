@@ -54,12 +54,14 @@
         v-model="newHouse.amentities"
         multiple
         placeholder="Please select from the list"
+        
       >
         <el-option
           v-for="item in options"
           :key="item.value"
           :label="item.label"
           :value="item.value"
+          
         ></el-option>
       </el-select>
 

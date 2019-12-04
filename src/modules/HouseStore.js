@@ -5,7 +5,8 @@ export default {
         itemsToShow: [],
         currHouse: {},
         coords: [],
-        filterBy: {}
+        filterBy: {},
+        hostHouses:[],
     },
     getters: {
         itemsToShow(state) {
@@ -19,6 +20,9 @@ export default {
         },
         filter(state) {
             return state.filterBy
+        },
+        hostHouses(state) {
+            return state.hostHouses
         }
     },
     mutations: {
@@ -27,6 +31,9 @@ export default {
         },
         setItemsToShow(state, itemsToShow) {
             state.itemsToShow = itemsToShow.items;
+        },
+        setHostHouses(state, itemsToShow) {
+            state.hostHouses = itemsToShow;
         },
         setCoords(state) {
             state.itemsToShow.forEach(house => {
@@ -43,9 +50,12 @@ export default {
     },
     actions: {
         async loadItems(context, filter) {
-           
             const items = await houseService.getItems(filter)
             context.commit({ type: 'setItemsToShow', items })
+        },
+        async loadHostHouses(context, id) {
+            const items = await houseService.getItemsByHost(id)
+            context.commit({ type: 'setHostHouses', items })
         },
         loadCoords(context) {
             context.commit({ type: 'setCoords' })

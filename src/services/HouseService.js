@@ -5,6 +5,7 @@ export default {
     deleteItem,
     addItem,
     updateItem,
+    getItemsByHost
 };
 
 const BASE_URL = (process.env.NODE_ENV !== 'development') ? '/house' : '//localhost:3000/house';
@@ -23,13 +24,15 @@ const axios = require('axios');
 
 //server
 function addItem(item) {
-
     return httpService.post(`api/house`, item)
 }
 //server
 function getItems(filter) {
    
     return httpService.get(`api/house/query/${filter.txt}`)
+}
+function getItemsByHost(id) {
+    return httpService.get(`api/house/host/${id}`)
 }
 //server
 function getItemById(id) {
