@@ -6,6 +6,7 @@
   align-items: center;
   padding: 6px 0px;
   background-color: $color5;
+  z-index: 1;
 
   .main-logo {
     height: 25px;
@@ -52,7 +53,7 @@
   border: 0px;
   font-size: 29px;
   color: $color1;
-  // cursor: pointer;
+  cursor: pointer;
   @media (min-width: 450px) {
     display: none;
   }
@@ -65,13 +66,14 @@
   position: absolute;
   top: 0px;
   right: 0px;
-  padding-top: 12px;
-  z-index: 1;
+  padding: 12px 3% 0 3%;
+  z-index: 2;
   height: calc(100vh - 12px);
   transition: all 1s;
 
   .header-link {
     margin: 15px 0px;
+    cursor: pointer;
   }
 
   .mobileNavHead {

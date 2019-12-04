@@ -3,71 +3,55 @@
   flex-direction: row;
   justify-content: space-between;
 }
-
 .add-house-page-left {
-  width: 100vw;
-  margin-top: 60px;
-
-  @media (min-width: 550px) {
-    margin-left: 6vw;
-    width: 60vw;
-  }
-  background-color: $color4;
-  border-radius: 15px;
+  margin-top: 3em;
 }
-
 .add-house-step-container {
   text-align: left;
+  margin-left: 7em;
   max-width: 35em;
 }
-
 .add-house-welcome-text-1 {
-  //   font-family: "Gupter", serif;
+  font-family: "Gupter", serif;
   font-size: 26px;
-  color: $color7;
+  color: #7c3b3b;
   margin-bottom: 1px;
 }
-
 .add-house-welcome-text-2 {
-  //   font-family: "Gupter", serif;
+  font-family: "Gupter", serif;
   font-size: 26px;
-  color: $color7;
+  color: #7c3b3b;
   margin-bottom: 50px;
 }
-
 .add-house-step {
-  font-weight: unset;
-  font-size: 1rem;
-  color: $color6;
+  font-family: eurof;
+  font-size: 20px;
+  color: #bd9e9e;
   padding-bottom: 0px;
   margin-bottom: 8px;
   margin-top: 50px;
 }
-
 .add-house-name-of-house-text {
-  color: $color7;
+  color: #7c3b3b;
   font-size: 20px;
-  //   font-family: "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   margin-bottom: 5px;
 }
-
 .add-house-name-input {
   max-width: 25em;
   min-width: 21em;
   height: 2.5em;
-  border: solid 1.3px rgb(179, 156, 156);
+  border: solid 1.3px #b39c9c;
   font-size: 15px;
   padding: none;
   border-radius: 2px;
 }
-
 .add-house-address-text {
-  color: $color7;
+  color: #7c3b3b;
   font-size: 20px;
-  //   font-family: "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   margin-bottom: 5px;
 }
-
 .add-house-location-container {
   display: flex;
   flex-direction: row;
@@ -75,149 +59,126 @@
   justify-content: space-between;
   min-width: 27em;
 }
-
 .add-house-address-input {
   width: 9em;
   height: 2.5em;
-  border: solid 1.3px rgb(179, 156, 156);
+  border: solid 1.3px #b39c9c;
   font-size: 15px;
   padding: none;
   border-radius: 2px;
 }
-
 .add-house-charge-per-night-text {
-  color: $color7;
+  color: #7c3b3b;
   font-size: 20px;
-  //   font-family: "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   margin-bottom: 5px;
 }
-
 .add-house-price-input {
   max-width: 25em;
   min-width: 21em;
   height: 2.5em;
-  border: solid 1.3px rgb(179, 156, 156);
+  border: solid 1.3px #b39c9c;
   font-size: 15px;
   padding: none;
   border-radius: 2px;
 }
-
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
 .add-house-amenities-text {
-  color: $color7;
+  color: #7c3b3b;
   font-size: 20px;
-  //   font-family: "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   margin-bottom: 5px;
 }
-
 .add-house-amenities-input {
   color: coral;
-  // max-width: 28em;
   min-width: 19em;
-  border: solid 1.3px rgb(179, 156, 156);
+  border: solid 1.3px #b39c9c;
   font-size: 20px;
   border-radius: 2px;
 }
-
 .add-house-Upload-image-text {
-  color: $color7;
+  color: #7c3b3b;
   font-size: 20px;
-  //   font-family: "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   margin-bottom: 10px;
 }
-
 .flowers-draw {
   position: fixed;
   right: 2em;
   top: 8em;
   opacity: 0.6;
 }
-
 .add-house-imgs-container {
   margin-top: 30px;
 }
-
 .upload-imgs-btn {
   width: 11em;
   height: 3.5em;
   margin-top: 2em;
-  background-image: linear-gradient(to bottom right, $color1, $color2);
+  background-color: #479c47;
   align-items: center;
   border: 0;
   border-radius: 3px;
   color: white;
+  font-weight: bold;
   margin-bottom: 1em;
   margin-right: 2em;
-  text-transform: uppercase;
 }
-
 .add-house-page-right {
   width: 40em;
   margin-top: 3em;
 }
-
 .appartment-draw {
   top: 6em;
   width: 20em;
   height: 40em;
 }
-
 .el-upload__tip {
   margin-bottom: 3em;
 }
-
 .img-present {
   width: 8em;
   height: 8em;
 }
-
 .check-txt {
-  color: $color7;
+  color: #7c3b3b;
   font-size: 20px;
-  //   font-family: "Noto Sans TC", sans-serif;
+  font-family: "Noto Sans TC", sans-serif;
   margin-bottom: 5px;
 }
-
 .calender-container {
   width: 25em;
 }
-
 .check-input {
   width: 12em;
   height: 3em;
-  border: solid 1.3px rgb(179, 156, 156);
+  border: solid 1.3px #b39c9c;
 }
-
 input[type="date"]::-webkit-inner-spin-button {
   display: none;
   -webkit-appearance: none;
 }
-
 .add-house-btn {
   width: 11em;
   height: 3.5em;
   margin-top: 2.5em;
-  background-image: linear-gradient(to bottom right, $color1, $color2);
+  background-color: #479c47;
   color: white;
   align-items: center;
   border: 0;
   border-radius: 3px;
   margin-bottom: 4em;
   margin-right: 1.5em;
-  text-transform: uppercase;
 }
-
 @media screen and (max-width: 1080px) {
   .flowers-draw {
     display: none;
   }
 }
-
 @media screen and (max-width: 570px) {
   .add-house-location-container {
     flex-direction: column;
