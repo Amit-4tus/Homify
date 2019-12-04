@@ -3,7 +3,7 @@
     <div class="user-profile-page-left">
       <section class="user-profile-box-container">
         <section class="user-profile-box">
-          <img class="user-img" :src="userDetails.img[0]" />
+          <img v-if="userDetails.img" class="user-img" :src="userDetails.img[0]" />
           <hr class="reserve-form-hr" />
           <div class="reviews-number-container flex flex-row align-center">
             <img src="../assets/imgs/reviewsstar.png" />
