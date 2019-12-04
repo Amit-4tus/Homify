@@ -42,7 +42,7 @@
           <el-button size="x-large" type="primary">Upload image</el-button>
           <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
         </el-upload>
-        <el-button size="small" type="success" @click="submitUpload">Add image</el-button>
+        <!-- <el-button size="small" type="success" @click="submitUpload">Add image</el-button> -->
         <button class="submit">Sign-Up</button>
       </form>
     </div>
@@ -114,7 +114,8 @@ export default {
       await this.$store.dispatch({ type: "logout" });
       window.location.reload();
     },
-    doSignup() {
+   async doSignup() {
+    await this.submitUpload()
       const cred = this.signupCred;
       if (!cred.email || !cred.password || !cred.username)
         return (this.msg = "Please fill up the form");
