@@ -152,7 +152,7 @@ export default {
     redirectToDesiredHouse() {
       let houseId = this.$route.params._id;
       if (!houseId) this.$router.push("/");
-      else this.$router.push(`/order/${houseId}`);
+      else this.$router.push(`/order/house/${houseId}`);
     }
   }
 };
