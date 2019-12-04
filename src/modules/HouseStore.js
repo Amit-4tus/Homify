@@ -34,6 +34,7 @@ export default {
         },
         setHostHouses(state, itemsToShow) {
             state.hostHouses = itemsToShow;
+            
         },
         setCoords(state) {
             state.itemsToShow.forEach(house => {
