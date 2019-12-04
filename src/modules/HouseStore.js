@@ -43,6 +43,7 @@ export default {
     },
     actions: {
         async loadItems(context, filter) {
+           
             const items = await houseService.getItems(filter)
             context.commit({ type: 'setItemsToShow', items })
         },
