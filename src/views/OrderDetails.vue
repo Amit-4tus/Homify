@@ -1,5 +1,6 @@
 <template>
   <section>
+    
     <div class="order-details-page-container">
       <section class="order-details-txts-left-container">
         <section class="order-details-txts-left-inner">
@@ -9,7 +10,9 @@
               <div class="img-inner-lower-txt">Entire apartment</div>
               <div class="img-inner-lower-txt-2">★★★★★ 377 reviews</div>
             </div>
-            <img v-if="orderData.imgs" class="order-details-img" :src="orderData.imgs[0]" />
+            <!-- <img v-if="orderData.imgs" class="order-details-img" :src="orderData.imgs[0]" />
+            <div hidden>{{currHouse}}</div>
+            <img class="order-details-img" :src="currHouse.imgs[0]" /> -->
           </div>
           <hr class="order-details-hr" />
           <section class="guests-container flex flex-row align-center">
@@ -85,6 +88,7 @@ import SocketService from "../services/SocketService.js";
 export default {
   data() {
     return {
+      
       // msg: {from: 'Me', txt: ''},
       // msgs: [],
       isApproved: "",
@@ -95,7 +99,12 @@ export default {
     };
   },
   async created() {
+    
     await this.$store.dispatch("loadOrder", this._id);
+
+    
+    
+   
     // SocketService.emit('order details', this.orderData);
     SocketService.on("approve order", () => {
       this.isApproved = "Your order has been approved! Enjoy your stay.";
@@ -112,6 +121,11 @@ export default {
     _id() {
       return this.$route.params._id;
     },
+
+    // currHouse (){
+    //   let currHouse = this.$store.getters.currHouse;
+    //   return currHouse;
+    // },
 
     orderData() {
       let currOrder = this.$store.getters.orderToShow;
@@ -133,7 +147,7 @@ export default {
         return `${guests} guests`;
       }
     },
-    //Change to actual number of nights
+
     preCost() {
       let price = Number(this.orderData.price);
       let days = this.calcDate();
@@ -142,7 +156,7 @@ export default {
       return preCost.toLocaleString();
     },
 
-    //Change to actual number of nights
+
     serviceFee() {
       let days = this.calcDate();
       let price = Number(this.orderData.price);
@@ -150,7 +164,7 @@ export default {
       let serviceFee = (preCost * 0.17).toFixed(0);
       return serviceFee;
     },
-    //Change to actual number of nights
+
     totalFee() {
       let days = this.calcDate();
       let price = Number(this.orderData.price);
