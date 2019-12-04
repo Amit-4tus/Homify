@@ -1,8 +1,10 @@
 <template>
   <div class="home">
     <home-page-top-fold></home-page-top-fold>
-    <h2 class="specialPicksHeader">Special Top Picks:</h2>
-    <topPickList class="topPicks"></topPickList>
+    <section class="topPicksContainer container">
+      <h2 class="specialPicksHeader">Special Top Picks</h2>
+      <topPickList class="topPicks"></topPickList>
+    </section>
     <!-- <inspSect></inspSect> -->
     <myFooter></myFooter>
   </div>
@@ -24,10 +26,11 @@ export default {
   },
   created() {
     this.$store.dispatch("loadItems",this.filter);
+      window.scrollTo(0, 0);
   },
   mounted() {
     var elMyHeader = document.querySelector(".my-header");
-    elMyHeader.classList.add("absolute");
+    elMyHeader.classList.add("fixed");
   },
   components: {
     homePageTopFold,

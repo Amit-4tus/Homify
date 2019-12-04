@@ -32,40 +32,27 @@
       }
     }
   }
+
+  .logo {
+    width: 70%;
+    margin: 10% 0;
+    cursor: pointer;
+  }
 }
 
 .specialPicksHeader {
-  margin-bottom: 5%;
+  margin-bottom: 2%;
+  text-align: start;
+  margin-left: 18px;
 }
 
-.topPicks {
-  max-width: $containerWidth;
-  display: flex;
-  margin: 0 auto;
-  margin-bottom: 15%;
-  flex-wrap: wrap;
+.topPicksContainer {
+  .topPicks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
-  @media (max-width: 550px) {
-  }
-
-  > * {
-    width: 25%;
-
-    @media (max-width: 550px) {
-      width: 50%;
+    .housePreview {
+      flex-direction: column;
     }
-  }
-
-  .housePreview {
-    flex-direction: column;
-    @media (max-width: 420px) {
-      // padding-bottom: 200px;
-    }
-    // width: 80%;
-    //   height: 50%;
-
-    //   // .houseRating {
-
-    //   // }
   }
 }

@@ -36,6 +36,30 @@
 .cursor {
   cursor: pointer;
 }
+.container {
+  margin: 0 auto;
+  width: 100vw;
+}
+@media (min-width: 450px) {
+  .container {
+    width: 430px;
+  }
+}
+@media (min-width: 550px) {
+  .container {
+    width: 530px;
+  }
+}
+@media (min-width: 750px) {
+  .container {
+    width: 700px;
+  }
+}
+@media (min-width: 1000px) {
+  .container {
+    width: 950px;
+  }
+}
 .space-between {
   justify-content: space-between;
 }

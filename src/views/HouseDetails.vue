@@ -70,7 +70,7 @@
 
 <script>
 import myFooter from "../components/MyFooter";
-import reviewEdit from "@/components/ReviewEdit";
+import reviewEdit from "@/components/reviewForm";
 
 import reviewList from "@/components/ReviewList";
 import gMap from "@/components/GMap";
@@ -79,6 +79,7 @@ export default {
     return { review: {}, showMap: false,msg:'' };
   },
   async created() {
+    this.scrollToTop();
     this.$store.dispatch("loadHouseById", this._id);
     const reviews = await this.$store.dispatch("loadReviews", this._id);
     this.showMap = true;
@@ -97,13 +98,12 @@ export default {
       return currHouse;
     },
     loggedinUser() {
-      console.log(this.$store.getters.loggedinUser);
       return this.$store.getters.loggedinUser;
     }
   },
   methods: {
     doReserve() {
-      if (!this.loggedinUser) return this.$router.push('/login');
+      if (!this.loggedinUser) return this.$router.push(`/login/${this.houseData._id}`);
       this.$router.push(`/order/house/${this.houseData._id}`);
       // this.$router.push("/order");
     },
@@ -115,6 +115,9 @@ export default {
       review.user.userName = this.loggedinUser.username;
       review.user.userId = this.loggedinUser._id;
       this.$store.dispatch("addReview", review);
+    },
+     scrollToTop() {
+      window.scrollTo(0, 0);
     }
   },
   components: {

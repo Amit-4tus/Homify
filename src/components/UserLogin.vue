@@ -108,6 +108,7 @@ export default {
       await this.$store.dispatch({ type: "login", userCred: cred });
       this.receiveOrder();
       this.loginCred = {};
+      this.redirectToDesiredHouse();
     },
     async doLogout() {
       await this.$store.dispatch({ type: "logout" });
@@ -119,7 +120,8 @@ export default {
       if (!cred.email || !cred.password || !cred.username)
         return (this.msg = "Please fill up the form");
       this.$store.dispatch({ type: "signup", userCred: cred });
-      this.receiveOrder();
+      // this.receiveOrder();
+      this.redirectToDesiredHouse();
     },
     async submitUpload() {
       var imgUrls = await Promise.all(
@@ -151,6 +153,10 @@ export default {
     },
     beforeRemove(file, fileList) {
       return this.$confirm(`Cancel the transfert of ${file.name} ?`);
+    },
+    redirectToDesiredHouse() {
+      let houseId = this.$route.params._id;
+      this.$router.push(`/order/house/${houseId}`)
     }
   }
 };

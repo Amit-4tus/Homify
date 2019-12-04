@@ -8,11 +8,8 @@
   text-align: center;
   z-index: -1;
   width: 100vw;
-  height: 100vh;
-  margin-bottom: 10%;
-  @media (max-width: 550px) {
-    // height: unset;
-  }
+  height: 93vh;
+  margin-bottom: 4%;
 
   > * {
     margin: 0%;
@@ -25,18 +22,5 @@
     @media (max-width: 600px) {
       font-size: 1.3rem;
     }
-  }
-
-  .startBtn {
-    align-self: center;
-    display: inline-block;
-    font-size: 2.5rem;
-    padding: 1% 5%;
-    background-color: $color2;
-    color: $color3;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    outline: none;
   }
 }

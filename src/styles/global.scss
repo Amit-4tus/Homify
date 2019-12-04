@@ -2,8 +2,8 @@
 // @import 'setup/mixins';
 // @import 'setup/functions';
 
-@import 'setup/variables';
-@import 'setup/fonts';
+@import "setup/variables";
+@import "setup/fonts";
 @import "basics/base";
 @import "basics/helpers";
 @import "components/home";
@@ -16,11 +16,10 @@
 @import "components/map";
 @import "components/user-order";
 @import "components/houseList";
-@import "components/InspSect";
 @import "components/searchForm";
 @import "components/myFooter";
 @import "components/houseEdit";
 @import "components/orderDetails";
 @import "components/UserMsg";
-
-
+@import "components/reviewForm";
+@import "components/UserProfile";

@@ -16,12 +16,15 @@
     border-radius: 0%;
     margin: 30vh 0 0 0;
     position: absolute;
-    bottom: 0;
+    bottom: 7vh;
   }
   @media (max-width: 365px) {
-    font-size: .8rem;
-    // width: 80vw;
+    font-size: 0.8rem;
   }
+  @media (min-width: 1040px) {
+    padding: 3.7vw;
+  }
+
   background-color: $color5;
   border-radius: 5px;
 
@@ -37,10 +40,15 @@
   }
 
   span {
-    margin: 3% 0px;
+    margin: 3% 0;
+    @media (min-width: 1040px) {
+      margin: 2% 0;
+    }
   }
 
-  input, select, option{
+  .input,
+  select,
+  option {
     width: 100%;
     border: 0px;
     border-bottom: 1px solid darkgray;
@@ -57,14 +65,17 @@
 }
 
 .submit {
-  display: block;
   background-image: linear-gradient(to bottom right, $color1, $color2);
-  color: $color3;
   margin-top: 7%;
-  border: 0px;
   border-radius: 5px;
-  padding: 2% 10%;
-  text-align: center;
-  align-self: center;
+  padding: 3% 0;
   cursor: pointer;
+  
+  input {
+    color: $color3;
+    background-color: unset;
+    border: 0px;
+    font-size: 1rem;
+    margin: 0 auto;
+  }
 }

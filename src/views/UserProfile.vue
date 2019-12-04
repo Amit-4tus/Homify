@@ -5,11 +5,13 @@
 
     <button @click="orderReq">Switch to orders request</button>
     <order-list :isHost="isHost"></order-list>
+    <review-list></review-list>
   </section>
 </template>
 
 <script>
 import orderList from "../components/OrderList";
+import reviewList from "../components/ReviewList";
 
 export default {
   data() {
@@ -44,7 +46,8 @@ export default {
   },
 
   components: {
-    orderList
+    orderList,
+    reviewList
   }
 };
 </script>

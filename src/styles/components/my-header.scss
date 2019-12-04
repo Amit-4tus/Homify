@@ -6,6 +6,10 @@
   align-items: center;
   padding: 6px 0px;
   background-color: $color5;
+
+  .main-logo {
+    height: 25px;
+  }
 }
 
 .headerForList {
@@ -39,6 +43,7 @@
   white-space: nowrap;
   text-decoration-line: none;
   color: $color1;
+  font: unset;
 }
 
 .hamburger {
