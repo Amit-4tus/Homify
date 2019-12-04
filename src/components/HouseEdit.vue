@@ -83,7 +83,7 @@
               :show-file-list="true"
               :before-remove="beforeRemove"
               multiple
-              :limit="3"
+              :limit="4"
               :on-exceed="handleExceed"
               :on-change="onChange"
             >
