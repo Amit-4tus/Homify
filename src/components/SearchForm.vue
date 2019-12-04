@@ -8,9 +8,9 @@
     </div>
     <div class="when">
       <span>From:</span>
-      <input :min="disableDate" v-model="filterBy.from" type="date" />
+      <input :min="dateMin" v-model="filterBy.from" type="date" />
       <span>To:</span>
-      <input v-model="filterBy.to" type="date" />
+      <input :min="dateMin" v-model="filterBy.to" type="date" />
     </div>
 
     <div class="howMany">
@@ -21,7 +21,7 @@
         <option value="many">8+</option>
       </select>
     </div>
-    <!-- <button @click.prevent="calcDateRange">check Results</button> -->
+
     <button class="submit" @click.prevent="doSearch">TRAVEL</button>
   </form>
 </template>
@@ -31,28 +31,35 @@ export default {
   data() {
     return {
       res: "",
-      filterBy: { txt: "", from: "", to: "" },
+      filterBy: {
+        txt: "",
+        from: new Date().toDateString(),
+        to: new Date().toDateString()
+      },
       disableDate: new Date(Date.now() - 8640000)
     };
   },
   methods: {
     async doSearch(ev) {
-      this.filterBy.from = new Date(this.filterBy.from).toLocaleDateString();
-      this.filterBy.to = new Date(this.filterBy.to).toLocaleDateString();
+      // console.log(this.filterBy);
+      // const fullDate = this.filterBy.from + " " + this.filterBy.to;
       await this.$store.dispatch("setFilter", this.filterBy);
       this.$router.push(`/house/${this.filterBy.txt}`);
-    },
-    calcDateRange() {
-      var startdate = new Date("2019/12/15").toLocaleDateString();
-      var enddate = new Date("2019/12/20").toLocaleDateString();
-      var startD = new Date(this.from).toLocaleDateString();
-      var endD = new Date(this.to).toLocaleDateString();
-      if (startD > endD) return (this.res = "enter valid date ");
-      if (startD >= startdate && endD <= enddate) {
-        this.res = "Yes sure!!";
-      } else {
-        this.res = "No place!!";
-      }
+
+      // this.$router.push(`/house/${this.filterBy.txt}/${fullDate}`);
+    }
+  },
+  computed: {
+    dateMin() {
+      var d = new Date(new Date()),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
+        year = d.getFullYear();
+
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
+
+      return [year, month, day].join("-");
     }
   }
 };
