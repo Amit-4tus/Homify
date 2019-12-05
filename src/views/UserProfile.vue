@@ -82,8 +82,7 @@
       </section>
     </div>
 
-    <button @click="orderReq">Switch to orders request</button>
-    <order-list :isHost="isHost"></order-list>
+ 
     <img
       src="https://www.arch2o.com/wp-content/uploads/2017/08/Arch2O-Coolhousesdesigns-undergroundhome5.jpg"
       class="bgi"
