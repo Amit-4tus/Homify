@@ -106,6 +106,7 @@ export default {
   },
 
   async created() {
+    window.scrollTo(0, 0);
     this.userDetails = await this.$store.getters.loggedinUser;
     this.orders()
  

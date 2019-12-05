@@ -1,34 +1,24 @@
 <template>
-    <section>
+  <section>
     <house-edit></house-edit>
-    </section>
+  </section>
 </template>
 
 <script>
 import { uploadImg } from "../services/CloudinaryService.js";
 import houseEdit from "@/components/HouseEdit";
 
-
 export default {
-    data() {
-        return {
-            img: null
-        }
-    },
-    computed: {
-    
-    },
-    
-    methods: {
-       
-    },
-    created() {
-       
-    
+  data() {
+    return {
+      img: null
+    };
+  },
+  created() {
+    window.scrollTo(0, 0);
   },
   components: {
-    houseEdit,
-    
+    houseEdit
   }
 };
 </script>
