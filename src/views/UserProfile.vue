@@ -54,13 +54,10 @@
           partner's profiles.
         </div>
         {{msg}}
-        <!-- <button @click="orderReq">Switch to orders request</button> -->
         <order-list :isHost="isHost"></order-list>
       </section>
+      <button class="changeToHostModeBtn" @click="orderReq">Switch to orders request</button>
     </div>
-
-    <button @click="orderReq">Switch to orders request</button>
-    <order-list :isHost="isHost"></order-list>
     <img
       class="bgi"
       src="https://www.arch2o.com/wp-content/uploads/2017/08/Arch2O-Coolhousesdesigns-undergroundhome5.jpg"
@@ -99,8 +96,6 @@ export default {
     this.msg = "your orders ";
     await this.$store.dispatch("loadOrders", this.criteria);
     this.userDetails = await this.$store.getters.loggedinUser;
-    console.log(this.userDetails);
-    this.orderReq()
   },
 
   components: {
