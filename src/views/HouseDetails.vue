@@ -1,5 +1,5 @@
 <template>
-  <div class="houseDetails">
+  <div v-if="loading" class="houseDetails">
     <section class="houseImgs">
       <div v-if="!houseData" class="loading">Loading</div>
       <img v-if="houseData.imgs" class="houseImg1" :src="houseData.imgs[0]" />
@@ -77,12 +77,14 @@ import reviewList from "@/components/ReviewList";
 import gMap from "@/components/GMap";
 export default {
   data() {
-    return { review: {}, showMap: false,msg:'' };
+    return { review: {}, showMap: false,msg:'',
+    loading:false };
   },
   async created() {
     this.scrollToTop();
     this.$store.dispatch("loadHouseById", this._id);
     const reviews = await this.$store.dispatch("loadReviews", this._id);
+    this.loading=true
     this.showMap = true;
   },
   computed: {

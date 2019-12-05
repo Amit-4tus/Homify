@@ -89,8 +89,10 @@ export default {
         SocketService.on("response order", result => {
           if (userId === result.userId) {
             var txtRes = "";
-            if (result.res === "approved") txtRes = "Your order has been approved";
-            if (result.res === "rejected") txtRes = "Your order has been rejected";
+            if (result.res === "approved")
+              txtRes = "Your order has been approved";
+            if (result.res === "rejected")
+              txtRes = "Your order has been rejected";
 
             const msg = {
               txt: txtRes,
@@ -106,16 +108,19 @@ export default {
       if (!cred.email || !cred.password)
         return (this.msg = "Please enter user / password");
       await this.$store.dispatch({ type: "login", userCred: cred });
+
       this.receiveOrder();
       this.loginCred = {};
+
       this.redirectToDesiredHouse();
     },
     async doLogout() {
       await this.$store.dispatch({ type: "logout" });
-      window.location.reload();
+      SocketService.disconnect();
+      // window.location.reload();
     },
-   async doSignup() {
-    await this.submitUpload()
+    async doSignup() {
+      await this.submitUpload();
       const cred = this.signupCred;
       if (!cred.email || !cred.password || !cred.username)
         return (this.msg = "Please fill up the form");

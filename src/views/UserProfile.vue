@@ -55,7 +55,8 @@
         {{msg}}
         <order-list :isHost="isHost"></order-list>
       </section>
-      <button class="changeToHostModeBtn" @click="orderReq">Switch to orders request</button>
+      <button v-if="!showBtn" class="changeToHostModeBtn" @click="orderReq">Show orders request</button>
+      <button v-if="showBtn"  class="changeToHostModeBtn" @click="orders">Show orders</button>
     </div>
     <img
       class="bgi"
@@ -77,24 +78,38 @@ export default {
       },
       msg: "",
       isHost: false,
-      userDetails: null
+      userDetails: null,
+      showBtn:false
     };
   },
+  computed: {
+    hostHouses() {
+      return this.$store.getters.hostHouses;
+    }
+  },
+
   methods: {
     async orderReq() {
+      this.showBtn=true
       this.criteria.query = "ordersReq";
       this.isHost = true;
       await this.$store.dispatch("loadOrders", this.criteria);
       this.msg = "orders request";
+    },
+   async orders(){
+     this.showBtn=false
+   this.criteria.id = this.userDetails._id;
+    this.criteria.query = "ordersList";
+    this.msg = "your orders ";
+    await this.$store.dispatch("loadOrders", this.criteria);
     }
   },
 
   async created() {
-    this.criteria.id = await this.$store.getters.loggedinUser._id;
-    this.criteria.query = "ordersList";
-    this.msg = "your orders ";
-    await this.$store.dispatch("loadOrders", this.criteria);
     this.userDetails = await this.$store.getters.loggedinUser;
+    this.orders()
+ 
+    // await this.$store.dispatch("loadHostHouses", this.criteria.id);
   },
 
   components: {
