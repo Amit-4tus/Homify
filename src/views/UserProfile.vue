@@ -82,7 +82,6 @@
       </section>
     </div>
 
- 
     <img
       src="https://www.arch2o.com/wp-content/uploads/2017/08/Arch2O-Coolhousesdesigns-undergroundhome5.jpg"
       class="bgi"
@@ -107,8 +106,8 @@ export default {
     };
   },
   computed: {
-    hostHouses(){
-      return this.$store.getters.hostHouses
+    hostHouses() {
+      return this.$store.getters.hostHouses;
     }
   },
 
@@ -122,13 +121,12 @@ export default {
   },
 
   async created() {
-    this.criteria.id = await this.$store.getters.loggedinUser._id;
+    this.userDetails = await this.$store.getters.loggedinUser;
+    this.criteria.id =  this.userDetails._id;
     this.criteria.query = "ordersList";
     this.msg = "your orders ";
     await this.$store.dispatch("loadOrders", this.criteria);
     // await this.$store.dispatch("loadHostHouses", this.criteria.id);
-
-    this.userDetails = await this.$store.getters.loggedinUser;
   },
 
   components: {
