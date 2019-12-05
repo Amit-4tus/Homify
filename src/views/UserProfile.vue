@@ -38,7 +38,7 @@
         </section>
       </section>
     </div>
-    
+
     <div class="user-profile-page-right flex flex-column align-center">
       <section class="page-right-box">
         <div v-if="userDetails" class="welcome-txt">Hi, I'm {{userDetails.username}}</div>
@@ -46,22 +46,22 @@
         <div class="apostrophes">“</div>
         <div class="description-txt">
           Well I'll be very happy if you stop searching any further and stay
-          with me for a safe and care free vacation !
+          with me for a safe and care free vacation!
           30 year old programmer and musician.
           I'm passionate about hosting and making your trip here enjoyable,
           using my own experience and knowledge of the never-sleeping city!
           Please, feel free to look at any of the listings on my profile or at my
-          partner's profile.
+          partner's profiles.
         </div>
         {{msg}}
-        <button @click="orderReq">Switch to orders request</button>
         <order-list :isHost="isHost"></order-list>
       </section>
+      <button v-if="!showBtn" class="changeToHostModeBtn" @click="orderReq">Show orders request</button>
+      <button v-if="showBtn"  class="changeToHostModeBtn" @click="orders">Show orders</button>
     </div>
-
     <img
-      src="https://www.arch2o.com/wp-content/uploads/2017/08/Arch2O-Coolhousesdesigns-undergroundhome5.jpg"
       class="bgi"
+      src="https://www.arch2o.com/wp-content/uploads/2017/08/Arch2O-Coolhousesdesigns-undergroundhome5.jpg"
     />
   </section>
 </template>
@@ -79,7 +79,8 @@ export default {
       },
       msg: "",
       isHost: false,
-      userDetails: null
+      userDetails: null,
+      showBtn:false
     };
   },
   computed: {
@@ -90,19 +91,25 @@ export default {
 
   methods: {
     async orderReq() {
+      this.showBtn=true
       this.criteria.query = "ordersReq";
       this.isHost = true;
       await this.$store.dispatch("loadOrders", this.criteria);
       this.msg = "orders request";
+    },
+   async orders(){
+     this.showBtn=false
+   this.criteria.id = this.userDetails._id;
+    this.criteria.query = "ordersList";
+    this.msg = "your orders ";
+    await this.$store.dispatch("loadOrders", this.criteria);
     }
   },
 
   async created() {
     this.userDetails = await this.$store.getters.loggedinUser;
-    this.criteria.id =  this.userDetails._id;
-    this.criteria.query = "ordersList";
-    this.msg = "your orders ";
-    await this.$store.dispatch("loadOrders", this.criteria);
+    this.orders()
+ 
     // await this.$store.dispatch("loadHostHouses", this.criteria.id);
   },
 

@@ -36,9 +36,9 @@
           <span>This House Comes With Parking</span>
         </div>
       </div>
-      <p class="houseDesc">{{houseData.desc}}</p>
+      <p v-if="houseData.desc" class="houseDesc">{{houseData.desc}}</p>
     </div>
-    <section  class="hostInfo">
+    <section class="hostInfo">
       <img v-if="houseData.hostImg" :src="houseData.hostImg">
       <p  v-if="houseData.hostName" class="name">{{houseData.hostName}}</p>
     </section>

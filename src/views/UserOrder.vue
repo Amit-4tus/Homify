@@ -50,7 +50,7 @@
             </div>
             <section v-if="!isOrdered">
               <button class="reserve-btn" @click="doOrder">
-                <span class="reserve-btn-text">Reserve</span>
+                <span class="reserve-btn-text">Continue</span>
               </button>
 
               <div class="non-charge-box">
