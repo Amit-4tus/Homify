@@ -65,7 +65,7 @@
                 This place is getting a lot of attention.
                 It’s been viewed 500+ times in the past week.
               </p>
-              <img class="bulb-img" src="../assets/imgs/bulb.png" />
+              <!-- <img class="bulb-img" src="../assets/imgs/bulb.png" /> -->
             </div>
           </div>
         </section>
