@@ -3,7 +3,7 @@
     <div class="user-profile-page-left">
       <section class="user-profile-box-container">
         <section class="user-profile-box">
-          <img v-if="userDetails.img" class="user-img" :src="userDetails.img[0]" />
+          <img v-if="userDetails" class="user-img" :src="userDetails.img" />
           <hr class="reserve-form-hr" />
           <div class="reviews-number-container flex flex-row align-center">
             <img src="../assets/imgs/reviewsstar.png" />
@@ -64,7 +64,7 @@
 
     <div class="user-profile-page-right flex flex-column align-center">
       <section class="page-right-box">
-        <div class="welcome-txt">Hi, I'm {{userDetails.username}}</div>
+        <div v-if="userDetails" class="welcome-txt">Hi, I'm {{userDetails.username}}</div>
         <div class="joined-year">Joined in 2018</div>
         <div class="apostrophes">“</div>
         <div class="description-txt">
