@@ -4,6 +4,7 @@
   margin: 0 auto;
   margin-bottom: 2%;
   display: grid;
+  grid-gap: 7px;
   grid-template-areas:
     "a b b"
     "a c d";
@@ -131,7 +132,7 @@
 }
 
 .houseDetails {
-margin-top: 60px;
+  margin-top: 60px;
 
   .gmap {
     width: 100vw !important;

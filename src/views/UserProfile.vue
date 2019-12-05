@@ -38,7 +38,7 @@
         </section>
       </section>
     </div>
-    
+
     <div class="user-profile-page-right flex flex-column align-center">
       <section class="page-right-box">
         <div v-if="userDetails" class="welcome-txt">Hi, I'm {{userDetails.username}}</div>
@@ -46,15 +46,15 @@
         <div class="apostrophes">“</div>
         <div class="description-txt">
           Well I'll be very happy if you stop searching any further and stay
-          with me for a safe and care free vacation !
+          with me for a safe and care free vacation!
           30 year old programmer and musician.
           I'm passionate about hosting and making your trip here enjoyable,
           using my own experience and knowledge of the never-sleeping city!
           Please, feel free to look at any of the listings on my profile or at my
-          partner's profile.
+          partner's profiles.
         </div>
         {{msg}}
-        <button @click="orderReq">Switch to orders request</button>
+        <!-- <button @click="orderReq">Switch to orders request</button> -->
         <order-list :isHost="isHost"></order-list>
       </section>
     </div>
@@ -62,8 +62,8 @@
     <button @click="orderReq">Switch to orders request</button>
     <order-list :isHost="isHost"></order-list>
     <img
-      src="https://www.arch2o.com/wp-content/uploads/2017/08/Arch2O-Coolhousesdesigns-undergroundhome5.jpg"
       class="bgi"
+      src="https://www.arch2o.com/wp-content/uploads/2017/08/Arch2O-Coolhousesdesigns-undergroundhome5.jpg"
     />
   </section>
 </template>
@@ -84,8 +84,6 @@ export default {
       userDetails: null
     };
   },
-  computed: {},
-
   methods: {
     async orderReq() {
       this.criteria.query = "ordersReq";
@@ -102,6 +100,7 @@ export default {
     await this.$store.dispatch("loadOrders", this.criteria);
     this.userDetails = await this.$store.getters.loggedinUser;
     console.log(this.userDetails);
+    this.orderReq()
   },
 
   components: {
