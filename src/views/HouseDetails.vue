@@ -54,6 +54,7 @@
       >Reserve</button>
     </section>
     <button
+    class="houseEditBtn"
       v-if="isOwner"
       @click="doEdit"
     >Edit here</button>

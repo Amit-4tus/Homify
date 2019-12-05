@@ -1,15 +1,15 @@
 .user-profile-page-left {
-  margin-top: 40px;
+  padding-bottom: 5%;
+  border-bottom: 1px solid darkgray;
+  margin-top: 100px;
+  @media (max-width: 550px) {
+    margin-top: 60px;
+  }
 }
 
 .user-profile-box {
-    border-style:solid;
-    border-color: lightgray;
-    border-width: 0.7px;
-    width: 18em;
-    height: 30em;
-    margin-left: 4em;
-
+  padding: 15%;
+  text-align: start;
 }
 
 .user-profile-box-container {
@@ -17,17 +17,38 @@
   border-radius: 15px;
   width: 40vw;
   margin-left: 3em;
+  @media (max-width: 550px) {
+    width: 100vw;
+    margin-left: 0;
+    border-radius: 0;
+  }
 }
 
-.user-profile-box {
-  padding: 15%;
+.userImgContiner {
+  text-align: center;
+  padding-bottom: 3%;
+  border-bottom: 1px solid darkgray;
+  margin-bottom: 10%;
 }
 
 .user-img {
   width: 20vw;
   height: 20vw;
-  border-radius: 9999px;
   margin: 0 auto 10% auto;
+  border-radius: 9999px;
+  object-fit: cover;
+}
+
+.profileSect {
+  display: flex;
+  margin-bottom: 5%;
+}
+
+.profileIcon {
+  width: 10%;
+  height: 10%;
+  margin-right: 5%;
+  object-fit: cover;
 }
 
 .reviews-number-container {
@@ -53,6 +74,8 @@
 }
 
 .bgi {
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
   position: fixed;
   top: 0;
@@ -61,31 +84,29 @@
 }
 
 .user-profile-page-right {
-    background-color: lightgreen;
-    width: 40em;
-    text-align: left;
-    margin-top: 2.8em;
-    margin-left: 3em;
+  background-color: $color5;
+  width: 40em;
+  text-align: left;
+  margin: 5%;
 }
 
 .page-right-box {
-    margin: 3em;
+  margin: 3em;
 }
 
 .apostrophes {
-    font-size: xx-large;
+  font-size: xx-large;
 }
 
 .welcome-txt {
-    font-family: 'Roboto', sans-serif;
-    font-size: xx-large;
+  font-family: "Roboto", sans-serif;
+  font-size: xx-large;
 }
 
 .joined-year {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .description-txt {
-    font-family: 'Courgette', cursive;
-    
+  font-family: "Courgette", cursive;
 }
