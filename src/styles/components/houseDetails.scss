@@ -49,14 +49,14 @@
   }
 
   .houseInfo {
+    width: 100%;
     padding: 3% 3% 0 3%;
     margin-right: 0;
-    margin-bottom: 3%;
     text-align: start;
-    border-right: 1px solid $color4;
-    width: 60%;
-    @media (max-width: 600px) {
-      width: 100%;
+    @media (min-width: 600px) {
+      width: 60%;
+      border-right: 1px solid $color4;
+      margin-bottom: 3%;
     }
 
     .houseTitle {
@@ -74,9 +74,6 @@
     }
 
     .amenitiesIcons {
-      padding: 2% 0;
-      border-bottom: 1px solid $color4;
-
       .amenity {
         display: flex;
         align-items: center;
@@ -92,7 +89,8 @@
 
     .houseDesc {
       @media (max-width: 600px) {
-        padding-bottom: 20px;
+        padding: 20px 0;
+        border-top: 1px solid $color4;
         border-bottom: 1px solid $color4;
         margin-bottom: 0;
       }
@@ -184,4 +182,13 @@
   @media (max-width: 420px) {
     margin-bottom: 8%;
   }
+}
+
+.houseEditBtn {
+  color: $color3;
+  background-image: linear-gradient(to bottom right, $color1, $color2);
+  border: 0;
+  border-radius: 5px;
+  padding: 15px 8%;
+  font-size: 1.3rem;
 }

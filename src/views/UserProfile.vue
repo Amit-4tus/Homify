@@ -3,65 +3,42 @@
     <div class="user-profile-page-left">
       <section class="user-profile-box-container">
         <section class="user-profile-box">
-          <img v-if="userDetails" class="user-img" :src="userDetails.img" />
-          <hr class="reserve-form-hr" />
-          <div class="reviews-number-container flex flex-row align-center">
-            <img src="../assets/imgs/reviewsstar.png" />
+          <div v-if="userDetails" class="userImgContiner">
+            <img v-if="userDetails.img" class="user-img" :src="userDetails.img" />
+            <img
+              v-if="!userDetails.img"
+              class="user-img"
+              src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png"
+            />
+          </div>
+          <div class="profileSect">
+            <img class="profileIcon" src="../assets/imgs/star.png" />
             <div class="reviews-number-txt">509 reviews</div>
           </div>
-          <div class="verified flex flex-row align-center">
-            <img class="verified-img" src="../assets/imgs/vi.jpg" />
+          <div class="profileSect">
+            <img class="profileIcon" src="../assets/imgs/v.png" />
             <div class="reviews-verified-txt">Verified</div>
           </div>
-          <hr class="reserve-form-hr" />
-          <div class="checked flex flex-row align-center">
-            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+          <div class="profileSect">
+            <img class="profileIcon" src="../assets/imgs/governmentId.png" />
             <div class="reviews-checked-txt">Government ID</div>
           </div>
-          <div class="checked flex flex-row align-center">
-            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+          <div class="profileSect">
+            <img class="profileIcon" src="../assets/imgs/selfie.png" />
             <div class="reviews-checked-txt">Selfie</div>
           </div>
-          <div class="checked flex flex-row align-center">
-            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+          <div class="profileSect">
+            <img class="profileIcon" src="../assets/imgs/email.jpg" />
             <div class="reviews-checked-txt">Email address</div>
           </div>
-          <div class="checked flex flex-row align-center">
-            <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
+          <div class="profileSect">
+            <img class="profileIcon" src="../assets/imgs/phone.png" />
             <div class="reviews-checked-txt">Phone number</div>
           </div>
         </section>
       </section>
     </div>
-    <section>
-      <hr class="reserve-form-hr" />
-      <div class="reviews-number-container flex flex-row align-center">
-        <img src="../assets/imgs/reviewsstar.png" />
-        <div class="reviews-number-txt">509 reviews</div>
-      </div>
-      <div class="verified flex flex-row align-center">
-        <img class="verified-img" src="../assets/imgs/vi.jpg" />
-        <div class="reviews-verified-txt">Verified</div>
-      </div>
-      <hr class="reserve-form-hr" />
-      <div class="checked flex flex-row align-center">
-        <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
-        <div class="reviews-checked-txt">Government ID</div>
-      </div>
-      <div class="checked flex flex-row align-center">
-        <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
-        <div class="reviews-checked-txt">Selfie</div>
-      </div>
-      <div class="checked flex flex-row align-center">
-        <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
-        <div class="reviews-checked-txt">Email address</div>
-      </div>
-      <div class="checked flex flex-row align-center">
-        <img class="checked-img" src="../assets/imgs/checkedtouse.png" />
-        <div class="reviews-checked-txt">Phone number</div>
-      </div>
-    </section>
-
+    
     <div class="user-profile-page-right flex flex-column align-center">
       <section class="page-right-box">
         <div v-if="userDetails" class="welcome-txt">Hi, I'm {{userDetails.username}}</div>
