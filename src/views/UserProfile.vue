@@ -43,7 +43,6 @@
       <section class="page-right-box">
         <div v-if="userDetails" class="welcome-txt">Hi, I'm {{userDetails.username}}</div>
         <div class="joined-year">Joined in 2018</div>
-        <div class="apostrophes">“</div>
         <div class="description-txt">
           Well I'll be very happy if you stop searching any further and stay
           with me for a safe and care free vacation!
@@ -54,16 +53,14 @@
           partner's profiles.
         </div>
         {{msg}}
-        <!-- <button @click="orderReq">Switch to orders request</button> -->
         <order-list :isHost="isHost"></order-list>
       </section>
+      <button v-if="!showBtn" class="changeToHostModeBtn" @click="orderReq">Show orders request</button>
+      <button v-if="showBtn"  class="changeToHostModeBtn" @click="orders">Show orders</button>
     </div>
-
-    <button @click="orderReq">Switch to orders request</button>
-    <order-list :isHost="isHost"></order-list>
     <img
       class="bgi"
-      src="https://www.arch2o.com/wp-content/uploads/2017/08/Arch2O-Coolhousesdesigns-undergroundhome5.jpg"
+      src="https://images.squarespace-cdn.com/content/v1/55390e8ee4b05abbe6eb0e43/1555078265582-0ITPX0SXCA6ALF0N2Q2C/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/3303+River+Road_2019CHT_Furmansky_Print_448.jpg?format=1000w"
     />
   </section>
 </template>
@@ -81,26 +78,39 @@ export default {
       },
       msg: "",
       isHost: false,
-      userDetails: null
+      userDetails: null,
+      showBtn:false
     };
   },
+  computed: {
+    hostHouses() {
+      return this.$store.getters.hostHouses;
+    }
+  },
+
   methods: {
     async orderReq() {
+      this.showBtn=true
       this.criteria.query = "ordersReq";
       this.isHost = true;
       await this.$store.dispatch("loadOrders", this.criteria);
       this.msg = "orders request";
+    },
+   async orders(){
+     this.showBtn=false
+   this.criteria.id = this.userDetails._id;
+    this.criteria.query = "ordersList";
+    this.msg = "your orders ";
+    await this.$store.dispatch("loadOrders", this.criteria);
     }
   },
 
   async created() {
-    this.criteria.id = await this.$store.getters.loggedinUser._id;
-    this.criteria.query = "ordersList";
-    this.msg = "your orders ";
-    await this.$store.dispatch("loadOrders", this.criteria);
+    window.scrollTo(0, 0);
     this.userDetails = await this.$store.getters.loggedinUser;
-    console.log(this.userDetails);
-    this.orderReq()
+    this.orders()
+ 
+    // await this.$store.dispatch("loadHostHouses", this.criteria.id);
   },
 
   components: {

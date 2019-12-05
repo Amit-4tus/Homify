@@ -172,6 +172,7 @@ export default {
   methods: {
     async sendOrderData() {
       await this.$store.dispatch("sendMsg", this.orderData.hostId);
+        this.$router.push(`/`);
     
     },
     calcDate() {

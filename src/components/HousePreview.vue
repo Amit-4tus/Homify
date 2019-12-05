@@ -10,7 +10,7 @@
         </p>
       </div>
       <div v-if="itemData.reviews" class="houseRating">
-        <!-- <img src="../"> -->
+        <img class="ratingIcon" src="../assets/imgs/star.png" />
         {{itemData.reviews.avgRating}}
       </div>
     </div>
