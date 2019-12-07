@@ -1,15 +1,29 @@
 .user-msg {
-    background-color: $color2;
+    background-color: $color5;
     color: $color3;
-    padding: 10%;
+   
+    padding: 5%;
+    border-radius: 7px;
     position: fixed;
-    top: 60px;
-    left: 0;
+    top: 70px;
+    left: 10px;
+    z-index: 1;
+
+    button {
+        background-color: $color3;
+        border: 0;
+        border-radius: 999999px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
 }
 
 .user-msg.success {
-    background-color: $color1;
+    background-color: $color5;
+    color: $color7;
 }
 .user-msg.error {
-    background-color: $color2;
+    background-color: $color5;
+    color: $color7;
 }
