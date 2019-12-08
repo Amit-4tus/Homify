@@ -30,9 +30,8 @@ export default {
     return {
       date: new Date(),
       highlighted: {
-        // to: new Date(2019, 11, 16),
-        // from: new Date(2019, 10, 27),
-       dates: [ // Highlight an array of dates
+    
+       dates: [ 
       new Date(2019, 10, 28),
       new Date(2019, 10, 29),
       new Date(2019, 10, 30),

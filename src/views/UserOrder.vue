@@ -65,7 +65,7 @@
                 This place is getting a lot of attention.
                
               </p>
-              <!-- <img class="bulb-img" src="../assets/imgs/bulb.png" /> -->
+             
             </div>
           </div>
         </section>

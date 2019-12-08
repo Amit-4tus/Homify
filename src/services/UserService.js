@@ -4,23 +4,10 @@ export default {
     login,
     logout,
     signup,
-    // getUsers,
-    // getById,
-    // remove,
-    // update
+   
 }
 
-// function getById(id) {
-//     return HttpService.get(`user?_id=${id}`)
-// }
 
-// function remove(userId) {
-//     return HttpService.delete(`user/${userId}`)
-// }
-
-// function update(user) {
-//     return HttpService.put(`user/${user._id}`, user)
-// }
 
 async function login(userCred) {
     const user = await HttpService.post('api/auth/login', userCred)

@@ -5,7 +5,6 @@
       <h2 class="specialPicksHeader">Special Top Picks</h2>
       <topPickList class="topPicks"></topPickList>
     </section>
-    <!-- <inspSect></inspSect> -->
     <myFooter></myFooter>
   </div>
 </template>

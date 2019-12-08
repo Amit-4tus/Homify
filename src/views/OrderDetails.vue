@@ -1,6 +1,5 @@
 <template>
   <section v-if="showPage">
-    
     <div class="order-details-page-container">
       <section class="order-details-txts-left-container">
         <section class="order-details-txts-left-inner">
@@ -12,7 +11,7 @@
             </div>
             <!-- <img v-if="orderData.imgs" class="order-details-img" :src="orderData.imgs[0]" />
             <div hidden>{{currHouse}}</div>
-            <img class="order-details-img" :src="currHouse.imgs[0]" /> -->
+            <img class="order-details-img" :src="currHouse.imgs[0]" />-->
           </div>
           <hr class="order-details-hr" />
           <section class="guests-container flex flex-row align-center">
@@ -88,9 +87,7 @@ import SocketService from "../services/SocketService.js";
 export default {
   data() {
     return {
-      showPage:false,
-      // msg: {from: 'Me', txt: ''},
-      // msgs: [],
+      showPage: false,
       isApproved: "",
       dates: {
         from: "",
@@ -99,7 +96,6 @@ export default {
     };
   },
   async created() {
-    
     await this.$store.dispatch("loadOrder", this._id);
     SocketService.on("approve order", () => {
       this.isApproved = "Your order has been approved! Enjoy your stay.";
@@ -108,19 +104,14 @@ export default {
       this.isApproved =
         "We apologize, your order has been rejected. Other places are available to you on our site.";
     });
-    this.dates.from =await this.$store.getters.filter.from;
+    this.dates.from = await this.$store.getters.filter.from;
     this.dates.to = await this.$store.getters.filter.to;
-    this.showPage=true
+    this.showPage = true;
   },
   computed: {
     _id() {
       return this.$route.params._id;
     },
-
-    // currHouse (){
-    //   let currHouse = this.$store.getters.currHouse;
-    //   return currHouse;
-    // },
 
     orderData() {
       let currOrder = this.$store.getters.orderToShow;
@@ -128,8 +119,8 @@ export default {
       return currOrder;
     },
     guests() {
-      let adults =  Number(this.orderData.guests.adults);
-      let children =  Number(this.orderData.guests.children);
+      let adults = Number(this.orderData.guests.adults);
+      let children = Number(this.orderData.guests.children);
       let guests = adults + children;
       if (!children) {
         if (!adults) return `please indicate guests number`;
@@ -141,9 +132,7 @@ export default {
       } else {
         return `${guests} guests`;
       }
-    }
-    ,
-
+    },
     preCost() {
       let price = Number(this.orderData.price);
       let days = this.calcDate();
@@ -151,7 +140,6 @@ export default {
       let preCost = price * days;
       return preCost.toLocaleString();
     },
-
 
     serviceFee() {
       let days = this.calcDate();
@@ -172,8 +160,7 @@ export default {
   methods: {
     async sendOrderData() {
       await this.$store.dispatch("sendMsg", this.orderData.hostId);
-        this.$router.push(`/`);
-    
+      this.$router.push(`/`);
     },
     calcDate() {
       const date1 = new Date(this.dates.from);
