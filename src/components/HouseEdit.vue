@@ -156,7 +156,7 @@ export default {
     },
     handleExceed(files, fileList) {
       this.$message.warning(
-        `The limit is 3, you selected ${
+        `The limit is 4, you selected ${
           files.length
         } files this time, add up to ${files.length + fileList.length} totally`
       );
@@ -196,11 +196,11 @@ export default {
         type: "addHouse",
         newHouse: this.newHouse
       });
-      this.$router.push(`/house/details/${house._id}`);
+      this.$router.push(`/house/details/house/${house._id}`);
     },
     async updateHouse() {
       await this.$store.dispatch({ type: "updateHouse", house: this.newHouse });
-      this.$router.push(`/house/details/${this.newHouse._id}`);
+      this.$router.push(`/house/details/house/${this.newHouse._id}`);
     },
     async deleteHouse() {
       await this.$store.dispatch({
@@ -230,7 +230,7 @@ export default {
         },
         reviews: {
           avgRating: 4.8,
-          reviewsIds: []
+          reviewCount: 0
         }
       };
     },

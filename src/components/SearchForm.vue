@@ -35,8 +35,8 @@ export default {
       res: "",
       filterBy: {
         txt: "",
-        from: new Date().toDateString(),
-        to: new Date().toDateString()
+        from: "",
+        to: ""
       },
       disableDate: new Date(Date.now() - 8640000)
     };
@@ -44,11 +44,16 @@ export default {
   methods: {
     async doSearch(ev) {
       // console.log(this.filterBy);
-      // const fullDate = this.filterBy.from + " " + this.filterBy.to;
-      await this.$store.dispatch("setFilter", this.filterBy);
-      this.$router.push(`/house/${this.filterBy.txt}`);
+      var fullDate="";
+      if (this.filterBy.from !== "" && this.filterBy.to !== "") {
+        fullDate = this.filterBy.from + " " + this.filterBy.to;
+        console.log(fullDate);
+      }
 
-      // this.$router.push(`/house/${this.filterBy.txt}/${fullDate}`);
+      await this.$store.dispatch("setFilter", this.filterBy);
+      // this.$router.push(`/house/${this.filterBy.txt}`);
+
+      this.$router.push(`/house/${this.filterBy.txt}/${fullDate}`);
     }
   },
   computed: {
