@@ -1,7 +1,18 @@
+.user-profile-page {
+  margin: 5em;
+}
+
+
+.user-profile-page-upper {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3em;
+}
+
 .user-profile-page-left {
-  border-bottom: 1px solid darkgray;
-  padding-bottom: 5%;
-  margin-top: 100px;
+  // border-bottom: 1px solid darkgray;
+  padding-bottom: 1%;
+  margin-top: 80px;
   @media (max-width: 550px) {
     margin-top: 0;
     padding-bottom: 0;
@@ -9,15 +20,17 @@
 }
 
 .user-profile-box {
-  padding: 15%;
+  padding: 3em;
+  min-width: 20em;
   text-align: start;
 }
 
 .user-profile-box-container {
   background-color: $color5;
   border-radius: 15px;
-  width: 40vw;
+  width: 45vw;
   margin-left: 3em;
+  margin-right: 3em;
   @media (max-width: 550px) {
     width: 100vw;
     margin-left: 0;
@@ -27,14 +40,14 @@
 
 .userImgContiner {
   text-align: center;
-  padding-bottom: 3%;
+  // padding-bottom: 3%;
   border-bottom: 1px solid darkgray;
-  margin-bottom: 10%;
+  margin-bottom: 6%;
 }
 
 .user-img {
-  width: 20vw;
-  height: 20vw;
+  width: 10vw;
+  height:10vw;
   margin: 0 auto 10% auto;
   border-radius: 9999px;
   object-fit: cover;
@@ -86,9 +99,10 @@
 
 .user-profile-page-right {
   background-color: $color5;
-  width: 100vw;
+  // margin-right: 12em;
   text-align: left;
-  // margin: 5%;
+  // margin: 3em;
+  border-radius: 15px;
 }
 
 .page-right-box {
@@ -102,18 +116,31 @@
 .welcome-txt {
   font-family: "Roboto", sans-serif;
   font-size: xx-large;
+  margin-bottom: 7px;
+  color: rgb(88, 31, 31);
 }
 
 .joined-year {
   font-family: "Roboto", sans-serif;
+  margin-bottom: 15px;
+  font-size: large;
+}
+
+.come-visit {
+  font-family: "Roboto", sans-serif;
+  font-size: x-large;
+  margin-bottom: 7px;
 }
 
 .description-txt {
-  font-family: "Montserrat", cursive;
+  font-family: "Roboto", sans-serif;
+  text-align: justify;
+  margin-bottom: 10px;
+  font-size: large;
 }
 
 .changeToHostModeBtn {
-  width: 17em;
+  width: 13em;
   height: 3.5em;
   margin-top: 2.5em;
   background-image: linear-gradient(to bottom right, $color1, $color2);
@@ -121,5 +148,76 @@
   border: 0;
   border-radius: 5px;
   cursor: pointer;
-  margin-bottom: 6%;
+  margin-bottom: 2em;
+  color: white;
+  font-size: medium;
+}
+
+.host-houses-wrapper {
+  padding: 10px;
+  background-color: $color5;
+  margin-bottom: 2em;
+  max-width: 63em;
+  margin-left: 5em;
+  border-radius: 15px;
+}
+
+.host-houses-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.my-places-txt {
+  margin: 0.5em;
+  font-family: "Roboto", sans-serif;
+  font-size: xx-large;
+  color: rgb(88, 31, 31);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+ 
+
+@media screen and(max-width: 550px) {
+  .host-houses-container {
+  margin-left: none;
+  }
+}
+
+.host-houses-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 15em;
+  align-items: flex-start;
+}
+
+.host-house-img {
+  width: 13em;
+  height: 9em;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+
+.profile-item {
+  font-family: "Montserrat";
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  color: rgb(88, 31, 31);
+}
+
+.profile-orders-container {
+  background-color: $color5;
+  border-radius: 15px;
+  margin-left: 4.8em;
+  margin-right: 1.8em;
+  max-width: 70em;
+  padding:20px;
+}
+
+.profile-orders-list {
+  color: rgb(88, 31, 31);
 }
