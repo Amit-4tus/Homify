@@ -13,7 +13,6 @@
             <div hidden>{{currHouse}}</div>
             <img class="order-details-img" :src="currHouse.imgs[0]" />-->
           </div>
-          <hr class="order-details-hr" />
           <section class="guests-container flex flex-row align-center">
             <img class="guests-img" src="../assets/imgs/guests.jpg" />
             <div v-if="guests" class="order-details-txts guests">{{guests}}</div>
@@ -22,7 +21,6 @@
             <img class="calendar-img" src="../assets/imgs/calendar.png" />
             <div class="order-details-txts calendar">{{dates.from}} → {{dates.to}}</div>
           </section>
-          <hr class="order-details-hr" />
           <div class="order-details-txts margin flex flex-row space-between">
             <div class="order-details-precost-container">
               {{orderData.price}}
