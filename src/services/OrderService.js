@@ -6,7 +6,6 @@ export default {
     updateOrder
 };
 
-// const BASE_URL = (process.env.NODE_ENV !== 'development') ? '/order' : '//localhost:3000/order';
 const axios = require('axios');
 
 function getOrders(id,query) {

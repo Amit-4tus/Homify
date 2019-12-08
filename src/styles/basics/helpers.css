@@ -60,6 +60,11 @@
     width: 950px;
   }
 }
+@media (min-width: 1100px) {
+  .container {
+    width: 1050px;
+  }
+}
 .space-between {
   justify-content: space-between;
 }
@@ -83,4 +88,7 @@
 .hideToRight {
   position: absolute;
   left: 100% !important;
+}
+.link-none{
+  text-decoration: none;
 }

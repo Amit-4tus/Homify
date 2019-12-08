@@ -19,9 +19,10 @@ const routes = [
     component: Home
   },
   {
-    path: '/house/:q?',
+    path: '/house/:q?/:d?',
     name: 'house',
-    component: houses
+    component: houses,
+
   },
   {
     path: '/map',
@@ -29,7 +30,7 @@ const routes = [
     component: map
   },
   {
-    path: '/house/details/:_id',
+    path: '/house/details/house/:_id',
     name: 'house-details',
     component: houseDetails
   },

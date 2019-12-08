@@ -8,44 +8,46 @@
       <img v-if="houseData.imgs" class="houseImg4" :src="houseData.imgs[3]" />
     </section>
     <div class="bottomFold">
-    <div v-if="houseData.name" class="houseInfo">
-      <h1 class="houseTitle">{{houseData.name}}</h1>
-      <h3 class="houseLocation">{{houseData.location.address.country}}</h3>
-      <p class="houseCapacity">{{houseData.capacity}}</p>
-      <div class="amenitiesIcons">
-        <div class="amenity wifi">
-          <img src="http://simpleicon.com/wp-content/uploads/signal.png" />
-          <span>This House Has Wifi Access</span>
+      <div v-if="houseData.name" class="houseInfo">
+        <h1 class="houseTitle">{{houseData.name}}</h1>
+        <h3 class="houseLocation">{{houseData.location.address.country}}</h3>
+        <p class="houseCapacity">{{houseData.capacity}}</p>
+        <div v-for="(amenity, idx) in houseData.amentities" :key="idx" class="amenitiesIcons">
+          <div v-if="amenity==='wifi'" class="amenity wifi">
+            <img src="http://simpleicon.com/wp-content/uploads/signal.png" />
+            <span>This House Has Wifi Access</span>
+          </div>
+          <div v-if="amenity==='shower'" class="amenity shower">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Shower_icon_-_Noun_Project_4336.svg/1024px-Shower_icon_-_Noun_Project_4336.svg.png"
+            />
+            <span>This House Has A Shower</span>
+          </div>
+          <div v-if="amenity==='kitchen'" class="amenity kitchen">
+            <img src="https://icon-library.net/images/kitchen-icon-png/kitchen-icon-png-21.jpg" />
+            <span>This House Has A Kitchen</span>
+          </div>
+          <div v-if="amenity==='garden'" class="amenity garden">
+            <img src="https://image.flaticon.com/icons/png/512/93/93701.png" />
+            <span>This House Has A Garden</span>
+          </div>
+          <div v-if="amenity==='parking'" class="amenity parking">
+            <img src="https://carlisletheacarlisletheatre.org/images/parking-icon-lot-7.png" />
+            <span>This House Comes With Parking</span>
+          </div>
         </div>
-        <div class="amenity shower">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Shower_icon_-_Noun_Project_4336.svg/1024px-Shower_icon_-_Noun_Project_4336.svg.png"
-          />
-          <span>This House Has A Shower</span>
-        </div>
-        <div class="amenity kitchen">
-          <img src="https://icon-library.net/images/kitchen-icon-png/kitchen-icon-png-21.jpg" />
-          <span>This House Has A Kitchen</span>
-        </div>
-        <div class="amenity garden">
-          <img src="https://image.flaticon.com/icons/png/512/93/93701.png" />
-          <span>This House Has A Garden</span>
-        </div>
-        <div class="amenity parking">
-          <img src="https://carlisletheacarlisletheatre.org/images/parking-icon-lot-7.png" />
-          <span>This House Comes With Parking</span>
-        </div>
+        <p v-if="houseData.desc" class="houseDesc">{{houseData.desc}}</p>
       </div>
-      <p v-if="houseData.desc" class="houseDesc">{{houseData.desc}}</p>
-    </div>
-    <section class="hostInfo">
-      <img v-if="houseData.hostImg" :src="houseData.hostImg">
-      <p  v-if="houseData.hostName" class="name">{{houseData.hostName}}</p>
-    </section>
+      <section class="hostInfo">
+        <img v-if="houseData.hostImg" :src="houseData.hostImg" />
+        <p v-if="houseData.hostName" class="name">{{houseData.hostName}}</p>
+      </section>
     </div>
     <section class="reserve">
       <div class="info">
-        <div><span class="price">{{houseData.price}}$</span> / per night</div>
+        <div>
+          <span class="price">{{houseData.price}}$</span> / per night
+        </div>
       </div>
       <button
         v-if="loggedinUser===null || loggedinUser._id!==houseData.hostId"
@@ -53,11 +55,7 @@
         @click="doReserve"
       >Reserve</button>
     </section>
-    <button
-    class="houseEditBtn"
-      v-if="isOwner"
-      @click="doEdit"
-    >Edit here</button>
+    <button class="houseEditBtn" v-if="isOwner" @click="doEdit">Edit here</button>
     <g-map
       v-if="showMap"
       :coords="houseData.location.coords"
@@ -77,20 +75,22 @@ import reviewList from "@/components/ReviewList";
 import gMap from "@/components/GMap";
 export default {
   data() {
-    return { review: {}, showMap: false,msg:'',
-    loading:false };
+    return { review: {}, showMap: false, msg: "", loading: false };
   },
   async created() {
     this.scrollToTop();
     this.$store.dispatch("loadHouseById", this._id);
     const reviews = await this.$store.dispatch("loadReviews", this._id);
-    this.loading=true
+    this.loading = true;
     this.showMap = true;
   },
   computed: {
     isOwner() {
-      if (this.loggedinUser !== null && this.loggedinUser._id === this.houseData.hostId)
-        return true
+      if (
+        this.loggedinUser !== null &&
+        this.loggedinUser._id === this.houseData.hostId
+      )
+        return true;
     },
     _id() {
       return this.$route.params._id;
@@ -106,7 +106,8 @@ export default {
   },
   methods: {
     doReserve() {
-      if (!this.loggedinUser) return this.$router.push(`/login/${this.houseData._id}`);
+      if (!this.loggedinUser)
+        return this.$router.push(`/login/${this.houseData._id}`);
       this.$router.push(`/order/house/${this.houseData._id}`);
       // this.$router.push("/order");
     },
@@ -119,7 +120,7 @@ export default {
       review.user.userId = this.loggedinUser._id;
       this.$store.dispatch("addReview", review);
     },
-     scrollToTop() {
+    scrollToTop() {
       window.scrollTo(0, 0);
     }
   },

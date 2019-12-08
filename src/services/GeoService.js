@@ -12,7 +12,6 @@ async function query(str) {
     }
     catch (err) {
         if (err.response.status === 401) {
-            // router.push('/');
         }
     }
 

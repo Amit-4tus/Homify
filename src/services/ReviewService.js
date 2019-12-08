@@ -9,20 +9,15 @@ const BASE_URL = (process.env.NODE_ENV !== 'development') ? '/review' : '//local
 const axios = require('axios');
 
 
-//server
-
 function getReviewById(id) {
     return httpService.get(`api/review/${id}`)
 };
-//server
 async function addReview(review) {
 
-    // review.user.userName="me"
     review.createdAt= new Date().toLocaleDateString();
     const newReview=await httpService.post(`api/review`, review)
     return newReview
 }
-
 
 function getReviews() {
     return httpService.get('review')

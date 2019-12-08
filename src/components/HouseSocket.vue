@@ -1,21 +1,5 @@
 <template>
   <div class="about">
-    <!-- <h1>About Us</h1>
-    <p>We like You</p>-->
-    <!-- <h2>Lets Chat About {{topic}}</h2> -->
-    <!-- <label> -->
-    <!-- <input type="radio" value="Politics" v-model="topic" @change="changeTopic" />  -->
-    <!-- Politics
-    </label>
-    <label>-->
-    <!-- <input type="radio" value="Love" v-model="topic" @change="changeTopic" />  -->
-    <!-- Love
-    </label>
-    <ul>
-      <li v-for="(msg, idx) in msgs" :key="idx">
-        {{msg.txt}}
-      </li>
-    </ul>-->
     <ul>
       <div v-for="(order, idx) in orders" :key="idx">
         <p>Hello ________, you have a pending order</p>
@@ -31,11 +15,6 @@
         <button @click="rejectOrder">Reject</button>
       </div>
     </ul>
-
-    <!-- <form @submit.prevent="sendMsg">
-      <input type="text" v-model="msg.txt" />
-    <button>Send</button>-->
-    <!-- </form> -->
   </div>
 </template>
 
@@ -48,35 +27,14 @@ export default {
       orders: []
     };
   },
-  created() {
-    
-    // SocketService.emit('order details', this.orderData)
-    // SocketService.on("get order details", order => {
-    //   this.orders.push(order);
-    // });
-  },
+  created() {},
   methods: {
     approveOrder() {
       SocketService.emit("approve order", this.order);
     },
     rejectOrder() {
       SocketService.emit("reject order", this.order);
-    },
-    // receiveOrder() {
-    //   if (this.$store.getters.loggedinUser !== null) {
-    //     let userId = this.$store.getters.loggedinUser._id;
-    //     SocketService.on("get order details", order => {
-    //       if (userId === order.hostId) {
-    //         this.orders.push(order);
-    //         const msg = {
-    //                 txt: "Order Added check your profile",
-    //                 type: 'error'
-    //             }
-    //             eventBus.$emit('show-msg', msg)
-    //       }
-    //     });
-    //   }
-    // }
+    }
   },
   computed: {
     loggedinUser() {

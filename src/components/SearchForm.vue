@@ -4,7 +4,7 @@
 
     <div class="where">
       <span>Country / State:</span>
-      <input class="input" type="text" placeholder="e.g. Berlin" v-model="filterBy.txt" />
+      <input class="input" type="text" placeholder="e.g. Germany" v-model="filterBy.txt" />
     </div>
     <div class="when">
       <span>From:</span>
@@ -35,20 +35,25 @@ export default {
       res: "",
       filterBy: {
         txt: "",
-        from: new Date().toDateString(),
-        to: new Date().toDateString()
+        from: "",
+        to: ""
       },
       disableDate: new Date(Date.now() - 8640000)
     };
   },
   methods: {
     async doSearch(ev) {
-      // console.log(this.filterBy);
-      // const fullDate = this.filterBy.from + " " + this.filterBy.to;
-      await this.$store.dispatch("setFilter", this.filterBy);
-      this.$router.push(`/house/${this.filterBy.txt}`);
+      if(this.filterBy.txt==='')return  this.$router.push(`/house/`);
+      var fullDate="";
+      if (this.filterBy.from !== "" && this.filterBy.to !== "") {
+        fullDate = this.filterBy.from + " " + this.filterBy.to;
+        console.log(fullDate);
+      }
 
-      // this.$router.push(`/house/${this.filterBy.txt}/${fullDate}`);
+      await this.$store.dispatch("setFilter", this.filterBy);
+      // this.$router.push(`/house/${this.filterBy.txt}`);
+
+      this.$router.push(`/house/${this.filterBy.txt}/${fullDate}`);
     }
   },
   computed: {
