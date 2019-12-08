@@ -1,5 +1,5 @@
 .user-msg {
-    background-color: $color5;
+    background-color: $color7;
     color: $color3;
     padding: 5%;
     border-radius: 7px;
@@ -11,7 +11,7 @@
     button {
         font-size: 1.3rem;
         background-color: unset;
-        color: $color3;
+        color: $color7;
         border: 0;
         position: absolute;
         top: 5px;
@@ -19,7 +19,7 @@
     }
     
     img {
-        width: 10%;
+        width: 25%;
         position: absolute;
         bottom: 5px;
         left: 5px;
@@ -32,5 +32,5 @@
 }
 .user-msg.error {
     background-color: $color3;
-    color: $color3;
+    color: $color7;
 }
