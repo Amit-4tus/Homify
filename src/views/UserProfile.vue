@@ -59,11 +59,13 @@
         <section class="host-houses-container">
           <router-link  :to="`/house/details/house/${house._id}`" class="host-houses-list " v-for="(house,idx) in hostHouses.items" :key="idx">
             <img class="host-house-img" :src="house.imgs[0]" />
-            <li class="profile-item bold">{{house.name}}</li>
+            <section class="host-houses-list-txts">
+            <li class="profile-item-house-name">{{house.name}}</li>
             <li class="profile-item">USD {{house.price}} / night</li>
             <li
               class="profile-item"
             >{{house.location.address.city}}, {{house.location.address.country}}</li>
+            </section>
           </router-link>
         </section>
       </div>
@@ -72,7 +74,7 @@
         <div class="my-places-txt">{{msg}}</div>
         <order-list class="profile-orders-list" :isHost="isHost"></order-list>
         <button v-if="!showBtn" class="changeToHostModeBtn" @click="orderReq">Show orders request</button>
-        <button v-if="showBtn" class="changeToHostModeBtn" @click="orders">Show my vacayions</button>
+        <button v-if="showBtn" class="changeToHostModeBtn" @click="orders">Show my vacations</button>
       </section>
     </div>
     <img

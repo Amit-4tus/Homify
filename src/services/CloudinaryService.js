@@ -1,6 +1,4 @@
 
-
-
 export function uploadImg(file) {
     const CLOUD_NAME = 'dcbeo6630'
     const PRESET_NAME = 'ut4qndey'

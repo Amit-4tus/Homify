@@ -17,7 +17,6 @@
 export default {
     methods: {
         doScroll() {
-            console.log('scrolling');
             window.scrollTo(0, 0)
         }
     }

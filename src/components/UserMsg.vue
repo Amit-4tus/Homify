@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {eventBus} from '../services/eventBusService.js'
+import { eventBus } from "../services/eventBusService.js";
 export default {
   data() {
     return {
@@ -18,9 +18,6 @@ export default {
   created() {
     eventBus.$on("show-msg", msg => {
       this.msg = msg;
-      // setTimeout(() => {
-      //   this.msg = null;
-      // }, 5000);
     });
   },
   methods: {

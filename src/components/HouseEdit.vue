@@ -172,7 +172,6 @@ export default {
       );
       await imgUrls.forEach(img => {
         this.newHouse.imgs.push(img.url);
-        // console.log(this.newHouse.imgs[0])
       });
       this.doneUpload = true;
       return imgUrls;
