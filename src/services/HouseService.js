@@ -28,8 +28,10 @@ function addItem(item) {
 }
 //server
 function getItems(filter) {
-   
+    console.log(filter)
+    if(filter.date) return httpService.get(`api/house/query/${filter.txt}/${filter.date}`)
     return httpService.get(`api/house/query/${filter.txt}`)
+
 }
 function getItemsByHost(id) {
     return httpService.get(`api/house/host/${id}`)

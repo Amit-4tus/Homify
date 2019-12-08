@@ -2,7 +2,7 @@
   <div>
     <div class="houseList" v-if="items">
       <router-link
-        :to="`/house/details/${item._id}`"
+        :to="`/house/details/house/${item._id}`"
         v-for="(item, idx) in items"
         :key="idx"
         class="housePreviewLink"
