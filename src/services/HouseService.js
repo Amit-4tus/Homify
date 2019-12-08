@@ -18,7 +18,6 @@ function addItem(item) {
     return httpService.post(`api/house`, item)
 }
 function getItems(filter) {
-    console.log(filter)
     if(filter.date) return httpService.get(`api/house/query/${filter.txt}/${filter.date}`)
     return httpService.get(`api/house/query/${filter.txt}`)
 
