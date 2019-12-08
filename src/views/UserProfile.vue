@@ -1,6 +1,6 @@
 <template>
   <section class="user-profile-page">
-    <div class="user-profile-page-left">
+    <div class="user-profile-page-upper">
       <section class="user-profile-box-container">
         <section class="user-profile-box">
           <div v-if="userDetails" class="userImgContiner">
@@ -13,7 +13,7 @@
           </div>
           <div class="profileSect">
             <img class="profileIcon" src="../assets/imgs/star.png" />
-            <div class="reviews-number-txt">509 reviews</div>
+            <div class="reviews-number-txt">59 reviews</div>
           </div>
           <div class="profileSect">
             <img class="profileIcon" src="../assets/imgs/v.png" />
@@ -21,42 +21,59 @@
           </div>
           <div class="profileSect">
             <img class="profileIcon" src="../assets/imgs/governmentId.png" />
-            <div class="reviews-checked-txt">Government ID</div>
+            <div class="reviews-verified-txt">Government ID</div>
           </div>
           <div class="profileSect">
             <img class="profileIcon" src="../assets/imgs/selfie.png" />
-            <div class="reviews-checked-txt">Selfie</div>
+            <div class="reviews-verified-txt">Selfie</div>
           </div>
           <div class="profileSect">
             <img class="profileIcon" src="../assets/imgs/email.jpg" />
-            <div class="reviews-checked-txt">Email address</div>
+            <div class="reviews-verified-txt">Email address</div>
           </div>
-          <div class="profileSect">
+          <!-- <div class="profileSect">
             <img class="profileIcon" src="../assets/imgs/phone.png" />
             <div class="reviews-checked-txt">Phone number</div>
-          </div>
+          </div>-->
         </section>
       </section>
+
+      <div class="user-profile-page-right flex flex-column align-center">
+        <section class="page-right-box">
+          <div v-if="userDetails" class="welcome-txt">Hi, I'm {{userDetails.username}}</div>
+          <div class="joined-year">Joined in 2018,</div>
+          <div class="description-txt">
+            Well I'll be very happy if you stop searching any further and stay
+            with me for a safe and care free vacation!
+            30 year old programmer and musician.
+            I'm passionate about hosting and making your trip here enjoyable,
+            using my own experience and knowledge of the never-sleeping city!
+          </div>
+        </section>
+      </div>
     </div>
 
-    <div class="user-profile-page-right flex flex-column align-center">
-      <section class="page-right-box">
-        <div v-if="userDetails" class="welcome-txt">Hi, I'm {{userDetails.username}}</div>
-        <div class="joined-year">Joined in 2018</div>
-        <div class="description-txt">
-          Well I'll be very happy if you stop searching any further and stay
-          with me for a safe and care free vacation!
-          30 year old programmer and musician.
-          I'm passionate about hosting and making your trip here enjoyable,
-          using my own experience and knowledge of the never-sleeping city!
-          Please, feel free to look at any of the listings on my profile or at my
-          partner's profiles.
-        </div>
-        {{msg}}
-        <order-list :isHost="isHost"></order-list>
+    <div>
+      <div class="host-houses-wrapper">
+        <div class="my-places-txt">My places</div>
+        <section class="host-houses-container">
+          <ul class="host-houses-list" v-for="(house,idx) in hostHouses.items" :key="idx">
+            <img class="host-house-img" :src="house.imgs[0]" />
+            <li class="profile-item bold">{{house.name}}</li>
+            <li class="profile-item">USD {{house.price}} / night</li>
+            <li
+              class="profile-item"
+            >{{house.location.address.city}}, {{house.location.address.country}}</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="profile-orders-container">
+        <div class="my-places-txt">{{msg}}</div>
+        <order-list class="profile-orders-list" :isHost="isHost"></order-list>
+        <button v-if="!showBtn" class="changeToHostModeBtn" @click="orderReq">Show orders request</button>
+        <button v-if="showBtn" class="changeToHostModeBtn" @click="orders">Show my vacayions</button>
       </section>
-      <button v-if="!showBtn" class="changeToHostModeBtn" @click="orderReq">Show orders request</button>
-      <button v-if="showBtn"  class="changeToHostModeBtn" @click="orders">Show orders</button>
     </div>
     <img
       class="bgi"
@@ -79,7 +96,7 @@ export default {
       msg: "",
       isHost: false,
       userDetails: null,
-      showBtn:false
+      showBtn: false
     };
   },
   computed: {
@@ -90,27 +107,29 @@ export default {
 
   methods: {
     async orderReq() {
-      this.showBtn=true
+      this.showBtn = true;
       this.criteria.query = "ordersReq";
       this.isHost = true;
       await this.$store.dispatch("loadOrders", this.criteria);
-      this.msg = "orders request";
+      this.msg = "Orders to my places";
     },
-   async orders(){
-     this.showBtn=false
-   this.criteria.id = this.userDetails._id;
-    this.criteria.query = "ordersList";
-    this.msg = "your orders ";
-    await this.$store.dispatch("loadOrders", this.criteria);
+    async orders() {
+      this.showBtn = false;
+      this.criteria.id = this.userDetails._id;
+      this.criteria.query = "ordersList";
+      this.msg = "My Vacations";
+      await this.$store.dispatch("loadOrders", this.criteria);
     }
   },
 
   async created() {
     window.scrollTo(0, 0);
     this.userDetails = await this.$store.getters.loggedinUser;
-    this.orders()
- 
-    // await this.$store.dispatch("loadHostHouses", this.criteria.id);
+    this.orders();
+    this.hostHouses = await this.$store.dispatch(
+      "loadHostHouses",
+      this.criteria.id
+    );
   },
 
   components: {

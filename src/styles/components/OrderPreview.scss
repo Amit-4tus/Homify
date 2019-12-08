@@ -1,0 +1,44 @@
+
+
+.order-preview-container {
+    border: 1px black solid;
+    border-radius: 15px;
+    font-weight: bold;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    width: 58em;
+    max-width: 66em;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-left: 1.7em;
+}
+
+.order-preview-item {
+    display: flex;
+    flex-direction: column;
+    width: 30em;
+    height: 5em;
+    font-family: "Montserrat";
+    
+}
+
+
+.app-btn {
+    width: 7em;
+    height: 2.5em;
+    background-image: linear-gradient(to bottom right, $color1, $color2);
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.rej-btn {
+    width: 7em;
+    height: 2.5em;
+    background-image: linear-gradient(to bottom right, $color5, $color4);
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}

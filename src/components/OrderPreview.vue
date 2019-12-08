@@ -1,14 +1,22 @@
 <template>
   <section>
-    <h2>House Name: {{orderData.name}}</h2>
-    <h3 v-if="isHost">Order From: {{orderData.user.userName}}</h3>
 
-    <h3>Check In: {{orderData.dates.from}}</h3>
-    <h3>Check Out: {{orderData.dates.to}}</h3>
-    <h4>CreatedAt: {{orderData.createdAt}}</h4>
-    <h4>Order Status: {{orderData.status}}</h4>
-    <button @click="res('approve')" v-if="host">Approve</button>
-    <button @click="res('reject')" v-if="host">Reject</button>
+    <ul class="order-preview-container">
+      <li class="order-preview-item">{{orderData.name}}</li>
+      <li v-if="isHost" class="order-preview-item">{{orderData.user.userName}}</li>
+      <li class="order-preview-item">{{orderData.dates.from}}</li>
+      <li class="order-preview-item">{{orderData.dates.to}}</li>
+
+      <li class="order-preview-item" >
+        <p v-if="!isPending">{{orderData.status}}</p>
+        <section class="app-rej-btns-container flex flex-row space-between">
+        <button class="app-btn" @click="res('approve')" v-if="host">Approve</button>
+        <button class="rej-btn" @click="res('reject')" v-if="host">Reject</button>
+        </section>
+      </li>
+     
+
+    </ul>
   </section>
 </template>
 
@@ -16,6 +24,12 @@
 import SocketService from "../services/SocketService.js";
 export default {
   props: ["orderData", "isHost"],
+
+  data() {
+    return {
+      isPending: false
+    };
+  },
   methods: {
     async res(res) {
       const updatedOrder = JSON.parse(JSON.stringify(this.orderData));
@@ -42,6 +56,7 @@ export default {
   created() {},
   computed: {
     host() {
+      if (this.orderData.status === "pending") this.isPending = true;
       return this.isHost && this.orderData.status === "pending";
     }
   }
