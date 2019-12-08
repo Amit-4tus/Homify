@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     async doSearch(ev) {
-      // console.log(this.filterBy);
+      if(this.filterBy.txt==='')return  this.$router.push(`/house/`);
       var fullDate="";
       if (this.filterBy.from !== "" && this.filterBy.to !== "") {
         fullDate = this.filterBy.from + " " + this.filterBy.to;

@@ -57,14 +57,14 @@
       <div class="host-houses-wrapper">
         <div class="my-places-txt">My places</div>
         <section class="host-houses-container">
-          <ul class="host-houses-list" v-for="(house,idx) in hostHouses.items" :key="idx">
+          <router-link  :to="`/house/details/house/${house._id}`" class="host-houses-list " v-for="(house,idx) in hostHouses.items" :key="idx">
             <img class="host-house-img" :src="house.imgs[0]" />
             <li class="profile-item bold">{{house.name}}</li>
             <li class="profile-item">USD {{house.price}} / night</li>
             <li
               class="profile-item"
             >{{house.location.address.city}}, {{house.location.address.country}}</li>
-          </ul>
+          </router-link>
         </section>
       </div>
 
@@ -126,7 +126,7 @@ export default {
     window.scrollTo(0, 0);
     this.userDetails = await this.$store.getters.loggedinUser;
     this.orders();
-    this.hostHouses = await this.$store.dispatch(
+    await this.$store.dispatch(
       "loadHostHouses",
       this.criteria.id
     );

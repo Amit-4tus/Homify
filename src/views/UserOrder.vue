@@ -10,7 +10,7 @@
               <span class="price">{{houseData.price}}$</span> /per night
             </p>
             <p class="reviews-data">
-              <span class="bold">*4.89</span> (299 reviews)
+              <span class="bold">*{{houseData.reviews.avgRating}}</span> ({{houseData.reviews.reviewCount}} reviews)
             </p>
             <hr class="reserve-form-hr" />
 
@@ -85,7 +85,7 @@
                 <p class="house-name">{{houseData.name}}</p>
                 <p>{{houseData.desc}}</p>
                 <p class="house-price">$ {{houseData.price}} / night</p>
-                <p>Number of reviews: {{houseData.reviews.reviewsIds.length}}</p>
+                <p>Number of reviews: {{houseData.reviews.reviewCount}}</p>
                 <p
                   v-if="houseData.amentities[0]"
                 >Amenities: {{houseData.amentities[0]}}, {{houseData.amentities[1]}}</p>
