@@ -154,18 +154,21 @@
 }
 
 .host-houses-wrapper {
-  padding: 10px;
+  display: flex;
+  flex-direction: column;
   background-color: $color5;
   margin-bottom: 2em;
-  max-width: 63em;
-  margin-left: 5em;
+  margin-left: 3em;
   border-radius: 15px;
+  align-items: center;
 }
 
 .host-houses-container {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: wrap;
+  max-width: 60em;
 }
 
 .my-places-txt {
@@ -178,19 +181,31 @@
 }
  
 
-@media screen and(max-width: 550px) {
-  .host-houses-container {
-  margin-left: none;
-  }
-}
+// @media screen and(max-width: 550px) {
+//   .host-houses-container {
+//   margin-left: none;
+//   }
+// }
 
 .host-houses-list {
   list-style: none;
   display: flex;
   flex-direction: column;
+  // justify-content: start;
   flex-wrap: wrap;
   width: 15em;
-  align-items: flex-start;
+  justify-content: center;
+  text-decoration: none;
+  margin-bottom: 2em;
+}
+
+.host-houses-list-txts {
+  display:inline-block;
+  white-space: nowrap;
+  width: 208px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
 }
 
 .host-house-img {
@@ -206,6 +221,14 @@
   font-family: "Montserrat";
   margin-bottom: 4px;
   font-size: 0.9rem;
+  color: rgb(88, 31, 31);
+}
+
+.profile-item-house-name {
+  font-family: "Montserrat";
+  margin-bottom: 4px;
+  font-size: 1rem;
+  font-weight: bold;
   color: rgb(88, 31, 31);
 }
 
