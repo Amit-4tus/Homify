@@ -126,7 +126,7 @@ export default {
     window.scrollTo(0, 0);
     this.userDetails = await this.$store.getters.loggedinUser;
     this.orders();
-    this.hostHouses = await this.$store.dispatch(
+    await this.$store.dispatch(
       "loadHostHouses",
       this.criteria.id
     );
