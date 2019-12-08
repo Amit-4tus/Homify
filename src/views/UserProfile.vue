@@ -72,7 +72,7 @@
         <div class="my-places-txt">{{msg}}</div>
         <order-list class="profile-orders-list" :isHost="isHost"></order-list>
         <button v-if="!showBtn" class="changeToHostModeBtn" @click="orderReq">Show orders request</button>
-        <button v-if="showBtn" class="changeToHostModeBtn" @click="orders">Show my vacayions</button>
+        <button v-if="showBtn" class="changeToHostModeBtn" @click="orders">Show my vacations</button>
       </section>
     </div>
     <img
