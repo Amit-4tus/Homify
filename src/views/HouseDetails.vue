@@ -109,7 +109,6 @@ export default {
       if (!this.loggedinUser)
         return this.$router.push(`/login/${this.houseData._id}`);
       this.$router.push(`/order/house/${this.houseData._id}`);
-      // this.$router.push("/order");
     },
     doEdit() {
       this.$router.push(`/host/${this._id}`);
