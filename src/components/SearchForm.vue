@@ -47,7 +47,6 @@ export default {
       var fullDate="";
       if (this.filterBy.from !== "" && this.filterBy.to !== "") {
         fullDate = this.filterBy.from + " " + this.filterBy.to;
-        console.log(fullDate);
       }
 
       await this.$store.dispatch("setFilter", this.filterBy);

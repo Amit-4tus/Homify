@@ -1,7 +1,6 @@
 .user-msg {
     background-color: $color5;
     color: $color3;
-   
     padding: 5%;
     border-radius: 7px;
     position: fixed;
@@ -10,12 +9,20 @@
     z-index: 1;
 
     button {
-        background-color: $color3;
+        font-size: 1.3rem;
+        background-color: unset;
+        color: $color3;
         border: 0;
-        border-radius: 999999px;
         position: absolute;
         top: 5px;
         right: 5px;
+    }
+    
+    img {
+        width: 10%;
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
     }
 }
 
@@ -24,6 +31,6 @@
     color: $color7;
 }
 .user-msg.error {
-    background-color: $color5;
-    color: $color7;
+    background-color: $color3;
+    color: $color3;
 }
