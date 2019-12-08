@@ -7,7 +7,7 @@
             <div class="img-inner-text flex flex-column">
               <div class="img-inner-upper-txt">The best position in the area!</div>
               <div class="img-inner-lower-txt">Entire apartment</div>
-              <div class="img-inner-lower-txt-2">★★★★★ 377 reviews</div>
+              <!-- <div class="img-inner-lower-txt-2">★★★★★ 377 reviews</div> -->
             </div>
             <!-- <img v-if="orderData.imgs" class="order-details-img" :src="orderData.imgs[0]" />
             <div hidden>{{currHouse}}</div>
