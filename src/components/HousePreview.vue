@@ -9,7 +9,7 @@
           <span class="price">{{itemData.price}}$</span> /per night
         </p>
       </div>
-      <div v-if="itemData.reviews" class="houseRating">
+      <div v-if="itemData.reviews && itemData.reviews.avgRating !== 'NaN'" class="houseRating">
         <img class="ratingIcon" src="../assets/imgs/star.png" />
         {{itemData.reviews.avgRating}}
       </div>

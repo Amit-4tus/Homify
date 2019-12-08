@@ -4,7 +4,7 @@
 
     <div class="where">
       <span>Country / State:</span>
-      <input class="input" type="text" placeholder="e.g. Berlin" v-model="filterBy.txt" />
+      <input class="input" type="text" placeholder="e.g. Germany" v-model="filterBy.txt" />
     </div>
     <div class="when">
       <span>From:</span>
