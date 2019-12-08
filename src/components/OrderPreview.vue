@@ -8,7 +8,7 @@
       <li class="order-preview-item">{{orderData.dates.to}}</li>
 
       <li class="order-preview-item" >
-        <p v-if="!isPending">{{orderData.status}}</p>
+        <p >{{orderData.status}}</p>
         <section class="app-rej-btns-container flex flex-row space-between">
         <button class="app-btn" @click="res('approve')" v-if="host">Approve</button>
         <button class="rej-btn" @click="res('reject')" v-if="host">Reject</button>
