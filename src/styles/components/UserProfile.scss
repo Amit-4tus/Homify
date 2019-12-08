@@ -14,10 +14,6 @@
 .user-profile-page-left {
   padding-bottom: 1%;
   margin-top: 80px;
-  @media (max-width: 550px) {
-    margin-top: 0;
-    padding-bottom: 0;
-  }
 }
 
 .user-profile-box {
@@ -177,15 +173,9 @@
 
   .host-houses-container {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 60em;
-
-    a {
-      float: left;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 3%
   }
 }
 
@@ -196,35 +186,39 @@
   margin-bottom: 20px;
 }
 
-// @media screen and(max-width: 550px) {
-//   .host-houses-container {
-//   margin-left: none;
-//   }
-// }
-
 .host-houses-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   // justify-content: start;
   flex-wrap: wrap;
-  width: 15em;
   justify-content: center;
   text-decoration: none;
   margin-bottom: 2em;
 }
 
 .host-houses-list-txts {
-  display: inline-block;
-  white-space: nowrap;
-  width: 208px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: left;
+  color: $color7;
+  display: flex;
+  .withoutRating {
+    display: inline-block;
+    white-space: nowrap;
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+  }
+  .rating {
+    display: flex;
+    img {
+      width: 17px;
+      height: 17px;
+    }
+  }
 }
 
 .host-house-img {
-  width: 13em;
+  width: 100%;
   height: 9em;
   object-fit: cover;
   border-radius: 8px;
@@ -232,10 +226,8 @@
 }
 
 .profile-item {
-  font-family: "Montserrat";
   margin-bottom: 4px;
   font-size: 0.9rem;
-  color: rgb(88, 31, 31);
 }
 
 .profile-item-house-name {
@@ -243,7 +235,6 @@
   margin-bottom: 4px;
   font-size: 1rem;
   font-weight: bold;
-  color: $color7;
 }
 
 .profile-orders-container {
@@ -260,4 +251,35 @@
 
 .profile-orders-list {
   color: rgb(88, 31, 31);
+}
+
+@media (max-width: 550px) {
+  .user-profile-page {
+    width: 100vw;
+    margin: 0;
+  }
+  .user-profile-page-upper {
+    flex-direction: column;
+    width: 100vw;
+  }
+  .user-profile-box-container {
+    width: 100vw;
+    margin: 0;
+  }
+
+  .host-houses-wrapper {
+    width: 100vw;
+    margin: 0em;
+  }
+
+  .profile-orders-container {
+    width: 100vw;
+    margin-left: 0em;
+    padding: 0px;
+  }
+
+  .profile-orders-list {
+    width: 100vw;
+    margin-left: 0em;
+  }
 }

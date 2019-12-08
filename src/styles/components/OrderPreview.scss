@@ -1,39 +1,46 @@
-
-
 .order-preview-container {
-    border-radius: 15px;
-    font-weight: bold;
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    padding: 0;
+  border-radius: 15px;
+  font-weight: bold;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
 }
 
 .order-preview-item {
-    display: flex;
-    flex-direction: column;
-    width: 30em;
-    height: 5em;
-    font-family: "Montserrat";
-    
+  display: flex;
+  flex-direction: column;
+  width: 30em;
+  height: 5em;
+  font-family: "Montserrat";
 }
 
-
 .app-btn {
-    width: 7em;
-    height: 2.5em;
-    background-image: linear-gradient(to bottom right, $color1, $color2);
-    border: 0;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 8px;
+  width: 7em;
+  height: 2.5em;
+  background-image: linear-gradient(to bottom right, $color1, $color2);
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 8px;
 }
 
 .rej-btn {
-    width: 7em;
-    height: 2.5em;
-    background-image: linear-gradient(to bottom right, $color5, $color4);
-    border: 0;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 7em;
+  height: 2.5em;
+  background-image: linear-gradient(to bottom right, $color5, $color4);
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media screen and(max-width: 870px) {
+  .order-preview-container {
+    flex-direction: column;
+    width: 100vw;
+    padding: 0em;
+    margin: 0em;
+    flex-wrap: wrap;
+    // align-items: flex-start;
+  }
 }

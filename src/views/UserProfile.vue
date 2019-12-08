@@ -57,14 +57,25 @@
       <div class="host-houses-wrapper container">
         <div class="my-places-txt">My places</div>
         <section class="host-houses-container">
-          <router-link  :to="`/house/details/house/${house._id}`" class="host-houses-list " v-for="(house,idx) in hostHouses.items" :key="idx">
+          <router-link
+            :to="`/house/details/house/${house._id}`"
+            class="host-houses-list"
+            v-for="(house,idx) in hostHouses.items"
+            :key="idx"
+          >
             <img class="host-house-img" :src="house.imgs[0]" />
             <section class="host-houses-list-txts">
-            <li class="profile-item-house-name">{{house.name}}</li>
-            <li class="profile-item">USD {{house.price}} / night</li>
-            <li
-              class="profile-item"
-            >{{house.location.address.city}}, {{house.location.address.country}}</li>
+              <section class="withoutRating">
+                <li class="profile-item-house-name">{{house.name}}</li>
+                <li class="profile-item">USD {{house.price}} / night</li>
+                <li
+                  class="profile-item"
+                >{{house.location.address.city}}, {{house.location.address.country}}</li>
+              </section>
+              <div class="rating">
+                <img src="../assets/imgs/star.png" />
+                <div>{{house.reviews.avgRating}}</div>
+              </div>
             </section>
           </router-link>
         </section>
@@ -128,10 +139,7 @@ export default {
     window.scrollTo(0, 0);
     this.userDetails = await this.$store.getters.loggedinUser;
     this.orders();
-    await this.$store.dispatch(
-      "loadHostHouses",
-      this.criteria.id
-    );
+    await this.$store.dispatch("loadHostHouses", this.criteria.id);
   },
 
   components: {
