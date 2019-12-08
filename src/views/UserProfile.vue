@@ -1,6 +1,6 @@
 <template>
   <section class="user-profile-page">
-    <div class="user-profile-page-upper">
+    <div class="user-profile-page-upper container">
       <section class="user-profile-box-container">
         <section class="user-profile-box">
           <div v-if="userDetails" class="userImgContiner">
@@ -54,7 +54,7 @@
     </div>
 
     <div>
-      <div class="host-houses-wrapper">
+      <div class="host-houses-wrapper container">
         <div class="my-places-txt">My places</div>
         <section class="host-houses-container">
           <router-link  :to="`/house/details/house/${house._id}`" class="host-houses-list " v-for="(house,idx) in hostHouses.items" :key="idx">
@@ -70,7 +70,7 @@
         </section>
       </div>
 
-      <section class="profile-orders-container">
+      <section class="profile-orders-container container">
         <div class="my-places-txt">{{msg}}</div>
         <order-list class="profile-orders-list" :isHost="isHost"></order-list>
         <button v-if="!showBtn" class="changeToHostModeBtn" @click="orderReq">Show orders request</button>

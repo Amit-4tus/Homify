@@ -1,18 +1,12 @@
 
 
 .order-preview-container {
-    // border: 1px black solid;
     border-radius: 15px;
     font-weight: bold;
     list-style: none;
     display: flex;
     flex-direction: row;
-    // flex-wrap: wrap;
-    // width: 58em;
-    max-width: 66em;
-    // align-items: center !important;
-    // justify-content: center !important;
-    margin-left: 1.7em;
+    padding: 0;
 }
 
 .order-preview-item {
