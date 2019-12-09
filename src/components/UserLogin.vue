@@ -79,7 +79,7 @@ export default {
         SocketService.on("get order details", hostId => {
           if (userId === hostId) {
             const msg = {
-              txt: "Order Added check your profile",
+              txt: "Order added check your profile",
               type: "error"
             };
             eventBus.$emit("show-msg", msg);
@@ -160,8 +160,10 @@ export default {
       return this.$confirm(`Cancel the transfert of ${file.name} ?`);
     },
     redirectToDesiredHouse() {
+      var isLogin = this.loggedinUser;
+      if (!isLogin) return (this.msg = "Enter valid user / password");
       let houseId = this.$route.params._id;
-      if (!houseId) this.$router.push("/");
+      if (!houseId) return this.$router.push("/");
       else this.$router.push(`/order/house/${houseId}`);
     }
   }
