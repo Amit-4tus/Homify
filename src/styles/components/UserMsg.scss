@@ -1,36 +1,32 @@
 .user-msg {
-  background-color: $color5;
-  color: $color3;
-  padding: 5%;
-  border-radius: 7px;
-  position: fixed;
-  top: 70px;
-  left: 10px;
-  z-index: 1;
-
-  button {
-    font-size: 1.3rem;
-    background-color: unset;
+    background-color: $color7;
     color: $color3;
     border: 0;
     position: absolute;
     top: 5px;
     right: 5px;
   }
-
-  img {
-    width: 10%;
-    position: absolute;
-    bottom: 5px;
-    left: 5px;
-  }
+    button {
+        font-size: 1.3rem;
+        background-color: unset;
+        color: $color7;
+        border: 0;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    img {
+        width: 25%;
+        position: absolute;
+        bottom: 5px;
+        left: 5px;
+    }
 }
-
 .user-msg.success {
   background-color: $color5;
   color: $color7;
 }
 .user-msg.error {
-  background-color: $color3;
-  color: $color3;
+    background-color: $color3;
+    color: $color7;
 }
