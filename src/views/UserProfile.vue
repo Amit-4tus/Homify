@@ -112,6 +112,7 @@ export default {
       showBtn: false
     };
   },
+
   computed: {
     hostHouses() {
       return this.$store.getters.hostHouses;

@@ -15,10 +15,10 @@
 
 <script>
 export default {
-    methods: {
-        doScroll() {
-            window.scrollTo(0, 0)
-        }
+  methods: {
+    doScroll() {
+      window.scrollTo(0, 0);
     }
+  }
 };
 </script>

@@ -8,7 +8,7 @@ export default {
 
 const axios = require('axios');
 
-function getOrders(id,query) {
+function getOrders(id, query) {
     return httpService.get(`api/order/${query}/${id}/`)
 };
 function updateOrder(order) {
@@ -16,13 +16,11 @@ function updateOrder(order) {
 }
 
 async function addOrder(order) {
-
-    order.createdAt= new Date().toLocaleDateString();
-    const newOrder=await httpService.post(`api/order`, order)
+    order.createdAt = new Date().toLocaleDateString();
+    const newOrder = await httpService.post(`api/order`, order)
     return newOrder
 }
 
 function getOrderById(id) {
     return httpService.get(`api/order/${id}`)
 };
-

@@ -41,30 +41,28 @@ export default {
       disableDate: new Date(Date.now() - 8640000)
     };
   },
+
   methods: {
     async doSearch(ev) {
-      if(this.filterBy.txt==='')return  this.$router.push(`/house/`);
-      var fullDate="";
+      if (this.filterBy.txt === "") return this.$router.push(`/house/`);
+      var fullDate = "";
       if (this.filterBy.from !== "" && this.filterBy.to !== "") {
         fullDate = this.filterBy.from + " " + this.filterBy.to;
       }
-
       await this.$store.dispatch("setFilter", this.filterBy);
       // this.$router.push(`/house/${this.filterBy.txt}`);
-
       this.$router.push(`/house/${this.filterBy.txt}/${fullDate}`);
     }
   },
+
   computed: {
     dateMin() {
       var d = new Date(new Date()),
         month = "" + (d.getMonth() + 1),
         day = "" + d.getDate(),
         year = d.getFullYear();
-
       if (month.length < 2) month = "0" + month;
       if (day.length < 2) day = "0" + day;
-
       return [year, month, day].join("-");
     }
   }

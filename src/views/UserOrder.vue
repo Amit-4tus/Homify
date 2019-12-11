@@ -1,5 +1,3 @@
-'use strict'
-
 <template>
   <section>
     <section class="reservation-page">
@@ -10,7 +8,8 @@
               <span class="price">{{houseData.price}}$</span> /per night
             </p>
             <p class="reviews-data">
-              <span class="bold">*{{houseData.reviews.avgRating}}</span> ({{houseData.reviews.reviewCount}} reviews)
+              <span class="bold">*{{houseData.reviews.avgRating}}</span>
+              ({{houseData.reviews.reviewCount}} reviews)
             </p>
             <hr class="reserve-form-hr" />
 
@@ -61,11 +60,7 @@
             <div
               class="reserve-box-bottom-container flex space-between align-center justify-center"
             >
-              <p class="reserve-box-bottom-text">
-                This place is getting a lot of attention.
-               
-              </p>
-             
+              <p class="reserve-box-bottom-text">This place is getting a lot of attention.</p>
             </div>
           </div>
         </section>
@@ -125,6 +120,7 @@ export default {
       }
     };
   },
+
   async created() {
     await this.$store.dispatch("loadHouseById", this._id);
     // this.minDate = this.houseData.dates.from;
@@ -148,6 +144,7 @@ export default {
       return this.$store.getters.loggedinUser;
     }
   },
+
   computed: {
     _id() {
       return this.$route.params._id;
@@ -174,4 +171,3 @@ export default {
   }
 };
 </script>
-

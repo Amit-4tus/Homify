@@ -10,7 +10,6 @@
         <div>Adults joining: {{order.guests.adults}}</div>
         <div>Children joining: {{order.guests.children}}</div>
         <div>Order created at: {{order.createdAt}}</div>
-
         <button @click="approveOrder">Approve</button>
         <button @click="rejectOrder">Reject</button>
       </div>
@@ -27,7 +26,7 @@ export default {
       orders: []
     };
   },
-  created() {},
+
   methods: {
     approveOrder() {
       SocketService.emit("approve order", this.order);
@@ -36,6 +35,7 @@ export default {
       SocketService.emit("reject order", this.order);
     }
   },
+
   computed: {
     loggedinUser() {
       return this.$store.getters.loggedinUser;

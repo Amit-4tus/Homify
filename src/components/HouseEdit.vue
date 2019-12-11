@@ -2,9 +2,7 @@
   <section class="add-house-page flex flex-row space-between">
     <div @keyup.enter="addHouse" class="add-house-page-left" prevent>
       <div class="add-house-welcome-text-1">Add A House To Rent</div>
-
       <p class="add-house-step bold">step 1</p>
-
       <p class="add-house-name-of-house-text">How would you like to name your place?</p>
       <input
         class="add-house-name-input"
@@ -13,7 +11,6 @@
         maxlength="50"
         placeholder="e.g. My Amazing House"
       />
-
       <p class="add-house-address-text">Where is your place located?</p>
       <input
         class="add-house-address-input"
@@ -29,7 +26,6 @@
         type="text"
         placeholder="City"
       />
-
       <input
         class="add-house-address-input"
         @change="getCoords"
@@ -37,34 +33,28 @@
         type="text"
         placeholder="Street"
       />
-
       <p class="add-house-step bold">step 2</p>
       <p class="add-house-charge-per-night-text">What will be the Dollar cost per night?</p>
-
       <input
         class="add-house-price-input"
         v-model="newHouse.price"
         type="number"
         placeholder="e.g. 234"
       />
-
       <p class="add-house-amenities-text">What amenities do you offer?</p>
       <el-select
         class="add-house-amenities-input"
         v-model="newHouse.amentities"
         multiple
         placeholder="Please select from the list"
-        
       >
         <el-option
           v-for="item in options"
           :key="item.value"
           :label="item.label"
           :value="item.value"
-          
         ></el-option>
       </el-select>
-
       <p class="add-house-step bold">step 3</p>
       <div class="check-in">
         <p class="check-txt">Check-in</p>
@@ -74,7 +64,6 @@
         <p class="check-txt">Check-out</p>
         <input class="check-input" :min="dateMin" v-model="newHouse.dates.to" type="date" />
       </div>
-
       <p class="add-house-step bold">step 4</p>
       <p class="add-house-Upload-image-text">Show us how does your place look like?</p>
       <section class="upload-btns-container">
@@ -101,17 +90,14 @@
           <img class="img-present" v-if="newHouse.imgs" :src="img" />
         </div>
       </section>
-
       <button class="add-house-btn" v-if="!isEditing" @click.prevent="addHouse">Add House</button>
       <button class="add-house-btn" v-if="isEditing" @click.prevent="updateHouse">Update</button>
       <button class="add-house-btn" v-if="isEditing" @click.prevent="deleteHouse">Delete</button>
     </div>
-
     <img
       class="bgi"
       src="https://img.archiexpo.com/images_ae/projects/images-g/nice-house-minarc-9996-9281453.jpg"
     />
-
     <!-- <h2>description</h2>
     <textarea v-model="newHouse.desc"></textarea>-->
   </section>
@@ -134,6 +120,7 @@ export default {
       fileList: []
     };
   },
+
   async created() {
     if (this.$route.params._id) {
       let id = this.$route.params._id;
@@ -144,7 +131,7 @@ export default {
       this.newHouse = JSON.parse(JSON.stringify(currHouse));
     }
   },
-  computed: {},
+
   methods: {
     handleRemove(file, fileList) {
       var filterd = this.fileList.filter(img => img.uid !== file.uid);
@@ -182,7 +169,6 @@ export default {
       var city = this.newHouse.location.address.city;
       var street = this.newHouse.location.address.street;
       var address = `${country} ${city} ${street}`;
-
       res = await geoService.query(address);
       this.newHouse.location.coords = res[0].geometry.location;
     },
@@ -190,7 +176,7 @@ export default {
       await this.submitUpload();
       this.newHouse.hostId = this.$store.getters.loggedinUser._id;
       this.newHouse.hostImg = this.$store.getters.loggedinUser.img[0];
-       this.newHouse.hostName = this.$store.getters.loggedinUser.username;
+      this.newHouse.hostName = this.$store.getters.loggedinUser.username;
       const house = await this.$store.dispatch({
         type: "addHouse",
         newHouse: this.newHouse
@@ -206,7 +192,6 @@ export default {
         type: "deleteHouse",
         //server
         id: this.newHouse._id
-
         // id: this.newHouse.id
       });
       this.$router.push(`/`);
@@ -272,6 +257,7 @@ export default {
       return [year, month, day].join("-");
     }
   },
+
   watch: {
     $route() {
       location.reload();

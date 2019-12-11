@@ -53,9 +53,11 @@
 <script>
 import SocketService from "../services/SocketService.js";
 import { uploadImg } from "../services/CloudinaryService.js";
+import { log } from "util";
 
 export default {
   name: "test",
+
   data() {
     return {
       fileList: [],
@@ -64,6 +66,7 @@ export default {
       msg: ""
     };
   },
+
   computed: {
     users() {
       return this.$store.getters.users;
@@ -72,6 +75,7 @@ export default {
       return this.$store.getters.loggedinUser;
     }
   },
+
   methods: {
     async receiveOrder() {
       if (this.$store.getters.loggedinUser !== null) {
@@ -85,7 +89,6 @@ export default {
             eventBus.$emit("show-msg", msg);
           }
         });
-
         SocketService.on("response order", result => {
           if (userId === result.userId) {
             var txtRes = "";
@@ -93,7 +96,6 @@ export default {
               txtRes = "Your order has been approved";
             if (result.res === "rejected")
               txtRes = "Your order has been rejected";
-
             const msg = {
               txt: txtRes,
               type: "error"
@@ -106,12 +108,14 @@ export default {
     async doLogin() {
       const cred = this.loginCred;
       if (!cred.email || !cred.password)
-        return (this.msg = "Please enter user / password");
+        return (this.msg = "Please enter user & password");
       await this.$store.dispatch({ type: "login", userCred: cred });
-
       this.receiveOrder();
       this.loginCred = {};
-
+      console.log("loggedinUser:", this.loggedinUser);
+      if (!this.loggedinUser)
+        return (this.msg =
+          "one or more of the fields you entered is incorrect");
       this.redirectToDesiredHouse();
     },
     async doLogout() {

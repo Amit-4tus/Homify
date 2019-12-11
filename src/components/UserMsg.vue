@@ -1,9 +1,8 @@
-
 <template>
   <section class="user-msg" v-if="msg" :class="msg.type">
     <button @click="close">x</button>
     <p>{{msg.txt}}</p>
-    <img src="../assets/logo.png">
+    <img src="../assets/logo.png" />
   </section>
 </template>
 
@@ -15,11 +14,13 @@ export default {
       msg: null
     };
   },
+
   created() {
     eventBus.$on("show-msg", msg => {
       this.msg = msg;
     });
   },
+
   methods: {
     close() {
       this.msg = null;

@@ -77,6 +77,7 @@ export default {
   data() {
     return { review: {}, showMap: false, msg: "", loading: false };
   },
+
   async created() {
     this.scrollToTop();
     this.$store.dispatch("loadHouseById", this._id);
@@ -84,6 +85,7 @@ export default {
     this.loading = true;
     this.showMap = true;
   },
+
   computed: {
     isOwner() {
       if (
@@ -104,6 +106,7 @@ export default {
       return this.$store.getters.loggedinUser;
     }
   },
+
   methods: {
     doReserve() {
       if (!this.loggedinUser)
@@ -123,6 +126,7 @@ export default {
       window.scrollTo(0, 0);
     }
   },
+
   components: {
     gMap,
     reviewList,

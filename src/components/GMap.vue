@@ -26,6 +26,7 @@ export default {
     coords: Object,
     marker: Array
   },
+
   data() {
     return {
       markers: [],
@@ -34,16 +35,18 @@ export default {
       zoom: 7
     };
   },
-  methods: {},
+
   created() {
     this.center = this.coords;
     this.markers = this.marker;
   },
+
   methods: {
     zoomIn() {
       this.zoom = 13;
     }
   },
+
   async mounted() {
     if (!this.marker) {
       let temp = [];
@@ -52,8 +55,6 @@ export default {
       this.showMap = true;
     }
     this.showMap = true;
-  },
-  computed: {},
-  watch: {}
+  }
 };
 </script>

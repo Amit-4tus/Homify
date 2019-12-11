@@ -1,6 +1,6 @@
 <template>
   <div class="reviewList container">
-    <div v-for="(item, idx) in items" :key="idx" >
+    <div v-for="(item, idx) in items" :key="idx">
       <review-preview :itemData="item"></review-preview>
     </div>
   </div>
@@ -14,7 +14,7 @@ export default {
       return this.$store.getters.reviewToSHow;
     }
   },
-  methods: {},
+
   components: {
     reviewPreview
   }

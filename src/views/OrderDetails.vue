@@ -93,6 +93,7 @@ export default {
       }
     };
   },
+
   async created() {
     await this.$store.dispatch("loadOrder", this._id);
     SocketService.on("approve order", () => {
@@ -106,11 +107,11 @@ export default {
     this.dates.to = await this.$store.getters.filter.to;
     this.showPage = true;
   },
+
   computed: {
     _id() {
       return this.$route.params._id;
     },
-
     orderData() {
       let currOrder = this.$store.getters.orderToShow;
       if (!currOrder) return null;
@@ -138,7 +139,6 @@ export default {
       let preCost = price * days;
       return preCost.toLocaleString();
     },
-
     serviceFee() {
       let days = this.calcDate();
       let price = Number(this.orderData.price);
@@ -146,7 +146,6 @@ export default {
       let serviceFee = (preCost * 0.17).toFixed(0);
       return serviceFee;
     },
-
     totalFee() {
       let days = this.calcDate();
       let price = Number(this.orderData.price);
@@ -155,6 +154,7 @@ export default {
       return totalFee.toLocaleString();
     }
   },
+
   methods: {
     async sendOrderData() {
       await this.$store.dispatch("sendMsg", this.orderData.hostId);
@@ -170,4 +170,3 @@ export default {
   }
 };
 </script>
-

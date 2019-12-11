@@ -7,8 +7,8 @@
     <input v-model="str" type="text" />
     <button @click="search">search</button>
     <span>{{coords}}</span>
-<calendar/>
-<house-edit/>
+    <calendar />
+    <house-edit />
   </div>
 </template>
 
@@ -16,39 +16,33 @@
 import gMap from "@/components/GMap";
 import calendar from "@/components/CalendarDate";
 import houseEdit from "@/components/HouseEdit";
-
-
-import { geoService } from "../services/GeoService.js"
-import userService from "../services/UserService.js"
+import { geoService } from "../services/GeoService.js";
+import userService from "../services/UserService.js";
 
 export default {
   name: "About",
+
   data() {
     return {
       coords: null,
       str: "",
-      items:[]
+      items: []
     };
   },
+
   methods: {
     async search() {
       var res = await geoService.query(this.str);
       return (this.coords = res[0].geometry.location);
-
     }
   },
-   created() {
-    
-  
-  },
+
+  created() {},
 
   components: {
     gMap,
     calendar,
     houseEdit
-    
   }
 };
 </script>
-
-

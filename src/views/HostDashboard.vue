@@ -14,9 +14,11 @@ export default {
       img: null
     };
   },
+
   created() {
     window.scrollTo(0, 0);
   },
+
   components: {
     houseEdit
   }

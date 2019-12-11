@@ -9,7 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/en'
 
 Vue.config.productionTip = false
-Vue.use(ElementUI,{ locale });
+Vue.use(ElementUI, { locale });
 import * as VueGoogleMaps from 'vue2-google-maps'
 Vue.use(VueGoogleMaps, {
   load: {

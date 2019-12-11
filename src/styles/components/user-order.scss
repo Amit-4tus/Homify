@@ -1,202 +1,194 @@
-
 .reservation-page {
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 28px;
-    height: 100vh;
-    margin-top: 60px;
-    margin-right: 3em;
-    margin-left: 2em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  height: 100vh;
+  margin-top: 60px;
+  margin-right: 3em;
+  margin-left: 2em;
 }
 
 .house-reserve-image {
-    height:16.7em ;
-    width: 16.7em;
-    object-fit: cover;
-    margin: 0.1em;
+  height: 16.7em;
+  width: 16.7em;
+  object-fit: cover;
+  margin: 0.1em;
 }
 
 .reservation-page-general-data {
-    font-family: 'Roboto', sans-serif;
-    max-width:52em;
-    height: 32em;
-    margin-left: 1em;
-    text-align: left;
+  font-family: "Roboto", sans-serif;
+  max-width: 52em;
+  height: 32em;
+  margin-left: 1em;
+  text-align: left;
 }
 
-
-
 .house-name {
-    font-size: x-large;
-    font-weight: bold;
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .house-price {
-    font-size: large;
-    font-weight: bold;
-    }
+  font-size: large;
+  font-weight: bold;
+}
 
 .reserve-form {
-   
-    border-style:solid;
-    border-color: lightgray;
-    border-width: 0.7px;
-    width: 18em;
-    height: 32em;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 0.7px;
+  width: 18em;
+  height: 32em;
 }
 
 .reserve-form-container {
-    margin-left: 10px;
-    margin-right:10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .reviews-data {
-    font-size: 12px;
-    text-align: left;
+  font-size: 12px;
+  text-align: left;
 }
 
 .reserve-form-price {
-    text-align: left;
+  text-align: left;
 }
 
 .bold {
-    font-weight: bold;
-    text-align: left;
+  font-weight: bold;
+  text-align: left;
 }
 
 .reviews-data-bold {
-    font-size: 12px;
-    font-weight: bold;
-    text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: left;
 }
 
 .reviews-data-bold-center {
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
-
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
 }
 
 .reserve-form-boxes-container {
-    border-style:solid;
-    border-color: lightgray;
-    border-width: 0.7px;
-    border-radius: 3px;
-    height: 2.5em;
-    margin-bottom: 0.5em;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 0.7px;
+  border-radius: 3px;
+  height: 2.5em;
+  margin-bottom: 0.5em;
 }
 
 .reserve-form-boxes {
-    width: 7em;
-    height:1.5em;
-    margin-left: 0.6em;
-    margin-right: 0.6em;
-    border-radius: 4px;
-    align-items: center;
+  width: 7em;
+  height: 1.5em;
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+  border-radius: 4px;
+  align-items: center;
 }
 
 .reserve-form-select-input {
-    width: 8.6em;
-    height:1.8em;
-    margin-left: 0.6em;
-    margin-right: 0.6em;
-    border-radius: 4px;
-    align-items: center;
-    border: none; 
+  width: 8.6em;
+  height: 1.8em;
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+  border-radius: 4px;
+  align-items: center;
+  border: none;
 }
 
 .order-check-in {
-    margin-left: 5px;
-    margin-right: 15px;
-    font-family: 'Roboto', sans-serif;
+  margin-left: 5px;
+  margin-right: 15px;
+  font-family: "Roboto", sans-serif;
 }
 
 .order-check-out {
-    margin-left: 20px;
-    font-family: 'Roboto', sans-serif;
+  margin-left: 20px;
+  font-family: "Roboto", sans-serif;
 }
 
-
 .input-adults:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .guests:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 
 .text-margin {
-    margin-left: 0.4em;
+  margin-left: 0.4em;
 }
-
 
 .reserve-btn {
-    width: 17em;
-    height:3.5em;
-    margin-top: 2.5em;
-    background-image: linear-gradient(to bottom right, $color1, $color2);
-    align-items: center;
-    border: 0;
-    border-radius: 5px;
-    cursor: pointer;
+  width: 17em;
+  height: 3.5em;
+  margin-top: 2.5em;
+  background-image: linear-gradient(to bottom right, $color1, $color2);
+  align-items: center;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.reserve-btn-text{
-    color: white;
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-    align-items: center;
-    justify-content: center;
+.reserve-btn-text {
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  align-items: center;
+  justify-content: center;
 }
 
 .reserve-box-bottom-text {
-    text-align: justify;
-    text-justify: inter-word;
-    font-size: 0.8em;
-    margin-right: 1em;
-    margin-top: 2em;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 0.8em;
+  margin-right: 1em;
+  margin-top: 2em;
 }
 
 .bulb-img {
-    width: 3em;
-    height: 2.5em;
-    opacity: 1;
-    background-color: white;
-    opacity: 0.4;
+  width: 3em;
+  height: 2.5em;
+  opacity: 1;
+  background-color: white;
+  opacity: 0.4;
 }
 
 .order-house-order-details {
-    background-color: white;
+  background-color: white;
 }
 
-@media screen and (max-width:1080px) {
-    .img-3 {
-        display: none;
-    }
+@media screen and (max-width: 1080px) {
+  .img-3 {
+    display: none;
+  }
 }
 
-@media screen and (max-width:930px) {
-    .img-2 {
-        display: none;
-    }
+@media screen and (max-width: 930px) {
+  .img-2 {
+    display: none;
+  }
 }
 
-@media screen and (max-width:610px) {
-    .reservation-page {
-        flex-direction: column;
-    }
+@media screen and (max-width: 610px) {
+  .reservation-page {
+    flex-direction: column;
+  }
 
-    .reserve-form {
-        margin-top: 2em;
-        border: none;
-        border-color: none;
-    }
- 
-    .reservation-page-general-data {
-        max-width: 18em;
-    }
+  .reserve-form {
+    margin-top: 2em;
+    border: none;
+    border-color: none;
+  }
+
+  .reservation-page-general-data {
+    max-width: 18em;
+  }
 }
-

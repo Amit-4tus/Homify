@@ -22,7 +22,6 @@ const routes = [
     path: '/house/:q?/:d?',
     name: 'house',
     component: houses,
-
   },
   {
     path: '/map',

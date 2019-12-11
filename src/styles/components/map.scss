@@ -1,11 +1,11 @@
 .listMap {
-    position: fixed;
-    top: 60px;
-    right: 0px;
-    width: 45%;
-    height: calc(100vh - 60px);
+  position: fixed;
+  top: 60px;
+  right: 0px;
+  width: 45%;
+  height: calc(100vh - 60px);
 
-    @media (max-width: 600px) {
-        display: none;
-    }
+  @media (max-width: 600px) {
+    display: none;
+  }
 }

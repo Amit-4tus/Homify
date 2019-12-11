@@ -1,15 +1,15 @@
 .reviewPreview {
-    // background-color: $color5;
-    padding: 4% 7%;
-    border-bottom: 1px solid $color4;
+  // background-color: $color5;
+  padding: 4% 7%;
+  border-bottom: 1px solid $color4;
 
-    > * {
-        text-align: start;
-        font-weight: normal;
-        font-size: 1rem;
-    }
+  > * {
+    text-align: start;
+    font-weight: normal;
+    font-size: 1rem;
+  }
 
-    .ratingIcon {
-        width: 15px;
-    }
+  .ratingIcon {
+    width: 15px;
+  }
 }

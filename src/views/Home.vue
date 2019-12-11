@@ -17,20 +17,21 @@ import myFooter from "../components/MyFooter";
 import inspSect from "../components/InspirationalSection";
 export default {
   name: "home",
+
   data() {
-    return {filter:{txt:''}
-    
-    
-    };
+    return { filter: { txt: "" } };
   },
+
   created() {
-    this.$store.dispatch("loadItems",this.filter);
-      window.scrollTo(0, 0);
+    this.$store.dispatch("loadItems", this.filter);
+    window.scrollTo(0, 0);
   },
+
   mounted() {
     var elMyHeader = document.querySelector(".my-header");
     elMyHeader.classList.add("fixed");
   },
+
   components: {
     homePageTopFold,
     topPickList,
@@ -38,6 +39,7 @@ export default {
     myFooter,
     inspSect
   },
+
   destroyed() {
     document.querySelector(".my-header").classList.remove("absolute");
   }

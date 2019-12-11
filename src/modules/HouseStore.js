@@ -1,13 +1,15 @@
 import houseService from '../services/HouseService'
 export default {
     strict: true,
+
     state: {
         itemsToShow: [],
         currHouse: {},
         coords: [],
         filterBy: {},
-        hostHouses:[],
+        hostHouses: [],
     },
+
     getters: {
         itemsToShow(state) {
             return state.itemsToShow;
@@ -25,6 +27,7 @@ export default {
             return state.hostHouses
         }
     },
+
     mutations: {
         setFilter(state, { filterBy }) {
             state.filterBy = filterBy;
@@ -34,7 +37,6 @@ export default {
         },
         setHostHouses(state, itemsToShow) {
             state.hostHouses = itemsToShow;
-            
         },
         setCoords(state) {
             state.itemsToShow.forEach(house => {
@@ -49,9 +51,9 @@ export default {
             state.currHouse = currHouse
         }
     },
+
     actions: {
         async loadItems(context, filter) {
-         
             const items = await houseService.getItems(filter)
             context.commit({ type: 'setItemsToShow', items })
         },

@@ -15,6 +15,7 @@ export default {
       window.scrollTo({ top: 9999, behavior: "smooth" });
     }
   },
+
   components: {
     searchForm
   }

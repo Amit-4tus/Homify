@@ -19,19 +19,23 @@
 import HousePreview from "./HousePreview";
 export default {
   props: ["isTopPicList"],
+
   created() {
     this.scrollToTop();
   },
+
   computed: {
     items() {
       return this.$store.getters.itemsToShow;
     }
   },
+
   methods: {
     scrollToTop() {
       window.scrollTo(0, 0);
     }
   },
+
   components: {
     HousePreview
   }

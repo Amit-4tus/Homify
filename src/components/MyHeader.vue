@@ -42,10 +42,11 @@ export default {
     },
     async doLogout() {
       await this.$store.dispatch({ type: "logout" });
-      this.$router.push('/');
+      this.$router.push("/");
       window.location.reload();
     }
   },
+
   computed: {
     loggedinUser() {
       let isConnected = this.$store.getters.loggedinUser;
