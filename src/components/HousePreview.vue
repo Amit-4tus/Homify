@@ -10,7 +10,7 @@
         </p>
       </div>
       <div v-if="itemData.reviews && itemData.reviews.avgRating !== 'NaN'" class="houseRating">
-        <img class="ratingIcon" src="../assets/imgs/star.png" />
+        <img class="ratingIcon" src="../assets/imgs/coloredStar.png" />
         {{itemData.reviews.avgRating}}
       </div>
     </div>
