@@ -53,7 +53,14 @@ export default {
   computed: {
     host() {
       if (this.orderData.status === "pending") this.isPending = true;
-      return this.isHost && this.orderData.status === "pending";
+      return (
+        this.userDetails._id === this.orderData.hostId &&
+        this.isHost &&
+        this.orderData.status === "pending"
+      );
+    },
+    userDetails() {
+      return this.$store.getters.loggedinUser;
     }
   }
 };
