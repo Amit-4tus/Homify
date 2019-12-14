@@ -1,7 +1,7 @@
 .home {
   .myFooter {
     width: 100%;
-    margin: 5% auto;
+    margin: 10% auto 5% auto;
     align-self: center;
     @media (max-width: 550px) {
       top: 295vh;
@@ -10,9 +10,9 @@
     }
 
     .portrait {
+      width: 9vw;
       border-radius: 999px;
       margin: 0 1%;
-      width: 12vw;
       @media (max-width: 600px) {
         width: 20vw;
       }
@@ -20,12 +20,16 @@
         width: 25vw;
       }
     }
+
+    h3 {
+      font-size: 1rem;
+    }
   }
 }
 
 .myFooter .logo {
   margin-top: 5%;
-  width: 25vw;
+  width: 20vw;
   @media (max-width: 600px) {
     width: 40vw;
   }

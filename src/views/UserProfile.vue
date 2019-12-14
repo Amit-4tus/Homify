@@ -66,14 +66,14 @@
             <img class="host-house-img" :src="house.imgs[0]" />
             <section class="host-houses-list-txts">
               <section class="withoutRating">
-                <li class="profile-item-house-name">{{house.name}}</li>
-                <li class="profile-item">USD {{house.price}} / night</li>
                 <li
-                  class="profile-item"
+                  class="location profile-item"
                 >{{house.location.address.city}}, {{house.location.address.country}}</li>
+                <p class="profile-item-house-name">{{house.name}}</p>
+                <li class="price profile-item">USD {{house.price}} / night</li>
               </section>
               <div class="rating">
-                <img src="../assets/imgs/star.png" />
+                <img src="../assets/imgs/coloredStar.png" />
                 <div>{{house.reviews.avgRating}}</div>
               </div>
             </section>

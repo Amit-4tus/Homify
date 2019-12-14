@@ -1,7 +1,7 @@
 <template>
   <section class="user-msg" v-if="msg" :class="msg.type">
     <button @click="close">x</button>
-    <p>{{msg.txt}}</p>
+    <p class="user-msg-success">{{msg.txt}}</p>
     <img src="../assets/logo.png" />
   </section>
 </template>
